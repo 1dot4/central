@@ -6,10 +6,10 @@
 class Controller {
 
     /**
-     * Constructor for Controller
-     * @param $app The application instance
-     * @param $template The template name (in case of a view controller)
-     * @param $redirect The redirect URI (in case of a controller without view)
+     * Constructor for the controller
+     * @param Slim   $app      The application instance
+     * @param string $template The template name (for view controllers)
+     * @param string $redirect The redirect URI (for controllers without view)
      */
     public function __construct($app, $template = '', $redirect = '') {
         $this->app = $app;
@@ -40,21 +40,19 @@ class Controller {
     /**
      * Set all the variables to be passed to the template. To be re-implemented.
      * Usually associated with a template.
-     * @return mixed
      */
     protected function setVars() {}
 
     /**
      * Process everything needed to be done by the controller. To be re-implemented.
      * Usually does not have a view.
-     * @return mixed
      */
     protected function process() {}
 
     /**
      * Set value to a key in page data
-     * @param $key The key for the dictionary
-     * @param $value The value corresponding to the key
+     * @param string $key   The key for the dictionary
+     * @param string $value The value corresponding to the key
      */
     protected function setVar($key, $value) {
         $this->data[$key] = $value;
@@ -103,17 +101,20 @@ class Controller {
     }
 
     /**
-     * @var The app variable
+     * The application instance
+     * @var Slim
      */
     private $app;
 
     /**
-     * @var The data array
+     * The data array
+     * @var array
      */
     private $data;
 
     /**
-     * @var The template
+     * The template
+     * @var string
      */
     private $template;
 

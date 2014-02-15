@@ -18,7 +18,7 @@ $app = new \Slim\Slim(
  */
 $app->get("/", function() use($app) {
     require 'controllers/LoginPageController.php';
-    new LoginController($app, 'login.tpl.php');
+    new LoginController($app, 'Login.tpl.php');
 });
 
 /**
@@ -26,7 +26,7 @@ $app->get("/", function() use($app) {
  */
 $app->get("/admin", function() use($app) {
     require 'controllers/AdminLoginPageController.php';
-    new AdminLoginController($app, 'adminLogin.tpl.php');
+    new AdminLoginController($app, 'AdminLogin.tpl.php');
 });
 
 /**
@@ -42,7 +42,7 @@ $app->post("/admin/login.exec", function() use($app) {
  */
 $app->get("/admin/dashboard", function() use($app) {
     require 'controllers/AdminDashPageController.php';
-    new AdminDashController($app, 'adminDash.tpl.php');
+    new AdminDashController($app, 'AdminDash.tpl.php');
 });
 
 /* End routes */

@@ -14,6 +14,7 @@ class Controller {
     public function __construct($app, $template = '', $redirect = '') {
         $this->app = $app;
         $this->template = $template;
+        $this->redirect = $redirect;
         $this->data = array();
 
         // Set all the variables
@@ -27,7 +28,7 @@ class Controller {
         // Process everything and redirect to the URL. Doesn't have a view associated.
         else if($redirect != '') {
             $this->process();
-            $this->app->redirect($redirect);
+            $this->app->redirect($this->redirect);
         }
 
         // None of the above scenarios
@@ -60,6 +61,48 @@ class Controller {
     }
 
     /**
+     * Get the page data variable value
+     * @param  string $key The variable name
+     * @return string      The data corresponding to the key
+     */
+    protected function getVar($key) {
+        return $this->data[$key];
+    }
+
+    /**
+     * Getter function for application instance
+     * @return Slim The application instance
+     */
+    protected function app() {
+        return $this->app;
+    }
+
+    /**
+     * Getter function for template
+     * @return string Template name corresponding to the controller
+     */
+    protected function template() {
+        return $this->template;
+    }
+
+    /**
+     * Setter function for redirect URI
+     * @param  string $uri The new redirect URI
+     * @return void
+     */
+    protected function redirect($uri) {
+        $this->redirect = $uri;
+    }
+
+    /**
+     * Getter function for redirect URI
+     * @return string Redirect URI corresponding to the controller
+     */
+    protected function redirectUri() {
+        return $this->redirect;
+    }
+
+    /**
      * @var The app variable
      */
     private $app;
@@ -73,4 +116,10 @@ class Controller {
      * @var The template
      */
     private $template;
+
+    /**
+     * The redirect URI
+     * @var string
+     */
+    private $redirect;
 }

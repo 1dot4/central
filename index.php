@@ -13,9 +13,36 @@ $app = new \Slim\Slim(
 
 /* Begin routes */
 
+/**
+ * Login page for all users
+ */
 $app->get("/", function() use($app) {
     require 'controllers/LoginController.php';
     new LoginController($app, 'login.tpl.php');
+});
+
+/**
+ * Login page for admin
+ */
+$app->get("/admin", function() use($app) {
+    require 'controllers/AdminLoginController.php';
+    new AdminLoginController($app, 'adminLogin.tpl.php');
+});
+
+/**
+ * Login execution for admin
+ */
+$app->post("/admin/login.exec", function() use($app) {
+    require 'controllers/AdminLoginExecController.php';
+    new AdminLoginExecController($app, '', 'dashboard');
+});
+
+/**
+ * Dashboard page for the admin
+ */
+$app->get("/admin/dashboard", function() use($app) {
+    require 'controllers/AdminDashController.php';
+    new AdminDashController($app, 'adminDash.tpl.php');
 });
 
 /* End routes */

@@ -7,9 +7,9 @@ def main():
     # Take all the configuration inputs from user
     dbHost = raw_input("Enter database host(usually localhost): ")
     dbUsername = raw_input("Enter database username(usually root): ")
-    dbPassword = getpass.getpass("Enter database password(I don't know :D): ")
-    adminUsername = raw_input("Enter new admin username:")
-    adminPassword = getpass.getpass("Enter new admin password:")
+    dbPassword = getpass.getpass("Enter database password: ")
+    adminUsername = raw_input("Enter new admin username: ")
+    adminPassword = getpass.getpass("Enter new admin password: ")
 
     print("Configuring project...")
 

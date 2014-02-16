@@ -25,8 +25,10 @@ class AdminLoginExecController extends Controller {
         $username = $this->app()->request->post("username");
         $password = $this->app()->request->post("password");
 
+        require_once 'var/config.php';
+
         // Check credentials
-        if(! ($username == 'admin' && $password == 'p@ssword')) {
+        if(!($username == ADMIN_USER_NAME && $password == ADMIN_PASSWORD)) {
             // If wrong credentials
             $this->redirect('../admin');
         }

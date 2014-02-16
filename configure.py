@@ -15,12 +15,12 @@ def main():
 
     # Generate configuration
     output = "<?php\n"
-    output += "define('ADMIN_USER_NAME','" + adminUsername + "');\n"
+    output += "define('ADMIN_USER_NAME', '" + adminUsername + "');\n"
     output += "define('ADMIN_PASSWORD', '" + adminPassword + "');\n"
-    output += "define('DB_HOST','" + dbHost + "');\n"
-    output += "define('DB_USER_NAME','" + dbUsername + "');\n"
-    output += "define('DB_PASSWORD','" + dbPassword +"');\n"
-    output += "define('DB_DATABASE','central');\n"
+    output += "define('DB_HOST', '" + dbHost + "');\n"
+    output += "define('DB_USER_NAME', '" + dbUsername + "');\n"
+    output += "define('DB_PASSWORD', '" + dbPassword +"');\n"
+    output += "define('DB_DATABASE', 'central');\n"
 
     # Write to configuration file
     f = open("var/config.php","wb")

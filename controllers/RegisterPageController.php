@@ -1,12 +1,13 @@
 <?php
 
 /**
- * The admin login page controller
- * Class AdminLoginController
+ * The Registration page controller
+ * Class RegisterPageController
  */
-class AdminLoginPageController extends Controller {
+class RegisterPageController extends Controller {
+
     /**
-     * Constructor for admin login page
+     * Constructor for registration page controller
      * @param Slim   $app      The application instance
      * @param string $template The template name (for view controllers)
      */
@@ -15,9 +16,9 @@ class AdminLoginPageController extends Controller {
     }
 
     /**
-     * Set the variables for rendering in the template
+     * Set the variables to be rendered in template
      */
     protected function setVars() {
-        $this->setVar('title', 'Login as site admin');
+        $this->setVar('title', 'Register for Job Portal');
     }
 }

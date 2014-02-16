@@ -18,7 +18,7 @@ $app = new \Slim\Slim(
  */
 $app->get("/", function() use($app) {
     require 'controllers/LoginPageController.php';
-    new LoginController($app, 'Login.tpl.php');
+    new LoginPageController($app, 'Login.tpl.php');
 });
 
 /**
@@ -26,7 +26,7 @@ $app->get("/", function() use($app) {
  */
 $app->get("/admin", function() use($app) {
     require 'controllers/AdminLoginPageController.php';
-    new AdminLoginController($app, 'AdminLogin.tpl.php');
+    new AdminLoginPageController($app, 'AdminLogin.tpl.php');
 });
 
 /**
@@ -42,7 +42,23 @@ $app->post("/admin/login.exec", function() use($app) {
  */
 $app->get("/admin/dashboard", function() use($app) {
     require 'controllers/AdminDashPageController.php';
-    new AdminDashController($app, 'AdminDash.tpl.php');
+    new AdminDashPageController($app, 'AdminDash.tpl.php');
+});
+
+/**
+ * Registration page for all users
+ */
+$app->get("/register", function() use($app) {
+    require 'controllers/RegisterPageController.php';
+    new RegisterPageController($app, 'Register.tpl.php');
+});
+
+/**
+ * Registration wizard
+ */
+$app->post("/register/:id", function($id) use($app) {
+    require 'controllers/RegisterWizardPageController.php';
+    new RegisterWizardPageController($app, 'RegisterWizard.tpl.php', '', $id);
 });
 
 /* End routes */

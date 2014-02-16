@@ -13,7 +13,7 @@ class AdminLoginExecController extends Controller {
      * @param string $redirect The redirect URI (For controllers without views)
      */
     public function __construct($app, $template = '', $redirect = '') {
-        parent::__construct($app, $template, $redirect);
+        parent::__construct($app, '', $redirect);
     }
 
     /**

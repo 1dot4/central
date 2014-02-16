@@ -10,8 +10,9 @@ class Controller {
      * @param Slim   $app      The application instance
      * @param string $template The template name (for view controllers)
      * @param string $redirect The redirect URI (for controllers without view)
+     * @param string $id       The parameter passed after the URL
      */
-    public function __construct($app, $template = '', $redirect = '') {
+    public function __construct($app, $template = '', $redirect = '', $id = '') {
         $this->app = $app;
         $this->template = $template;
         $this->redirect = $redirect;
@@ -19,6 +20,10 @@ class Controller {
 
         // Set all the variables
         $this->setVars();
+
+        if($id != '') {
+            $this->setVar('id', $id);
+        }
 
         // Render the template, if template present
         if($template != '') {

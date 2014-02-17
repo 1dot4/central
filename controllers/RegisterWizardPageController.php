@@ -22,5 +22,38 @@ class RegisterWizardPageController extends Controller {
      */
     protected function setVars() {
 
+        // If this is the first page of registration wizard
+        if($this->getVar('id') == '1') {
+            $registrantType = $this->app()->request->post('registrant');
+            $title = "Enter your details as a ";
+
+            // Set form template according to registrant type
+            switch ($registrantType) {
+                case 'volunteer':
+                    $title .= "Volunteer";
+                    $formTemplate = file_get_contents("templates/VolunteerRegisterForm.tpl.php");
+                    break;
+
+                case 'job-seeker':
+                    $title .= "Job Seeker";
+                    $formTemplate = file_get_contents("templates/JobSeekerRegisterForm.tpl.php");
+                    break;
+
+                case 'job-provider':
+                    $title .= "Job Provider";
+                    $formTemplate = file_get_contents("templates/JobProviderRegisterForm.tpl.php");
+                    break;
+
+                default:
+                    $title = "";
+                    $formTemplate = "";
+                    break;
+            }
+
+            $this->setVar('title', $title);
+            $this->setVar('registrantType', $registrantType);
+            $this->setVar('formTemplate', $formTemplate);
+        }
+
     }
 }

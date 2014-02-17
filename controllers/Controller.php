@@ -18,15 +18,13 @@ class Controller {
         $this->redirect = $redirect;
         $this->data = array();
 
-        // Set all the variables
-        $this->setVars();
-
         if($id != '') {
             $this->setVar('id', $id);
         }
 
-        // Render the template, if template present
+        // Set all variables and render the template, if template present
         if($template != '') {
+            $this->setVars();
             $this->app->render($this->template, $this->data);
         }
 

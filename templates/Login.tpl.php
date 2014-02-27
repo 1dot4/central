@@ -32,11 +32,16 @@
                 height: auto;
             }
 
+            hr {
+                border-top: 1px solid #dddddd;
+            }
+
         </style>
     </head>
     <body>
         <form id="login-form" class="form-inline" method="post" role="form" action="login.do">
             <h1 class="form-heading"><?php echo $title ?></h1>
+            <hr>
             <br>
             <div class="form-group">
                 <input type="text" class="form-control" name="username" placeholder="Your username" />
@@ -47,7 +52,8 @@
             </div>
             <br><br>
             <input type="submit" class="btn btn-primary" name="Login" value="Login">
-            <br><br>
+            <br>
+            <hr>
             <a href="register">New user? Register here</a>
         </form>
         <?php require_once 'include/Scripts.php' ?>

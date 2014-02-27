@@ -20,22 +20,28 @@
             .form-inline .form-heading {
                 margin-bottom: 10px;
             }
+
+            hr {
+                border-top: 1px solid #dddddd;
+            }
         </style>
     </head>
     <body>
         <form method='post' action='register/1' class="form-inline" role="form">
             <h1 class="form-heading"><?php echo $title ?></h1>
+            <hr>
             <div class="form-group">
                 <label class="checkbox-inline">I am registering as a</label>
                 <select name="registrant" class="form-control">
-                    <option value="volunteer">Volunteer</option>
-                    <option value="job-seeker">Job Seeker</option>
                     <option value="job-provider">Job Provider</option>
+                    <option value="job-seeker">Job Seeker</option>
+                    <option value="volunteer">Volunteer</option>
                 </select>
             </div>
             <br><br>
             <input type="submit" value="Proceed" class="btn btn-primary">
-            <br><br>
+            <br>
+            <hr>
             <a href=".">< Back to login</a>
         </form>
         <?php require_once 'include/Scripts.php' ?>

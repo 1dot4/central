@@ -2,11 +2,7 @@
     <h2 class='form-heading'>Enter your details as a volunteer</h2>
     <hr><br>
     <div class='form-group'>
-        <input type='text' class='form-control' name='name' placeholder='Enter Volunteer or NGO name' />
-    </div>
-    <br><br>
-    <div class='form-group'>
-        <input type='text' class='form-control' name='locations' placeholder='Enter locations you cover' /><br/>
+        <input type='text' class='form-control' name='name' placeholder='Enter volunteer or NGO name' />
     </div>
     <br><br>
     <div class='form-group'>
@@ -15,10 +11,6 @@
     <br><br>
     <div class='form-group'>
         <input type='email' class='form-control' name='email' placeholder='Enter you email id' /><br/>
-    </div>
-    <br><br>
-    <div class='form-group'>
-        <input type='text' class='form-control' name='reg-id' placeholder='Enter NGO registration id' /><br/>
     </div>
     <br><br>
     <div class='form-group'>

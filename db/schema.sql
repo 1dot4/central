@@ -3,7 +3,7 @@ USE central;
 
 CREATE TABLE IF NOT EXISTS `user` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
-  `username` varchar(100) NOT NULL,
+  `username` varchar(300) NOT NULL,
   `password` text NOT NULL,
   `phone` varchar(10) NOT NULL,
   PRIMARY KEY (`id`),

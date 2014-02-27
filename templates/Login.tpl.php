@@ -47,6 +47,8 @@
             </div>
             <br><br>
             <input type="submit" class="btn btn-primary" name="Login" value="Login">
+            <br><br>
+            <a href="register">New user? Register here</a>
         </form>
         <?php require_once 'include/Scripts.php' ?>
     </body>

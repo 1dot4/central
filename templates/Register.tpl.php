@@ -30,6 +30,7 @@
         <form method='post' action='register/1' class="form-inline" role="form">
             <h1 class="form-heading"><?php echo $title ?></h1>
             <hr>
+            <br>
             <div class="form-group">
                 <label class="checkbox-inline">I am registering as a</label>
                 <select name="registrant" class="form-control">

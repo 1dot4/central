@@ -20,6 +20,6 @@ class LoginPageController extends Controller {
      * Set the variables for rendering in template
      */
     protected function setVars() {
-        $this->setVar('title', 'Login to Job Portal');
+        $this->setVar('title', 'Login to Central');
     }
 }

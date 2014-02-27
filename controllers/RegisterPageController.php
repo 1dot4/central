@@ -19,6 +19,6 @@ class RegisterPageController extends Controller {
      * Set the variables to be rendered in template
      */
     protected function setVars() {
-        $this->setVar('title', 'Register for Job Portal');
+        $this->setVar('title', 'Join Central');
     }
 }

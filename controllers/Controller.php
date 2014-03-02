@@ -3,7 +3,7 @@
  * Interface for the Controllers
  * Class Controller
  */
-class Controller {
+abstract class Controller {
 
     /**
      * Constructor for the controller
@@ -22,15 +22,15 @@ class Controller {
             $this->setVar('id', $id);
         }
 
-        // Set all variables and render the template, if template present
+        $this->process();
+
+        // Render the template, if template present
         if($template != '') {
-            $this->setVars();
             $this->app->render($this->template, $this->data);
         }
 
-        // Process everything and redirect to the URL. Doesn't have a view associated.
+        // Redirect to the URL. Doesn't have a view associated.
         else if($redirect != '') {
-            $this->process();
             $this->app->redirect($this->redirect);
         }
 
@@ -41,16 +41,9 @@ class Controller {
     }
 
     /**
-     * Set all the variables to be passed to the template. To be re-implemented.
-     * Usually associated with a template.
-     */
-    protected function setVars() {}
-
-    /**
      * Process everything needed to be done by the controller. To be re-implemented.
-     * Usually does not have a view.
      */
-    protected function process() {}
+    abstract protected function process();
 
     /**
      * Set value to a key in page data

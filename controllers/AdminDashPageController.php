@@ -18,7 +18,7 @@ class AdminDashPageController extends Controller {
     /**
      * Set the variables for rendering in the admin dashboard template
      */
-    protected function setVars() {
+    protected function process() {
         $this->setVar('title', 'Admin Dashboard');
     }
 }

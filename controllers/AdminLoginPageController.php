@@ -17,7 +17,7 @@ class AdminLoginPageController extends Controller {
     /**
      * Set the variables for rendering in the template
      */
-    protected function setVars() {
+    protected function process() {
         $this->setVar('title', 'Login as Admin');
     }
 }

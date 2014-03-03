@@ -58,6 +58,10 @@ $app->post("/verify", function() use($app) {
     new VerifyPageController($app, 'Verify.tpl.php');
 });
 
+$app->post("/verify.do", function() use($app) {
+
+});
+
 /* End routes */
 
 // Run the Slim router

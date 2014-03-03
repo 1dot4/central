@@ -16,17 +16,16 @@ class VerifyPageController extends Controller {
     }
 
     /**
-     * Main action process of controller
+     * Validate the user registration
+     * @param $username string The user name
+     * @param $phone string The user phone number
+     * @param $password string The user password
+     * @param $cPassword string The confirmation of user password
+     * @return bool Whether the registration is valid or not
      */
-    protected function process() {
-
+    private function validRegistration($username, $phone, $password, $cPassword) {
         $err = false;
         $errMsg = '';
-
-        $username = $this->app()->request->post("username");
-        $password = $this->app()->request->post("password");
-        $cPassword = $this->app()->request->post("cpassword");
-        $phone = $this->app()->request->post("phone");
 
         if($username == '' || $password == '' || $phone == '') {
             $err = true;
@@ -46,9 +45,33 @@ class VerifyPageController extends Controller {
             Session::close();
 
             $this->redirect('register');
+        }
 
+        return !$err;
+    }
+
+    /**
+     * Main action process of controller
+     */
+    protected function process() {
+
+        $username = $this->app()->request->post("username");
+        $password = $this->app()->request->post("password");
+        $cPassword = $this->app()->request->post("cpassword");
+        $phone = $this->app()->request->post("phone");
+
+        // Validate the user registration
+        if(!$this->validRegistration($username, $phone, $password, $cPassword)) {
             return;
         }
+
+        // Add the user to DB
+        require_once 'models/User.php';
+        $user = User::newUser($username, $phone, md5($password));
+
+        // Generate and send the verification code to the user mobile
+        require_once 'libs/Verifier.php';
+        Verifier::sendVerificationCode(Verifier::generateVerificationCode($user->id()), $user->phone());
 
         $this->setVar('title', 'Verify your mobile number');
     }

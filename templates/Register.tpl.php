@@ -4,9 +4,9 @@
         <?php require_once 'include/Css.php' ?>
         <style>
             .form-inline {
-                max-width: 370px;
+                max-width: 350px;
                 padding: 29px;
-                margin: 180px auto 20px;
+                margin: 80px auto 20px;
                 background-color: #f2f2f2;
                 border: 1px solid #e5e5e5;
                 -webkit-border-radius: 5px;
@@ -21,6 +21,15 @@
                 margin-bottom: 10px;
             }
 
+            .form-inline input[type="email"],
+            .form-inline input[type="password"],
+            .form-inline input[type="text"]
+            {
+                font-size: 16px;
+                width: 290px;
+                height: auto;
+            }
+
             hr {
                 border-top: 1px solid #dddddd;
             }
@@ -32,7 +41,23 @@
             <hr>
             <br>
             <div class="form-group">
-                <label class="checkbox-inline">I am registering as a</label>
+                <input type="text" name="username" class="form-control" placeholder="Your username">
+            </div>
+            <br><br>
+            <div class="form-group">
+                <input type="text" name="phone" class="form-control" placeholder="Your mobile number">
+            </div>
+            <br><br>
+            <div class="form-group">
+                <input type="password" name="password" class="form-control" placeholder="Your password">
+            </div>
+            <br><br>
+            <div class="form-group">
+                <input type="password" name="cpassword" class="form-control" placeholder="Confirm your password">
+            </div>
+            <br><br>
+            <div class="form-group">
+                <label class="checkbox-inline">I am a</label>&nbsp&nbsp
                 <select name="registrant" class="form-control">
                     <option value="job-provider">Job Provider</option>
                     <option value="job-seeker">Job Seeker</option>

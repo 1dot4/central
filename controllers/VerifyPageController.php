@@ -7,6 +7,6 @@ class VerifyPageController extends Controller {
     }
 
     protected function process() {
-
+        $this->setVar('title', 'Verify your mobile number');
     }
 }

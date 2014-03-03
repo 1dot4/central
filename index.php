@@ -53,7 +53,7 @@ $app->get("/register", function() use($app) {
     new RegisterPageController($app, 'Register.tpl.php');
 });
 
-$app->get("/verify", function() use($app) {
+$app->post("/verify", function() use($app) {
     require 'controllers/VerifyPageController.php';
     new VerifyPageController($app, 'Verify.tpl.php');
 });

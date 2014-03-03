@@ -24,14 +24,14 @@ abstract class Controller {
 
         $this->process();
 
+        // Redirect to the URL. Doesn't have a view associated.
+        if($this->redirect != '') {
+            $this->app->redirect($this->redirect);
+        }
+
         // Render the template, if template present
         if($template != '') {
             $this->app->render($this->template, $this->data);
-        }
-
-        // Redirect to the URL. Doesn't have a view associated.
-        else if($redirect != '') {
-            $this->app->redirect($this->redirect);
         }
 
         // None of the above scenarios

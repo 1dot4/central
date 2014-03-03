@@ -20,5 +20,17 @@ class RegisterPageController extends Controller {
      */
     protected function process() {
         $this->setVar('title', 'Join Central');
+
+        require_once 'libs/Session.php';
+
+        Session::start();
+
+        if(Session::existsVar("ERR_MSG")) {
+            $this->setVar('errMsg', Session::getVar("ERR_MSG"));
+        } else {
+            $this->setVar('errMsg', "");
+        }
+
+        Session::end();
     }
 }

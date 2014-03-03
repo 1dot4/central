@@ -53,14 +53,6 @@ $app->get("/register", function() use($app) {
     new RegisterPageController($app, 'Register.tpl.php');
 });
 
-/**
- * Registration wizard
- */
-$app->post("/register/:id", function($id) use($app) {
-    require 'controllers/RegisterWizardPageController.php';
-    new RegisterWizardPageController($app, 'RegisterWizard.tpl.php', '', $id);
-});
-
 /* End routes */
 
 // Run the Slim router

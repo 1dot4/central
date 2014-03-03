@@ -27,7 +27,7 @@
         </style>
     </head>
     <body>
-        <form method='post' action='register/1' class="form-inline" role="form">
+        <form method='post' action='verify' class="form-inline" role="form">
             <h1 class="form-heading"><?php echo $title ?></h1>
             <hr>
             <br>

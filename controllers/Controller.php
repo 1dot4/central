@@ -7,7 +7,7 @@ abstract class Controller {
 
     /**
      * Constructor for the controller
-     * @param Slim   $app      The application instance
+     * @param \Slim\Slim $app The application instance
      * @param string $template The template name (for view controllers)
      * @param string $redirect The redirect URI (for controllers without view)
      * @param string $id       The parameter passed after the URL
@@ -65,7 +65,7 @@ abstract class Controller {
 
     /**
      * Getter function for application instance
-     * @return Slim The application instance
+     * @return \Slim\Slim The application instance
      */
     protected function app() {
         return $this->app;
@@ -98,7 +98,7 @@ abstract class Controller {
 
     /**
      * The application instance
-     * @var Slim
+     * @var \Slim\Slim
      */
     private $app;
 

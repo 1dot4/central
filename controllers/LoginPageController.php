@@ -8,7 +8,7 @@ class LoginPageController extends Controller {
 
     /**
      * Constructor for login controller
-     * @param Slim   $app      The application instance
+     * @param \Slim\Slim   $app      The application instance
      * @param string $template The template name (in case of view controller)
      */
     public function __construct($app, $template = '') {

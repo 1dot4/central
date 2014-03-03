@@ -8,7 +8,7 @@ class RegisterPageController extends Controller {
 
     /**
      * Constructor for registration page controller
-     * @param Slim   $app      The application instance
+     * @param \Slim\Slim   $app      The application instance
      * @param string $template The template name (for view controllers)
      */
     public function __construct($app, $template = '') {

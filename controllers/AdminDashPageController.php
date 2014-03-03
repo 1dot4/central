@@ -8,7 +8,7 @@ class AdminDashPageController extends Controller {
 
     /**
      * Constructor for admin dashboard page controller
-     * @param Slim   $app      The application instance
+     * @param \Slim\Slim $app The application instance
      * @param string $template The name of the template (for view controller)
      */
     public function __construct($app, $template = '') {

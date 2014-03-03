@@ -8,7 +8,7 @@ class AdminLoginExecController extends Controller {
 
     /**
      * Constructor for admin login execution controller
-     * @param Slim   $app      The application instance
+     * @param \Slim\Slim $app The application instance
      * @param string $template The name of the template (For view controllers)
      * @param string $redirect The redirect URI (For controllers without views)
      */

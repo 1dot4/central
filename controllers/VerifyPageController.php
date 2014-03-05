@@ -27,6 +27,20 @@ class VerifyPageController extends Controller {
         $err = false;
         $errMsg = '';
 
+        // Check for username uniqueness
+        require_once 'libs/DB.php';
+
+        $conn = DB::connect();
+
+        $res = $conn->query("SELECT COUNT(*) FROM user WHERE username='$username'");
+
+        if($res->fetchColumn() != 0) {
+            $err = true;
+            $errMsg .= "The username is already taken.<br>";
+        }
+
+        DB::disconnect($conn);
+
         if($username == '' || $password == '' || $phone == '') {
             $err = true;
             $errMsg .= 'All the fields are required.<br>';

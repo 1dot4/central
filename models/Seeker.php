@@ -27,6 +27,14 @@ class Seeker extends User {
 
         $seeker = new Seeker($userId);
 
+        require_once 'libs/DB.php';
+
+        $conn = DB::connect();
+
+        $conn->exec("INSERT INTO seeker(id) VALUES('$userId')");
+
+        DB::disconnect($conn);
+
         return $seeker;
     }
 } 

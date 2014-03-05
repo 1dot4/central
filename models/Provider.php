@@ -27,6 +27,14 @@ class Provider extends User {
 
         $provider = new Provider($userId);
 
+        require_once 'libs/DB.php';
+
+        $conn = DB::connect();
+
+        $conn->exec("INSERT INTO provider(id) VALUES('$userId')");
+
+        DB::disconnect($conn);
+
         return $provider;
     }
 }

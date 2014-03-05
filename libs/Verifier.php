@@ -15,14 +15,14 @@ class Verifier {
         require_once 'DB.php';
         $conn = DB::connect();
 
-        $res = $conn->query("SELECT COUNT(*) FROM verificationCode WHERE id='$userId'");
+        $res = $conn->query("SELECT COUNT(*) FROM verificationStatus WHERE id='$userId'");
 
         // If no code generated for user
         if($res->fetchColumn() == 0) {
-            $conn->exec("INSERT INTO verificationCode(id, code) VALUES('$userId', '$code')");
+            $conn->exec("INSERT INTO verificationStatus(id, code, status) VALUES('$userId', '$code', 'unverified')");
         } else {
             // If a code already exists for the user
-            $conn->exec("UPDATE verificationCode SET code='$code' WHERE id='$userId'");
+            $conn->exec("UPDATE verificationStatus SET code='$code', status='unverified' WHERE id='$userId'");
         }
 
         DB::disconnect($conn);
@@ -52,7 +52,7 @@ class Verifier {
 
         $conn = DB::connect();
 
-        $res = $conn->query("SELECT code FROM verificationCode WHERE user='$userId'");
+        $res = $conn->query("SELECT code FROM verificationStatus WHERE user='$userId'");
 
         if($res->fetchColumn() == $code) {
             $correct = true;
@@ -61,6 +61,30 @@ class Verifier {
         DB::disconnect($conn);
 
         return $correct;
+    }
+
+    /**
+     * Verify the user after checking code
+     * @param $userId string The user id
+     * @param $code string The code
+     * @return bool Whether the user was verified or not
+     */
+    public static function verifyUser($userId, $code) {
+
+        $verified = false;
+
+        if(Verifier::correctCode($userId, $code)) {
+            require_once 'libs/DB.php';
+
+            $conn = DB::connect();
+
+            $conn->exec("UPDATE verificationStatus SET status='verified' WHERE id='$userId'");
+            $verified = true;
+
+            DB::disconnect($conn);
+        }
+
+        return $verified;
     }
 
 }

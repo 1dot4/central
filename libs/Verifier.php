@@ -15,6 +15,16 @@ class Verifier {
         require_once 'DB.php';
         $conn = DB::connect();
 
+        $res = $conn->query("SELECT COUNT(*) FROM verificationCode WHERE id='$userId'");
+
+        // If no code generated for user
+        if($res->fetchColumn() == 0) {
+            $conn->exec("INSERT INTO verificationCode(id, code) VALUES('$userId', '$code')");
+        } else {
+            // If a code already exists for the user
+            $conn->exec("UPDATE verificationCode SET code='$code' WHERE id='$userId'");
+        }
+
         DB::disconnect($conn);
 
         return $code;

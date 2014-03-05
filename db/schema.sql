@@ -28,7 +28,7 @@ CREATE TABLE IF NOT EXISTS `seeker` (
   FOREIGN KEY (`id`) REFERENCES user(`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 ;
 
-CREATE TABLE IF NOT EXISTS `verificationCodes` (
+CREATE TABLE IF NOT EXISTS `verificationCode` (
   `id` bigint(20) NOT NULL,
   `code` varchar(6) NOT NULL,
   PRIMARY KEY (`id`, `code`),

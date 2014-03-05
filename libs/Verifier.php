@@ -39,4 +39,28 @@ class Verifier {
 
     }
 
+    /**
+     * Check whether the code sent to user mobile is same as user inputs
+     * @param $userId string The user id of the user
+     * @param $code string The code that user inputs
+     * @return bool Whether the code sent to mobile and one which user inputs are same
+     */
+    public static function correctCode($userId, $code) {
+        $correct = false;
+
+        require_once 'libs/DB.php';
+
+        $conn = DB::connect();
+
+        $res = $conn->query("SELECT code FROM verificationCode WHERE user='$userId'");
+
+        if($res->fetchColumn() == $code) {
+            $correct = true;
+        }
+
+        DB::disconnect($conn);
+
+        return $correct;
+    }
+
 }

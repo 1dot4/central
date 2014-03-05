@@ -9,3 +9,21 @@ CREATE TABLE IF NOT EXISTS `user` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `username` (`username`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+
+CREATE TABLE IF NOT EXISTS `volunteer` (
+  `id` bigint(20) NOT NULL,
+  PRIMARY KEY (`id`),
+  FOREIGN KEY (`id`) REFERENCES user(`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 ;
+
+CREATE TABLE IF NOT EXISTS `provider` (
+  `id` bigint(20) NOT NULL,
+  PRIMARY KEY (`id`),
+  FOREIGN KEY (`id`) REFERENCES user(`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 ;
+
+CREATE TABLE IF NOT EXISTS `seeker` (
+  `id` bigint(20) NOT NULL,
+  PRIMARY KEY (`id`),
+  FOREIGN KEY (`id`) REFERENCES user(`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 ;

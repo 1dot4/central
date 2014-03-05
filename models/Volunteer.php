@@ -14,6 +14,13 @@ class Volunteer extends User {
         parent::__construct($id);
     }
 
+    /**
+     * Create new instance of volunteer
+     * @param $username string The volunteer's username
+     * @param $phone string The volunteer's phone number
+     * @param $password string The volunteer's password
+     * @return Volunteer The instance of the volunteer
+     */
     public static function newVolunteer($username, $phone, $password) {
         $user = User::newUser($username, $phone, $password);
         $userId = $user->id();

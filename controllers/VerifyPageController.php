@@ -59,6 +59,7 @@ class VerifyPageController extends Controller {
         $password = $this->app()->request->post("password");
         $cPassword = $this->app()->request->post("cpassword");
         $phone = $this->app()->request->post("phone");
+        $type = $this->app()->request->post("registrant");
 
         // Validate the user registration
         if(!$this->validRegistration($username, $phone, $password, $cPassword)) {
@@ -67,7 +68,27 @@ class VerifyPageController extends Controller {
 
         // Add the user to DB
         require_once 'models/User.php';
-        $user = User::newUser($username, $phone, md5($password));
+
+        switch($type) {
+            case 'job-provider':
+                require_once 'models/Provider.php';
+                $user = Provider::newProvider($username, $phone, $password);
+                break;
+
+            case 'job-seeker':
+                require_once 'models/Seeker.php';
+                $user = Seeker::newSeeker($username, $phone, $password);
+                break;
+
+            case 'volunteer':
+                require_once 'models/Volunteer.php';
+                $user = Volunteer::newVolunteer($username, $phone, $password);
+                break;
+
+            default:
+                $user = 0;
+                break;
+        }
 
         // Generate and send the verification code to the user mobile
         require_once 'libs/Verifier.php';

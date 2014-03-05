@@ -13,4 +13,20 @@ class Provider extends User {
     public function __construct($id) {
         parent::__construct($id);
     }
-} 
+
+    /**
+     * Create new instance of Job Provider
+     * @param $username string The username of the job provider
+     * @param $phone string The phone number of the job provider
+     * @param $password string The password of the job provider
+     * @return Provider An instance of the job provider
+     */
+    public static function newProvider($username, $phone, $password) {
+        $user = User::newUser($username, $phone, $password);
+        $userId = $user->id();
+
+        $provider = new Provider($userId);
+
+        return $provider;
+    }
+}

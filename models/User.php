@@ -95,6 +95,37 @@ class User {
         $this->phone = $phone;
     }
 
+    public function type() {
+
+        if($this->type == '') {
+            require_once 'libs/DB.php';
+
+            $conn = DB::connect();
+
+            $res = $conn->query("SELECT COUNT(*) FROM volunteer WHERE id='$this->id'");
+
+            if($res->fetchColumn() == 1) {
+                $this->type = 'volunteer';
+            }
+
+            $res = $conn->query("SELECT COUNT(*) FROM provider WHERE id='$this->id'");
+
+            if($res->fetchColumn() == 1) {
+                $this->type = 'provider';
+            }
+
+            $res = $conn->query("SELECT COUNT(*) FROM seeker WHERE id='$this->id'");
+
+            if($res->fetchColumn() == 1) {
+                $this->type = 'seeker';
+            }
+
+            DB::disconnect($conn);
+        }
+
+        return $this->type;
+    }
+
     /**
      * Save data of user to database
      */
@@ -157,4 +188,10 @@ class User {
      * @var string
      */
     private $password;
+
+    /**
+     * The user type
+     * @var string
+     */
+    private $type;
 }

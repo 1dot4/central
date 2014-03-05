@@ -12,6 +12,10 @@ class Verifier {
         $code = rand('100000', '999999');
 
         // Save the code to DB
+        require_once 'DB.php';
+        $conn = DB::connect();
+
+        DB::disconnect($conn);
 
         return $code;
     }

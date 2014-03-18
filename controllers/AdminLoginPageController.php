@@ -7,7 +7,7 @@
 class AdminLoginPageController extends Controller {
     /**
      * Constructor for admin login page
-     * @param Slim   $app      The application instance
+     * @param \Slim\Slim $app The application instance
      * @param string $template The template name (for view controllers)
      */
     public function __construct($app, $template = '') {
@@ -17,7 +17,7 @@ class AdminLoginPageController extends Controller {
     /**
      * Set the variables for rendering in the template
      */
-    protected function setVars() {
-        $this->setVar('title', 'Login as site admin');
+    protected function process() {
+        $this->setVar('title', 'Login as Admin');
     }
 }

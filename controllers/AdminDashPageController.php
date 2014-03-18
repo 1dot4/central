@@ -8,7 +8,7 @@ class AdminDashPageController extends Controller {
 
     /**
      * Constructor for admin dashboard page controller
-     * @param Slim   $app      The application instance
+     * @param \Slim\Slim $app The application instance
      * @param string $template The name of the template (for view controller)
      */
     public function __construct($app, $template = '') {
@@ -18,7 +18,7 @@ class AdminDashPageController extends Controller {
     /**
      * Set the variables for rendering in the admin dashboard template
      */
-    protected function setVars() {
+    protected function process() {
         $this->setVar('title', 'Admin Dashboard');
     }
 }

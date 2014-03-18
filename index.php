@@ -53,12 +53,14 @@ $app->get("/register", function() use($app) {
     new RegisterPageController($app, 'Register.tpl.php');
 });
 
-/**
- * Registration wizard
- */
-$app->post("/register/:id", function($id) use($app) {
-    require 'controllers/RegisterWizardPageController.php';
-    new RegisterWizardPageController($app, 'RegisterWizard.tpl.php', '', $id);
+$app->post("/verify", function() use($app) {
+    require 'controllers/VerifyPageController.php';
+    new VerifyPageController($app, 'Verify.tpl.php');
+});
+
+$app->post("/verify.do", function() use($app) {
+    require 'controllers/VerifyExecController.php';
+    new VerifyExecController($app, '', './');
 });
 
 /* End routes */

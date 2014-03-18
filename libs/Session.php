@@ -62,7 +62,7 @@ class Session {
     }
 
     /**
-     * Check if the session vairiable exists
+     * Check if the session variable exists
      * @param  string   $key    The key of the session variable
      * @return boolean          Whether the session variable exists
      */

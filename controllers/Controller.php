@@ -3,11 +3,11 @@
  * Interface for the Controllers
  * Class Controller
  */
-class Controller {
+abstract class Controller {
 
     /**
      * Constructor for the controller
-     * @param Slim   $app      The application instance
+     * @param \Slim\Slim $app The application instance
      * @param string $template The template name (for view controllers)
      * @param string $redirect The redirect URI (for controllers without view)
      * @param string $id       The parameter passed after the URL
@@ -22,16 +22,16 @@ class Controller {
             $this->setVar('id', $id);
         }
 
-        // Set all variables and render the template, if template present
-        if($template != '') {
-            $this->setVars();
-            $this->app->render($this->template, $this->data);
+        $this->process();
+
+        // Redirect to the URL. Doesn't have a view associated.
+        if($this->redirect != '') {
+            $this->app->redirect($this->redirect);
         }
 
-        // Process everything and redirect to the URL. Doesn't have a view associated.
-        else if($redirect != '') {
-            $this->process();
-            $this->app->redirect($this->redirect);
+        // Render the template, if template present
+        if($template != '') {
+            $this->app->render($this->template, $this->data);
         }
 
         // None of the above scenarios
@@ -41,16 +41,9 @@ class Controller {
     }
 
     /**
-     * Set all the variables to be passed to the template. To be re-implemented.
-     * Usually associated with a template.
-     */
-    protected function setVars() {}
-
-    /**
      * Process everything needed to be done by the controller. To be re-implemented.
-     * Usually does not have a view.
      */
-    protected function process() {}
+    abstract protected function process();
 
     /**
      * Set value to a key in page data
@@ -72,7 +65,7 @@ class Controller {
 
     /**
      * Getter function for application instance
-     * @return Slim The application instance
+     * @return \Slim\Slim The application instance
      */
     protected function app() {
         return $this->app;
@@ -105,7 +98,7 @@ class Controller {
 
     /**
      * The application instance
-     * @var Slim
+     * @var \Slim\Slim
      */
     private $app;
 

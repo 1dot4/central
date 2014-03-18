@@ -22,7 +22,7 @@ class Provider extends User {
      * @return Provider An instance of the job provider
      */
     public static function newProvider($username, $phone, $password) {
-        $user = User::newUser($username, $phone, $password);
+        $user = User::newUser($username, $phone, md5($password));
         $userId = $user->id();
 
         $provider = new Provider($userId);

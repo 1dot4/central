@@ -166,6 +166,31 @@ class User {
     }
 
     /**
+     * Authenticate the user
+     * @param $username string The username
+     * @param $password string The password(hashed)
+     * @return int The user id (-1 if no user found)
+     */
+    public static function authenticateUser($username, $password) {
+
+        $id = -1;
+
+        require_once 'libs/DB.php';
+
+        $conn = DB::connect();
+
+        $res = $conn->query("SELECT * FROM user WHERE username='$username' AND password='$password'");
+
+        while($row = $res->fetch(PDO::FETCH_ASSOC)) {
+            $id = $row["id"];
+        }
+
+        DB::disconnect($conn);
+
+        return $id;
+    }
+
+    /**
      * The user id
      * @var string
      */

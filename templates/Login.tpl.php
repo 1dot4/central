@@ -36,12 +36,23 @@
                 border-top: 1px solid #dddddd;
             }
 
+            .form-error {
+                background-color: rgba(255, 0, 0, 0.3);
+                padding: 10px 15px;
+                border-radius: 2px;
+                border: 1px solid rgba(255, 0, 0, 0.35);
+            }
         </style>
     </head>
     <body>
         <form id="login-form" class="form-inline" method="post" role="form" action="login.do">
             <h1 class="form-heading"><?php echo $title ?></h1>
             <hr>
+            <?php
+            if($errMsg != "") {
+                echo "<div class='form-error'>$errMsg</div>";
+            }
+            ?>
             <br>
             <div class="form-group">
                 <input type="text" class="form-control" name="username" placeholder="Your username" />

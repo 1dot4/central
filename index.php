@@ -53,14 +53,28 @@ $app->get("/register", function() use($app) {
     new RegisterPageController($app, 'Register.tpl.php');
 });
 
+/**
+ * Verification page
+ */
 $app->post("/verify", function() use($app) {
     require 'controllers/VerifyPageController.php';
     new VerifyPageController($app, 'Verify.tpl.php');
 });
 
+/**
+ * Verification execution
+ */
 $app->post("/verify.do", function() use($app) {
     require 'controllers/VerifyExecController.php';
     new VerifyExecController($app, '', './');
+});
+
+/**
+ * The Login execution
+ */
+$app->post("/login.do", function() use($app) {
+    require 'controllers/LoginExecController.php';
+    new LoginExecController($app, '', 'home');
 });
 
 /* End routes */

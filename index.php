@@ -59,7 +59,8 @@ $app->post("/verify", function() use($app) {
 });
 
 $app->post("/verify.do", function() use($app) {
-
+    require 'controllers/VerifyExecController.php';
+    new VerifyExecController($app, '', './');
 });
 
 /* End routes */

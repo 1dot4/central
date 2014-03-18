@@ -108,6 +108,20 @@ class VerifyPageController extends Controller {
         require_once 'libs/Verifier.php';
         Verifier::sendVerificationCode(Verifier::generateVerificationCode($user->id()), $user->phone());
 
+        require_once 'libs/Session.php';
+
+        Session::start();
+
+        Session::setVar('USER_ID', $user->id());
+
+        if(Session::existsVar('ERR_MSG')) {
+            $this->setVar('errMsg', Session::getVar('ERR_MSG'));
+        } else {
+            $this->setVar('errMsg', '');
+        }
+
+        Session::close();
+
         $this->setVar('title', 'Verify your mobile number');
     }
 }

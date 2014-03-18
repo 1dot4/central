@@ -52,7 +52,7 @@ class Verifier {
 
         $conn = DB::connect();
 
-        $res = $conn->query("SELECT code FROM verificationStatus WHERE user='$userId'");
+        $res = $conn->query("SELECT code FROM verificationStatus WHERE id='$userId'");
 
         if($res->fetchColumn() == $code) {
             $correct = true;

@@ -93,6 +93,14 @@ $app->get("/logout", function() use($app) {
     new LogoutExecController($app, '', './', true);
 });
 
+/**
+ * The access denied page
+ */
+$app->get("/access.denied", function() use($app) {
+    require 'controllers/ForbiddenPageController.php';
+    new ForbiddenPageController($app, 'Login.tpl.php');
+});
+
 /* End routes */
 
 // Run the Slim router

@@ -11,7 +11,7 @@ abstract class Controller {
      * @param string $template The template name (for view controllers)
      * @param string $redirect The redirect URI (for controllers without view)
      * @param boolean $protected Protected page or not (requires authorization for protected)
-     * @param string $id       The parameter passed after the URL
+     * @param string $id The parameter passed after the URL
      */
     public function __construct($app, $template = '', $redirect = '', $protected = false ,$id = '') {
 

@@ -1,6 +1,15 @@
 <?php
 
+/**
+ * The authorization class
+ * Class Auth
+ */
 class Auth {
+
+    /**
+     * Check if user is authorized
+     * @return bool Whether the user is authorized or not
+     */
     public static function isAuthorized() {
         $auth = true;
         require_once 'Session.php';

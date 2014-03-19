@@ -82,7 +82,7 @@ $app->post("/login.do", function() use($app) {
  */
 $app->get("/home", function() use($app) {
     require 'controllers/HomePageController.php';
-    new HomePageController($app, 'Home.tpl.php');
+    new HomePageController($app, 'Home.tpl.php', '', true);
 });
 
 /* End routes */

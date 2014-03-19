@@ -10,9 +10,18 @@ abstract class Controller {
      * @param \Slim\Slim $app The application instance
      * @param string $template The template name (for view controllers)
      * @param string $redirect The redirect URI (for controllers without view)
+     * @param boolean $protected Protected page or not (requires authorization for protected)
      * @param string $id       The parameter passed after the URL
      */
-    public function __construct($app, $template = '', $redirect = '', $id = '') {
+    public function __construct($app, $template = '', $redirect = '', $protected = false ,$id = '') {
+
+        if($protected) {
+            require_once 'libs/Auth.php';
+            if(!Auth::isAuthorized()) {
+                $app->redirect('access.denied', 403);
+            }
+        }
+
         $this->app = $app;
         $this->template = $template;
         $this->redirect = $redirect;

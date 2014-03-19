@@ -77,6 +77,14 @@ $app->post("/login.do", function() use($app) {
     new LoginExecController($app, '', 'home');
 });
 
+/**
+ * The Home page
+ */
+$app->get("/home", function() use($app) {
+    require 'controllers/HomePageController.php';
+    new HomePageController($app, 'Home.tpl.php');
+});
+
 /* End routes */
 
 // Run the Slim router

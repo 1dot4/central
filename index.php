@@ -85,6 +85,14 @@ $app->get("/home", function() use($app) {
     new HomePageController($app, 'Home.tpl.php', '', true);
 });
 
+/**
+ * The Logout execution
+ */
+$app->get("/logout", function() use($app) {
+    require 'controllers/LogoutExecController.php';
+    new LogoutExecController($app, '', './', true);
+});
+
 /* End routes */
 
 // Run the Slim router

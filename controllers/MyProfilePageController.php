@@ -21,6 +21,24 @@ class MyProfilePageController extends Controller {
      * The main process method of the controller
      */
     protected function process() {
+        require_once 'libs/Session.php';
+        Session::start();
+        $id = Session::getVar("USER_ID");
+        Session::close();
 
+        require_once 'models/User.php';
+        $user = new User($id);
+        $type = $user->type();
+
+        $this->setVar("userType", $type);
+
+        switch($type) {
+            case 'seeker':
+                break;
+            case 'provider':
+                break;
+            case 'volunteer':
+                break;
+        }
     }
 }

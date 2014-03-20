@@ -101,6 +101,14 @@ $app->get("/access.denied", function() use($app) {
     new ForbiddenPageController($app, 'Login.tpl.php');
 });
 
+/**
+ * My profile page
+ */
+$app->get("/myprofile", function() use($app) {
+    require 'controllers/MyProfilePageController.php';
+    new MyProfilePageController($app, 'MyProfile.tpl.php', '', true);
+});
+
 /* End routes */
 
 // Run the Slim router

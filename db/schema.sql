@@ -2,12 +2,12 @@ CREATE DATABASE IF NOT EXISTS central;
 USE central;
 
 CREATE TABLE IF NOT EXISTS `organization` (
-  `name` varchar(100) NOT NULL UNIQUE,
+  `name` varchar(100) NOT NULL,
   PRIMARY KEY (`name`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 ;
 
 CREATE TABLE IF NOT EXISTS `location` (
-  `name` varchar(100) NOT NULL UNIQUE,
+  `name` varchar(100) NOT NULL,
   PRIMARY KEY (`name`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 ;
 

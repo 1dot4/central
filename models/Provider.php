@@ -37,4 +37,60 @@ class Provider extends User {
 
         return $provider;
     }
+
+    /**
+     * Getter function for provider's email
+     * @return string
+     */
+    public function email() {
+        return $this->email;
+    }
+
+    /**
+     * Getter function for provider's organization
+     * @return string
+     */
+    public function organization() {
+        return $this->organization;
+    }
+
+    /**
+     * Getter function for provider's designation
+     * @return string
+     */
+    public function designation() {
+        return $this->designation;
+    }
+
+    /**
+     * Getter function for provider's location
+     * @return string
+     */
+    public function location() {
+        return $this->location;
+    }
+
+    /**
+     * The provider's email
+     * @var string
+     */
+    private $email;
+
+    /**
+     * The provider's organization
+     * @var string
+     */
+    private $organization;
+
+    /**
+     * The provider's designation
+     * @var string
+     */
+    private $designation;
+
+    /**
+     * The provider's location
+     * @var string
+     */
+    private $location;
 }

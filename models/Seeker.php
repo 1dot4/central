@@ -37,4 +37,46 @@ class Seeker extends User {
 
         return $seeker;
     }
+
+    /**
+     * Getter function for seeker's experience
+     * @return int Seeker's experience
+     */
+    public function experience() {
+        return $this->experience;
+    }
+
+    /**
+     * Getter function for seeker's preferred location
+     * @return string The seeker's preferred location
+     */
+    public function preferredLocation() {
+        return $this->preferredLocation;
+    }
+
+    /**
+     * Getter function for seeker's current location
+     * @return string The seeker's current location
+     */
+    public function currentLocation() {
+        return $this->currentLocation;
+    }
+
+    /**
+     * Number of years of experience of seeker
+     * @var int
+     */
+    private $experience;
+
+    /**
+     * Seeker's preferred location
+     * @var string
+     */
+    private $preferredLocation;
+
+    /**
+     * Seeker's current location
+     * @var string
+     */
+    private $currentLocation;
 } 

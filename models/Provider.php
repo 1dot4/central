@@ -40,7 +40,7 @@ class Provider extends User {
 
     /**
      * Getter function for provider's email
-     * @return string
+     * @return string The provider's email
      */
     public function email() {
         return $this->email;
@@ -48,7 +48,7 @@ class Provider extends User {
 
     /**
      * Getter function for provider's organization
-     * @return string
+     * @return string The provider's organization
      */
     public function organization() {
         return $this->organization;
@@ -56,7 +56,7 @@ class Provider extends User {
 
     /**
      * Getter function for provider's designation
-     * @return string
+     * @return string The provider's designation
      */
     public function designation() {
         return $this->designation;
@@ -64,7 +64,7 @@ class Provider extends User {
 
     /**
      * Getter function for provider's location
-     * @return string
+     * @return string The provider's location
      */
     public function location() {
         return $this->location;

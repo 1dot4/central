@@ -71,6 +71,38 @@ class Provider extends User {
     }
 
     /**
+     * Setter function for provider email
+     * @param $email string The provider's email
+     */
+    public function setEmail($email) {
+        $this->email = $email;
+    }
+
+    /**
+     * Setter function for provider organization
+     * @param $organization string The provider's organization
+     */
+    public function setOrganization($organization) {
+        $this->organization = $organization;
+    }
+
+    /**
+     * Setter function for provider designation
+     * @param $designation string The provider's organization
+     */
+    public function setDesignation($designation) {
+        $this->designation = $designation;
+    }
+
+    /**
+     * Setter function for provider location
+     * @param $location string The provider's location
+     */
+    public function setLocation($location) {
+        $this->location = $location;
+    }
+
+    /**
      * The provider's email
      * @var string
      */

@@ -21,8 +21,8 @@ class Seeker extends User {
      * @param $password string The job seeker's password
      * @return Seeker The instance of the job Seeker
      */
-    public static function newSeeker($username, $phone, $password) {
-        $user = User::newUser($username, $phone, $password);
+    public static function newUser($username, $phone, $password) {
+        $user = parent::newUser($username, $phone, $password);
         $userId = $user->id();
 
         $seeker = new Seeker($userId);

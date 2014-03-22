@@ -21,8 +21,8 @@ class Provider extends User {
      * @param $password string The password of the job provider
      * @return Provider An instance of the job provider
      */
-    public static function newProvider($username, $phone, $password) {
-        $user = User::newUser($username, $phone, md5($password));
+    public static function newUser($username, $phone, $password) {
+        $user = parent::newUser($username, $phone, md5($password));
         $userId = $user->id();
 
         $provider = new Provider($userId);

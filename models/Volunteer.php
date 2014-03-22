@@ -21,8 +21,8 @@ class Volunteer extends User {
      * @param $password string The volunteer's password
      * @return Volunteer The instance of the volunteer
      */
-    public static function newVolunteer($username, $phone, $password) {
-        $user = User::newUser($username, $phone, $password);
+    public static function newUser($username, $phone, $password) {
+        $user = parent::newUser($username, $phone, $password);
         $userId = $user->id();
 
         $volunteer = new Volunteer($userId);
@@ -37,4 +37,74 @@ class Volunteer extends User {
 
         return $volunteer;
     }
+
+    /**
+     * Getter function for fullname
+     * @return string The volunteer's full name
+     */
+    public function fullName() {
+        return $this->fullName;
+    }
+
+    /**
+     * Getter function for email
+     * @return string The volunteer's email
+     */
+    public function email() {
+        return $this->email;
+    }
+
+    /**
+     * Getter function for organization
+     * @return mixed The volunteer's organization
+     */
+    public function organization() {
+        return $this->organization;
+    }
+
+    /**
+     * Getter function for designation
+     * @return string The volunteer's designation
+     */
+    public function designation() {
+        return $this->designation;
+    }
+
+    /**
+     * Getter function for location
+     * @return string The volunteer's location
+     */
+    public function location() {
+        return $this->location;
+    }
+
+    /**
+     * The full name of volunteer
+     * @var string
+     */
+    private $fullName;
+
+    /**
+     * The email of the volunteer
+     * @var string
+     */
+    private $email;
+
+    /**
+     * The organization of the volunteer
+     * @var
+     */
+    private $organization;
+
+    /**
+     * The designation of the volunteer
+     * @var string
+     */
+    private $designation;
+
+    /**
+     * The location of the volunteer
+     * @var string
+     */
+    private $location;
 } 

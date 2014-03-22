@@ -86,17 +86,17 @@ class VerifyPageController extends Controller {
         switch($type) {
             case 'job-provider':
                 require_once 'models/Provider.php';
-                $user = Provider::newProvider($username, $phone, $password);
+                $user = Provider::newUser($username, $phone, $password);
                 break;
 
             case 'job-seeker':
                 require_once 'models/Seeker.php';
-                $user = Seeker::newSeeker($username, $phone, $password);
+                $user = Seeker::newUser($username, $phone, $password);
                 break;
 
             case 'volunteer':
                 require_once 'models/Volunteer.php';
-                $user = Volunteer::newVolunteer($username, $phone, $password);
+                $user = Volunteer::newUser($username, $phone, $password);
                 break;
 
             default:

@@ -63,6 +63,30 @@ class Seeker extends User {
     }
 
     /**
+     * Setter function for seeker experience
+     * @param $experience int The seeker's experience
+     */
+    public function setExperience($experience) {
+        $this->experience = $experience;
+    }
+
+    /**
+     * Setter function for seeker's current location
+     * @param $location string The seeker's current location
+     */
+    public function setCurrentLocation($location) {
+        $this->currentLocation = $location;
+    }
+
+    /**
+     * Setter function for seeker's preferred location
+     * @param $location string The seeker's preferred location
+     */
+    public function setPreferredLocation($location) {
+        $this->preferredLocation = $location;
+    }
+
+    /**
      * Number of years of experience of seeker
      * @var int
      */

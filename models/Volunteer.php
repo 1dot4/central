@@ -71,6 +71,38 @@ class Volunteer extends User {
     }
 
     /**
+     * Setter function for volunteer email
+     * @param $email string The volunteer's email
+     */
+    public function setEmail($email) {
+        $this->email = $email;
+    }
+
+    /**
+     * Setter function for volunteer organization
+     * @param $organization string The volunteer's organization
+     */
+    public function setOrganization($organization) {
+        $this->organization = $organization;
+    }
+
+    /**
+     * Setter function for volunteer designation
+     * @param $designation string The volunteer's designation
+     */
+    public function setDesignation($designation) {
+        $this->designation = $designation;
+    }
+
+    /**
+     * Setter function for volunteer location
+     * @param $location string The volunteer's location
+     */
+    public function setLocation($location) {
+        $this->location = $location;
+    }
+
+    /**
      * The email of the volunteer
      * @var string
      */

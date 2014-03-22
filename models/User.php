@@ -29,6 +29,7 @@ class User {
                 $this->username = $row["username"];
                 $this->phone = $row["phone"];
                 $this->password = $row["password"];
+                $this->fullName = $row["fullname"];
             }
         }
         // If there are zero or more than one entry
@@ -72,6 +73,14 @@ class User {
     }
 
     /**
+     * Getter function for user's full name
+     * @return string The user's full name
+     */
+    public function fullName() {
+        return $this->fullName;
+    }
+
+    /**
      * Setter method for user name
      * @param $username string The user name
      */
@@ -93,6 +102,14 @@ class User {
      */
     public function setPhone($phone) {
         $this->phone = $phone;
+    }
+
+    /**
+     * Setter function for user's full name
+     * @param $fullName
+     */
+    public function setFullName($fullName) {
+        $this->fullName = $fullName;
     }
 
     public function type() {
@@ -134,7 +151,7 @@ class User {
 
         $conn = DB::connect();
 
-        $conn->exec("UPDATE user SET username='$this->username', password = '$this->password', phone = '$this->phone' WHERE id='$this->id'");
+        $conn->exec("UPDATE user SET username='$this->username', password = '$this->password', phone = '$this->phone', fullname='$this->fullName' WHERE id='$this->id'");
 
         DB::disconnect($conn);
     }
@@ -159,6 +176,7 @@ class User {
         $user->setUsername($username);
         $user->setPhone($phone);
         $user->setPassword($password);
+        $user->setFullName("");
 
         DB::disconnect($conn);
 
@@ -219,4 +237,10 @@ class User {
      * @var string
      */
     private $type;
+
+    /**
+     * The user's full name
+     * @var string
+     */
+    private $fullName;
 }

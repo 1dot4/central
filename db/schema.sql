@@ -14,6 +14,7 @@ CREATE TABLE IF NOT EXISTS `location` (
 CREATE TABLE IF NOT EXISTS `user` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `username` varchar(300) NOT NULL,
+  `fullname` text,
   `password` text NOT NULL,
   `phone` varchar(10) NOT NULL,
   PRIMARY KEY (`id`),
@@ -22,7 +23,6 @@ CREATE TABLE IF NOT EXISTS `user` (
 
 CREATE TABLE IF NOT EXISTS `volunteer` (
   `id` bigint(20) NOT NULL,
-  `fullname` text,
   `email` text,
   `org_name` varchar(100),
   `designation` text,
@@ -35,7 +35,6 @@ CREATE TABLE IF NOT EXISTS `volunteer` (
 
 CREATE TABLE IF NOT EXISTS `provider` (
   `id` bigint(20) NOT NULL,
-  `fullname` text,
   `email` text,
   `org_name` varchar(100),
   `designation` text,
@@ -48,7 +47,6 @@ CREATE TABLE IF NOT EXISTS `provider` (
 
 CREATE TABLE IF NOT EXISTS `seeker` (
   `id` bigint(20) NOT NULL,
-  `fullname` text,
   `experience` int(4),
   `pref_location_name` varchar(100),
   `curr_location_name` varchar(100),

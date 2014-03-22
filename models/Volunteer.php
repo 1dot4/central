@@ -39,14 +39,6 @@ class Volunteer extends User {
     }
 
     /**
-     * Getter function for fullname
-     * @return string The volunteer's full name
-     */
-    public function fullName() {
-        return $this->fullName;
-    }
-
-    /**
      * Getter function for email
      * @return string The volunteer's email
      */
@@ -77,12 +69,6 @@ class Volunteer extends User {
     public function location() {
         return $this->location;
     }
-
-    /**
-     * The full name of volunteer
-     * @var string
-     */
-    private $fullName;
 
     /**
      * The email of the volunteer

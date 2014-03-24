@@ -36,6 +36,8 @@ class MyProfilePageController extends PageController {
                 $this->setVar('currLocation', $user->currentLocation());
                 $this->setVar('experience', $user->experience());
 
+                $this->setPage('SeekerMyProfile.tpl.php');
+
                 break;
 
             case 'provider':
@@ -49,6 +51,8 @@ class MyProfilePageController extends PageController {
                 $this->setVar('designation', $user->designation());
                 $this->setVar('location', $user->location());
 
+                $this->setPage('ProviderMyProfile.tpl.php');
+
                 break;
 
             case 'volunteer':
@@ -61,6 +65,8 @@ class MyProfilePageController extends PageController {
                 $this->setVar('organization', $user->organization());
                 $this->setVar('designation', $user->designation());
                 $this->setVar('location', $user->location());
+
+                $this->setPage('VolunteerMyProfile.tpl.php');
 
                 break;
         }

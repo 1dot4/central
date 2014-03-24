@@ -109,6 +109,7 @@ $app->get("/access.denied", function() use($app) {
  */
 $app->get("/myprofile", function() use($app) {
     require 'controllers/MyProfilePageController.php';
+    // MyProfile.tpl.php is a dummy template name
     new MyProfilePageController($app, 'MyProfile.tpl.php', true);
 });
 

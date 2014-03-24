@@ -4,15 +4,7 @@
  * The admin login page controller
  * Class AdminLoginController
  */
-class AdminLoginPageController extends Controller {
-    /**
-     * Constructor for admin login page
-     * @param \Slim\Slim $app The application instance
-     * @param string $template The template name (for view controllers)
-     */
-    public function __construct($app, $template = '') {
-        parent::__construct($app, $template);
-    }
+class AdminLoginPageController extends PageController {
 
     /**
      * Set the variables for rendering in the template

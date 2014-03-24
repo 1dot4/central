@@ -1,6 +1,9 @@
 <?php
 require 'libs/Slim/Slim.php';
-require 'controllers/Controller.php';
+
+require 'controllers/core/Controller.php';
+require 'controllers/core/PageController.php';
+require 'controllers/core/ExecController.php';
 
 \Slim\Slim::registerAutoloader();
 
@@ -18,7 +21,7 @@ $app = new \Slim\Slim(
  */
 $app->get("/", function() use($app) {
     require 'controllers/LoginPageController.php';
-    new LoginPageController($app, 'Login.tpl.php');
+    new LoginPageController($app, 'Login.tpl.php', false);
 });
 
 /**
@@ -26,7 +29,7 @@ $app->get("/", function() use($app) {
  */
 $app->get("/admin", function() use($app) {
     require 'controllers/AdminLoginPageController.php';
-    new AdminLoginPageController($app, 'AdminLogin.tpl.php');
+    new AdminLoginPageController($app, 'AdminLogin.tpl.php', false);
 });
 
 /**
@@ -34,7 +37,7 @@ $app->get("/admin", function() use($app) {
  */
 $app->post("/admin/login.exec", function() use($app) {
     require 'controllers/AdminLoginExecController.php';
-    new AdminLoginExecController($app, '', 'dashboard');
+    new AdminLoginExecController($app, 'dashboard', false);
 });
 
 /**
@@ -42,7 +45,7 @@ $app->post("/admin/login.exec", function() use($app) {
  */
 $app->get("/admin/dashboard", function() use($app) {
     require 'controllers/AdminDashPageController.php';
-    new AdminDashPageController($app, 'AdminDash.tpl.php');
+    new AdminDashPageController($app, 'AdminDash.tpl.php', false);
 });
 
 /**
@@ -50,7 +53,7 @@ $app->get("/admin/dashboard", function() use($app) {
  */
 $app->get("/register", function() use($app) {
     require 'controllers/RegisterPageController.php';
-    new RegisterPageController($app, 'Register.tpl.php');
+    new RegisterPageController($app, 'Register.tpl.php', false);
 });
 
 /**
@@ -58,7 +61,7 @@ $app->get("/register", function() use($app) {
  */
 $app->post("/verify", function() use($app) {
     require 'controllers/VerifyPageController.php';
-    new VerifyPageController($app, 'Verify.tpl.php');
+    new VerifyPageController($app, 'Verify.tpl.php', false);
 });
 
 /**
@@ -66,7 +69,7 @@ $app->post("/verify", function() use($app) {
  */
 $app->post("/verify.do", function() use($app) {
     require 'controllers/VerifyExecController.php';
-    new VerifyExecController($app, '', './');
+    new VerifyExecController($app, './', false);
 });
 
 /**
@@ -74,7 +77,7 @@ $app->post("/verify.do", function() use($app) {
  */
 $app->post("/login.do", function() use($app) {
     require 'controllers/LoginExecController.php';
-    new LoginExecController($app, '', 'home');
+    new LoginExecController($app, 'home', false);
 });
 
 /**
@@ -82,7 +85,7 @@ $app->post("/login.do", function() use($app) {
  */
 $app->get("/home", function() use($app) {
     require 'controllers/HomePageController.php';
-    new HomePageController($app, 'Home.tpl.php', '', true);
+    new HomePageController($app, 'Home.tpl.php', true);
 });
 
 /**
@@ -90,7 +93,7 @@ $app->get("/home", function() use($app) {
  */
 $app->get("/logout", function() use($app) {
     require 'controllers/LogoutExecController.php';
-    new LogoutExecController($app, '', './', true);
+    new LogoutExecController($app, './', true);
 });
 
 /**
@@ -98,7 +101,7 @@ $app->get("/logout", function() use($app) {
  */
 $app->get("/access.denied", function() use($app) {
     require 'controllers/ForbiddenPageController.php';
-    new ForbiddenPageController($app, 'Login.tpl.php');
+    new ForbiddenPageController($app, 'Login.tpl.php', false);
 });
 
 /**
@@ -106,7 +109,7 @@ $app->get("/access.denied", function() use($app) {
  */
 $app->get("/myprofile", function() use($app) {
     require 'controllers/MyProfilePageController.php';
-    new MyProfilePageController($app, 'MyProfile.tpl.php', '', true);
+    new MyProfilePageController($app, 'MyProfile.tpl.php', true);
 });
 
 /* End routes */

@@ -4,16 +4,7 @@
  * The Verify page controller class
  * Class VerifyPageController
  */
-class VerifyPageController extends Controller {
-
-    /**
-     * Constructor for the verify page controller
-     * @param \Slim\Slim $app The application instance
-     * @param string $template The template name
-     */
-    public function __construct($app, $template = '') {
-        parent::__construct($app, $template);
-    }
+class VerifyPageController extends PageController {
 
     /**
      * Validate the user registration
@@ -58,7 +49,7 @@ class VerifyPageController extends Controller {
             Session::setVar('ERR_MSG', $errMsg);
             Session::close();
 
-            $this->redirect('register');
+            $this->setRedirectUri('register');
         }
 
         return !$err;

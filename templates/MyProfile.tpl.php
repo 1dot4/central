@@ -2,6 +2,8 @@
 <html>
     <head>
         <title><?php echo $username ?></title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <?php require_once 'include/Css.php' ?>
     </head>
     <body>
         <?php
@@ -17,5 +19,6 @@
                     break;
             }
         ?>
+        <?php require_once 'include/Scripts.php' ?>
     </body>
 </html>

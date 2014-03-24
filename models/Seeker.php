@@ -12,6 +12,31 @@ class Seeker extends User {
      */
     public function __construct($id) {
         parent::__construct($id);
+
+        $this->experience = "";
+        $this->currentLocation = "";
+        $this->preferredLocation = "";
+
+        require_once 'libs/DB.php';
+
+        $conn = DB::connect();
+
+        $res = $conn->query("SELECT COUNT(*) FROM seeker WHERE id='$id'");
+
+        if($res->fetchColumn() == 1) {
+            $res_1 = $conn->query("SELECT * FROM seeker WHERE id='$id'");
+
+            while($row = $res_1->fetch(PDO::FETCH_ASSOC)) {
+                $this->experience = $row["experience"];
+                $this->preferredLocation = $row["pref_location_name"];
+                $this->currentLocation = $row["curr_location_name"];
+            }
+            
+        } else {
+            die("Seeker not found");
+        }
+
+        DB::disconnect($conn);
     }
 
     /**

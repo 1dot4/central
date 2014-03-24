@@ -1,3 +1,5 @@
+DROP DATABASE central;
+
 CREATE DATABASE IF NOT EXISTS central;
 USE central;
 

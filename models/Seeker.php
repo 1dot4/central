@@ -39,6 +39,27 @@ class Seeker extends User {
     }
 
     /**
+     * Save data of Seeker to database
+     */
+    public function saveToDb() {
+        parent::saveToDb();
+
+        require_once 'models/Location.php';
+        Location::saveToDb($this->preferredLocation);
+        Location::saveToDb($this->currentLocation);
+
+        require_once 'libs/DB.php';
+        $conn = DB::connect();
+
+        $seeker_id = $this->id();
+
+        // Update the seeker table
+        $conn->exec("UPDATE seeker SET experience='$this->experience', pref_location_name='$this->preferredLocation', curr_location_name='$this->currentLocation' WHERE id='$seeker_id'");
+
+        DB::disconnect($conn);
+    }
+
+    /**
      * Getter function for seeker's experience
      * @return int Seeker's experience
      */

@@ -39,6 +39,19 @@ class Volunteer extends User {
     }
 
     /**
+     * Save data of Volunteer to database
+     */
+    public function saveToDb() {
+        parent::saveToDb();
+
+        require_once 'libs/DB.php';
+
+        $conn = DB::connect();
+
+        DB::disconnect($conn);
+    }
+
+    /**
      * Getter function for email
      * @return string The volunteer's email
      */

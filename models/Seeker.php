@@ -50,8 +50,6 @@ class Seeker extends User {
         $user = parent::newUser($username, $phone, $password);
         $userId = $user->id();
 
-        $seeker = new Seeker($userId);
-
         require_once 'libs/DB.php';
 
         $conn = DB::connect();
@@ -60,6 +58,7 @@ class Seeker extends User {
 
         DB::disconnect($conn);
 
+        $seeker = new Seeker($userId);
         return $seeker;
     }
 

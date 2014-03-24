@@ -53,8 +53,6 @@ class Volunteer extends User {
         $user = parent::newUser($username, $phone, $password);
         $userId = $user->id();
 
-        $volunteer = new Volunteer($userId);
-
         require_once 'libs/DB.php';
 
         $conn = DB::connect();
@@ -63,6 +61,7 @@ class Volunteer extends User {
 
         DB::disconnect($conn);
 
+        $volunteer = new Volunteer($userId);
         return $volunteer;
     }
 

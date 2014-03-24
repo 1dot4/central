@@ -53,8 +53,6 @@ class Provider extends User {
         $user = parent::newUser($username, $phone, md5($password));
         $userId = $user->id();
 
-        $provider = new Provider($userId);
-
         require_once 'libs/DB.php';
 
         $conn = DB::connect();
@@ -63,6 +61,7 @@ class Provider extends User {
 
         DB::disconnect($conn);
 
+        $provider = new Provider($userId);
         return $provider;
     }
 

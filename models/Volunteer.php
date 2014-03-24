@@ -44,9 +44,21 @@ class Volunteer extends User {
     public function saveToDb() {
         parent::saveToDb();
 
+        // Save volunteer's location
+        require_once 'models/Location.php';
+        Location::saveToDb($this->location);
+
+        // Save volunteer's organization
+        require_once 'models/Organization.php';
+        Organization::saveToDb($this->organization);
+
         require_once 'libs/DB.php';
 
         $conn = DB::connect();
+
+        $volunteer_id = $this->id();
+
+        $conn->exec("UPDATE volunteer SET email='$this->email', org_name='$this->organization', designation='$this->designation', location_name='$this->location WHERE id='$volunteer_id'");
 
         DB::disconnect($conn);
     }

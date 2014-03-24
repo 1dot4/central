@@ -25,7 +25,7 @@ abstract class PageController extends Controller {
 
         parent::__construct($app, $protected, $param);
 
-        $this->app()->render($page, $this->data);
+        $this->app()->render($this->page, $this->data);
     }
 
     /**

@@ -9,7 +9,7 @@ class RegisterPageController extends PageController {
      * Set the variables to be rendered in template
      */
     protected function process() {
-        $this->setVar('title', 'Join Central');
+        $this->setVar('title', 'Join');
 
         require_once 'libs/Session.php';
 

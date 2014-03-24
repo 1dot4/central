@@ -10,7 +10,7 @@ class LoginPageController extends PageController {
      * Set the variables for rendering in template
      */
     protected function process() {
-        $this->setVar('title', 'Login to Central');
+        $this->setVar('title', 'Login');
 
         require_once 'libs/Session.php';
 

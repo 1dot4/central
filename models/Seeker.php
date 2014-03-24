@@ -31,7 +31,7 @@ class Seeker extends User {
                 $this->preferredLocation = $row["pref_location_name"];
                 $this->currentLocation = $row["curr_location_name"];
             }
-            
+
         } else {
             die("Seeker not found");
         }

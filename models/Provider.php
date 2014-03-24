@@ -12,6 +12,34 @@ class Provider extends User {
      */
     public function __construct($id) {
         parent::__construct($id);
+
+        $this->email = "";
+        $this->organization = "";
+        $this->location = "";
+        $this->designation = "";
+
+
+        require_once 'libs/DB.php';
+
+        $conn = DB::connect();
+
+        $res = $conn->query("SELECT COUNT(*) FROM provider WHERE id='$id'");
+
+        if($res->fetchColumn() == 1) {
+            $res_1 = $conn->query("SELECT * FROM provider WHERE id='$id'");
+
+            while($row = $res_1->fetch(PDO::FETCH_ASSOC)) {
+                $this->email = $row["email"];
+                $this->organization = $row["org_name"];
+                $this->location = $row["location_name"];
+                $this->designation = $row["designation"];
+            }
+
+        } else {
+            die("Provider not found");
+        }
+
+        DB::disconnect($conn);
     }
 
     /**

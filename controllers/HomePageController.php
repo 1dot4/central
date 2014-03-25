@@ -10,6 +10,16 @@ class HomePageController extends PageController {
      * The main process method
      */
     protected function process() {
+        require_once 'libs/Session.php';
+        Session::start();
+        $id = Session::getVar("USER_ID");
+        Session::close();
 
+        require_once 'models/User.php';
+        $user = new User($id);
+        $type = $user->type();
+
+        $this->setVar("userType", $type);
+        $this->setVar('username', $user->username());
     }
 }

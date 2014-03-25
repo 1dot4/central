@@ -43,23 +43,25 @@
             }
 
             #form1 {
-                margin: 30px 250px;
+                margin-left: 250px;
+                position: absolute;
+                top: 305px
             }
 
             #form2 {
                 margin-left: 650px;
                 position: absolute;
-                top: 40px;
+                top: 80px;
             }
 
             #form3 {
                 margin-left: 650px;
                 position: absolute;
-                top: 430px;
+                top: 470px;
             }
 
             .dp-box {
-                margin: 40px 250px;
+                margin: 80px 250px;
             }
 
             .dp-container {
@@ -80,6 +82,10 @@
     </head>
 
     <body>
+        <?php
+        require_once 'include/NavBar.php';
+        showNavBar('home', $username)
+        ?>
         <div class="dp-box">
             <div class="dp-container">
                 <img class="dp" src="public/images/default_profile.png">

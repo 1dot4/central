@@ -4,9 +4,13 @@
         <title>
             Home
         </title>
+        <?php require_once 'include/Css.php' ?>
     </head>
     <body>
-        <a href="myprofile">My Profile</a>
-        <a href="logout">Logout</a>
+        <?php
+            require_once 'include/NavBar.php';
+            showNavBar('home', $username)
+        ?>
+        <?php require_once 'include/Scripts.php' ?>
     </body>
 </html>

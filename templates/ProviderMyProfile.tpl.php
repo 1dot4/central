@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <?php require_once 'include/Css.php' ?>
         <style>
-            .form-inline {
+             .form-inline, .dp-box {
                 max-width: 350px;
                 padding: 29px;
                 background-color: #f2f2f2;
@@ -16,7 +16,7 @@
                 -webkit-box-shadow: 0 1px 2px rgba(0,0,0,.05);
                 -moz-box-shadow: 0 1px 2px rgba(0,0,0,.05);
                 box-shadow: 0 1px 2px rgba(0,0,0,.05);
-            }
+             }
 
             .form-inline .form-heading {
                 margin-bottom: 10px;
@@ -43,20 +43,51 @@
             }
 
             #form1 {
-                margin: 40px 100px;
+                margin: 30px 250px;
             }
 
             #form2 {
-                margin: 40px 100px;
+                margin-left: 650px;
+                position: absolute;
+                top: 40px;
             }
 
             #form3 {
-                margin: 40px 100px;
+                margin-left: 650px;
+                position: absolute;
+                top: 430px;
+            }
+
+            .dp-box {
+                margin: 40px 250px;
+            }
+
+            .dp-container {
+                width: 104px;
+                height: 104px;
+                background-color: #ffffff;
+                border: solid 1px #999999;
+                border-radius: 5px;
+                margin-left: 90px;
+            }
+
+            .dp {
+                width: 102px;
+                height: 102px;
+                padding: 2px;
             }
         </style>
     </head>
 
     <body>
+        <div class="dp-box">
+            <div class="dp-container">
+                <img class="dp" src="public/images/default_profile.png">
+                <br><br>
+                <a href="dp.change"><u>Change Picture</u></a>
+            </div>
+            <br>
+        </div>
         <form class="form-inline" method="post" id="form1" action="profile.save/personal">
             <h2>Personal details</h2>
             <hr>

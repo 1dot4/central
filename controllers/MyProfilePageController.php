@@ -51,7 +51,7 @@ class MyProfilePageController extends PageController {
                 $this->setVar('designation', $user->designation());
                 $this->setVar('location', $user->location());
 
-                $this->setPage('ProviderMyProfile.tpl.php');
+                $this->setPage('MyProfile.tpl.php');
 
                 break;
 
@@ -66,7 +66,7 @@ class MyProfilePageController extends PageController {
                 $this->setVar('designation', $user->designation());
                 $this->setVar('location', $user->location());
 
-                $this->setPage('VolunteerMyProfile.tpl.php');
+                $this->setPage('MyProfile.tpl.php');
 
                 break;
         }

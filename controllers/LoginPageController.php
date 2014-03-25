@@ -10,6 +10,13 @@ class LoginPageController extends PageController {
      * Set the variables for rendering in template
      */
     protected function process() {
+
+        require_once 'libs/Auth.php';
+
+        if(Auth::isAuthorized()) {
+            $this->setRedirectUri('home');
+        }
+
         $this->setVar('title', 'Login');
 
         require_once 'libs/Session.php';

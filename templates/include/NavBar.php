@@ -10,7 +10,7 @@ function showNavBar($page, $username) {
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="#">janrozgaar.in</a>
+                    <a class="navbar-brand" href="./">janrozgaar.in</a>
                 </div>
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                     <form class="navbar-form navbar-left" role="search">

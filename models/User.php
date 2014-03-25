@@ -169,16 +169,14 @@ class User {
 
         $conn = DB::connect();
 
+        $password = md5($password);
+
         $conn->exec("INSERT INTO user(username, phone, password) VALUES ('$username', '$phone', '$password')");
         $id = $conn->lastInsertId();
 
-        $user = new User($id);
-        $user->setUsername($username);
-        $user->setPhone($phone);
-        $user->setPassword($password);
-        $user->setFullName("");
-
         DB::disconnect($conn);
+
+        $user = new User($id);
 
         return $user;
     }

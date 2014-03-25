@@ -50,7 +50,7 @@ class Provider extends User {
      * @return Provider An instance of the job provider
      */
     public static function newUser($username, $phone, $password) {
-        $user = parent::newUser($username, $phone, md5($password));
+        $user = parent::newUser($username, $phone, $password);
         $userId = $user->id();
 
         require_once 'libs/DB.php';

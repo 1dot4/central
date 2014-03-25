@@ -51,6 +51,14 @@ abstract class Controller {
     }
 
     /**
+     * Getter function for extra parameter at end of URL
+     * @return string The extra parameter
+     */
+    protected function param() {
+        return $this->param;
+    }
+
+    /**
      * The application instance
      * @var Slim\Slim
      */

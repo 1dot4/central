@@ -113,6 +113,10 @@ $app->get("/myprofile", function() use($app) {
     new MyProfilePageController($app, 'MyProfile.tpl.php', true);
 });
 
+$app->post("/profile.save/:id", function($id) use($app) {
+    require 'controllers/SaveProfileExecController.php';
+    new SaveProfileExecController($app, '../myprofile', true, $id);
+});
 /* End routes */
 
 // Run the Slim router

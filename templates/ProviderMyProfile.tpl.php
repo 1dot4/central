@@ -57,7 +57,7 @@
     </head>
 
     <body>
-        <form class="form-inline" method="post" id="form1">
+        <form class="form-inline" method="post" id="form1" action="profile.save/personal">
             <h2>Personal details</h2>
             <hr>
             <div class="form-group">
@@ -79,8 +79,10 @@
                 <label>Location:</label>
                 <input class="form-control" type="text" placeholder="Your location" value="<?php echo $location ?>">
             </div>
+            <br><br>
+            <input type="submit" value="Save Changes" class="btn btn-primary">
         </form>
-        <form class="form-inline" method="post" id="form2">
+        <form class="form-inline" method="post" id="form2" action="profile.save/contact">
             <h2>Contact details</h2>
             <hr>
             <div class="form-group">
@@ -92,8 +94,10 @@
                 <label>Mobile:</label>
                 <input class="form-control" type="text" placeholder="Your mobile number" value="<?php echo $phone ?>">
             </div>
+            <br><br>
+            <input type="submit" value="Save Changes" class="btn btn-primary">
         </form>
-        <form class="form-inline" method="post" id="form3">
+        <form class="form-inline" method="post" id="form3" action="profile.save/password">
             <h2>Change Password</h2>
             <hr>
             <div class="form-group">
@@ -105,6 +109,8 @@
                 <label>Confirm password:</label>
                 <input class="form-control" type="password" placeholder="Confirm your password">
             </div>
+            <br><br>
+            <input type="submit" value="Change password" class="btn btn-primary">
         </form>
         <?php require_once 'include/Scripts.php'?>
     </body>

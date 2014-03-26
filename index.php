@@ -113,6 +113,9 @@ $app->get("/myprofile", function() use($app) {
     new MyProfilePageController($app, 'MyProfile.tpl.php', true);
 });
 
+/**
+ * Profile page exec page
+ */
 $app->post("/profile.save/:id", function($id) use($app) {
     require 'controllers/SaveProfileExecController.php';
     new SaveProfileExecController($app, '../myprofile', true, $id);

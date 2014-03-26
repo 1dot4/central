@@ -10,10 +10,9 @@ class MyProfilePageController extends PageController {
      * The main process method of the controller
      */
     protected function process() {
-        require_once 'libs/Session.php';
-        Session::start();
-        $id = Session::getVar("USER_ID");
-        Session::close();
+
+        require_once 'libs/Auth.php';
+        $id = Auth::userId();
 
         require_once 'models/User.php';
         $user = new User($id);

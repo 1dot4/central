@@ -24,4 +24,12 @@ class Auth {
 
         return $auth;
     }
+
+    public static function userId() {
+        require_once 'libs/Session.php';
+        Session::start();
+        $id = Session::getVar("USER_ID");
+        Session::close();
+        return $id;
+    }
 } 

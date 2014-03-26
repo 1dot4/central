@@ -11,6 +11,9 @@ class SaveProfileExecController extends ExecController {
      * @return mixed|void
      */
     function process() {
-        die($this->param());
+        $param = $this->param();
+
+        require_once 'libs/Auth.php';
+        $id = Auth::userId();
     }
 }

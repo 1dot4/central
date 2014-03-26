@@ -84,7 +84,7 @@
     <body>
         <?php
         require_once 'include/NavBar.php';
-        showNavBar('home', $username)
+        showNavBar('myprofile', $username)
         ?>
         <div class="dp-box">
             <div class="dp-container">

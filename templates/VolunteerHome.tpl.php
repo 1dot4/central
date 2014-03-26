@@ -36,35 +36,35 @@
                         <hr>
                         <form class="form-inline" action="seeker.register" method="post">
                             <div class="form-group">
-                                <input class="form-control" type="text" placeholder="Job Seeker's username">
+                                <input name="username" class="form-control" type="text" placeholder="Job Seeker's username">
                             </div>
                             <br><br>
                             <div class="form-group">
-                                <input class="form-control" type="text" placeholder="Job Seeker's full name">
+                                <input name="fullname" class="form-control" type="text" placeholder="Job Seeker's full name">
                             </div>
                             <br><br>
                             <div class="form-group">
-                                <input class="form-control" type="text" placeholder="Job Seeker's mobile number">
+                                <input name="phone" class="form-control" type="text" placeholder="Job Seeker's mobile number">
                             </div>
                             <br><br>
                             <div class="form-group">
-                                <input class="form-control" type="password" placeholder="Job Seeker's account password">
+                                <input name="password" class="form-control" type="password" placeholder="Job Seeker's account password">
                             </div>
                             <br><br>
                             <div class="form-group">
-                                <input class="form-control" type="password" placeholder="Confirm Job Seeker's account password">
+                                <input name="cpassword" class="form-control" type="password" placeholder="Confirm Job Seeker's account password">
                             </div>
                             <br><br>
                             <div class="form-group">
-                                <input class="form-control" type="text" placeholder="Current location of Job Seeker">
+                                <input name="curr-location" class="form-control" type="text" placeholder="Current location of Job Seeker">
                             </div>
                             <br><br>
                             <div class="form-group">
-                                <input class="form-control" type="text" placeholder="Preferred job location of Job Seeker">
+                                <input name="pref-location" class="form-control" type="text" placeholder="Preferred job location of Job Seeker">
                             </div>
                             <br><br>
                             <div class="form-group">
-                                <input class="form-control" type="text" placeholder="Job Seeker's experience">
+                                <input name="experience" class="form-control" type="text" placeholder="Job Seeker's experience">
                             </div>
                             <br><br>
                             <input class="btn btn-primary" value="Register" type="submit">

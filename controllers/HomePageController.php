@@ -20,5 +20,17 @@ class HomePageController extends PageController {
 
         $this->setVar("userType", $type);
         $this->setVar('username', $user->username());
+
+        switch($type) {
+            case 'seeker':
+                $this->setPage('SeekerHome.tpl.php');
+                break;
+            case 'volunteer':
+                $this->setPage('VolunteerHome.tpl.php');
+                break;
+            case 'provider':
+                $this->setPage('ProviderHome.tpl.php');
+                break;
+        }
     }
 }

@@ -85,6 +85,7 @@ $app->post("/login.do", function() use($app) {
  */
 $app->get("/home", function() use($app) {
     require 'controllers/HomePageController.php';
+    // Home.tpl.php is a dummy name
     new HomePageController($app, 'Home.tpl.php', true);
 });
 

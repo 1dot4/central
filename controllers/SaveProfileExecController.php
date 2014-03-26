@@ -19,30 +19,38 @@ class SaveProfileExecController extends ExecController {
         switch($param) {
 
             case 'personal':
+
                 $fullName = $this->app()->request->post("fullname");
                 $location = $this->app()->request->post("location");
                 $organization = $this->app()->request->post("organization");
                 $designation = $this->app()->request->post("designation");
+
                 $volunteer->setFullName($fullName);
                 $volunteer->setLocation($location);
                 $volunteer->setOrganization($organization);
                 $volunteer->setDesignation($designation);
+
                 break;
 
             case 'contact':
+
                 $phone = $this->app()->request->post("phone");
                 $email = $this->app()->request->post("email");
+
                 $volunteer->setPhone($phone);
                 $volunteer->setEmail($email);
+
                 break;
 
             case 'password':
+
                 $password = $this->app()->request->post("password");
                 $cpassword = $this->app()->request->post("cpassword");
 
                 if($password == $cpassword) {
                     $volunteer->setPassword($password);
                 }
+
                 break;
         }
 
@@ -54,7 +62,52 @@ class SaveProfileExecController extends ExecController {
      * @param string $id The user id
      */
     private function saveSeekerDetails($id) {
+        $param = $this->param();
 
+        require_once 'models/Seeker.php';
+        $seeker = new Seeker($id);
+
+        switch($param) {
+            case 'personal':
+
+                $fullName = $this->app()->request->post("fullname");
+                $currLocation = $this->app()->request->post("curr-location");
+                $prefLocation = $this->app()->request->post("pref-location");
+
+                $seeker->setFullName($fullName);
+                $seeker->setCurrentLocation($currLocation);
+                $seeker->setPreferredLocation($prefLocation);
+
+                break;
+
+            case 'contact':
+
+                $phone = $this->app()->request->post("phone");
+
+                $seeker->setPhone($phone);
+
+                break;
+
+            case 'password':
+                $password = $this->app()->request->post("password");
+                $cpassword = $this->app()->request->post("cpassword");
+
+                if($password == $cpassword) {
+                    $seeker->setPassword($password);
+                }
+
+                break;
+
+            case 'skills':
+
+                $experience = $this->app()->request->post("experience");
+
+                $seeker->setExperience($experience);
+
+                break;
+        }
+
+        $seeker->saveToDb();
     }
 
     /**
@@ -70,30 +123,38 @@ class SaveProfileExecController extends ExecController {
         switch($param) {
 
             case 'personal':
+
                 $fullName = $this->app()->request->post("fullname");
                 $location = $this->app()->request->post("location");
                 $organization = $this->app()->request->post("organization");
                 $designation = $this->app()->request->post("designation");
+
                 $provider->setFullName($fullName);
                 $provider->setLocation($location);
                 $provider->setOrganization($organization);
                 $provider->setDesignation($designation);
+
                 break;
 
             case 'contact':
+
                 $phone = $this->app()->request->post("phone");
                 $email = $this->app()->request->post("email");
+
                 $provider->setPhone($phone);
                 $provider->setEmail($email);
+
                 break;
 
             case 'password':
+
                 $password = $this->app()->request->post("password");
                 $cpassword = $this->app()->request->post("cpassword");
 
                 if($password == $cpassword) {
                     $provider->setPassword($password);
                 }
+
                 break;
         }
 

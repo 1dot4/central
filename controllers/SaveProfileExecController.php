@@ -62,7 +62,42 @@ class SaveProfileExecController extends ExecController {
      * @param string $id The user id
      */
     private function saveProviderDetails($id) {
+        $param = $this->param();
 
+        require_once 'models/Provider.php';
+        $provider = new Provider($id);
+
+        switch($param) {
+
+            case 'personal':
+                $fullName = $this->app()->request->post("fullname");
+                $location = $this->app()->request->post("location");
+                $organization = $this->app()->request->post("organization");
+                $designation = $this->app()->request->post("designation");
+                $provider->setFullName($fullName);
+                $provider->setLocation($location);
+                $provider->setOrganization($organization);
+                $provider->setDesignation($designation);
+                break;
+
+            case 'contact':
+                $phone = $this->app()->request->post("phone");
+                $email = $this->app()->request->post("email");
+                $provider->setPhone($phone);
+                $provider->setEmail($email);
+                break;
+
+            case 'password':
+                $password = $this->app()->request->post("password");
+                $cpassword = $this->app()->request->post("cpassword");
+
+                if($password == $cpassword) {
+                    $provider->setPassword($password);
+                }
+                break;
+        }
+
+        $provider->saveToDb();
     }
 
     /**

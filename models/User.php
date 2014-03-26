@@ -93,7 +93,7 @@ class User {
      * @param $password string The user password
      */
     public function setPassword($password) {
-        $this->password = $password;
+        $this->password = md5($password);
     }
 
     /**
@@ -184,7 +184,7 @@ class User {
     /**
      * Authenticate the user
      * @param $username string The username
-     * @param $password string The password(hashed)
+     * @param $password string The password
      * @return int The user id (-1 if no user found)
      */
     public static function authenticateUser($username, $password) {
@@ -195,6 +195,7 @@ class User {
 
         $conn = DB::connect();
 
+        $password = md5($password);
         $res = $conn->query("SELECT * FROM user WHERE username='$username' AND password='$password'");
 
         while($row = $res->fetch(PDO::FETCH_ASSOC)) {

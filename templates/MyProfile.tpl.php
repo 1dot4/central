@@ -99,22 +99,22 @@
             <hr>
             <div class="form-group">
                 <label>Full Name:</label>
-                <input class="form-control" type="text" placeholder="Your full name" value="<?php echo $fullName ?>">
+                <input name="fullname" class="form-control" type="text" placeholder="Your full name" value="<?php echo $fullName ?>">
             </div>
             <br><br>
             <div class="form-group">
                 <label>Organization:</label>
-                <input class="form-control" type="text" placeholder="Your organization" value="<?php echo $organization ?>">
+                <input name="organization" class="form-control" type="text" placeholder="Your organization" value="<?php echo $organization ?>">
             </div>
             <br><br>
             <div class="form-group">
                 <label>Designation:</label>
-                <input class="form-control" type="text" placeholder="Your designation" value="<?php echo $designation ?>">
+                <input name="designation" class="form-control" type="text" placeholder="Your designation" value="<?php echo $designation ?>">
             </div>
             <br><br>
             <div class="form-group">
                 <label>Location:</label>
-                <input class="form-control" type="text" placeholder="Your location" value="<?php echo $location ?>">
+                <input name="location" class="form-control" type="text" placeholder="Your location" value="<?php echo $location ?>">
             </div>
             <br><br>
             <input type="submit" value="Save Changes" class="btn btn-primary">
@@ -124,12 +124,12 @@
             <hr>
             <div class="form-group">
                 <label>Email:</label>
-                <input class="form-control" type="text" placeholder="Your email" value="<?php echo $email ?>">
+                <input name="email" class="form-control" type="text" placeholder="Your email" value="<?php echo $email ?>">
             </div>
             <br><br>
             <div class="form-group">
                 <label>Mobile:</label>
-                <input class="form-control" type="text" placeholder="Your mobile number" value="<?php echo $phone ?>">
+                <input name="phone" class="form-control" type="text" placeholder="Your mobile number" value="<?php echo $phone ?>">
             </div>
             <br><br>
             <input type="submit" value="Save Changes" class="btn btn-primary">
@@ -139,12 +139,12 @@
             <hr>
             <div class="form-group">
                 <label>New password:</label>
-                <input class="form-control" type="password" placeholder="Your new password">
+                <input name="password" class="form-control" type="password" placeholder="Your new password">
             </div>
             <br><br>
             <div class="form-group">
                 <label>Confirm password:</label>
-                <input class="form-control" type="password" placeholder="Confirm your password">
+                <input name="cpassword" class="form-control" type="password" placeholder="Confirm your password">
             </div>
             <br><br>
             <input type="submit" value="Change password" class="btn btn-primary">

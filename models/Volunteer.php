@@ -85,7 +85,7 @@ class Volunteer extends User {
 
         $volunteer_id = $this->id();
 
-        $conn->exec("UPDATE volunteer SET email='$this->email', org_name='$this->organization', designation='$this->designation', location_name='$this->location WHERE id='$volunteer_id'");
+        $conn->exec("UPDATE volunteer SET email='$this->email', org_name='$this->organization', designation='$this->designation', location_name='$this->location' WHERE id='$volunteer_id'");
 
         DB::disconnect($conn);
     }

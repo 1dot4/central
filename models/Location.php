@@ -16,7 +16,7 @@ class Location {
         $conn = DB::connect();
 
         if(!(Location::exists($name))) {
-            $conn->exec("INSERT INTO location(name) VALUES($name)");
+            $conn->exec("INSERT INTO location(name) VALUES('$name')");
         }
 
         DB::disconnect($conn);

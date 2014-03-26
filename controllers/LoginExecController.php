@@ -15,7 +15,7 @@ class LoginExecController extends ExecController {
 
         require_once 'libs/Session.php';
         require_once 'models/User.php';
-        $id = User::authenticateUser($username, md5($password));
+        $id = User::authenticateUser($username, $password);
 
         if($id == -1) {
             Session::start();

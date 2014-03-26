@@ -16,7 +16,7 @@ class Organization {
         $conn = DB::connect();
 
         if(!(Organization::exists($name))) {
-            $conn->exec("INSERT INTO organization(name) VALUES($name)");
+            $conn->exec("INSERT INTO organization(name) VALUES('$name')");
         }
 
         DB::disconnect($conn);

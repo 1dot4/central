@@ -20,6 +20,12 @@
                 width: 460px;
                 height: auto;
             }
+            .form-error {
+                background-color: rgba(255, 0, 0, 0.3);
+                padding: 10px 15px;
+                border-radius: 2px;
+                border: 1px solid rgba(255, 0, 0, 0.35);
+            }
         </style>
     </head>
     <body>
@@ -35,6 +41,11 @@
                         <h2>Register New Job seeker</h2>
                         <hr>
                         <form class="form-inline" action="seeker.register" method="post">
+                            <?php
+                            if($errMsg != "") {
+                                echo "<div class='form-error'>$errMsg</div><br>";
+                            }
+                            ?>
                             <div class="form-group">
                                 <input name="username" class="form-control" type="text" placeholder="Job Seeker's username">
                             </div>

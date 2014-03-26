@@ -208,6 +208,25 @@ class User {
     }
 
     /**
+     * Check if the username is taken
+     * @param string $username The username
+     * @return bool If username exists
+     */
+    public static function usernameExists($username) {
+        require_once 'libs/DB.php';
+
+        $conn = DB::connect();
+
+        $res = $conn->query("SELECT COUNT(*) FROM user WHERE username='$username'");
+
+        $exists = $res->fetchColumn() != 0;
+
+        DB::disconnect($conn);
+
+        return $exists;
+    }
+
+    /**
      * The user id
      * @var string
      */

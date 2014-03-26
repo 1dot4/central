@@ -19,18 +19,12 @@ class VerifyPageController extends PageController {
         $errMsg = '';
 
         // Check for username uniqueness
-        require_once 'libs/DB.php';
+        require_once 'models/User.php';
 
-        $conn = DB::connect();
-
-        $res = $conn->query("SELECT COUNT(*) FROM user WHERE username='$username'");
-
-        if($res->fetchColumn() != 0) {
+        if(User::usernameExists($username)) {
             $err = true;
             $errMsg .= "The username is already taken.<br>";
         }
-
-        DB::disconnect($conn);
 
         if($username == '' || $password == '' || $phone == '') {
             $err = true;

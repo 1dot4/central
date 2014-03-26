@@ -26,6 +26,19 @@ class HomePageController extends PageController {
                 $this->setPage('SeekerHome.tpl.php');
                 break;
             case 'volunteer':
+
+                require_once 'libs/Session.php';
+
+                Session::start();
+
+                if(Session::existsVar("ERR_MSG")) {
+                    $this->setVar('errMsg', Session::getVar("ERR_MSG"));
+                } else {
+                    $this->setVar('errMsg', "");
+                }
+
+                Session::unsetVar("ERR_MSG");
+
                 $this->setPage('VolunteerHome.tpl.php');
                 break;
             case 'provider':

@@ -31,8 +31,8 @@
     <body>
         <div class="container">
             <?php
-                require_once 'include/NavBar.php';
-                showNavBar('home', $username)
+                require_once 'include/PrintUtils.php';
+                printNavBar('home', $username)
             ?>
             <div class="row">
                 <div class="col-md-2"></div>

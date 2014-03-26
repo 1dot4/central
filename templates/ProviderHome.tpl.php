@@ -8,8 +8,8 @@
     </head>
     <body>
         <?php
-            require_once 'include/NavBar.php';
-            showNavBar('home', $username)
+            require_once 'include/PrintUtils.php';
+            printNavBar('home', $username)
         ?>
         <?php require_once 'include/Scripts.php' ?>
     </body>

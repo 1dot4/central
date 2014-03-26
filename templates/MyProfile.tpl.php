@@ -83,8 +83,8 @@
 
     <body>
         <?php
-        require_once 'include/NavBar.php';
-        showNavBar('myprofile', $username)
+        require_once 'include/PrintUtils.php';
+        printNavBar('myprofile', $username)
         ?>
         <div class="dp-box">
             <div class="dp-container">

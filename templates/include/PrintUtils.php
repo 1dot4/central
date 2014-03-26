@@ -1,6 +1,6 @@
 <?php
 
-function showNavBar($page, $username) {
+function printNavBar($page, $username) {
     echo '<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
             <div class="container-fluid">
                 <div class="navbar-header">

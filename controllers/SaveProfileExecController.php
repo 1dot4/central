@@ -165,7 +165,7 @@ class SaveProfileExecController extends ExecController {
      * The main process method of the controller
      * @return mixed|void
      */
-    function process() {
+    protected function process() {
 
         require_once 'libs/Auth.php';
         $id = Auth::userId();

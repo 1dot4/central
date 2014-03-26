@@ -121,6 +121,15 @@ $app->post("/profile.save/:id", function($id) use($app) {
     require 'controllers/SaveProfileExecController.php';
     new SaveProfileExecController($app, '../myprofile', true, $id);
 });
+
+/**
+ * Seeker register exec
+ */
+$app->post("/seeker.register", function() use($app) {
+    require 'controllers/RegisterSeekerExecController.php';
+    new RegisterSeekerExecController($app, 'home', true);
+});
+
 /* End routes */
 
 // Run the Slim router

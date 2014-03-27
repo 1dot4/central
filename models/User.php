@@ -215,6 +215,27 @@ class User {
     }
 
     /**
+     * Get user id from username
+     * @param string $username The username
+     * @return int The user id
+     */
+    public static function idFromUserName($username) {
+        require_once 'libs/DB.php';
+
+        $id = -1;
+
+        $conn = DB::connect();
+
+        $res = $conn->query("SELECT * FROM user WHERE username='$username'");
+
+        while($row = $res->fetch(PDO::FETCH_ASSOC)) {
+            $id = $row["id"];
+        }
+
+        return $id;
+    }
+
+    /**
      * The user id
      * @var string
      */

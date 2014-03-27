@@ -130,6 +130,9 @@ $app->post("/seeker.register", function() use($app) {
     new RegisterSeekerExecController($app, 'home', true);
 });
 
+/**
+ * Public profile page
+ */
 $app->get("/profile/:id", function($id) use($app) {
     require_once 'controllers/ProfilePageController.php';
     new ProfilePageController($app, 'Profile.tpl.php', true, $id);

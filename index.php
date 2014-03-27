@@ -130,6 +130,11 @@ $app->post("/seeker.register", function() use($app) {
     new RegisterSeekerExecController($app, 'home', true);
 });
 
+$app->get("/profile/:id", function($id) use($app) {
+    require_once 'controllers/ProfilePageController.php';
+    new ProfilePageController($app, 'Profile.tpl.php', true, $id);
+});
+
 /* End routes */
 
 // Run the Slim router

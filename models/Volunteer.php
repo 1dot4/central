@@ -38,8 +38,6 @@ class Volunteer extends User {
         } else {
             die("Volunteer not found");
         }
-
-        DB::disconnect($conn);
     }
 
     /**
@@ -58,8 +56,6 @@ class Volunteer extends User {
         $conn = DB::connect();
 
         $conn->exec("INSERT INTO volunteer(id) VALUES('$userId')");
-
-        DB::disconnect($conn);
 
         $volunteer = new Volunteer($userId);
         return $volunteer;
@@ -86,8 +82,6 @@ class Volunteer extends User {
         $volunteer_id = $this->id();
 
         $conn->exec("UPDATE volunteer SET email='$this->email', org_name='$this->organization', designation='$this->designation', location_name='$this->location' WHERE id='$volunteer_id'");
-
-        DB::disconnect($conn);
     }
 
     /**

@@ -38,8 +38,6 @@ class Provider extends User {
         } else {
             die("Provider not found");
         }
-
-        DB::disconnect($conn);
     }
 
     /**
@@ -58,8 +56,6 @@ class Provider extends User {
         $conn = DB::connect();
 
         $conn->exec("INSERT INTO provider(id) VALUES('$userId')");
-
-        DB::disconnect($conn);
 
         $provider = new Provider($userId);
         return $provider;
@@ -87,7 +83,6 @@ class Provider extends User {
 
         $conn->exec("UPDATE provider SET email='$this->email', org_name='$this->organization', designation='$this->designation', location_name='$this->location' WHERE id='$provider_id'");
 
-        DB::disconnect($conn);
     }
 
     /**

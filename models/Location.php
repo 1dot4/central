@@ -18,8 +18,6 @@ class Location {
         if(!(Location::exists($name))) {
             $conn->exec("INSERT INTO location(name) VALUES('$name')");
         }
-
-        DB::disconnect($conn);
     }
 
     /**
@@ -35,8 +33,6 @@ class Location {
         $res = $conn->query("SELECT COUNT(*) FROM location WHERE name='$name'");
 
         $exists = !($res->fetchColumn() == 0);
-
-        DB::disconnect($conn);
 
         return $exists;
     }

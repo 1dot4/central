@@ -19,7 +19,6 @@ class Organization {
             $conn->exec("INSERT INTO organization(name) VALUES('$name')");
         }
 
-        DB::disconnect($conn);
     }
 
     /**
@@ -35,8 +34,6 @@ class Organization {
         $res = $conn->query("SELECT COUNT(*) FROM organization WHERE name='$name'");
 
         $exists = !($res->fetchColumn() == 0);
-
-        DB::disconnect($conn);
 
         return $exists;
     }

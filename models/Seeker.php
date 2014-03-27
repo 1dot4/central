@@ -35,8 +35,6 @@ class Seeker extends User {
         } else {
             die("Seeker not found");
         }
-
-        DB::disconnect($conn);
     }
 
     /**
@@ -55,8 +53,6 @@ class Seeker extends User {
         $conn = DB::connect();
 
         $conn->exec("INSERT INTO seeker(id) VALUES('$userId')");
-
-        DB::disconnect($conn);
 
         $seeker = new Seeker($userId);
         return $seeker;
@@ -79,8 +75,6 @@ class Seeker extends User {
 
         // Update the seeker table
         $conn->exec("UPDATE seeker SET experience='$this->experience', pref_location_name='$this->preferredLocation', curr_location_name='$this->currentLocation' WHERE id='$seeker_id'");
-
-        DB::disconnect($conn);
     }
 
     /**

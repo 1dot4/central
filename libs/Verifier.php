@@ -25,8 +25,6 @@ class Verifier {
             $conn->exec("UPDATE verificationStatus SET code='$code', status='unverified' WHERE id='$userId'");
         }
 
-        DB::disconnect($conn);
-
         return $code;
     }
 
@@ -58,8 +56,6 @@ class Verifier {
             $correct = true;
         }
 
-        DB::disconnect($conn);
-
         return $correct;
     }
 
@@ -80,8 +76,6 @@ class Verifier {
 
             $conn->exec("UPDATE verificationStatus SET status='verified' WHERE id='$userId'");
             $verified = true;
-
-            DB::disconnect($conn);
         }
 
         return $verified;

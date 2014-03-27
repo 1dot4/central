@@ -36,8 +36,6 @@ class User {
         else {
             die("User not found");
         }
-
-        DB::disconnect($conn);
     }
 
     /**
@@ -136,8 +134,6 @@ class User {
             if($res->fetchColumn() == 1) {
                 $this->type = 'seeker';
             }
-
-            DB::disconnect($conn);
         }
 
         return $this->type;
@@ -152,8 +148,6 @@ class User {
         $conn = DB::connect();
 
         $conn->exec("UPDATE user SET username='$this->username', password = '$this->password', phone = '$this->phone', fullname='$this->fullName' WHERE id='$this->id'");
-
-        DB::disconnect($conn);
     }
 
 
@@ -173,8 +167,6 @@ class User {
 
         $conn->exec("INSERT INTO user(username, phone, password) VALUES ('$username', '$phone', '$password')");
         $id = $conn->lastInsertId();
-
-        DB::disconnect($conn);
 
         $user = new User($id);
 
@@ -202,8 +194,6 @@ class User {
             $id = $row["id"];
         }
 
-        DB::disconnect($conn);
-
         return $id;
     }
 
@@ -220,8 +210,6 @@ class User {
         $res = $conn->query("SELECT COUNT(*) FROM user WHERE username='$username'");
 
         $exists = $res->fetchColumn() != 0;
-
-        DB::disconnect($conn);
 
         return $exists;
     }

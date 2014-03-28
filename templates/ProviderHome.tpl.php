@@ -36,7 +36,7 @@
                     </div>
                     <br><br>
                     <div class="row">
-                        <?
+                        <?php
                             require_once 'include/PrintUtils.php';
                             foreach($jobs as $job) {
                                 echo $job["description"];

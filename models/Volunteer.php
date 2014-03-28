@@ -84,6 +84,28 @@ class Volunteer extends User {
         $conn->exec("UPDATE volunteer SET email='$this->email', org_name='$this->organization', designation='$this->designation', location_name='$this->location' WHERE id='$volunteer_id'");
     }
 
+    public function registerSeeker($username, $fullName, $phone, $password, $currentLocation, $preferredLocation, $experience) {
+        require_once 'models/User.php';
+        require_once 'models/Seeker.php';
+        $seeker = Seeker::newUser($username, $phone, $password);
+
+        $seeker->setFullName($fullName);
+        $seeker->setCurrentLocation($currentLocation);
+        $seeker->setPreferredLocation($preferredLocation);
+        $seeker->setExperience($experience);
+
+        $seeker->saveToDb();
+
+        $seekerId = $seeker->id();
+
+        require_once 'libs/DB.php';
+        $conn = DB::connect();
+
+        $volunteerId = $this->id();
+
+        $conn->exec("INSERT INTO volunteer_registration(volunteer_id, seeker_id) VALUES($volunteerId, $seekerId)");
+    }
+
     /**
      * Getter function for email
      * @return string The volunteer's email

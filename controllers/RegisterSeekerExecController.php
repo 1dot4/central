@@ -68,15 +68,12 @@ class RegisterSeekerExecController extends ExecController {
             $this->setRedirectUri("home");
         }
 
-        require_once 'models/User.php';
-        require_once 'models/Seeker.php';
-        $seeker = Seeker::newUser($username, $phone, $password);
+        require_once 'libs/Auth.php';
+        $volunteerId = Auth::userId();
 
-        $seeker->setFullName($fullName);
-        $seeker->setCurrentLocation($currentLocation);
-        $seeker->setPreferredLocation($preferredLocation);
-        $seeker->setExperience($experience);
-
-        $seeker->saveToDb();
+        require_once 'models/Volunteer.php';
+        
+        $volunteer = new Volunteer($volunteerId);
+        $volunteer->registerSeeker($username, $fullName, $phone, $password, $currentLocation, $preferredLocation, $experience);
     }
 }

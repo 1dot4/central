@@ -59,7 +59,7 @@ CREATE TABLE IF NOT EXISTS `seeker` (
   FOREIGN KEY (`curr_location_name`) REFERENCES location(`name`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 ;
 
-CREATE TABLE IF NOT EXISTS `volunteer_registrations` (
+CREATE TABLE IF NOT EXISTS `volunteer_registration` (
   `volunteer_id` bigint(20) NOT NULL,
   `seeker_id` bigint(20) NOT NULL,
   PRIMARY KEY (`seeker_id`),

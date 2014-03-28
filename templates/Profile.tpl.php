@@ -68,6 +68,17 @@
                                     <h4>Located at <a><?php echo $location ?></a></h4>
                                 <?php endif?>
                             <?php endif ?>
+                            <?php if($userType == 'seeker'): ?>
+                                <?php if($experience != ""): ?>
+                                    <h4>Has an experience of <?php echo $experience ?> years</h4>
+                                <?php endif ?>
+                                <?php if($currLocation != ""): ?>
+                                    <h4>Currently located at <a><?php echo $currLocation ?></a></h4>
+                                <?php endif ?>
+                                <?php if($prefLocation != ""): ?>
+                                    <h4>Would prefer <a><?php echo $prefLocation ?></a> as job location</h4>
+                                <?php endif ?>
+                            <?php endif ?>
                         </div>
                     </div>
                 </div>

@@ -30,6 +30,7 @@ class User {
                 $this->phone = $row["phone"];
                 $this->password = $row["password"];
                 $this->fullName = $row["fullname"];
+                $this->joinDate = $row["join_date"];
             }
         }
         // If there are zero or more than one entry
@@ -76,6 +77,14 @@ class User {
      */
     public function fullName() {
         return $this->fullName;
+    }
+
+    /**
+     * Getter function for user's join date
+     * @return string The user's join date
+     */
+    public function joinDate() {
+        return $this->joinDate;
     }
 
     /**
@@ -270,4 +279,10 @@ class User {
      * @var string
      */
     private $fullName;
+
+    /**
+     * The user's join date
+     * @var string
+     */
+    private $joinDate;
 }

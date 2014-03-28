@@ -19,6 +19,7 @@ CREATE TABLE IF NOT EXISTS `user` (
   `fullname` text,
   `password` text NOT NULL,
   `phone` varchar(10) NOT NULL,
+  `join_date` timestamp NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `username` (`username`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;

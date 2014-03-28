@@ -84,6 +84,16 @@ class Volunteer extends User {
         $conn->exec("UPDATE volunteer SET email='$this->email', org_name='$this->organization', designation='$this->designation', location_name='$this->location' WHERE id='$volunteer_id'");
     }
 
+    /**
+     * Register a seeker
+     * @param string $username Seeker's username
+     * @param string $fullName Seeker's full name
+     * @param string $phone Seeker's mobile
+     * @param string $password Seeker's password
+     * @param string $currentLocation Seeker's current location
+     * @param string $preferredLocation Seeker's preferred location
+     * @param string $experience Seeker's experience
+     */
     public function registerSeeker($username, $fullName, $phone, $password, $currentLocation, $preferredLocation, $experience) {
         require_once 'models/User.php';
         require_once 'models/Seeker.php';

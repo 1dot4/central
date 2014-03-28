@@ -25,6 +25,7 @@ class Job {
             while($row = $res_1->fetch(PDO::FETCH_ASSOC)) {
                 $this->description = $row["description"];
                 $this->postedById = $row["posted_by_id"];
+                $this->postDate = $row["post_date"];
             }
         }
         else {
@@ -104,6 +105,14 @@ class Job {
     }
 
     /**
+     * Getter function for post date
+     * @return string Job post date
+     */
+    public function postDate() {
+        return $this->postDate;
+    }
+
+    /**
      * The job id
      * @var string
      */
@@ -120,4 +129,10 @@ class Job {
      * @var string
      */
     private $postedById;
+
+    /**
+     * The job post date
+     * @var string
+     */
+    private $postDate;
 }

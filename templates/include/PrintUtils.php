@@ -41,3 +41,11 @@ function printNavBar($page, $username, $level = 1) {
             </div>
         </nav>';
 }
+
+
+function linkedName($id) {
+    require_once 'models/User.php';
+    $user = new User($id);
+    $username = $user->username();
+    return "<a href='profile/" . $username . "'>" . $username . "</a>";
+}

@@ -25,6 +25,7 @@ class HomePageController extends PageController {
             case 'seeker':
                 $this->setPage('SeekerHome.tpl.php');
                 break;
+
             case 'volunteer':
 
                 require_once 'libs/Session.php';
@@ -41,7 +42,17 @@ class HomePageController extends PageController {
 
                 $this->setPage('VolunteerHome.tpl.php');
                 break;
+
             case 'provider':
+
+                require_once 'models/Provider.php';
+
+                $user = new Provider($id);
+
+                $jobs = $user->jobPostings();
+
+                $this->setVar('jobs', $jobs);
+
                 $this->setPage('ProviderHome.tpl.php');
                 break;
         }

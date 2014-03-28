@@ -17,7 +17,7 @@ function printNavBar($page, $username, $level = 1) {
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="'.$dir.'/">janrozgaar.in</a>
+                    <a class="navbar-brand" href="'.$dir.'/">JanRozgar</a>
                 </div>
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                     <form class="navbar-form navbar-left" role="search">
@@ -41,3 +41,12 @@ function printNavBar($page, $username, $level = 1) {
             </div>
         </nav>';
 }
+
+
+function linkedName($id) {
+    require_once 'models/User.php';
+    $user = new User($id);
+    $username = $user->username();
+    return "<a href='profile/" . $username . "'>" . $username . "</a>";
+}
+

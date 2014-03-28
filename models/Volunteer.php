@@ -85,6 +85,38 @@ class Volunteer extends User {
     }
 
     /**
+     * Register a seeker
+     * @param string $username Seeker's username
+     * @param string $fullName Seeker's full name
+     * @param string $phone Seeker's mobile
+     * @param string $password Seeker's password
+     * @param string $currentLocation Seeker's current location
+     * @param string $preferredLocation Seeker's preferred location
+     * @param string $experience Seeker's experience
+     */
+    public function registerSeeker($username, $fullName, $phone, $password, $currentLocation, $preferredLocation, $experience) {
+        require_once 'models/User.php';
+        require_once 'models/Seeker.php';
+        $seeker = Seeker::newUser($username, $phone, $password);
+
+        $seeker->setFullName($fullName);
+        $seeker->setCurrentLocation($currentLocation);
+        $seeker->setPreferredLocation($preferredLocation);
+        $seeker->setExperience($experience);
+
+        $seeker->saveToDb();
+
+        $seekerId = $seeker->id();
+
+        require_once 'libs/DB.php';
+        $conn = DB::connect();
+
+        $volunteerId = $this->id();
+
+        $conn->exec("INSERT INTO volunteer_registration(volunteer_id, seeker_id) VALUES($volunteerId, $seekerId)");
+    }
+
+    /**
      * Getter function for email
      * @return string The volunteer's email
      */

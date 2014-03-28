@@ -59,6 +59,14 @@ CREATE TABLE IF NOT EXISTS `seeker` (
   FOREIGN KEY (`curr_location_name`) REFERENCES location(`name`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 ;
 
+CREATE TABLE IF NOT EXISTS `volunteer_registration` (
+  `volunteer_id` bigint(20) NOT NULL,
+  `seeker_id` bigint(20) NOT NULL,
+  PRIMARY KEY (`seeker_id`),
+  FOREIGN KEY (`seeker_id`) REFERENCES seeker(`id`),
+  FOREIGN KEY (`volunteer_id`) REFERENCES volunteer(`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
 CREATE TABLE IF NOT EXISTS `verificationStatus` (
   `id` bigint(20) NOT NULL,
   `code` varchar(6) NOT NULL,
@@ -68,10 +76,23 @@ CREATE TABLE IF NOT EXISTS `verificationStatus` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 CREATE TABLE IF NOT EXISTS `job` (
-  `id` bigint(20) NOT NULL,
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `description` text NOT NULL,
   `post_date` timestamp NOT NULL,
   `posted_by_id` bigint(20) NOT NULL,
   PRIMARY KEY (`id`),
   FOREIGN KEY (`posted_by_id`) REFERENCES provider(`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+CREATE TABLE IF NOT EXISTS `skill` (
+  `name` varchar(100) NOT NULL,
+  PRIMARY KEY (`name`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+CREATE TABLE IF NOT EXISTS `seeker_skill` (
+  `seeker_id` bigint(20) NOT NULL,
+  `skill_name` varchar(100) NOT NULL,
+  PRIMARY KEY (`seeker_id`, `skill_name`),
+  FOREIGN KEY (`seeker_id`) REFERENCES seeker(`id`),
+  FOREIGN KEY (`skill_name`) REFERENCES skill(`name`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;

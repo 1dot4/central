@@ -138,6 +138,11 @@ $app->get("/profile/:id", function($id) use($app) {
     new ProfilePageController($app, 'Profile.tpl.php', true, $id);
 });
 
+$app->post("/job.post", function() use($app) {
+    require_once 'controllers/JobPostExecController.php';
+    new JobPostExecController($app, 'home', true);
+});
+
 /* End routes */
 
 // Run the Slim router

@@ -12,5 +12,9 @@ class JobPostExecController extends ExecController {
         require_once 'libs/Auth.php';
 
         $jobPoster = Auth::userId();
+
+        require_once 'models/Job.php';
+
+        Job::newJob($jobDescription, $jobPoster);
     }
 }

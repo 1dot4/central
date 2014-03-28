@@ -54,7 +54,7 @@
                             <?php if($fullName != ""): ?>
                             <h4><b><?php echo $fullName ?></b></h4>
                             <?php endif ?>
-                            <?php if($userType == 'volunteer'): ?>
+                            <?php if($userType == 'volunteer' || $userType == 'provider'): ?>
                                 <?php if($email != ""): ?>
                                     <h4><a><?php echo $email ?></a></h4>
                                 <?php endif ?>

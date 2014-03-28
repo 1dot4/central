@@ -75,3 +75,16 @@ CREATE TABLE IF NOT EXISTS `job` (
   PRIMARY KEY (`id`),
   FOREIGN KEY (`posted_by_id`) REFERENCES provider(`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+CREATE TABLE IF NOT EXISTS `skill` (
+  `name` varchar(100) NOT NULL,
+  PRIMARY KEY (`name`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+CREATE TABLE IF NOT EXISTS `seeker_skill` (
+  `seeker_id` bigint(20) NOT NULL,
+  `skill_name` varchar(100) NOT NULL,
+  PRIMARY KEY (`seeker_id`, `skill_name`),
+  FOREIGN KEY (`seeker_id`) REFERENCES seeker(`id`),
+  FOREIGN KEY (`skill_name`) REFERENCES skill(`name`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;

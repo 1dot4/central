@@ -86,6 +86,28 @@ class Provider extends User {
     }
 
     /**
+     * Return job postings done by provider
+     * @return array The jobs array containing associative arrays
+     */
+    public function jobPostings() {
+        require_once 'libs/DB.php';
+
+        $conn = DB::connect();
+
+        $providerId = $this->id();
+
+        $res = $conn->query("SELECT * FROM job WHERE posted_by_id='$providerId'");
+
+        $jobs = array();
+
+        while($row = $res->fetch(PDO::FETCH_ASSOC)) {
+            array_push($jobs, $row);
+        }
+
+        return $jobs;
+    }
+
+    /**
      * Getter function for provider's email
      * @return string The provider's email
      */

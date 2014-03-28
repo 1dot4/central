@@ -24,8 +24,8 @@
             <div class="row">
                 <div class="col-md-2">
                 </div>
-                <div class="row">
-                    <div class="col-md-8">
+                <div class="col-md-8">
+                    <div class="row">
                         <form role="form" class="form-inline" action="job.post" method="post">
                             <div class="form-group">
                                 <textarea name="job-description" class="form-control" id="post-input" placeholder="Enter new job posting here..."></textarea>
@@ -33,6 +33,18 @@
                             <br><br>
                             <input class="btn btn-primary" value="Post" type="submit">
                         </form>
+                    </div>
+                    <br><br>
+                    <div class="row">
+                        <?
+                            require_once 'include/PrintUtils.php';
+                            foreach($jobs as $job) {
+                                echo $job["description"];
+                                echo "<br>";
+                                echo "Posted by " . linkedName($job["posted_by_id"]) . " on " . $job["post_date"];
+                                echo "<hr>";
+                            }
+                        ?>
                     </div>
                 </div>
             </div>

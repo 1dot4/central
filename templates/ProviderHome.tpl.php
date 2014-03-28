@@ -28,7 +28,7 @@
                     <div class="col-md-8">
                         <form role="form" class="form-inline" action="job.post" method="post">
                             <div class="form-group">
-                                <textarea class="form-control" id="post-input" placeholder="Enter new job posting here..."></textarea>
+                                <textarea name="job-description" class="form-control" id="post-input" placeholder="Enter new job posting here..."></textarea>
                             </div>
                             <br><br>
                             <input class="btn btn-primary" value="Post" type="submit">

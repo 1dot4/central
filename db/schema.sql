@@ -67,7 +67,7 @@ CREATE TABLE IF NOT EXISTS `verificationStatus` (
   FOREIGN KEY (`id`) REFERENCES user(`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
-CREATE TABLE IF NOT EXISTS `jobs` (
+CREATE TABLE IF NOT EXISTS `job` (
   `id` bigint(20) NOT NULL,
   `description` text NOT NULL,
   `post_date` timestamp NOT NULL,

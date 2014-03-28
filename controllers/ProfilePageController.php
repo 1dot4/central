@@ -30,7 +30,7 @@ class ProfilePageController extends PageController {
         $user = new User($userId);
         $userType = $user->type();
 
-        $this->setVar('username', $username);
+        $this->setVar('username', $user->username());
         $this->setVar('fullName', $user->fullName());
         $this->setVar('userType', $userType);
 
@@ -41,6 +41,7 @@ class ProfilePageController extends PageController {
                 $user = new Volunteer($userId);
 
                 $this->setVar('organization', $user->organization());
+                $this->setVar('typeText', 'Volunteer');
                 $this->setVar('designation', $user->designation());
                 $this->setVar('location', $user->location());
                 $this->setVar('email', $user->email());
@@ -53,6 +54,7 @@ class ProfilePageController extends PageController {
                 $user = new Seeker($userId);
 
                 $this->setVar('prefLocation', $user->preferredLocation());
+                $this->setVar('typeText', 'Job Seeker');
                 $this->setVar('currLocation', $user->currentLocation());
                 $this->setVar('experience', $user->experience());
 
@@ -64,6 +66,7 @@ class ProfilePageController extends PageController {
                 $user = new Provider($userId);
 
                 $this->setVar('organization', $user->organization());
+                $this->setVar('typeText', 'Job Provider');
                 $this->setVar('designation', $user->designation());
                 $this->setVar('location', $user->location());
                 $this->setVar('email', $user->email());

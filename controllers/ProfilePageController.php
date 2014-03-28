@@ -23,13 +23,12 @@ class ProfilePageController extends PageController {
 
         $username = $this->param();
 
-        $this->setVar('title', $username);
-
         $userId = User::idFromUserName($username);
 
         $user = new User($userId);
         $userType = $user->type();
 
+        $this->setVar('title', $user->username());
         $this->setVar('username', $user->username());
         $this->setVar('fullName', $user->fullName());
         $this->setVar('userType', $userType);

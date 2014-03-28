@@ -3,11 +3,33 @@
         <title><?php echo $title ?></title>
         <?php require_once 'include/Css.php' ?>
         <style>
+        .social ul li a.twitter span {
+               background-position: 0px -122.5px;
+        }
+        .social ul li a.facebook span {
+               background-position: -23px -122.5px;
+        }
+        .social ul li a.google span {
+               background-position: -115px -122.5px;
+        }
+        .social ul li a span {
+background-image: url(./public/images/sprite.svg);
+background-size: 500px 500px;
+display: inline-block;
+zoom: 1;
+width: 23px;
+height: 23px;
+text-align: center;
+}
+                .social {
+                margin-right: 20px;
+                }
             .form-inline {
+                
                 max-width: 350px;
                 padding: 29px;
-                margin: 80px auto 20px;
-                background-color: #f2f2f2;
+                margin: 100px auto 20px;
+                /*background-color: #f2f2f2;*/
                 border: 1px solid #e5e5e5;
                 -webkit-border-radius: 5px;
                 -moz-border-radius: 5px;
@@ -43,6 +65,40 @@
         </style>
     </head>
     <body>
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+   <div class="navbar-header">
+       <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+           <span class="sr-only">Toggle navigation</span>
+           <span class="icon-bar"></span>
+           <span class="icon-bar"></span>
+           <span class="icon-bar"></span>
+       </button>
+       <a class="navbar-brand" href="./" style="font-size:23px; color:white;">
+           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+           JanRozgar
+           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+       </a>
+
+   </div>
+
+   <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+       <ul class="nav navbar-nav" id="abcd">
+           <!-- <li><a href="#page1" class="link"></a></li> -->
+           <!-- <li><a href="#page1" class="link">&nbsp;&nbsp;Home&nbsp;&nbsp;</a></li> -->
+           <li><a href="#page2" class="link">&nbsp;&nbsp;About&nbsp;&nbsp;</a></li>
+           <li><a href="#page3" class="link">&nbsp;&nbsp;FAQs&nbsp;&nbsp;</a></li>
+           <li><a href="#page4" class="link">&nbsp;&nbsp;Donate&nbsp;&nbsp;</a></li>
+           <li><a href="#page5" class="link">&nbsp;&nbsp;Contact Us&nbsp;&nbsp;</a></li>    
+       </ul>
+       <div class="social">
+           <ul class="nav navbar-nav navbar-right">
+               <li><a href="https://twitter.com" class="twitter"><span>&nbsp;</span></a></li>
+               <li><a href="https://www.facebook.com/" class="facebook"><span>&nbsp;</span></a></li>
+               <li><a href="https://plus.google.com/" class="google"><span>&nbsp;</span></a></li>
+           </ul>
+       </div>
+   </div>
+</nav>
         <form method='post' action='verify' class="form-inline" role="form">
             <h1 class="form-heading"><?php echo $title ?></h1>
             <hr>

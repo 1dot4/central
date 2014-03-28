@@ -92,7 +92,7 @@ text-align: center;
            <span class="icon-bar"></span>
            <span class="icon-bar"></span>
        </button>
-       <a class="navbar-brand" href="./" style="font-size:23px; color:white;">
+       <a class="navbar-brand" href="#page1" style="font-size:23px; color:white;">
            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
            JanRozgar
            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;

@@ -66,3 +66,12 @@ CREATE TABLE IF NOT EXISTS `verificationStatus` (
   PRIMARY KEY (`id`, `code`),
   FOREIGN KEY (`id`) REFERENCES user(`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+CREATE TABLE IF NOT EXISTS `jobs` (
+  `id` bigint(20) NOT NULL,
+  `description` text NOT NULL,
+  `post_date` timestamp NOT NULL,
+  `posted_by_id` bigint(20) NOT NULL,
+  PRIMARY KEY (`id`),
+  FOREIGN KEY (`posted_by_id`) REFERENCES provider(`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;

@@ -226,7 +226,7 @@ class User {
 
         $conn = DB::connect();
 
-        $res = $conn->query("SELECT * FROM user WHERE username='$username'");
+        $res = $conn->query("SELECT id FROM user WHERE username='$username'");
 
         while($row = $res->fetch(PDO::FETCH_ASSOC)) {
             $id = $row["id"];

@@ -68,7 +68,7 @@ CREATE TABLE IF NOT EXISTS `verificationStatus` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 CREATE TABLE IF NOT EXISTS `job` (
-  `id` bigint(20) NOT NULL,
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `description` text NOT NULL,
   `post_date` timestamp NOT NULL,
   `posted_by_id` bigint(20) NOT NULL,

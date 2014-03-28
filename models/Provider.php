@@ -96,7 +96,7 @@ class Provider extends User {
 
         $providerId = $this->id();
 
-        $res = $conn->query("SELECT * FROM job WHERE posted_by_id='$providerId'");
+        $res = $conn->query("SELECT * FROM job WHERE posted_by_id='$providerId' ORDER BY post_date DESC");
 
         $jobs = array();
 

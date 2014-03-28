@@ -118,7 +118,7 @@ text-align: center;
        </div>
    </div>
 </nav>
-    <iframe class="you" width="600" height="380" src="//www.youtube.com/embed/Pr_4yAT0KG4" frameborder="0" allowfullscreen></iframe>
+    <iframe class="you" width="600" height="380" src="https://s3.amazonaws.com/embed.animoto.com/play.html?w=swf/production/vp1&e=1396031535&f=aiiWm46EZCjCHou12zeTgA&d=0&m=b&r=360p&volume=100&start_res=360p&i=m&asset_domain=s3-p.animoto.com&animoto_domain=animoto.com" frameborder="0" allowfullscreen></iframe>
     
         <form id="login-form" class="form-inline" method="post" role="form" action="login.do">
             <h1 class="form-heading"><?php echo $title ?></h1>

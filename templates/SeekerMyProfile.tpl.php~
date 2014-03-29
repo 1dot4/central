@@ -219,7 +219,7 @@ element {
     <?php require_once 'include/Scripts.php' ?>
     </body>
     <script src="./public/tagsinput/js/bootstrap-tagsinput.js"></script>
-
+    <script src="./public/tagsinput/js/bootstrap-tagsinput-angular.js"></script>
     <script src="./public/tagsinput/js/typeahead.min.js"></script>
-
+    <script src="./public/tagsinput/js/hogan-2.0.0.js"></script>
 </html>

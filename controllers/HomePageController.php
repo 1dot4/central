@@ -48,6 +48,14 @@ class HomePageController extends PageController {
                         break;
 
                     case 'index':
+
+                        require_once 'models/Volunteer.php';
+
+                        $volunteer = new Volunteer($id);
+                        $registeredSeekers = $volunteer->registeredSeekers();
+
+                        $this->setVar('registeredSeekers', $registeredSeekers);
+
                         $this->setPage('VolunteerHome.tpl.php');
 
                 }

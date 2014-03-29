@@ -127,7 +127,7 @@ class Volunteer extends User {
 
         $conn = DB::connect();
 
-        $res = $conn->query("SELECT seeker_id FROM volunteer_registration WHERE volunteer_id = '$volunteerId'");
+        $res = $conn->query("SELECT VR.seeker_id, U.join_date FROM volunteer_registration VR, user U WHERE VR.seeker_id=U.id AND VR.volunteer_id = '$volunteerId' ORDER BY U.join_date DESC");
 
         $seekers = array();
 

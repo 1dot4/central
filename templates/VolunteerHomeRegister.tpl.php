@@ -46,7 +46,7 @@
                 <div class="col-md-5">
                     <h2>Register New Job seeker</h2>
                     <hr>
-                    <form class="form-inline" action="seeker.register" method="post">
+                    <form class="form-inline" action="../seeker.register" method="post">
                         <?php
                         if($errMsg != "") {
                             echo "<div class='form-error'>$errMsg</div><br>";

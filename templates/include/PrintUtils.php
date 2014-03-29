@@ -47,5 +47,19 @@ function linkedName($id) {
     require_once 'models/User.php';
     $user = new User($id);
     $username = $user->username();
-    return "<a href='profile/" . $username . "'>" . $username . "</a>";
+    return "<a href='../profile/" . $username . "'>" . $username . "</a>";
+}
+
+function seekerRegistrationDetails($seeker) {
+    require_once 'models/User.php';
+    require_once 'models/Seeker.php';
+
+    $seeker = new Seeker($seeker);
+
+    $joinDate = $seeker->joinDate();
+    $name = $seeker->username();
+
+    $res = "Registered <a href='../profile/". $name ."'>" . $name . "</a> on " . $joinDate;
+
+    return $res;
 }

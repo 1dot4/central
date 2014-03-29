@@ -46,6 +46,12 @@
         <div class="col-md-5">
             <h2>Job seekers you registered</h2>
             <hr>
+            <?php
+                foreach($registeredSeekers as $seeker) {
+                    require_once 'include/PrintUtils.php';
+                    echo seekerRegistrationDetails($seeker);
+                }
+            ?>
         </div>
     </div>
 </div>

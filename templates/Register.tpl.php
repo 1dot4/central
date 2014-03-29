@@ -3,27 +3,27 @@
         <title><?php echo $title ?></title>
         <?php require_once 'include/Css.php' ?>
         <style>
-        .social ul li a.twitter span {
-               background-position: 0px -122.5px;
-        }
-        .social ul li a.facebook span {
-               background-position: -23px -122.5px;
-        }
-        .social ul li a.google span {
-               background-position: -115px -122.5px;
-        }
-        .social ul li a span {
-background-image: url(./public/images/sprite.svg);
-background-size: 500px 500px;
-display: inline-block;
-zoom: 1;
-width: 23px;
-height: 23px;
-text-align: center;
-}
-                .social {
+            .social ul li a.twitter span {
+                   background-position: 0px -122.5px;
+            }
+            .social ul li a.facebook span {
+                   background-position: -23px -122.5px;
+            }
+            .social ul li a.google span {
+                   background-position: -115px -122.5px;
+            }
+            .social ul li a span {
+                background-image: url(./public/images/sprite.svg);
+                background-size: 500px 500px;
+                display: inline-block;
+                zoom: 1;
+                width: 23px;
+                height: 23px;
+                text-align: center;
+            }
+            .social {
                 margin-right: 20px;
-                }
+            }
             .form-inline {
                 
                 max-width: 350px;

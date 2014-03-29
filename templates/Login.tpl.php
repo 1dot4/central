@@ -4,9 +4,7 @@
         <title><?php echo $title ?></title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <?php require_once 'include/Css.php' ?>
-		<link rel="icon" 
-      type="image/icon" 
-      href="./public/images/favicon.ico">
+		
         <style>
         .social ul li a.twitter span {
                background-position: 0px -122.5px;

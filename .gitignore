@@ -1,2 +1,4 @@
 .idea/
 var/config.php
+*~
+*.swp

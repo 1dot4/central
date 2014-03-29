@@ -77,16 +77,16 @@ $app->post("/verify.do", function() use($app) {
  */
 $app->post("/login.do", function() use($app) {
     require_once 'controllers/LoginExecController.php';
-    new LoginExecController($app, 'home', false);
+    new LoginExecController($app, 'home/index', false);
 });
 
 /**
  * The Home page
  */
-$app->get("/home", function() use($app) {
+$app->get("/home/:id", function($id) use($app) {
     require_once 'controllers/HomePageController.php';
     // Home.tpl.php is a dummy name
-    new HomePageController($app, 'Home.tpl.php', true);
+    new HomePageController($app, 'Home.tpl.php', true, $id);
 });
 
 /**
@@ -127,7 +127,7 @@ $app->post("/profile.save/:id", function($id) use($app) {
  */
 $app->post("/seeker.register", function() use($app) {
     require_once 'controllers/RegisterSeekerExecController.php';
-    new RegisterSeekerExecController($app, 'home', true);
+    new RegisterSeekerExecController($app, 'home/index', true);
 });
 
 /**
@@ -140,7 +140,7 @@ $app->get("/profile/:id", function($id) use($app) {
 
 $app->post("/job.post", function() use($app) {
     require_once 'controllers/JobPostExecController.php';
-    new JobPostExecController($app, 'home', true);
+    new JobPostExecController($app, 'home/index', true);
 });
 
 /* End routes */

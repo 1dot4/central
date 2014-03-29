@@ -11,6 +11,8 @@ class HomePageController extends PageController {
      */
     protected function process() {
 
+        $page = $this->param();
+
         require_once 'libs/Auth.php';
         $id = Auth::userId();
 
@@ -28,19 +30,28 @@ class HomePageController extends PageController {
 
             case 'volunteer':
 
-                require_once 'libs/Session.php';
+                switch($page) {
+                    case 'register':
+                        require_once 'libs/Session.php';
 
-                Session::start();
+                        Session::start();
 
-                if(Session::existsVar("ERR_MSG")) {
-                    $this->setVar('errMsg', Session::getVar("ERR_MSG"));
-                } else {
-                    $this->setVar('errMsg', "");
+                        if(Session::existsVar("ERR_MSG")) {
+                            $this->setVar('errMsg', Session::getVar("ERR_MSG"));
+                        } else {
+                            $this->setVar('errMsg', "");
+                        }
+
+                        Session::unsetVar("ERR_MSG");
+
+                        $this->setPage('VolunteerHomeRegister.tpl.php');
+                        break;
+
+                    case 'index':
+                        $this->setPage('VolunteerHome.tpl.php');
+
                 }
 
-                Session::unsetVar("ERR_MSG");
-
-                $this->setPage('VolunteerHome.tpl.php');
                 break;
 
             case 'provider':

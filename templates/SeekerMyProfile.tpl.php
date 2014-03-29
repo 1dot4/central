@@ -208,7 +208,7 @@ element {
             <label>Skills: </label><br>
          
         <div class="bootstrap-tagsinput">
-        <input type="text" data-role="tagsinput" value="Amsterdam,Washington,Sydney,Beijing,Cairo" style="display: none;"></input> 
+        <input type="text" data-role="tagsinput" value="Pulember,Labourer" style="display: none;"></input> 
 
         </div>
     </div>

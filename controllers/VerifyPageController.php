@@ -33,7 +33,6 @@ class VerifyPageController extends PageController {
 
         if(strlen($phone) != 10){
             $err = true;
-            die(strlen($phone));
             $errMsg .= 'Invalid Phone Number.<br>';
         }
 

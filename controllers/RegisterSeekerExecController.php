@@ -29,6 +29,11 @@ class RegisterSeekerExecController extends ExecController {
             $errMsg .= "Phone number is required<br>";
         }
 
+        if(sizeof($phone)! =10) {
+            $error = true;
+            $errMsg .= "Invalid Phone Number<br>";
+        }
+
         if($password == "") {
             $error = true;
             $errMsg .= "Password is required<br>";

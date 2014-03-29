@@ -26,9 +26,14 @@ class VerifyPageController extends PageController {
             $errMsg .= "The username is already taken.<br>";
         }
 
-        if($username == '' || $password == '' || $phone == '') {
+        if($username == '' || $password == '' ||  $phone == '') {
             $err = true;
             $errMsg .= 'All the fields are required.<br>';
+        }
+
+        if(sizeof($phone)!=10){
+            $err = true;
+            $errMsg .= 'Invalid Phone Number.<br>';
         }
 
         if($password != $cPassword) {

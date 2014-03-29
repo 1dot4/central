@@ -31,8 +31,9 @@ class VerifyPageController extends PageController {
             $errMsg .= 'All the fields are required.<br>';
         }
 
-        if(sizeof($phone)!=10){
+        if(strlen($phone) != 10){
             $err = true;
+            die(strlen($phone));
             $errMsg .= 'Invalid Phone Number.<br>';
         }
 

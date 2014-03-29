@@ -14,7 +14,7 @@ class LoginPageController extends PageController {
         require_once 'libs/Auth.php';
 
         if(Auth::isAuthorized()) {
-            $this->setRedirectUri('home');
+            $this->setRedirectUri('home/index');
         }
 
         $this->setVar('title', 'Login');

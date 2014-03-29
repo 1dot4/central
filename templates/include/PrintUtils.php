@@ -26,7 +26,7 @@ function printNavBar($page, $username, $level = 1) {
                         </div>
                         </form>
                     <ul class="nav navbar-nav navbar-right">
-                        <li><a href="'.$dir.'/home">Home</a></li>
+                        <li><a href="'.$dir.'/home/index">Home</a></li>
                         <li><a href="'.$dir.'/myprofile">'.$username.'</a></li>
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown"><b class="caret"></b></a>

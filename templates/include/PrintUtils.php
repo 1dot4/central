@@ -59,7 +59,7 @@ function seekerRegistrationDetails($seeker) {
     $joinDate = $seeker->joinDate();
     $name = $seeker->username();
 
-    $res = "Registered <a href='../profile/". $name ."'>" . $name . "</a> on " . $joinDate;
+    $res = "Registered <a href='../profile/". $name ."'>" . $name . "</a> on " . $joinDate . "<hr>";
 
     return $res;
 }

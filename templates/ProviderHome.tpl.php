@@ -4,7 +4,7 @@
         <title>
             Home
         </title>
-        <?php require_once 'include/Css.php' ?>
+        <?php require_once 'include/CssLevel2.php' ?>
         <style>
             .container {
                 margin-top: 90px;
@@ -19,7 +19,7 @@
         <div class="container">
             <?php
             require_once 'include/PrintUtils.php';
-            printNavBar('home', $username)
+            printNavBar('home', $username, 2)
             ?>
             <div class="row">
                 <div class="col-md-2">
@@ -49,6 +49,6 @@
                 </div>
             </div>
         </div>
-        <?php require_once 'include/Scripts.php' ?>
+        <?php require_once 'include/ScriptsLevel2.php' ?>
     </body>
 </html>

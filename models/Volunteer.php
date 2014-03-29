@@ -117,6 +117,29 @@ class Volunteer extends User {
     }
 
     /**
+     * Return user ids of seekers registered by volunteer
+     * @return array User ids of seekers
+     */
+    public function registeredSeekers() {
+        require_once 'libs/DB.php';
+
+        $volunteerId = $this->id();
+
+        $conn = DB::connect();
+
+        $res = $conn->query("SELECT VR.seeker_id, U.join_date FROM volunteer_registration VR, user U WHERE VR.seeker_id=U.id AND VR.volunteer_id = '$volunteerId' ORDER BY U.join_date DESC");
+
+        $seekers = array();
+
+        while($row = $res->fetch(PDO::FETCH_ASSOC)) {
+            $seekerId = $row["seeker_id"];
+            array_push($seekers, $seekerId);
+        }
+
+        return $seekers;
+    }
+
+    /**
      * Getter function for email
      * @return string The volunteer's email
      */

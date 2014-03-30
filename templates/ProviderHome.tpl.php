@@ -9,6 +9,9 @@
             .container {
                 margin-top: 90px;
             }
+            .date {
+                max-width: 160px;
+            }
         </style>
     </head>
     <body>
@@ -24,18 +27,19 @@
                     <a href="post">New job posting</a>
                 </div>
                 <div class="col-md-8">
-				<form>
-				<div class="form-inline">
-					<div class="form-group">
-                    <label>From </label>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-                    <input class="form-control" type="date">
-                </div>
-				<div class="form-group">
-                    &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<label>To </label>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-                    <input class="form-control" type="date">
-                </div>
-				<input type="submit" class="btn btn-primary" value="Search">
-				</div>
+				<form method="post" action="search">
+                    <div class="form-inline">
+                        <div class="form-group">
+                        <label>From: </label>
+                        <input class="form-control date" type="date">
+                    </div>
+                    <div class="form-group">
+                        &nbsp&nbsp
+                        <label>To: </label>
+                        <input class="form-control date" type="date">
+                    </div>
+                    <input type="submit" class="btn btn-primary" value="Search">
+                    </div>
 				</form>
                     <div class="row">
                         <?php

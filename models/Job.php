@@ -184,7 +184,28 @@ class Job {
         $this->positions = $positions;
     }
 
+
     public function type() {
+        if($this->type == '') {
+            require_once 'libs/DB.php';
+
+            $conn = DB::connect();
+
+            $res = $conn->query("SELECT COUNT(*) FROM temporary_job WHERE id='$this->id'");
+
+            if($res->fetchColumn() == 1) {
+                $this->type = 'temporary';
+            }
+
+            $res = $conn->query("SELECT COUNT(*) FROM permanent_job WHERE id='$this->id'");
+
+            if($res->fetchColumn() == 1) {
+                $this->type = 'permanent';
+            }
+
+        }
+
+        return $this->type;
 
     }
 
@@ -257,4 +278,10 @@ class Job {
      * @var string
      */
     private $location;
+
+    /**
+     * Type of job
+     * @var string
+     */
+    private $type;
 }

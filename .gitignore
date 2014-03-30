@@ -2,3 +2,4 @@
 var/config.php
 *~
 *.swp
+*,kate-swp

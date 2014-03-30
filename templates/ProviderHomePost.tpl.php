@@ -14,16 +14,19 @@
 			.form-inline input[type="text"]
 			{
 				font-size: 16px;
-				width: 350px;
 				height: auto;
 			}
+			#text1{
+				width: 350px;
+			}
+
 			textarea {
 				font-size: 16px;
 				min-width: 350px;
 				min-height: 150px;
 			}
 			.bootstrap-tagsinput {
-					width: 100%;
+					width: 70%;
 			}
             .bootstrap-tagsinput {
 
@@ -45,7 +48,7 @@
             .label {
                 display: inline;
                 padding: 0.2em 0.6em 0.3em;
-                font-size: 100%;
+                font-size: 75%;
                 font-weight: bold;
                 line-height: 1;
                 color: rgb(255, 255, 255);
@@ -90,7 +93,7 @@
         <div class="col-md-8">
             <form class="form-inline">
                 <div class="form-group">
-                    <input type="text" class="form-control" placeholder="Job title">
+                    <input  id="text1" type="text" class="form-control" placeholder="Job title">
                 </div>
                 <br><br>
                 <div class="form-group">
@@ -98,19 +101,19 @@
                 </div>
                 <br><br>
                 <div class="form-group">
-					<label>Skills required: </label>
+					<label>Skills required:</label>
 					<br>
 					<div class="bootstrap-tagsinput">
-						<input type="text" data-role="tagsinput" value=""></input> 
+						<input id="text2" type="text" data-role="tagsinput" value=""></input> 
 					</div>
 				</div>
-                <br><br>
+                <br>
                 <div class="form-group">
-                    <input class="form-control" type="text" placeholder="Number of vacancies">
+                    <input class="form-control" id="text1" type="text" placeholder="Number of vacancies">
                 </div>
                 <br><br>
                 <div class="form-group">
-                    <input type="text" class="form-control" placeholder="Location of job" value="<?php echo $location ?>">
+                    <input type="text" class="form-control" id="text1" placeholder="Location of job" value="<?php echo $location ?>">
                 </div>
                 <br><br>
                 <div class="form-group">

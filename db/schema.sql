@@ -77,11 +77,28 @@ CREATE TABLE IF NOT EXISTS `verificationStatus` (
 
 CREATE TABLE IF NOT EXISTS `job` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `title` text NOT NULL,
   `description` text NOT NULL,
   `post_date` timestamp NOT NULL,
   `posted_by_id` bigint(20) NOT NULL,
+  `skills_required` text NOT NULL,
+  `positions` bigint(20) NOT NULL,
+  `start_time` date NOT NULL,
   PRIMARY KEY (`id`),
   FOREIGN KEY (`posted_by_id`) REFERENCES provider(`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+CREATE TABLE IF NOT EXISTS `permanent_job` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (`id`),
+  FOREIGN KEY (`id`) REFERENCES job(`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+CREATE TABLE IF NOT EXISTS `temporary_job` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `duration` bigint(20) NOT NULL,
+  PRIMARY KEY (`id`),
+  FOREIGN KEY (`id`) REFERENCES job(`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 CREATE TABLE IF NOT EXISTS `skill` (

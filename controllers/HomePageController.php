@@ -31,6 +31,7 @@ class HomePageController extends PageController {
             case 'volunteer':
 
                 switch($page) {
+
                     case 'register':
                         require_once 'libs/Session.php';
 

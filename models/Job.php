@@ -37,7 +37,16 @@ class Job {
         }
     }
 
-
+    /**
+     * Add a new job
+     * @param string $title Job title
+     * @param string $description Job description
+     * @param string $postedById Job poster's id
+     * @param int $positions Number of jobs
+     * @param string $startTime Job start time
+     * @param string $location Job location
+     * @return Job The job instance
+     */
     public static function newJob($title, $description, $postedById, $positions = 1, $startTime = '', $location = '') {
         require_once 'libs/DB.php';
 

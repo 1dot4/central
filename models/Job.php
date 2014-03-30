@@ -23,9 +23,14 @@ class Job {
             $res_1 = $conn->query("SELECT * FROM job WHERE id='$id'");
 
             while($row = $res_1->fetch(PDO::FETCH_ASSOC)) {
+		$this->title = $row["title"];
                 $this->description = $row["description"];
                 $this->postedById = $row["posted_by_id"];
                 $this->postDate = $row["post_date"];
+                $this->skill_required = $row["skill_required"];
+                $this->positions = $row["positions"];
+                $this->start_date = $row["start_date"];
+                $this->location_name = $row["location_name"];
             }
         }
         else {
@@ -39,12 +44,12 @@ class Job {
      * @param string $postedById Posted by volunteer's id
      * @return Job The job instance
      */
-    public static function newJob($description, $postedById) {
+    public static function newJob($title, $description, $postedById, $skill_required, $positions, $start_date, $location_name) {
         require_once 'libs/DB.php';
 
         $conn = DB::connect();
 
-        $conn->exec("INSERT INTO job(description, posted_by_id) VALUES('$description', '$postedById')");
+        $conn->exec("INSERT INTO job(title, description, posted_by_id, skill_required, positions, start_date, location_name) VALUES('$title', '$description', '$postedById','$skill_required','$positions','$start_date','$location_name')");
 
         $jobId = $conn->lastInsertId();
 
@@ -61,7 +66,7 @@ class Job {
 
         $conn = DB::connect();
 
-        $conn->exec("UPDATE job SET description='$this->description', posted_by_id='$this->postedById' WHERE id='$this->id'");
+        $conn->exec("UPDATE job SET title= '$this->title', description='$this->description', posted_by_id='$this->postedById', skill_required='$this->skill_required', positions='$this->positions', location_name='$this->location_name' WHERE id='$this->id'");
     }
 
     /**
@@ -79,7 +84,9 @@ class Job {
     public function postedById() {
         return $this->postedById;
     }
-
+    public function title() {
+      return $this->title;
+    }
     /**
      * Setter function for Posted by id
      * @param string $postedById Posted by id

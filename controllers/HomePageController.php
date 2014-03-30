@@ -46,6 +46,7 @@ class HomePageController extends PageController {
                         Session::unsetVar("ERR_MSG");
 
                         $this->setPage('VolunteerHomeRegister.tpl.php');
+
                         break;
 
                     case 'index':
@@ -59,21 +60,36 @@ class HomePageController extends PageController {
 
                         $this->setPage('VolunteerHome.tpl.php');
 
+                        break;
                 }
 
                 break;
 
             case 'provider':
 
-                require_once 'models/Provider.php';
+                switch($page) {
 
-                $user = new Provider($id);
+                    case 'post':
 
-                $jobs = $user->jobPostings();
+                        $this->setPage('ProviderHomePost.tpl.php');
 
-                $this->setVar('jobs', $jobs);
+                        break;
 
-                $this->setPage('ProviderHome.tpl.php');
+                    case 'index':
+
+                        require_once 'models/Provider.php';
+
+                        $user = new Provider($id);
+
+                        $jobs = $user->jobPostings();
+
+                        $this->setVar('jobs', $jobs);
+
+                        $this->setPage('ProviderHome.tpl.php');
+
+                        break;
+                }
+
                 break;
         }
     }

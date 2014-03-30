@@ -35,6 +35,12 @@ class Job {
         else {
             die("Job not found");
         }
+
+        $res = $conn->query("SELECT skill_name FROM job_skill WHERE job_id='$id'");
+
+        while($row = $res->fetch(PDO::FETCH_ASSOC)) {
+            array_push($this->skills, $row["skill_name"]);
+        }
     }
 
     /**
@@ -45,9 +51,10 @@ class Job {
      * @param int $positions Number of jobs
      * @param string $startTime Job start time
      * @param string $location Job location
+     * @param Array $skills Skills required for job
      * @return Job The job instance
      */
-    public static function newJob($title, $description, $postedById, $positions = 1, $startTime = '', $location = '') {
+    public static function newJob($title, $description, $postedById, $positions = 1, $startTime = '', $location = '', $skills = Array()) {
         require_once 'libs/DB.php';
 
         $conn = DB::connect();
@@ -55,6 +62,11 @@ class Job {
         $conn->exec("INSERT INTO job(title, description, posted_by_id, positions, start_date, location_name) VALUES('$title', '$description', '$postedById','$positions','$startTime','$location')");
 
         $jobId = $conn->lastInsertId();
+
+        // Add new skills
+        foreach($skills as $skill) {
+            $conn->exec("INSERT INTO job_skill(job_id, skill_name) VALUES('$jobId', '$skill')");
+        }
 
         $job = new Job($jobId);
 
@@ -70,6 +82,14 @@ class Job {
         $conn = DB::connect();
 
         $conn->exec("UPDATE job SET title= '$this->title', description='$this->description', posted_by_id='$this->postedById', positions='$this->positions', location_name='$this->location', start_time='$this->startTime' WHERE id='$this->id'");
+
+        // Delete old skills
+        $conn->exec("DELETE FROM job_skill WHERE job_id='$this->id'");
+
+        // Add new skills
+        foreach($this->skills as $skill) {
+            $conn->exec("INSERT INTO job_skill(job_id, skill_name) VALUES('$this->id', '$skill')");
+        }
     }
 
     /**
@@ -184,6 +204,22 @@ class Job {
         $this->positions = $positions;
     }
 
+    /**
+     * Getter function for job skills
+     * @return Array The skill set required for job
+     */
+    public function skills() {
+        return $this->skills;
+    }
+
+    /**
+     * Setter function for job skills
+     * @param Array $skills The skill required for job
+     */
+    public function setSkills($skills) {
+        $this->skills = $skills;
+    }
+
 
     public function type() {
         if($this->type == '') {
@@ -284,4 +320,10 @@ class Job {
      * @var string
      */
     private $type;
+
+    /**
+     * Skills for the job
+     * @var Array
+     */
+    private $skills;
 }

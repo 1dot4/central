@@ -86,13 +86,11 @@ CREATE TABLE IF NOT EXISTS `job` (
   `description` text NOT NULL,
   `post_date` timestamp NOT NULL,
   `posted_by_id` bigint(20) NOT NULL,
-  `skill_required` varchar(100) NOT NULL,
   `positions` bigint(20) NOT NULL,
   `start_time` date NOT NULL,
   `location_name` varchar(100) NOT NULL,
   PRIMARY KEY (`id`),
   FOREIGN KEY (`posted_by_id`) REFERENCES provider(`id`),
-  FOREIGN KEY (`skill_required`) REFERENCES skill(`name`),
   FOREIGN KEY (`location_name`) REFERENCES location(`name`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 

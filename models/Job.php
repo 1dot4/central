@@ -23,14 +23,13 @@ class Job {
             $res_1 = $conn->query("SELECT * FROM job WHERE id='$id'");
 
             while($row = $res_1->fetch(PDO::FETCH_ASSOC)) {
-		$this->title = $row["title"];
+		        $this->title = $row["title"];
                 $this->description = $row["description"];
                 $this->postedById = $row["posted_by_id"];
                 $this->postDate = $row["post_date"];
-                $this->skill_required = $row["skill_required"];
                 $this->positions = $row["positions"];
-                $this->start_date = $row["start_date"];
-                $this->location_name = $row["location_name"];
+                $this->startTime = $row["start_date"];
+                $this->location = $row["location_name"];
             }
         }
         else {
@@ -38,18 +37,13 @@ class Job {
         }
     }
 
-    /**
-     * Create a new job and save it to database
-     * @param string $description Job description
-     * @param string $postedById Posted by volunteer's id
-     * @return Job The job instance
-     */
-    public static function newJob($title, $description, $postedById, $skill_required, $positions, $start_date, $location_name) {
+
+    public static function newJob($title, $description, $postedById, $positions = 1, $startTime = '', $location = '') {
         require_once 'libs/DB.php';
 
         $conn = DB::connect();
 
-        $conn->exec("INSERT INTO job(title, description, posted_by_id, skill_required, positions, start_date, location_name) VALUES('$title', '$description', '$postedById','$skill_required','$positions','$start_date','$location_name')");
+        $conn->exec("INSERT INTO job(title, description, posted_by_id, positions, start_date, location_name) VALUES('$title', '$description', '$postedById','$positions','$startTime','$location')");
 
         $jobId = $conn->lastInsertId();
 
@@ -66,7 +60,7 @@ class Job {
 
         $conn = DB::connect();
 
-        $conn->exec("UPDATE job SET title= '$this->title', description='$this->description', posted_by_id='$this->postedById', skill_required='$this->skill_required', positions='$this->positions', location_name='$this->location_name' WHERE id='$this->id'");
+        $conn->exec("UPDATE job SET title= '$this->title', description='$this->description', posted_by_id='$this->postedById', positions='$this->positions', location_name='$this->location', start_time='$this->startTime' WHERE id='$this->id'");
     }
 
     /**
@@ -142,4 +136,28 @@ class Job {
      * @var string
      */
     private $postDate;
+
+    /**
+     * The job title
+     * @var
+     */
+    private $title;
+
+    /**
+     * Number of positions for the job
+     * @var
+     */
+    private $positions;
+
+    /**
+     * The starting date for the job
+     * @var
+     */
+    private $startTime;
+
+    /**
+     * The location of the job
+     * @var
+     */
+    private $location;
 }

@@ -67,17 +67,20 @@ class HomePageController extends PageController {
 
             case 'provider':
 
+                require_once 'models/Provider.php';
+
                 switch($page) {
 
                     case 'post':
 
                         $this->setPage('ProviderHomePost.tpl.php');
 
+                        $user = new Provider($id);
+                        $this->setVar('location', $user->location());
+
                         break;
 
                     case 'index':
-
-                        require_once 'models/Provider.php';
 
                         $user = new Provider($id);
 

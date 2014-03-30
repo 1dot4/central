@@ -5,58 +5,58 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <?php require_once 'include/Css.php' ?>
         <style>
-        .bootstrap-tagsinput {
+            .bootstrap-tagsinput {
                 width: 100%;
-               }
-.bootstrap-tagsinput {
-   
-    display: inline-block;
-    padding: 4px 6px;
-    margin-bottom: 10px;
-    color: rgb(85, 85, 85);
-    vertical-align: middle;
-    border-radius: 4px;
-    max-width: 100%;
-    line-height: 22px;
-}
-.bootstrap-tagsinput .tag {
-    margin-right: 2px;
-    color: white;
-}
-.label-info {
-    background-color: rgb(91, 192, 222);
-}
-.label {
-    display: inline;
-    padding: 0.2em 0.6em 0.3em;
-    font-size: 75%;
-    font-weight: bold;
-    line-height: 1;
-    color: rgb(255, 255, 255);
-    text-align: center;
-    white-space: nowrap;
-    vertical-align: baseline;
-    border-radius: 0.25em;
-}
-*, *:before, *:after {
-    -moz-box-sizing: border-box;
-}
-.bootstrap-tagsinput .tag [data-role="remove"]:after {
-    content: "x";
-    padding: 0px 2px;
-}
-element {
-}
-.bootstrap-tagsinput .tag [data-role="remove"] {
-    margin-left: 8px;
-    cursor: pointer;
-}
-*, *:before, *:after {
-    -moz-box-sizing: border-box;
-}
-*, *:before, *:after {
-    -moz-box-sizing: border-box;
-}
+            }
+            .bootstrap-tagsinput {
+
+                display: inline-block;
+                padding: 4px 6px;
+                margin-bottom: 10px;
+                color: rgb(85, 85, 85);
+                vertical-align: middle;
+                border-radius: 4px;
+                max-width: 100%;
+                line-height: 22px;
+            }
+            .bootstrap-tagsinput .tag {
+                margin-right: 2px;
+                color: white;
+            }
+            .label-info {
+                background-color: rgb(91, 192, 222);
+            }
+            .label {
+                display: inline;
+                padding: 0.2em 0.6em 0.3em;
+                font-size: 75%;
+                font-weight: bold;
+                line-height: 1;
+                color: rgb(255, 255, 255);
+                text-align: center;
+                white-space: nowrap;
+                vertical-align: baseline;
+                border-radius: 0.25em;
+            }
+            *, *:before, *:after {
+                -moz-box-sizing: border-box;
+            }
+            .bootstrap-tagsinput .tag [data-role="remove"]:after {
+                content: "x";
+                padding: 0px 2px;
+            }
+            element {
+            }
+            .bootstrap-tagsinput .tag [data-role="remove"] {
+                margin-left: 8px;
+                cursor: pointer;
+            }
+            *, *:before, *:after {
+                -moz-box-sizing: border-box;
+            }
+            *, *:before, *:after {
+                -moz-box-sizing: border-box;
+            }
             .form-inline, .dp-box {
                 max-width: 350px;
                 padding: 29px;
@@ -215,11 +215,8 @@ element {
     <br><br>
         <input type="submit" value="Save changes" class="btn btn-primary">
     </form>
-
     <?php require_once 'include/Scripts.php' ?>
     </body>
     <script src="./public/tagsinput/js/bootstrap-tagsinput.js"></script>
-
     <script src="./public/tagsinput/js/typeahead.min.js"></script>
-
 </html>

@@ -114,3 +114,11 @@ CREATE TABLE IF NOT EXISTS `seeker_skill` (
   FOREIGN KEY (`seeker_id`) REFERENCES seeker(`id`),
   FOREIGN KEY (`skill_name`) REFERENCES skill(`name`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+CREATE TABLE IF NOT EXISTS `job_skill` (
+  `job_id` bigint(20) NOT NULL,
+  `skill_name` varchar(100) NOT NULL,
+  PRIMARY KEY (`job_id`, `skill_name`),
+  FOREIGN KEY (`job_id`) REFERENCES job(`id`),
+  FOREIGN KEY (`skill_name`) REFERENCES skill(`name`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;

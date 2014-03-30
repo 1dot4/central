@@ -16,6 +16,7 @@ class Seeker extends User {
         $this->experience = "";
         $this->currentLocation = "";
         $this->preferredLocation = "";
+        $this->skills = array();
 
         require_once 'libs/DB.php';
 
@@ -34,6 +35,12 @@ class Seeker extends User {
 
         } else {
             die("Seeker not found");
+        }
+
+        $res = $conn->query("SELECT skill_name FROM seeker_skill WHERE seeker_id='$id'");
+
+        while($row = $res->fetch(PDO::FETCH_ASSOC)) {
+            array_push($this->skills, $row["skill_name"]);
         }
     }
 
@@ -71,10 +78,18 @@ class Seeker extends User {
         require_once 'libs/DB.php';
         $conn = DB::connect();
 
-        $seeker_id = $this->id();
+        $seekerId = $this->id();
 
         // Update the seeker table
-        $conn->exec("UPDATE seeker SET experience='$this->experience', pref_location_name='$this->preferredLocation', curr_location_name='$this->currentLocation' WHERE id='$seeker_id'");
+        $conn->exec("UPDATE seeker SET experience='$this->experience', pref_location_name='$this->preferredLocation', curr_location_name='$this->currentLocation' WHERE id='$seekerId'");
+
+        // Delete old skills
+        $conn->exec("DELETE FROM seeker_skill WHERE seeker_id='$seekerId'");
+
+        // Add new skills
+        foreach($this->skills as $skill) {
+            $conn->exec("INSERT INTO seeker_skill(seeker_id, skill_name) VALUES('$seekerId', '$skill')");
+        }
     }
 
     /**
@@ -126,6 +141,22 @@ class Seeker extends User {
     }
 
     /**
+     * Getter function for seeker's skills
+     * @return Array The skill set of seeker
+     */
+    public function skills() {
+        return $this->skills;
+    }
+
+    /**
+     * Setter function for seeker's skills
+     * @param Array $skills The skill set of seeker
+     */
+    public function setSkills($skills) {
+        $this->skills = $skills;
+    }
+
+    /**
      * Number of years of experience of seeker
      * @var int
      */
@@ -142,4 +173,10 @@ class Seeker extends User {
      * @var string
      */
     private $currentLocation;
+
+    /**
+     * Skills of the seeker
+     * @var Array
+     */
+    private $skills;
 } 

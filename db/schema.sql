@@ -13,6 +13,11 @@ CREATE TABLE IF NOT EXISTS `location` (
   PRIMARY KEY (`name`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 ;
 
+CREATE TABLE IF NOT EXISTS `skill` (
+  `name` varchar(100) NOT NULL,
+  PRIMARY KEY (`name`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
 CREATE TABLE IF NOT EXISTS `user` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `username` varchar(300) NOT NULL,
@@ -102,11 +107,6 @@ CREATE TABLE IF NOT EXISTS `temporary_job` (
   `duration` bigint(20) NOT NULL,
   PRIMARY KEY (`id`),
   FOREIGN KEY (`id`) REFERENCES job(`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
-CREATE TABLE IF NOT EXISTS `skill` (
-  `name` varchar(100) NOT NULL,
-  PRIMARY KEY (`name`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 CREATE TABLE IF NOT EXISTS `seeker_skill` (

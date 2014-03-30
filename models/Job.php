@@ -184,6 +184,32 @@ class Job {
         $this->positions = $positions;
     }
 
+    public function type() {
+
+    }
+
+    /**
+     * Get jobs posted in a date range
+     * @param string $from The start date
+     * @param string $to The end date
+     * @return array Array of job ids
+     */
+    public static function postedInDuration($from, $to) {
+        require_once 'libs/DB.php';
+
+        $conn = DB::connect();
+
+        $res = $conn->query("SELECT id FROM job WHERE post_date>='$from' AND post_date<='$to' ");
+
+        $jobIds = array();
+
+        while($row = $res->fetch(PDO::FETCH_ASSOC)) {
+            array_push($jobIds, $row["id"]);
+        }
+
+        return $jobIds;
+    }
+
     /**
      * The job id
      * @var string

@@ -206,12 +206,10 @@
         <br><br>
         <div class="form-group">
             <label>Skills: </label><br>
-         
-        <div class="bootstrap-tagsinput">
-        <input type="text" data-role="tagsinput" value="Pulember,Labourer" style="display: none;"></input> 
-
-        </div>
-    </div>
+			<div class="bootstrap-tagsinput">
+				<input type="text" data-role="tagsinput" value="Plumber,Labourer"></input> 
+			</div>
+		</div>
     <br><br>
         <input type="submit" value="Save changes" class="btn btn-primary">
     </form>

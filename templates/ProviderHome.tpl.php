@@ -23,6 +23,9 @@
             ?>
             <div class="row">
                 <div class="col-md-2">
+                    <a href="index">Job postings by me</a>
+                    <hr>
+                    <a href="post">New job posting</a>
                 </div>
                 <div class="col-md-8">
                     <div class="row">

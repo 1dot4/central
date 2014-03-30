@@ -23,14 +23,13 @@ class Job {
             $res_1 = $conn->query("SELECT * FROM job WHERE id='$id'");
 
             while($row = $res_1->fetch(PDO::FETCH_ASSOC)) {
-		$this->title = $row["title"];
+		        $this->title = $row["title"];
                 $this->description = $row["description"];
                 $this->postedById = $row["posted_by_id"];
                 $this->postDate = $row["post_date"];
-                $this->skill_required = $row["skill_required"];
                 $this->positions = $row["positions"];
-                $this->start_date = $row["start_date"];
-                $this->location_name = $row["location_name"];
+                $this->startTime = $row["start_date"];
+                $this->location = $row["location_name"];
             }
         }
         else {
@@ -39,17 +38,21 @@ class Job {
     }
 
     /**
-     * Create a new job and save it to database
+     * Add a new job
+     * @param string $title Job title
      * @param string $description Job description
-     * @param string $postedById Posted by volunteer's id
+     * @param string $postedById Job poster's id
+     * @param int $positions Number of jobs
+     * @param string $startTime Job start time
+     * @param string $location Job location
      * @return Job The job instance
      */
-    public static function newJob($title, $description, $postedById, $skill_required, $positions, $start_date, $location_name) {
+    public static function newJob($title, $description, $postedById, $positions = 1, $startTime = '', $location = '') {
         require_once 'libs/DB.php';
 
         $conn = DB::connect();
 
-        $conn->exec("INSERT INTO job(title, description, posted_by_id, skill_required, positions, start_date, location_name) VALUES('$title', '$description', '$postedById','$skill_required','$positions','$start_date','$location_name')");
+        $conn->exec("INSERT INTO job(title, description, posted_by_id, positions, start_date, location_name) VALUES('$title', '$description', '$postedById','$positions','$startTime','$location')");
 
         $jobId = $conn->lastInsertId();
 
@@ -66,7 +69,7 @@ class Job {
 
         $conn = DB::connect();
 
-        $conn->exec("UPDATE job SET title= '$this->title', description='$this->description', posted_by_id='$this->postedById', skill_required='$this->skill_required', positions='$this->positions', location_name='$this->location_name' WHERE id='$this->id'");
+        $conn->exec("UPDATE job SET title= '$this->title', description='$this->description', posted_by_id='$this->postedById', positions='$this->positions', location_name='$this->location', start_time='$this->startTime' WHERE id='$this->id'");
     }
 
     /**
@@ -84,9 +87,7 @@ class Job {
     public function postedById() {
         return $this->postedById;
     }
-    public function title() {
-      return $this->title;
-    }
+
     /**
      * Setter function for Posted by id
      * @param string $postedById Posted by id
@@ -120,6 +121,117 @@ class Job {
     }
 
     /**
+     * Getter function for the job title
+     * @return string The job title
+     */
+    public function title() {
+        return $this->title;
+    }
+
+    /**
+     * Setter function for the job title
+     * @param string $title The job title
+     */
+    public function setTitle($title) {
+        $this->title = $title;
+    }
+
+    /**
+     * Getter function for the job location
+     * @return string The job location
+     */
+    public function location() {
+        return $this->location;
+    }
+
+    /**
+     * Setter function for the job location
+     * @param string $location The job location
+     */
+    public function setLocation($location) {
+        $this->location = $location;
+    }
+
+    /**
+     * Getter function for the start time
+     * @return string The start time of job
+     */
+    public function startTime() {
+        return $this->startTime;
+    }
+
+    /**
+     * Setter function for the start date
+     * @param string $startTime The job start date
+     */
+    public function setStartTime($startTime) {
+        $this->startTime = $startTime;
+    }
+
+    /**
+     * Getter function for number of positions
+     * @return int Number of positions
+     */
+    public function positions() {
+        return $this->positions;
+    }
+
+    /**
+     * Setter function for number of positions
+     * @param int $positions Number of positions
+     */
+    public function setPositions($positions) {
+        $this->positions = $positions;
+    }
+
+
+    public function type() {
+        if($this->type == '') {
+            require_once 'libs/DB.php';
+
+            $conn = DB::connect();
+
+            $res = $conn->query("SELECT COUNT(*) FROM temporary_job WHERE id='$this->id'");
+
+            if($res->fetchColumn() == 1) {
+                $this->type = 'temporary';
+            }
+
+            $res = $conn->query("SELECT COUNT(*) FROM permanent_job WHERE id='$this->id'");
+
+            if($res->fetchColumn() == 1) {
+                $this->type = 'permanent';
+            }
+
+        }
+
+        return $this->type;
+
+    }
+
+    /**
+     * Get jobs posted in a date range
+     * @param string $from The start date
+     * @param string $to The end date
+     * @return array Array of job ids
+     */
+    public static function postedInDuration($from, $to) {
+        require_once 'libs/DB.php';
+
+        $conn = DB::connect();
+
+        $res = $conn->query("SELECT id FROM job WHERE post_date>='$from' AND post_date<='$to' ");
+
+        $jobIds = array();
+
+        while($row = $res->fetch(PDO::FETCH_ASSOC)) {
+            array_push($jobIds, $row["id"]);
+        }
+
+        return $jobIds;
+    }
+
+    /**
      * The job id
      * @var string
      */
@@ -142,4 +254,34 @@ class Job {
      * @var string
      */
     private $postDate;
+
+    /**
+     * The job title
+     * @var
+     */
+    private $title;
+
+    /**
+     * Number of positions for the job
+     * @var int
+     */
+    private $positions;
+
+    /**
+     * The starting date for the job
+     * @var string
+     */
+    private $startTime;
+
+    /**
+     * The location of the job
+     * @var string
+     */
+    private $location;
+
+    /**
+     * Type of job
+     * @var string
+     */
+    private $type;
 }

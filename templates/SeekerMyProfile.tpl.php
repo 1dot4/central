@@ -79,9 +79,12 @@
             .form-inline input[type="text"]
             {
                 font-size: 16px;
-                width: 290px;
                 height: auto;
             }
+			
+			#text1{
+				width: 290px;
+			}
 
             hr {
                 border-top: 1px solid #dddddd;
@@ -156,17 +159,17 @@
         <hr>
         <div class="form-group">
             <label>Full Name:</label>
-            <input name="fullname" class="form-control" type="text" placeholder="Your full name" value="<?php echo $fullName ?>">
+            <input name="fullname" class="form-control" id="text1" type="text" placeholder="Your full name" value="<?php echo $fullName ?>">
         </div>
         <br><br>
         <div class="form-group">
             <label>Current Location:</label>
-            <input name="curr-location" class="form-control" type="text" placeholder="Your current location" value="<?php echo $currLocation ?>">
+            <input name="curr-location" class="form-control" id="text1" type="text" placeholder="Your current location" value="<?php echo $currLocation ?>">
         </div>
         <br><br>
         <div class="form-group">
             <label>Preferred Job Location:</label>
-            <input name="pref-location" class="form-control" type="text" placeholder="Your preferred job location" value="<?php echo $prefLocation ?>">
+            <input name="pref-location" class="form-control" id="text1" type="text" placeholder="Your preferred job location" value="<?php echo $prefLocation ?>">
         </div>
         <br><br>
         <input type="submit" value="Save Changes" class="btn btn-primary">
@@ -176,7 +179,7 @@
         <hr>
         <div class="form-group">
             <label>Mobile:</label>
-            <input name="phone" class="form-control" type="text" placeholder="Your mobile number" value="<?php echo $phone ?>">
+            <input name="phone" class="form-control" id="text1" type="text" placeholder="Your mobile number" value="<?php echo $phone ?>">
         </div>
         <br><br>
         <input type="submit" value="Save Changes" class="btn btn-primary">
@@ -201,7 +204,7 @@
         <hr>
         <div class="form-group">
             <label>Experience in years:</label><br>
-            <input name="experience" class="form-control" type="text" placeholder="Your experience in years" value="<?php echo $experience ?>">
+            <input name="experience" class="form-control" id="text1" type="text" placeholder="Your experience in years" value="<?php echo $experience ?>">
         </div>
         <br><br>
         <div class="form-group">

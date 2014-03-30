@@ -9,6 +9,22 @@
         .container {
             margin-top: 90px;
         }
+        .form-inline input[type="email"],
+        .form-inline input[type="password"],
+        .form-inline input[type="text"]
+        {
+            font-size: 16px;
+            width: 350px;
+            height: auto;
+        }
+        textarea {
+            font-size: 16px;
+            min-width: 350px;
+            min-height: 150px;
+        }
+        input[type="submit"] {
+            margin-left: 170px;
+        }
     </style>
 </head>
 <body>
@@ -52,13 +68,15 @@
                 </div>
                 <br><br>
                 <div class="form-group">
-                    <label>Start date: </label>
+                    <label>Start date: </label>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
                     <input class="form-control" type="date">
                 </div>
                 <br><br>
                 <div class="form-group" id="durationInput">
                     <input class="form-control" type="text" placeholder="Duration of job(in days)">
                 </div>
+                <br><br>
+                <input type="submit" class="btn btn-primary" value="Post Job">
             </form>
         </div>
     </div>

@@ -78,9 +78,7 @@ class Job {
     public function postedById() {
         return $this->postedById;
     }
-    public function title() {
-      return $this->title;
-    }
+
     /**
      * Setter function for Posted by id
      * @param string $postedById Posted by id
@@ -111,6 +109,70 @@ class Job {
      */
     public function postDate() {
         return $this->postDate;
+    }
+
+    /**
+     * Getter function for the job title
+     * @return string The job title
+     */
+    public function title() {
+        return $this->title;
+    }
+
+    /**
+     * Setter function for the job title
+     * @param string $title The job title
+     */
+    public function setTitle($title) {
+        $this->title = $title;
+    }
+
+    /**
+     * Getter function for the job location
+     * @return string The job location
+     */
+    public function location() {
+        return $this->location;
+    }
+
+    /**
+     * Setter function for the job location
+     * @param string $location The job location
+     */
+    public function setLocation($location) {
+        $this->location = $location;
+    }
+
+    /**
+     * Getter function for the start time
+     * @return string The start time of job
+     */
+    public function startTime() {
+        return $this->startTime;
+    }
+
+    /**
+     * Setter function for the start date
+     * @param string $startTime The job start date
+     */
+    public function setStartTime($startTime) {
+        $this->startTime = $startTime;
+    }
+
+    /**
+     * Getter function for number of positions
+     * @return int Number of positions
+     */
+    public function positions() {
+        return $this->positions;
+    }
+
+    /**
+     * Setter function for number of positions
+     * @param int $positions Number of positions
+     */
+    public function setPositions($positions) {
+        $this->positions = $positions;
     }
 
     /**
@@ -145,19 +207,19 @@ class Job {
 
     /**
      * Number of positions for the job
-     * @var
+     * @var int
      */
     private $positions;
 
     /**
      * The starting date for the job
-     * @var
+     * @var string
      */
     private $startTime;
 
     /**
      * The location of the job
-     * @var
+     * @var string
      */
     private $location;
 }

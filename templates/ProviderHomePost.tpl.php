@@ -9,10 +9,6 @@
         .container {
             margin-top: 90px;
         }
-        #post-input {
-            min-width: 600px;
-            min-height: 100px;
-        }
     </style>
 </head>
 <body>
@@ -29,7 +25,7 @@
         </div>
         <div class="col-md-8">
             <div class="row">
-                
+
             </div>
         </div>
     </div>

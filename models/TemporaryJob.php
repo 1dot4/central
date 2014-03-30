@@ -14,7 +14,7 @@ class TemporaryJob extends Job {
         parent::__construct($id);
 
         // Assign duration
-        require_once 'libs/DB.php'
+        require_once 'libs/DB.php';
         $conn  = DB::connect();
          
         $res = $conn->query("SELECT COUNT(*) FROM job WHERE id='$id'");
@@ -24,7 +24,7 @@ class TemporaryJob extends Job {
 	    $res_1 = $conn->query("SELECT * FROM job WHERE id='$id'");
 
             while($row = $res_1->fetch(PDO::FETCH_ASSOC)) {
-		  $this->duration = $row["duration"];
+		        $this->duration = $row["duration"];
             }
         }
         else {
@@ -33,7 +33,7 @@ class TemporaryJob extends Job {
     }
 
     /**
-     * Add a new tenmporary job
+     * Add a new temporary job
      * @param string $title Job title
      * @param string $description Job description
      * @param string $postedById Job poster's id

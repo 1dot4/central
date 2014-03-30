@@ -14,6 +14,22 @@ class TemporaryJob extends Job {
         parent::__construct($id);
 
         // Assign duration
+        require_once 'libs/DB.php'
+        $conn  = DB::connect();
+         
+        $res = $conn->query("SELECT COUNT(*) FROM job WHERE id='$id'");
+
+        if($res->fetchColumn() == 1) {
+
+	    $res_1 = $conn->query("SELECT * FROM job WHERE id='$id'");
+
+            while($row = $res_1->fetch(PDO::FETCH_ASSOC)) {
+		  $this->duration = $row["duration"];
+            }
+        }
+        else {
+            die("Temporary job not found");
+        }
     }
 
     /**
@@ -28,9 +44,18 @@ class TemporaryJob extends Job {
      * @return Job The job instance
      */
     public static function newJob($title, $description, $postedById, $positions = 1, $startTime = '', $location = '', $duration = 0) {
-        parent::newJob($title, $description, $postedById, $positions = 1, $startTime = '', $location = '');
+         $jobId = parent::newJob($title, $description, $postedById, $positions = 1, $startTime = '', $location = '');
 
         // Add duration to database
+        require_once 'libs/DB.php';
+
+        $conn = DB::connect();
+
+        $conn->exec("INSERT INTO job(id, duration) VALUES('$jobId','$duration')");
+
+        $job = new TemporaryJob($jobId);
+
+        return $job;
     }
 
     /**

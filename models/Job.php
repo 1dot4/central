@@ -184,6 +184,53 @@ class Job {
         $this->positions = $positions;
     }
 
+
+    public function type() {
+        if($this->type == '') {
+            require_once 'libs/DB.php';
+
+            $conn = DB::connect();
+
+            $res = $conn->query("SELECT COUNT(*) FROM temporary_job WHERE id='$this->id'");
+
+            if($res->fetchColumn() == 1) {
+                $this->type = 'temporary';
+            }
+
+            $res = $conn->query("SELECT COUNT(*) FROM permanent_job WHERE id='$this->id'");
+
+            if($res->fetchColumn() == 1) {
+                $this->type = 'permanent';
+            }
+
+        }
+
+        return $this->type;
+
+    }
+
+    /**
+     * Get jobs posted in a date range
+     * @param string $from The start date
+     * @param string $to The end date
+     * @return array Array of job ids
+     */
+    public static function postedInDuration($from, $to) {
+        require_once 'libs/DB.php';
+
+        $conn = DB::connect();
+
+        $res = $conn->query("SELECT id FROM job WHERE post_date>='$from' AND post_date<='$to' ");
+
+        $jobIds = array();
+
+        while($row = $res->fetch(PDO::FETCH_ASSOC)) {
+            array_push($jobIds, $row["id"]);
+        }
+
+        return $jobIds;
+    }
+
     /**
      * The job id
      * @var string
@@ -231,4 +278,10 @@ class Job {
      * @var string
      */
     private $location;
+
+    /**
+     * Type of job
+     * @var string
+     */
+    private $type;
 }

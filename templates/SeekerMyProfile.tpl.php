@@ -210,7 +210,7 @@
         <div class="form-group">
             <label>Skills: </label><br>
 			<div class="bootstrap-tagsinput">
-				<input type="text" data-role="tagsinput" value="Plumber,Labourer"></input> 
+				<input type="text" data-role="tagsinput" value="<?php echo $skills ?>" name="skills">
 			</div>
 		</div>
     <br><br>

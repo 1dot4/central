@@ -41,10 +41,13 @@ class TemporaryJob extends Job {
      * @param string $startTime Job start time
      * @param string $location Job location
      * @param int $duration Job duration
+     * @param Array $skills Skills for job
      * @return Job The job instance
      */
-    public static function newJob($title, $description, $postedById, $positions = 1, $startTime = '', $location = '', $duration = 0) {
-         $jobId = parent::newJob($title, $description, $postedById, $positions = 1, $startTime = '', $location = '');
+    public static function newJob($title, $description, $postedById, $positions = 1, $startTime = '', $location = '', $duration = 0, $skills = Array()) {
+        $job = parent::newJob($title, $description, $postedById, $positions, $startTime, $location, $skills);
+
+        $jobId = $job->id();
 
         // Add duration to database
         require_once 'libs/DB.php';

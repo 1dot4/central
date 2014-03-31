@@ -28,7 +28,7 @@ class Job {
                 $this->postedById = $row["posted_by_id"];
                 $this->postDate = $row["post_date"];
                 $this->positions = $row["positions"];
-                $this->startTime = $row["start_date"];
+                $this->startTime = $row["start_time"];
                 $this->location = $row["location_name"];
             }
         }
@@ -55,14 +55,15 @@ class Job {
      * @return Job The job instance
      */
     public static function newJob($title, $description, $postedById, $positions = 1, $startTime = '', $location = '', $skills = Array()) {
+
         require_once 'libs/DB.php';
 
         $conn = DB::connect();
 
-        $conn->exec("INSERT INTO job(title, description, posted_by_id, positions, start_date, location_name) VALUES('$title', '$description', '$postedById','$positions','$startTime','$location')");
+        $conn->exec("INSERT INTO job(title, description, posted_by_id, positions, start_time, location_name) VALUES('$title', '$description', '$postedById','$positions','$startTime','$location')");
 
         $jobId = $conn->lastInsertId();
-
+        
         // Add new skills
         foreach($skills as $skill) {
             $conn->exec("INSERT INTO job_skill(job_id, skill_name) VALUES('$jobId', '$skill')");

@@ -116,7 +116,7 @@
                 <br><br>
                 <div class="form-group">
                     <label>Type of job:</label>&nbsp&nbsp
-                    <input id="temporary" type="radio" name="type" value="temporary" checked>&nbspTemporary&nbsp&nbsp
+                    <input id="temporary" type="radio" name="type" value="temporary" checked >&nbspTemporary&nbsp&nbsp
                     <input id="permanent" type="radio" name="type" value="permanent">&nbspPermanent
                 </div>
                 <br><br>
@@ -124,24 +124,35 @@
                     <label>Start date: </label>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
                     <input name="start" class="form-control" type="date">
                 </div>
-                <br><br>
-                <div class="form-group" id="durationInput">
-                    <input name="duration" class="form-control" type="text" placeholder="Duration of job(in days)">
+            <!--     <br><br> -->                           
+                <div id="durationInput">                
+                </div>                
+
+                <div id="postjob">
                 </div>
-                <br><br><br>
-                <input type="submit" class="btn btn-primary" value="Post Job">
+             <script type="text/javascript">   document.getElementById('durationInput').innerHTML = "<br><div class='form-group'><input name='duration' class='form-control' type='text' placeholder='Duration of job(in days)'></div>";                      
+             document.getElementById('postjob').innerHTML = "<div class='form-group'><br><input id='postjob' type='submit' class='btn btn-primary' value='Post Job'></div>";
+             </script>               
             </form>
         </div>
     </div>
 </div>
 <?php require_once 'include/ScriptsLevel2.php' ?>
+<script type="text/javascript">
+function myFunction()
+{document.getElementById('durationInput').innerHTML = "<br><div class='form-group'><input name='duration' class='form-control' type='text' placeholder='Duration of job(in days)'></div>";                      
+ document.getElementById('postjob').innerHTML = "<div class='form-group'><br><input id='postjob' type='submit' class='btn btn-primary' value='Post Job'></div>";
+}
+</script>
 <script>
     var permanent = false;
     $("#temporary, #permanent").change(function() {
-        if(permanent) {
-            $("#durationInput").fadeIn();
-        } else {
+        if(!permanent) {
             $("#durationInput").fadeOut();
+            document.getElementById('postjob').innerHTML = "<div class='form-group'><br><input id='postjob' type='submit' class='btn btn-primary' value='Post Job'>";          
+        } else {
+            $("#durationInput").fadeIn();
+            myFunction(); 
         }
         permanent = !permanent;
     });

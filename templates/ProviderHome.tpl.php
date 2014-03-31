@@ -29,7 +29,15 @@
                 <div class="col-md-8">
 				<form method="post" action="search">
                     <div class="form-inline">
-                        <div class="form-group">
+		      <div class="form-group">
+			<label> Job type </label>
+			<select>
+			  <option value="temporaryJob">Temporary</option>
+			  <option value="permanentJob">Permanent</option>
+			</select>
+		      </div>
+		      
+                    <div class="form-group">
                         <label>From: </label>
                         <input class="form-control date" type="date" name="from_date">
                     </div>
@@ -40,28 +48,28 @@
                     </div>
                     <input type="submit" class="btn btn-primary" value="Search">
                     </div>
-				</form>
+		  </form>
                     <div class="row">
+                        <br>
                         <?php
                             //require_once 'include/PrintUtils.php';
                             //echo $jobIds;
                             if(sizeof($jobIds) != 0) {
                                     foreach($jobIds as $job) {
                                         echo $job;
-                                        //echo "<br>";
-                                        /*echo $job["description"];
-                                        echo "<br>";
-                                        echo "Posted by " . linkedName($job["posted_by_id"]) . " on " . $job["post_date"];
-                                        echo "<hr>";*/
                                     }
                             } else if(sizeof($jobs) !=0 ) {
                                 
                                     foreach($jobs as $job) {
+                                        echo "<b><h4>";
+                                        echo $job["title"];
+                                        echo "</b><br></h4>";
                                         echo $job["description"];
                                         echo "<br>";
                                         echo "Posted by " . linkedName($job["posted_by_id"]) . " on " . $job["post_date"];
                                         echo "<hr>";
                                     }
+
                             }
                             else {
                                 echo "You have not posted any jobs!!";

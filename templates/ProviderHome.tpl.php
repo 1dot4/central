@@ -50,11 +50,15 @@
                     </div>
 		  </form>
                     <div class="row">
+                        <br>
                         <?php
                             require_once 'include/PrintUtils.php';
                             foreach($jobs as $job) {
+                                echo "<b><h4>";
+                                echo $job["title"];
+                                echo "</b><br></h4>";
                                 echo $job["description"];
-                                echo "<br>";
+                                echo "<br><br>";
                                 echo "Posted by " . linkedName($job["posted_by_id"]) . " on " . $job["post_date"];
                                 echo "<hr>";
                             }

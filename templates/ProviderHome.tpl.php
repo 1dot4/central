@@ -18,7 +18,7 @@
         <div class="container">
             <?php
             require_once 'include/PrintUtils.php';
-            printNavBar('home', $username, 2)
+            printNavBar('home', $username, 2);
             ?>
             <div class="row">
                 <div class="col-md-2">
@@ -31,25 +31,42 @@
                     <div class="form-inline">
                         <div class="form-group">
                         <label>From: </label>
-                        <input class="form-control date" type="date">
+                        <input class="form-control date" type="date" name="from_date">
                     </div>
                     <div class="form-group">
                         &nbsp&nbsp
                         <label>To: </label>
-                        <input class="form-control date" type="date">
+                        <input class="form-control date" type="date" name="to_date">
                     </div>
                     <input type="submit" class="btn btn-primary" value="Search">
                     </div>
 				</form>
                     <div class="row">
                         <?php
-                            require_once 'include/PrintUtils.php';
-                            foreach($jobs as $job) {
-                                echo $job["description"];
-                                echo "<br>";
-                                echo "Posted by " . linkedName($job["posted_by_id"]) . " on " . $job["post_date"];
-                                echo "<hr>";
+                            //require_once 'include/PrintUtils.php';
+                            //echo $jobIds;
+                            if(sizeof($jobIds) != 0) {
+                                    foreach($jobIds as $job) {
+                                        echo $job;
+                                        //echo "<br>";
+                                        /*echo $job["description"];
+                                        echo "<br>";
+                                        echo "Posted by " . linkedName($job["posted_by_id"]) . " on " . $job["post_date"];
+                                        echo "<hr>";*/
+                                    }
+                            } else if(sizeof($jobs) !=0 ) {
+                                
+                                    foreach($jobs as $job) {
+                                        echo $job["description"];
+                                        echo "<br>";
+                                        echo "Posted by " . linkedName($job["posted_by_id"]) . " on " . $job["post_date"];
+                                        echo "<hr>";
+                                    }
                             }
+                            else {
+                                echo "You have not posted any jobs!!";
+                            }
+                            
                         ?>
                     </div>
                 </div>

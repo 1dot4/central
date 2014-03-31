@@ -85,14 +85,47 @@ class HomePageController extends PageController {
                         $user = new Provider($id);
 
                         $jobs = $user->jobPostings();
+                        
+                        //$j = new Job($id);
+                        
+                        //$jobIds = j->getAllJobIds();
+                        
+                        $jobIds = Array();
 
                         $this->setVar('jobs', $jobs);
+                        
+                        $this->setVar('jobIds',$jobIds);
+                        
+                        //die($jobIds);
 
                         $this->setPage('ProviderHome.tpl.php');
 
                         break;
-                }
+                     
+                     case 'search':
+                        
+                        $j = new Job($id);
 
+                        $from = $_POST["from_date"];
+                        
+                        $to = $_POST["to_date"];
+                        
+                        $jobIds = array();
+                        
+                        $jobIds = $j->postedInDuration($from, $to);
+                        
+                        //die($jobIds);
+                        
+                        $jobs = Array();
+                        
+                        $this->setVar('jobIds',$jobIds);
+                        
+                        $this->setVar('jobs', $jobs);
+                        
+                        $this->setPage('ProviderHome.tpl.php');
+                        break;
+                }
+                
                 break;
         }
     }

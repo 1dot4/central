@@ -89,7 +89,7 @@
             <a href="post">New job posting</a>
         </div>
         <div class="col-md-8">
-            <form class="form-inline">
+            <form class="form-inline" action="../job.post" method="post">
                 <div class="form-group">
                     <input name="title" id="text1" type="text" class="form-control" placeholder="Job title">
                 </div>

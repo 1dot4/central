@@ -64,8 +64,6 @@
                 content: "x";
                 padding: 0px 2px;
             }
-            element {
-            }
             .bootstrap-tagsinput .tag [data-role="remove"] {
                 margin-left: 8px;
                 cursor: pointer;
@@ -93,27 +91,27 @@
         <div class="col-md-8">
             <form class="form-inline">
                 <div class="form-group">
-                    <input  id="text1" type="text" class="form-control" placeholder="Job title">
+                    <input name="title" id="text1" type="text" class="form-control" placeholder="Job title">
                 </div>
                 <br><br>
                 <div class="form-group">
-                    <textarea class="form-control" placeholder="Job description"></textarea>
+                    <textarea name="description" class="form-control" placeholder="Job description"></textarea>
                 </div>
                 <br><br>
                 <div class="form-group">
 					<label>Skills required:</label>
 					<br>
 					<div class="bootstrap-tagsinput">
-						<input id="text2" type="text" data-role="tagsinput" value=""></input> 
+						<input name="skills" id="text2" type="text" data-role="tagsinput" value="">
 					</div>
 				</div>
                 <br>
                 <div class="form-group">
-                    <input class="form-control" id="text1" type="text" placeholder="Number of vacancies">
+                    <input name="positions" class="form-control" id="text1" type="text" placeholder="Number of vacancies">
                 </div>
                 <br><br>
                 <div class="form-group">
-                    <input type="text" class="form-control" id="text1" placeholder="Location of job" value="<?php echo $location ?>">
+                    <input type="text" name="location" class="form-control" id="text1" placeholder="Location of job" value="<?php echo $location ?>">
                 </div>
                 <br><br>
                 <div class="form-group">
@@ -124,11 +122,11 @@
                 <br><br>
                 <div class="form-group">
                     <label>Start date: </label>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-                    <input class="form-control" type="date">
+                    <input name="start" class="form-control" type="date">
                 </div>
                 <br><br>
                 <div class="form-group" id="durationInput">
-                    <input class="form-control" type="text" placeholder="Duration of job(in days)">
+                    <input name="duration" class="form-control" type="text" placeholder="Duration of job(in days)">
                 </div>
                 <br><br><br>
                 <input type="submit" class="btn btn-primary" value="Post Job">

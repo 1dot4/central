@@ -69,6 +69,8 @@ class HomePageController extends PageController {
 
                 require_once 'models/Provider.php';
 
+                require_once 'models/Job.php';
+
                 switch($page) {
 
                     case 'post':
@@ -86,10 +88,6 @@ class HomePageController extends PageController {
 
                         $jobs = $user->jobPostings();
                         
-                        //$j = new Job($id);
-                        
-                        //$jobIds = j->getAllJobIds();
-                        
                         $jobIds = Array();
 
                         $this->setVar('jobs', $jobs);
@@ -106,9 +104,9 @@ class HomePageController extends PageController {
                         
                         $j = new Job($id);
 
-                        $from = $_POST["from_date"];
+                        $from = $_GET["from_date"];
                         
-                        $to = $_POST["to_date"];
+                        $to = $_GET["to_date"];
                         
                         $jobIds = array();
                         

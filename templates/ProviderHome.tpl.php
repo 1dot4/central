@@ -27,7 +27,7 @@
                     <a href="post">New job posting</a>
                 </div>
                 <div class="col-md-8">
-				<form method="post" action="search">
+				<form method="get" action="search">
                     <div class="form-inline">
 		      <div class="form-group">
 			<label> Job type </label>

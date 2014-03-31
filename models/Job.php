@@ -288,28 +288,6 @@ class Job {
 
         return $jobIds;
     }
-    
-    /**
-     * Get all job ids
-     * @return array Array of job ids
-     */
-    
-    public static function  getAllJobIds()
-    {
-    
-        $conn = DB::connect();
-
-        $res = $conn->query("SELECT id FROM job ");
-        
-        $jobIds = array();
-        
-        while($row = $res->fetch(PDO::FETCH_ASSOC)) {
-            array_push($jobIds, $row["id"]);
-        }
-
-        return $jobIds;
-   
-    }
 
     /**
      * The job id

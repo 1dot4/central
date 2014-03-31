@@ -45,8 +45,6 @@
                 content: "x";
                 padding: 0px 2px;
             }
-            element {
-            }
             .bootstrap-tagsinput .tag [data-role="remove"] {
                 margin-left: 8px;
                 cursor: pointer;
@@ -213,7 +211,7 @@
 				<input type="text" data-role="tagsinput" value="<?php echo $skills ?>" name="skills">
 			</div>
 		</div>
-    <br><br>
+        <br><br>
         <input type="submit" value="Save changes" class="btn btn-primary">
     </form>
     <?php require_once 'include/Scripts.php' ?>

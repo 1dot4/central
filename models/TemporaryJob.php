@@ -17,11 +17,11 @@ class TemporaryJob extends Job {
         require_once 'libs/DB.php';
         $conn  = DB::connect();
          
-        $res = $conn->query("SELECT COUNT(*) FROM job WHERE id='$id'");
+        $res = $conn->query("SELECT COUNT(*) FROM temporary_job WHERE id='$id'");
 
         if($res->fetchColumn() == 1) {
 
-	    $res_1 = $conn->query("SELECT * FROM job WHERE id='$id'");
+	        $res_1 = $conn->query("SELECT * FROM temporary_job WHERE id='$id'");
 
             while($row = $res_1->fetch(PDO::FETCH_ASSOC)) {
 		        $this->duration = $row["duration"];
@@ -54,7 +54,7 @@ class TemporaryJob extends Job {
 
         $conn = DB::connect();
 
-        $conn->exec("INSERT INTO job(id, duration) VALUES('$jobId','$duration')");
+        $conn->exec("INSERT INTO temporary_job(id, duration) VALUES('$jobId','$duration')");
 
         $job = new TemporaryJob($jobId);
 

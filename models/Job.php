@@ -38,6 +38,8 @@ class Job {
 
         $res = $conn->query("SELECT skill_name FROM job_skill WHERE job_id='$id'");
 
+        $this->skills = Array();
+
         while($row = $res->fetch(PDO::FETCH_ASSOC)) {
             array_push($this->skills, $row["skill_name"]);
         }
@@ -56,6 +58,15 @@ class Job {
      */
     public static function newJob($title, $description, $postedById, $positions = 1, $startTime = '', $location = '', $skills = Array()) {
 
+        require_once 'models/Skill.php';
+
+        foreach($skills as $skill) {
+            Skill::saveToDb($skill);
+        }
+
+        require_once 'models/Location.php';
+        Location::saveToDb($location);
+
         require_once 'libs/DB.php';
 
         $conn = DB::connect();
@@ -63,7 +74,7 @@ class Job {
         $conn->exec("INSERT INTO job(title, description, posted_by_id, positions, start_time, location_name) VALUES('$title', '$description', '$postedById','$positions','$startTime','$location')");
 
         $jobId = $conn->lastInsertId();
-        
+
         // Add new skills
         foreach($skills as $skill) {
             $conn->exec("INSERT INTO job_skill(job_id, skill_name) VALUES('$jobId', '$skill')");
@@ -78,6 +89,16 @@ class Job {
      * Save data of job to database
      */
     public function saveToDb() {
+
+        require_once 'models/Skill.php';
+
+        foreach($this->skills as $skill) {
+            Skill::saveToDb($skill);
+        }
+
+        require_once 'models/Location.php';
+        Location::saveToDb($this->location);
+
         require_once 'libs/DB.php';
 
         $conn = DB::connect();

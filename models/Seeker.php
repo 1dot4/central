@@ -83,6 +83,11 @@ class Seeker extends User {
         // Update the seeker table
         $conn->exec("UPDATE seeker SET experience='$this->experience', pref_location_name='$this->preferredLocation', curr_location_name='$this->currentLocation' WHERE id='$seekerId'");
 
+        require_once 'models/Skill.php';
+        foreach($this->skills as $skill) {
+            Skill::saveToDb($skill);
+        }
+
         // Delete old skills
         $conn->exec("DELETE FROM seeker_skill WHERE seeker_id='$seekerId'");
 

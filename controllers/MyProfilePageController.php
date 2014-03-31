@@ -30,10 +30,18 @@ class MyProfilePageController extends PageController {
                 require_once 'models/Seeker.php';
                 $user = new Seeker($id);
 
+                $skills = $user->skills();
+                $skillSet = "";
+
+                foreach($skills as $skill) {
+                    $skillSet .= $skill . ',';
+                }
+
                 // Set seeker specific variables
                 $this->setVar('prefLocation', $user->preferredLocation());
                 $this->setVar('currLocation', $user->currentLocation());
                 $this->setVar('experience', $user->experience());
+                $this->setVar('skills', $skillSet);
 
                 $this->setPage('SeekerMyProfile.tpl.php');
 

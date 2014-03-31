@@ -102,7 +102,11 @@ class SaveProfileExecController extends ExecController {
 
                 $experience = $this->app()->request->post("experience");
 
+                $skills = $this->app()->request->post("skills");
+                $skillSet = explode(',', $skills);
+
                 $seeker->setExperience($experience);
+                $seeker->setSkills($skillSet);
 
                 break;
         }

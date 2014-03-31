@@ -67,6 +67,9 @@ class RegisterSeekerExecController extends ExecController {
         $currentLocation = $this->app()->request->post("curr-location");
         $preferredLocation = $this->app()->request->post("pref-location");
         $experience = $this->app()->request->post("experience");
+        $skills = $this->app()->request->post("skills");
+
+        $skillSet = explode(',', $skills);
 
         // Validation stuff
         if(!($this->validateRegistration($username, $phone, $password, $cpassword))) {
@@ -79,6 +82,6 @@ class RegisterSeekerExecController extends ExecController {
         require_once 'models/Volunteer.php';
         
         $volunteer = new Volunteer($volunteerId);
-        $volunteer->registerSeeker($username, $fullName, $phone, $password, $currentLocation, $preferredLocation, $experience);
+        $volunteer->registerSeeker($username, $fullName, $phone, $password, $currentLocation, $preferredLocation, $experience, $skillSet);
     }
 }

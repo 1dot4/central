@@ -93,8 +93,9 @@ class Volunteer extends User {
      * @param string $currentLocation Seeker's current location
      * @param string $preferredLocation Seeker's preferred location
      * @param string $experience Seeker's experience
+     * @param Array $skills Skills of seeker
      */
-    public function registerSeeker($username, $fullName, $phone, $password, $currentLocation, $preferredLocation, $experience) {
+    public function registerSeeker($username, $fullName, $phone, $password, $currentLocation, $preferredLocation, $experience, $skills) {
         require_once 'models/User.php';
         require_once 'models/Seeker.php';
         $seeker = Seeker::newUser($username, $phone, $password);
@@ -103,6 +104,7 @@ class Volunteer extends User {
         $seeker->setCurrentLocation($currentLocation);
         $seeker->setPreferredLocation($preferredLocation);
         $seeker->setExperience($experience);
+        $seeker->setSkills($skills);
 
         $seeker->saveToDb();
 

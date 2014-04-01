@@ -6,17 +6,17 @@ USE central;
 CREATE TABLE IF NOT EXISTS `organization` (
   `name` varchar(100) NOT NULL,
   PRIMARY KEY (`name`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 ;
+) ENGINE=MyISAM DEFAULT CHARSET=latin1 ;
 
 CREATE TABLE IF NOT EXISTS `location` (
   `name` varchar(100) NOT NULL,
   PRIMARY KEY (`name`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 ;
+) ENGINE=MyISAM DEFAULT CHARSET=latin1 ;
 
 CREATE TABLE IF NOT EXISTS `skill` (
   `name` varchar(100) NOT NULL,
   PRIMARY KEY (`name`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 CREATE TABLE IF NOT EXISTS `user` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
@@ -27,7 +27,7 @@ CREATE TABLE IF NOT EXISTS `user` (
   `join_date` timestamp NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `username` (`username`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=MyISAM DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 CREATE TABLE IF NOT EXISTS `volunteer` (
   `id` bigint(20) NOT NULL,
@@ -39,7 +39,7 @@ CREATE TABLE IF NOT EXISTS `volunteer` (
   FOREIGN KEY (`id`) REFERENCES user(`id`),
   FOREIGN KEY (`org_name`) REFERENCES organization(`name`),
   FOREIGN KEY (`location_name`) REFERENCES location(`name`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 ;
+) ENGINE=MyISAM DEFAULT CHARSET=latin1 ;
 
 CREATE TABLE IF NOT EXISTS `provider` (
   `id` bigint(20) NOT NULL,
@@ -51,7 +51,7 @@ CREATE TABLE IF NOT EXISTS `provider` (
   FOREIGN KEY (`id`) REFERENCES user(`id`),
   FOREIGN KEY (`org_name`) REFERENCES organization(`name`),
   FOREIGN KEY (`location_name`) REFERENCES location(`name`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 ;
+) ENGINE=MyISAM DEFAULT CHARSET=latin1 ;
 
 CREATE TABLE IF NOT EXISTS `seeker` (
   `id` bigint(20) NOT NULL,
@@ -62,7 +62,7 @@ CREATE TABLE IF NOT EXISTS `seeker` (
   FOREIGN KEY (`id`) REFERENCES user(`id`),
   FOREIGN KEY (`pref_location_name`) REFERENCES location(`name`),
   FOREIGN KEY (`curr_location_name`) REFERENCES location(`name`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 ;
+) ENGINE=MyISAM DEFAULT CHARSET=latin1 ;
 
 CREATE TABLE IF NOT EXISTS `volunteer_registration` (
   `volunteer_id` bigint(20) NOT NULL,
@@ -70,7 +70,7 @@ CREATE TABLE IF NOT EXISTS `volunteer_registration` (
   PRIMARY KEY (`seeker_id`),
   FOREIGN KEY (`seeker_id`) REFERENCES seeker(`id`),
   FOREIGN KEY (`volunteer_id`) REFERENCES volunteer(`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 CREATE TABLE IF NOT EXISTS `verificationStatus` (
   `id` bigint(20) NOT NULL,
@@ -78,7 +78,7 @@ CREATE TABLE IF NOT EXISTS `verificationStatus` (
   `status` varchar(10) NOT NULL,
   PRIMARY KEY (`id`, `code`),
   FOREIGN KEY (`id`) REFERENCES user(`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 CREATE TABLE IF NOT EXISTS `job` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
@@ -92,20 +92,20 @@ CREATE TABLE IF NOT EXISTS `job` (
   PRIMARY KEY (`id`),
   FOREIGN KEY (`posted_by_id`) REFERENCES provider(`id`),
   FOREIGN KEY (`location_name`) REFERENCES location(`name`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 CREATE TABLE IF NOT EXISTS `permanent_job` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   PRIMARY KEY (`id`),
   FOREIGN KEY (`id`) REFERENCES job(`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 CREATE TABLE IF NOT EXISTS `temporary_job` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `duration` bigint(20) NOT NULL,
   PRIMARY KEY (`id`),
   FOREIGN KEY (`id`) REFERENCES job(`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 CREATE TABLE IF NOT EXISTS `seeker_skill` (
   `seeker_id` bigint(20) NOT NULL,
@@ -113,7 +113,7 @@ CREATE TABLE IF NOT EXISTS `seeker_skill` (
   PRIMARY KEY (`seeker_id`, `skill_name`),
   FOREIGN KEY (`seeker_id`) REFERENCES seeker(`id`),
   FOREIGN KEY (`skill_name`) REFERENCES skill(`name`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 CREATE TABLE IF NOT EXISTS `job_skill` (
   `job_id` bigint(20) NOT NULL,
@@ -121,4 +121,6 @@ CREATE TABLE IF NOT EXISTS `job_skill` (
   PRIMARY KEY (`job_id`, `skill_name`),
   FOREIGN KEY (`job_id`) REFERENCES job(`id`),
   FOREIGN KEY (`skill_name`) REFERENCES skill(`name`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+ALTER TABLE job ADD FULLTEXT(`title`, `description`);

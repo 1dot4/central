@@ -87,36 +87,32 @@ class HomePageController extends PageController {
                         $user = new Provider($id);
 
                         $jobs = $user->jobPostings();
-                        
-                        $jobIds = Array();
+
+                        // Unused
+                        $searchedJobs = Array();
 
                         $this->setVar('jobs', $jobs);
                         
-                        $this->setVar('jobIds',$jobIds);
-                        
-                        //die($jobIds);
+                        $this->setVar('searchedJobs',$searchedJobs);
 
                         $this->setPage('ProviderHome.tpl.php');
 
                         break;
                      
-                     case 'search':
+                    case 'search':
                         
                         $j = new Job($id);
 
-                        $from = $_GET["from_date"];
+                        $from = $this->app()->request->get("from_date");
                         
-                        $to = $_GET["to_date"];
-                        
-                        $jobIds = array();
-                        
-                        $jobIds = $j->postedInDuration($from, $to);
-                        
-                        //die($jobIds);
-                        
+                        $to = $this->app()->request->get("to_date");
+
+                        $searchedJobs = $j->postedInDuration($from, $to);
+
+                        // Unused
                         $jobs = Array();
                         
-                        $this->setVar('jobIds',$jobIds);
+                        $this->setVar('searchedJobs',$searchedJobs);
                         
                         $this->setVar('jobs', $jobs);
                         

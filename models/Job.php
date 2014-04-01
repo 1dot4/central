@@ -271,22 +271,22 @@ class Job {
      * Get jobs posted in a date range
      * @param string $from The start date
      * @param string $to The end date
-     * @return array Array of job ids
+     * @return array Array of jobs
      */
     public static function postedInDuration($from, $to) {
         require_once 'libs/DB.php';
 
         $conn = DB::connect();
 
-        $res = $conn->query("SELECT id FROM job WHERE post_date>='$from' AND post_date<='$to' ");
+        $res = $conn->query("SELECT * FROM job WHERE post_date>='$from' AND post_date<='$to' ");
 
-        $jobIds = array();
+        $jobs = Array();
 
         while($row = $res->fetch(PDO::FETCH_ASSOC)) {
-            array_push($jobIds, $row["id"]);
+            array_push($jobs, $row);
         }
 
-        return $jobIds;
+        return $jobs;
     }
 
     /**

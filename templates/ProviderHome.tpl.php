@@ -30,12 +30,12 @@
 				<form method="get" action="search">
                     <div class="form-inline">
 		            <div class="form-group">
-                        <label> Job type </label>
+                        <label> Job type: </label>
                         <select>
                             <option value="temporaryJob">Temporary</option>
                             <option value="permanentJob">Permanent</option>
                         </select>
-		            </div>
+		            </div>&nbsp&nbsp
                     <div class="form-group">
                         <label>From: </label>
                         <input class="form-control date" type="date" name="from_date">

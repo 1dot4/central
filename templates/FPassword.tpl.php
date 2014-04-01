@@ -3,6 +3,15 @@
         <title><?php echo $title ?></title>
         <?php require_once 'include/Css.php' ?>
         <style>
+            .social ul li a.twitter:hover {
+                background-color: #4099FF;
+            }
+            .social ul li a.facebook:hover {
+                background-color: #3b5998;
+            }
+            .social ul li a.google:hover {
+                background-color: #dd4b39;
+            }
             .social ul li a.twitter span {
                    background-position: 0px -122.5px;
             }

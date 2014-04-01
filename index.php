@@ -57,6 +57,23 @@ $app->get("/register", function() use($app) {
 });
 
 /**
+ * Forgot Password page for all users
+ */
+$app->get("/fpassword", function() use($app) {
+    require_once 'controllers/FPasswordPageController.php';
+    new FPasswordPageController($app, 'FPassword.tpl.php', false);
+});
+
+/**
+ * Forgot Password execution
+ */
+$app->post("/fpassword.do", function() use($app) {
+    require_once 'controllers/FPasswordExecController.php';
+    new FPasswordExecController($app, './', false);
+});
+
+
+/**
  * Verification page
  */
 $app->post("/verify", function() use($app) {

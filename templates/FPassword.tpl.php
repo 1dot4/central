@@ -1,19 +1,8 @@
-<!DOCTYPE html>
 <html>
     <head>
         <title><?php echo $title ?></title>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <?php require_once 'include/Css.php' ?>
         <style>
-            .social ul li a.twitter:hover {
-                background-color: #4099FF;
-            }
-            .social ul li a.facebook:hover {
-                background-color: #3b5998;
-            }
-            .social ul li a.google:hover {
-                background-color: #dd4b39;
-            }
             .social ul li a.twitter span {
                    background-position: 0px -122.5px;
             }
@@ -24,49 +13,35 @@
                    background-position: -115px -122.5px;
             }
             .social ul li a span {
-                    background-image: url(./public/images/sprite.svg);
-                    background-size: 500px 500px;
-                    display: inline-block;
-                    zoom: 1;
-                    width: 23px;
-                    height: 23px;
-                    text-align: center;
+                background-image: url(./public/images/sprite.svg);
+                background-size: 500px 500px;
+                display: inline-block;
+                zoom: 1;
+                width: 23px;
+                height: 23px;
+                text-align: center;
             }
             .social {
-                    margin-right: 20px;
-                    }
+                margin-right: 20px;
+            }
             .form-inline {
-                    float: right;
-                    max-width: 350px;
-                    padding: 29px;
-                    margin: 150px 80px auto 20px;
-                    /* background-color: #f2f2f2; */
-                    border: 1px solid #e5e5e5;
-                    -webkit-border-radius: 5px;
-                    -moz-border-radius: 5px;
-                    border-radius: 5px;
-                    -webkit-box-shadow: 0 1px 2px rgba(0,0,0,.05);
-                    -moz-box-shadow: 0 1px 2px rgba(0,0,0,.05);
-                    box-shadow: 0 1px 2px rgba(0,0,0,.05);
-                }
-            .you {
-                    float: left;
-                    max-width: 600px;
-                    padding: 29px;
-                    margin: 150px 80px auto 100px;
-                    /* background-color: #f2f2f2; */
-                    border: 1px solid #e5e5e5;
-                    -webkit-border-radius: 5px;
-                    -moz-border-radius: 5px;
-                    border-radius: 5px;
-                    -webkit-box-shadow: 0 1px 2px rgba(0,0,0,.05);
-                    -moz-box-shadow: 0 1px 2px rgba(0,0,0,.05);
-                    box-shadow: 0 1px 2px rgba(0,0,0,.05);
+                
+                max-width: 350px;
+                padding: 29px;
+                margin: 100px auto 20px;
+                /*background-color: #f2f2f2;*/
+                border: 1px solid #e5e5e5;
+                -webkit-border-radius: 5px;
+                -moz-border-radius: 5px;
+                border-radius: 5px;
+                -webkit-box-shadow: 0 1px 2px rgba(0,0,0,.05);
+                -moz-box-shadow: 0 1px 2px rgba(0,0,0,.05);
+                box-shadow: 0 1px 2px rgba(0,0,0,.05);
+            }
 
-                }
             .form-inline .form-heading {
-                    margin-bottom: 10px;
-                }
+                margin-bottom: 10px;
+            }
 
             .form-inline input[type="email"],
             .form-inline input[type="password"],
@@ -90,9 +65,6 @@
         </style>
     </head>
     <body>
-    
-
-    
     <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
    <div class="navbar-header">
        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
@@ -127,9 +99,7 @@
        </div>
    </div>
 </nav>
-    <iframe class="you" width="600" height="380" src="https://s3.amazonaws.com/embed.animoto.com/play.html?w=swf/production/vp1&e=1396031535&f=aiiWm46EZCjCHou12zeTgA&d=0&m=b&r=360p&volume=100&start_res=360p&i=m&asset_domain=s3-p.animoto.com&animoto_domain=animoto.com" frameborder="0" allowfullscreen></iframe>
-    
-        <form id="login-form" class="form-inline" method="post" role="form" action="login.do">
+        <form method='post' action='fpassword.do' class="form-inline" role="form">
             <h1 class="form-heading"><?php echo $title ?></h1>
             <hr>
             <?php
@@ -139,22 +109,13 @@
             ?>
             <br>
             <div class="form-group">
-                <input type="text" class="form-control" name="username" placeholder="Your username" />
+                <input type="text" name="username" class="form-control" placeholder="Your username">
             </div>
             <br><br>
-            <div class="form-group">
-                <input type="password" class="form-control" name="password" placeholder="Your password" />
-            </div>
-            <br>
-			<div class="form-group">
-				<input type="checkbox" class="form-control" name="remember_me" value="remeber_me">&nbsp&nbspRemember me
-			</div>
-			<br><br>
-            <input type="submit" class="btn btn-primary" name="Login" value="Login">
+            <input type="submit" value="Submit" class="btn btn-primary">
             <br>
             <hr>
-			<a href="fpassword">Forgot Password? </a><br>
-            <a href="register">New user? Register here ></a>
+            <a href=".">< Back to login</a>
         </form>
         <?php require_once 'include/Scripts.php' ?>
     </body>

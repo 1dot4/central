@@ -32,6 +32,7 @@
                         <div class="form-group">
                             <label> Job type: </label>
                             <select>
+                                <option value="all">All</option>
                                 <option value="temporaryJob">Temporary</option>
                                 <option value="permanentJob">Permanent</option>
                             </select>

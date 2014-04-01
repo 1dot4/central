@@ -32,6 +32,7 @@
 		            <div class="form-group">
                         <label> Job type </label>
                         <select>
+                            <option value="both">Both</option>
                             <option value="temporaryJob">Temporary</option>
                             <option value="permanentJob">Permanent</option>
                         </select>
@@ -44,6 +45,10 @@
                         &nbsp&nbsp
                         <label>To: </label>
                         <input class="form-control date" type="date" name="to_date">
+                    </div>
+                    <div class="form-group">
+                        &nbsp&nbsp
+                        <input name="q" class="form-control search" type="text" placeholder="search">
                     </div>
                     <input type="submit" class="btn btn-primary" value="Search">
                     </div>

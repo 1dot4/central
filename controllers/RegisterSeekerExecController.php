@@ -29,6 +29,11 @@ class RegisterSeekerExecController extends ExecController {
             $errMsg .= "Phone number is required<br>";
         }
 
+        if (!(is_numeric($phone))) {
+            $error = true;
+            $errMsg .= "Invalid Phone Number<br>";   
+        }
+
         if(strlen($phone) != 10) {
             $error = true;
             $errMsg .= "Invalid Phone Number<br>";
@@ -36,7 +41,13 @@ class RegisterSeekerExecController extends ExecController {
 
         if($password == "") {
             $error = true;
-            $errMsg .= "Password is required<br>";
+            $errMsg .= "Minimum length of password must be 6 <br>";
+        }
+
+
+        if(strlen($password) < 7) {
+            $error = true;
+            $errMsg .= "Minimum length of password must be 6 <br>";
         }
 
         if($password != $cpassword) {

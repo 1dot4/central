@@ -25,7 +25,7 @@ class VerifyPageController extends PageController {
             $err = true;
             $errMsg .= "The username is already taken.<br>";
         }
-
+       
         if($username == '' || $password == '' ||  $phone == '') {
             $err = true;
             $errMsg .= 'All the fields are required.<br>';
@@ -35,6 +35,24 @@ class VerifyPageController extends PageController {
             $err = true;
             $errMsg .= 'Invalid Phone Number.<br>';
         }
+
+        if(!(is_numeric($phone))) {
+            $err = true;
+            $errMsg .= 'Please enter a valid phone number';
+        }
+
+
+        if($password == "") {
+            $error = true;
+            $errMsg .= "Minimum length of password must be 6 <br>";
+        }
+
+
+        if(strlen($password) < 7) {
+            $error = true;
+            $errMsg .= "Minimum length of password must be 6 <br>";
+        }
+
 
         if($password != $cPassword) {
             $err = true;

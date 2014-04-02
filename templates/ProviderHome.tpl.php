@@ -26,7 +26,7 @@
                     <hr>
                     <a href="post">New job posting</a>
                 </div>
-                <div class="col-md-8">
+                <div class="col-md-10">
 				<form method="get" action="search">
                     <div class="form-inline">
 		            <div class="form-group">

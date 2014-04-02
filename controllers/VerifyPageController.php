@@ -31,11 +31,16 @@ class VerifyPageController extends PageController {
             $errMsg .= 'All the fields are required.<br>';
         }
 
-        if(strlen($phone) != 10){
+        if(strlen($phone) != 10 || !is_numeric($phone)){
             $err = true;
             $errMsg .= 'Invalid Phone Number.<br>';
         }
-
+		
+		if(strlen($password)< 6) {
+			$err = true;
+            $errMsg .= "Password of minimum 6 characters is required.<br>";
+        }
+			
         if($password != $cPassword) {
             $err = true;
             $errMsg .= 'Passwords do not match.';

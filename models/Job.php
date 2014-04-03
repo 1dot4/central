@@ -60,8 +60,10 @@ class Job {
 
         require_once 'models/Skill.php';
 
+        $skillString = "";
         foreach($skills as $skill) {
             Skill::saveToDb($skill);
+            $skillString .= $skill . " ";
         }
 
         require_once 'models/Location.php';
@@ -71,7 +73,7 @@ class Job {
 
         $conn = DB::connect();
 
-        $conn->exec("INSERT INTO job(title, description, posted_by_id, positions, start_time, location_name) VALUES('$title', '$description', '$postedById','$positions','$startTime','$location')");
+        $conn->exec("INSERT INTO job(title, description, posted_by_id, positions, start_time, location_name, skills) VALUES('$title', '$description', '$postedById','$positions','$startTime','$location', '$skillString')");
 
         $jobId = $conn->lastInsertId();
 

@@ -66,12 +66,24 @@ function seekerRegistrationDetails($seeker) {
 
 function printJobs($jobs) {
     foreach($jobs as $job) {
+        //echo '<div class="col-md-10">';
         echo "<b><h4>";
         echo $job["title"];
         echo "</b><br></h4>";
         echo $job["description"];
         echo "<br>";
         echo "Posted by " . linkedName($job["posted_by_id"]) . " on " . $job["post_date"];
+        echo "<br><br>";
+        echo '<div class="form-inline">';
+        echo '<form class="form-group" action="">
+                <input type="submit" class="btn btn-primary" value="Edit">
+                </form>';
+        echo '&nbsp &nbsp';
+        echo '<form class="form-group" action="http://google.com">
+                <input type="submit" class="btn btn-primary" value="Delete">
+                </form>';        
+        echo '</div>';
         echo "<hr>";
+        //echo '</div>';
     }
 }

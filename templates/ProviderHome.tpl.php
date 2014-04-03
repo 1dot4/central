@@ -27,16 +27,7 @@
                     <a href="post">New job posting</a>
                 </div>
                 <div class="col-md-10">
-				<form method="get" action="search">
-                    <div class="form-inline">
-		            <div class="form-group">
-                        <label> Job type </label>
-                        <select>
-                            <option value="both">All</option>
-                            <option value="temporaryJob">Temporary</option>
-                            <option value="permanentJob">Permanent</option>
-                        </select>
-		            </div>
+				<form class="form-inline" method="get" action="search">
                     <div class="form-group">
                         <label>From: </label>
                         <input class="form-control date" type="date" name="from_date">
@@ -50,9 +41,12 @@
                         &nbsp&nbsp
                         <input name="q" class="form-control search" type="text" placeholder="search">
                     </div>
-                    <input type="submit" class="btn btn-primary" value="Search">
+                    <div class="form-group">
+                        &nbsp&nbsp
+                        <input type="checkbox" name="closed"> Show closed &nbsp&nbsp
                     </div>
-		        </form>
+                    <input type="submit" class="btn btn-primary" value="Search">
+                </form>
                 <hr>
                     <div class="row">
                         <br>

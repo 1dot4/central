@@ -95,14 +95,22 @@ class HomePageController extends PageController {
                         break;
                      
                     case 'search':
-                        
-                        $j = new Job($id);
 
                         $from = $this->app()->request->get("from_date");
                         
                         $to = $this->app()->request->get("to_date");
 
-                        $jobs = $j->postedInDuration($from, $to);
+                        $q = $this->app()->request->get("q");
+
+                        $closed = $this->app()->request->get("closed");
+
+                        if($closed == 'on') {
+                            $status = 'true';
+                        } else {
+                            $status = 'false';
+                        }
+
+                        $jobs = Job::searchJobs($id, $q, $from, $to, $status);
 
                         $this->setVar('jobs', $jobs);
                         

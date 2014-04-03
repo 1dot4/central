@@ -72,9 +72,20 @@ function printJobs($jobs) {
 
         $jobInstance = new Job($job["id"]);
         echo "<div class='well'>";
+        echo "<div class='row'>";
+        echo "<div class='col-md-3'>";
+        echo "<div class='dp-box'>";
+        echo '<div class="dp-container">';
+        echo "<img class='dp' src='../public/images/tap_water.png'/>";
+        echo "</div></div></div>'";
+        echo "<div class='col-md-7'>";
         echo "<b><h4><u>";
         echo $job["title"];
         echo "</u></b><br></h4>";
+        echo "Posted by <b>" . linkedName($job["posted_by_id"]) . "</b> on <b>" . $job["post_date"];
+        echo "</b>";
+        echo "</div>";
+        echo "</div><hr>";
         echo $job["description"];
         echo "<br><br>";
         echo "Skills required: ";
@@ -90,8 +101,6 @@ function printJobs($jobs) {
         }
         echo " with <b>" . $job["positions"] . "</b> vacancies";
         echo "<br><br>";
-        echo "Posted by <b>" . linkedName($job["posted_by_id"]) . "</b> on <b>" . $job["post_date"];
-        echo "</b><br><br>";
         echo '<a href="#" class="btn btn-default btn-xs">status:'.$job['status'].'</a>';
         echo '&nbsp &nbsp';
         echo '<a href="#" class="btn btn-default btn-xs">type:'.$jobInstance->type().'</a>';

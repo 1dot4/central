@@ -296,11 +296,12 @@ class Job {
      * @param string $q Query terms
      * @param string $from From date
      * @param string $to To date
-     * @param string $status Status of job
+     * @param string $closed Status of job
      * @param string $type Type of job
+     * @param string $postedById
      * @return array Associative Array of jobs
      */
-    public static function searchJobs($q = '', $from = '', $to = '', $status = '', $type = 'all') {
+    public static function searchJobs($postedById, $q = '', $from = '', $to = '', $closed = 'true', $type = 'all') {
         require_once 'libs/DB.php';
 
         $conn = DB::connect();
@@ -314,29 +315,23 @@ class Job {
         $query .= "FROM job WHERE ";
 
         if($q != '') {
-            $query .= "MATCH(title, description, location_name, skills) AGAINST('$q*' IN BOOLEAN MODE) ";
-            if($to != '' || $from != '' || $status != '') {
-                $query .= "AND ";
-            }
+            $query .= "MATCH(title, description, location_name, skills) AGAINST('$q*' IN BOOLEAN MODE) AND ";
         }
 
         if($from != '') {
-            $query .= "post_date > '$from' ";
-            if($from != '' || $status != '') {
-                $query .= "AND ";
-            }
+            $query .= "post_date > '$from' AND ";
         }
 
         if($to != '') {
-            $query .= "post_date < '$to' ";
-            if($status != '') {
-                $query .= "AND ";
-            }
+            $query .= "post_date < '$to' AND ";
+
         }
 
-        if($status != '') {
-            $query .= "status='$status' ";
+        if($closed == 'false') {
+            $query .= "status='open' AND ";
         }
+
+        $query .= "posted_by_id='$postedById' ";
 
         if($q != '') {
             $query .= "ORDER by RELEVANCE";

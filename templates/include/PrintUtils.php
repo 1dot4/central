@@ -66,7 +66,7 @@ function seekerRegistrationDetails($seeker) {
 
 function printJobs($jobs) {
     foreach($jobs as $job) {
-        echo "<b><h4>";
+        echo '<b><h4>';
         echo $job["title"];
         echo "</b><br></h4>";
         echo $job["description"];

@@ -298,10 +298,10 @@ class Job {
      * @param string $to To date
      * @param string $closed Status of job
      * @param string $type Type of job
-     * @param string $postedById
+     * @param string $userId
      * @return array Associative Array of jobs
      */
-    public static function searchJobs($postedById, $q = '', $from = '', $to = '', $closed = 'true', $type = 'all') {
+    public static function searchJobs($userId, $q = '', $from = '', $to = '', $closed = 'true', $type = 'all') {
         require_once 'libs/DB.php';
 
         $conn = DB::connect();
@@ -331,11 +331,19 @@ class Job {
             $query .= "status='open' AND ";
         }
 
-        $query .= "posted_by_id='$postedById' ";
+        $user = new user($userId);
+
+        if($user->type()=='provider') {
+            $query .= "posted_by_id='$userId' ";
+        }
+        else {
+            $query .= "1 ";
+        }
 
         if($q != '') {
             $query .= "ORDER by RELEVANCE";
         }
+
 
         $res = $conn->query($query);
 

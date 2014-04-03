@@ -113,3 +113,16 @@ function printJobs($jobs) {
         echo "<hr>";
     }
 }
+
+function seekerPrintJobs($jobs) {
+    foreach ($jobs as $job) {
+        echo "<b><h4>";
+        echo $job["title"];
+        echo "</b><br></h4>";
+        echo $job["description"];
+        echo "<br>";
+        echo "Posted by " . linkedName($job["posted_by_id"]) . " on " . $job["post_date"];
+        echo "<br><br>";
+        echo "<hr>";
+    }
+}

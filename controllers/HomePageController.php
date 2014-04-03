@@ -25,9 +25,38 @@ class HomePageController extends PageController {
 
         switch($type) {
             case 'seeker':
-                $this->setPage('SeekerHome.tpl.php');
-                break;
+                require_once 'models/Job.php';
+                switch($page)
+                {
+                    case 'index':   
+                        $this->setPage('SeekerHome.tpl.php');
+                        $jobs = Job::searchJobs($id, '', '', '', 'false');
+                        $this->setVar('jobs', $jobs);
+                        break;
 
+                    case 'search':
+                        $from = $this->app()->request->get("from_date");
+                        
+                        $to = $this->app()->request->get("to_date");
+
+                        $q = $this->app()->request->get("q");
+
+                        $closed = $this->app()->request->get("closed");
+
+                        if($closed == 'on') {
+                            $status = 'true';
+                        } else {
+                            $status = 'false';
+                        }
+
+                        $jobs = Job::searchJobs($id, $q, $from, $to, $status);
+
+                        $this->setVar('jobs', $jobs);
+                        
+                        $this->setPage('SeekerHome.tpl.php');
+                        break;
+            }
+            break;
             case 'volunteer':
 
                 switch($page) {

@@ -88,12 +88,7 @@ class HomePageController extends PageController {
 
                         $jobs = $user->jobPostings();
 
-                        // Unused
-                        $searchedJobs = Array();
-
                         $this->setVar('jobs', $jobs);
-                        
-                        $this->setVar('searchedJobs',$searchedJobs);
 
                         $this->setPage('ProviderHome.tpl.php');
 
@@ -107,13 +102,8 @@ class HomePageController extends PageController {
                         
                         $to = $this->app()->request->get("to_date");
 
-                        $searchedJobs = $j->postedInDuration($from, $to);
+                        $jobs = $j->postedInDuration($from, $to);
 
-                        // Unused
-                        $jobs = Array();
-                        
-                        $this->setVar('searchedJobs',$searchedJobs);
-                        
                         $this->setVar('jobs', $jobs);
                         
                         $this->setPage('ProviderHome.tpl.php');

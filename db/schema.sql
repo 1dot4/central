@@ -89,6 +89,7 @@ CREATE TABLE IF NOT EXISTS `job` (
   `positions` bigint(20) NOT NULL,
   `start_time` date NOT NULL,
   `location_name` varchar(100) NOT NULL,
+  `skills` TEXT,
   PRIMARY KEY (`id`),
   FOREIGN KEY (`posted_by_id`) REFERENCES provider(`id`),
   FOREIGN KEY (`location_name`) REFERENCES location(`name`)
@@ -123,4 +124,4 @@ CREATE TABLE IF NOT EXISTS `job_skill` (
   FOREIGN KEY (`skill_name`) REFERENCES skill(`name`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
-ALTER TABLE job ADD FULLTEXT(`title`, `description`);
+ALTER TABLE job ADD FULLTEXT(`title`, `description`, `location_name`, `skills`);

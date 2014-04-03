@@ -44,7 +44,7 @@ class VerifyPageController extends PageController {
 			
         if($password != $cPassword) {
             $err = true;
-            $errMsg .= 'Passwords do not match.';
+            $errMsg .= 'Passwords do not match.<br>';
         }
 
         if($err) {

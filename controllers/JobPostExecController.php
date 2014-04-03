@@ -45,7 +45,7 @@ class JobPostExecController extends ExecController {
 
             $this->setRedirectUri('home/post');
         }
-        
+
         return !$err;
     }
     public function process() {

@@ -292,6 +292,68 @@ class Job {
     }
 
     /**
+     * Search for a job
+     * @param string $q Query terms
+     * @param string $from From date
+     * @param string $to To date
+     * @param string $status Status of job
+     * @param string $type Type of job
+     * @return array Associative Array of jobs
+     */
+    public static function searchJobs($q = '', $from = '', $to = '', $status = '', $type = 'all') {
+        require_once 'libs/DB.php';
+
+        $conn = DB::connect();
+
+        $query = "SELECT *";
+
+        if($q != '') {
+            $query .= ", MATCH(title, description, location_name, skills) AGAINST('$q*' IN BOOLEAN MODE) AS RELEVANCE ";
+        }
+
+        $query .= "FROM job WHERE ";
+
+        if($q != '') {
+            $query .= "MATCH(title, description, location_name, skills) AGAINST('$q*' IN BOOLEAN MODE) ";
+            if($to != '' || $from != '' || $status != '') {
+                $query .= "AND ";
+            }
+        }
+
+        if($from != '') {
+            $query .= "post_date > '$from' ";
+            if($from != '' || $status != '') {
+                $query .= "AND ";
+            }
+        }
+
+        if($to != '') {
+            $query .= "post_date < '$to' ";
+            if($status != '') {
+                $query .= "AND ";
+            }
+        }
+
+        if($status != '') {
+            $query .= "status='$status' ";
+        }
+
+        if($q != '') {
+            $query .= "ORDER by RELEVANCE";
+        }
+
+        $res = $conn->query($query);
+
+        $jobs = Array();
+
+        while($row = $res->fetch(PDO::FETCH_ASSOC)) {
+            array_push($jobs, $row);
+        }
+
+        return $jobs;
+    }
+
+    /**
      * The job id
      * @var string
      */

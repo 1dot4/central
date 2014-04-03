@@ -90,6 +90,7 @@ CREATE TABLE IF NOT EXISTS `job` (
   `start_time` date NOT NULL,
   `location_name` varchar(100) NOT NULL,
   `skills` TEXT,
+  `status` VARCHAR(20) DEFAULT 'open',
   PRIMARY KEY (`id`),
   FOREIGN KEY (`posted_by_id`) REFERENCES provider(`id`),
   FOREIGN KEY (`location_name`) REFERENCES location(`name`)

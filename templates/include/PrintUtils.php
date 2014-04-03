@@ -74,16 +74,9 @@ function printJobs($jobs) {
         echo "<br>";
         echo "Posted by " . linkedName($job["posted_by_id"]) . " on " . $job["post_date"];
         echo "<br><br>";
-        echo '<div class="form-inline">';
-        echo '<form class="form-group" action="">
-                <input type="submit" class="btn btn-primary" value="Edit">
-                </form>';
+        echo '<a href="#" class="btn btn-info btn-xs">Edit</a>';
         echo '&nbsp &nbsp';
-        echo '<form class="form-group" action="http://google.com">
-                <input type="submit" class="btn btn-primary" value="Delete">
-                </form>';        
-        echo '</div>';
+        echo '<a href="#" class="btn btn-danger btn-xs">Delete</a>';
         echo "<hr>";
-        //echo '</div>';
     }
 }

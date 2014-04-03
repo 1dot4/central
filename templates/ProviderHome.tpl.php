@@ -12,6 +12,9 @@
             .date {
                 max-width: 160px;
             }
+            #edit-btn {
+                margin-left: 290px;
+            }
         </style>
     </head>
     <body>
@@ -50,17 +53,19 @@
                 <hr>
                     <div class="row">
                         <br>
-                        <?php
-                            require_once 'include/PrintUtils.php';
+                        <div class="col-md-8">
+                            <?php
+                                require_once 'include/PrintUtils.php';
 
-                            if(sizeof($jobs) != 0) {
-                                printJobs($jobs);
-                            }
-                            else {
-                                echo "You have not posted any jobs!";
-                            }
-                            
-                        ?>
+                                if(sizeof($jobs) != 0) {
+                                    printJobs($jobs);
+                                }
+                                else {
+                                    echo "You have not posted any jobs!";
+                                }
+
+                            ?>
+                        </div>
                     </div>
                 </div>
             </div>

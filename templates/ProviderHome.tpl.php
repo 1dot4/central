@@ -59,9 +59,7 @@
                         <?php
                             require_once 'include/PrintUtils.php';
 
-                            if(sizeof($searchedJobs) != 0) {
-                                printJobs($searchedJobs);
-                            } else if(sizeof($jobs) !=0 ) {
+                            if(sizeof($jobs) != 0) {
                                 printJobs($jobs);
                             }
                             else {

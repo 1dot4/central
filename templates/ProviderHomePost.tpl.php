@@ -74,6 +74,12 @@
             *, *:before, *:after {
                 -moz-box-sizing: border-box;
             }
+             .form-error {
+                background-color: rgba(255, 0, 0, 0.3);
+                padding: 10px 15px;
+                border-radius: 2px;
+                border: 1px solid rgba(255, 0, 0, 0.35);
+            }
     </style>
 </head>
 <body>
@@ -90,6 +96,12 @@
         </div>
         <div class="col-md-8">
             <form class="form-inline" action="../job.post" method="post">
+            <?php
+            if($errMsg != "") {
+                echo "<div class='form-error'>$errMsg</div>";
+            }
+            ?>
+            <br>
                 <div class="form-group">
                     <input name="title" id="text1" type="text" class="form-control" placeholder="Job title">
                 </div>

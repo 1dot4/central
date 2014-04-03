@@ -80,6 +80,18 @@ class HomePageController extends PageController {
                         $user = new Provider($id);
                         $this->setVar('location', $user->location());
 
+                        require_once 'libs/Session.php';
+
+                        Session::start();
+
+                        if(Session::existsVar("ERR_MSG")) {
+                            $this->setVar('errMsg', Session::getVar("ERR_MSG"));
+                        } else {
+                            $this->setVar('errMsg', "");
+                        }
+                        Session::unsetVar("ERR_MSG");
+                        Session::close();
+
                         break;
 
                     case 'index':

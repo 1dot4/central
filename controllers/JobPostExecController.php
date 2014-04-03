@@ -6,6 +6,46 @@
  */
 class JobPostExecController extends ExecController {
 
+    private function validPost($jobTitle, $jobDescription, $jobSkills, $jobPositions, $jobLocation, $jobDuration, $jobStart, $jobType){
+        $err = false;
+        $errMsg = '';
+
+        require_once 'models/Job.php';
+
+        if($jobTitle == '' || $jobDescription == '' || $jobSkills == ''|| $jobLocation == ''|| $jobStart == ''){
+            $err = true;
+            $errMsg .= 'All the fields are required.<br>';
+        }
+        if(!is_numeric($jobPositions)){
+            $err = true;
+            $errMsg .= 'Enter valid vacancies.<br>';
+        }
+        if($jobType == 'temporary'){
+            if($jobDuration == ''){
+                $err = true;
+                $errMsg .= 'Duration is required.<br>';
+            }
+            else { 
+                if(!is_numeric($jobDuration)){
+                $err = true;
+                $errMsg .= 'Enter valid duration. <br>';
+            }
+        }
+
+        }
+
+
+        if($err){
+            require_once 'libs/Session.php';
+
+            Session::start();
+            Session::setVar('ERR_MSG', $errMsg);
+            Session::close();
+
+            $this->setRedirectUri('home/post');
+        }
+        return !$err;
+    }
     public function process() {
 
         require_once 'libs/Auth.php';
@@ -24,9 +64,15 @@ class JobPostExecController extends ExecController {
         if($jobType == 'temporary') {
             $jobDuration = $this->app()->request->post("duration");
         }
+        else {
+            $jobDuration = '';
+        }
 
         $skills = explode(",", $jobSkills);
 
+        if(!$this->validPost($jobTitle, $jobDescription, $jobSkills, $jobPositions, $jobLocation, $jobDuration, $jobStart, $jobType)) {
+            return;
+        }
         require_once 'models/Job.php';
 
         switch($jobType) {
@@ -47,5 +93,9 @@ class JobPostExecController extends ExecController {
 
                 break;
         }
+
+
     }
+
+    
 }

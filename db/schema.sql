@@ -1,4 +1,4 @@
-DROP DATABASE central;
+DROP DATABASE IF EXISTS central;
 
 CREATE DATABASE IF NOT EXISTS central;
 USE central;

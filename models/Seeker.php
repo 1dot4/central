@@ -98,6 +98,28 @@ class Seeker extends User {
     }
 
     /**
+     * Get the relevant jobs for the seeker
+     * @return array Associative array of relevant jobs
+     */
+    public function relevantJobs() {
+        require_once 'libs/DB.php';
+
+        $conn = DB::connect();
+
+        $query = "";
+
+        $res = $conn->query($query);
+
+        $jobs = Array();
+
+        while($row = $res->fetch(PDO::FETCH_ASSOC)) {
+            array_push($jobs, $row);
+        }
+
+        return $jobs;
+    }
+
+    /**
      * Getter function for seeker's experience
      * @return int Seeker's experience
      */

@@ -104,9 +104,17 @@ class Seeker extends User {
     public function relevantJobs() {
         require_once 'libs/DB.php';
 
-        $conn = DB::connect();
+        $seekerId = $this->id();
 
-        $query = "";
+        $query = "SELECT J.*, JS.job_id, COUNT(JS.job_id) AS rank
+          FROM job_skill JS, job J
+          WHERE J.id=JS.job_id
+          AND JS.skill_name IN (SELECT skill_name FROM seeker_skill WHERE seeker_id='$seekerId')
+          GROUP BY JS.job_id
+          ORDER BY rank DESC";
+
+
+        $conn = DB::connect();
 
         $res = $conn->query($query);
 

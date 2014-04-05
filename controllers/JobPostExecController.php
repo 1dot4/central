@@ -33,7 +33,6 @@ class JobPostExecController extends ExecController {
                 $errMsg .= 'Enter valid duration. <br>';
                 }
             }
-
         }
 
         if($err) {
@@ -41,8 +40,9 @@ class JobPostExecController extends ExecController {
 
             Session::start();
             Session::setVar('ERR_MSG', $errMsg);
+            Session::setVar('TITLE', $jobTitle);
+            Session::setVar('DESCRIPTION', $jobDescription);
             Session::close();
-
             $this->setRedirectUri('home/post');
         }
 

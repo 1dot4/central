@@ -70,7 +70,6 @@ function printJobs($jobs) {
 
         $skills = explode(" ", $job["skills"]);
         array_pop($skills);
-
         $jobInstance = new Job($job["id"]);
         echo "<div class='well'>";
         echo "<div class='row'>";

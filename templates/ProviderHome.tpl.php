@@ -32,6 +32,12 @@
             hr {
                 border-top: 1px solid #cccccc;
             }
+            .message {
+                background-color: rgba(52, 152, 219, 0.3);
+                padding: 10px 15px;
+                border-radius: 2px;
+                border: 1px solid rgba(52, 152, 219, 0.35);
+            }
         </style>
     </head>
     <body>
@@ -78,7 +84,7 @@
                                     printJobs($jobs);
                                 }
                                 else {
-                                    echo "You have not posted any jobs!";
+                                    echo "<div class='message'>You have not posted any jobs!</div>";
                                 }
 
                             ?>

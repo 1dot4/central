@@ -28,10 +28,17 @@ class HomePageController extends PageController {
                 require_once 'models/Job.php';
                 switch($page)
                 {
-                    case 'index':   
+                    case 'index':
+                        require_once 'models/Seeker.php';
+
+                        $seeker = new Seeker($id);
+
                         $this->setPage('SeekerHome.tpl.php');
-                        $jobs = Job::searchJobs($id, '', '', '', 'false');
+
+                        $jobs = $seeker->relevantJobs();
+
                         $this->setVar('jobs', $jobs);
+
                         break;
 
                     case 'search':

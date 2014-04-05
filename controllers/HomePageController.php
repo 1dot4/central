@@ -60,8 +60,14 @@ class HomePageController extends PageController {
 
                         $this->setVar('jobs', $jobs);
                         
-                        $this->setPage('SeekerHome.tpl.php');
+                        $this->setPage('SeekerHomeSearch.tpl.php');
                         break;
+                    case 'advSearch':
+                        $jobs = Job::searchJobs($id, '', '', '', 'false');
+
+                        $this->setVar('jobs', $jobs);
+                        
+                        $this->setPage('SeekerHomeSearch.tpl.php'); 
             }
             break;
             case 'volunteer':

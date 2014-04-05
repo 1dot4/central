@@ -105,14 +105,15 @@ class Seeker extends User {
         require_once 'libs/DB.php';
 
         $seekerId = $this->id();
+        $seekerLocation = $this->preferredLocation();
 
         $query = "SELECT J.*, JS.job_id, COUNT(JS.job_id) AS rank
           FROM job_skill JS, job J
           WHERE J.id=JS.job_id
+          AND J.location_name='$seekerLocation'
           AND JS.skill_name IN (SELECT skill_name FROM seeker_skill WHERE seeker_id='$seekerId')
           GROUP BY JS.job_id
           ORDER BY rank DESC";
-
 
         $conn = DB::connect();
 
@@ -123,6 +124,21 @@ class Seeker extends User {
         while($row = $res->fetch(PDO::FETCH_ASSOC)) {
             array_push($jobs, $row);
         }
+
+        $query = "SELECT J.*, JS.job_id, COUNT(JS.job_id) AS rank
+          FROM job_skill JS, job J
+          WHERE J.id=JS.job_id
+          AND JS.skill_name IN (SELECT skill_name FROM seeker_skill WHERE seeker_id='$seekerId')
+          GROUP BY JS.job_id
+          ORDER BY rank DESC";
+
+        $res = $conn->query($query);
+
+        while($row = $res->fetch(PDO::FETCH_ASSOC)) {
+            array_push($jobs, $row);
+        }
+
+        $jobs = array_map("unserialize", array_unique(array_map("serialize", $jobs)));
 
         return $jobs;
     }

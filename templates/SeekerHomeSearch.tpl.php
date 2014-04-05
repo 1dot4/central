@@ -98,7 +98,26 @@
                     <a href="advSearch">Search all jobs</a>  
                 </div>
                 <div class="col-md-10">
-                    <h4>Relevant Jobs:</h4>
+                <form class="form-inline" method="get" action="search">
+                    <div class="form-group">
+                        <label>From: </label>
+                        <input class="form-control date" type="date" name="from_date">
+                    </div>
+                    <div class="form-group">
+                        &nbsp&nbsp
+                        <label>To: </label>
+                        <input class="form-control date" type="date" name="to_date">
+                    </div>
+                    <div class="form-group">
+                        &nbsp&nbsp
+                        <input name="q" class="form-control search" type="text" placeholder="search">
+                    </div>
+                    <div class="form-group">
+                        &nbsp&nbsp
+                        <input type="checkbox" name="closed"> Show closed &nbsp&nbsp
+                    </div>
+                    <input type="submit" class="btn btn-primary" value="Search">
+                </form>
                 <hr>
                     <div class="row">
                         <br>

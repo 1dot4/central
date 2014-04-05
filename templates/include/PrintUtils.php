@@ -153,15 +153,9 @@ function seekerPrintJobs($jobs) {
         echo '<a href="#" class="btn btn-default btn-xs">status:'.$job['status'].'</a>';
         echo '&nbsp &nbsp';
         echo '<a href="#" class="btn btn-default btn-xs">type:'.$jobInstance->type().'</a>';
+        echo '&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp';
+        echo '<a href="#" class="btn btn-info btn-xs" id="express_interest-btn">Express Interest!!</a>';
         echo '</div>';
         echo '<hr>';
-        /*echo "<b><h4>";
-        echo $job["title"];
-        echo "</b><br></h4>";
-        echo $job["description"];
-        echo "<br>";
-        echo "Posted by " . linkedName($job["posted_by_id"]) . " on " . $job["post_date"];
-        echo "<br><br>";
-        echo "<hr>";*/
     }
 }

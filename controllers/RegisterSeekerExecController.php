@@ -76,7 +76,7 @@ class RegisterSeekerExecController extends ExecController {
         if($error) {
             require_once 'libs/Session.php';
             Session::start();
-            Session::setVar("ERR_MSG", $errMsg);
+            Session::setVar('ERR_MSG', $errMsg);
             Session::close();
 			$this->setRedirectUri('./home/register');
         }

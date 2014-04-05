@@ -35,6 +35,11 @@ class JobPostExecController extends ExecController {
             }
         }
 
+        if($jobStart >= ){
+            $err = true;
+            $errMsg = 'Job cannot start before you post.<br>'
+        }
+
         if($err) {
             require_once 'libs/Session.php';
 
@@ -62,6 +67,7 @@ class JobPostExecController extends ExecController {
         $jobLocation = $this->app()->request->post("location");
         $jobType = $this->app()->request->post("type");
         $jobStart = $this->app()->request->post("start");
+
 
         if($jobType == 'temporary') {
             $jobDuration = $this->app()->request->post("duration");

@@ -107,7 +107,7 @@
                 </div>
                 <br><br>
                 <div class="form-group">
-                    <textarea name="description" class="form-control" placeholder="Job description" value="<?php echo $jobDescription; ?>"></textarea>
+                    <textarea name="description" class="form-control" placeholder="Job description"><?php echo $jobDescription; ?></textarea>
                 </div>
                 <br><br>
                 <div class="form-group">
@@ -134,7 +134,7 @@
                 <br><br>
                 <div class="form-group">
                     <label>Start date: </label>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-                    <input name="start" class="form-control" type="date">
+                    <input name="start" id="start-date" class="form-control" type="date">
                 </div>
             <!--     <br><br> -->                           
                 <div id="durationInput">                
@@ -156,6 +156,7 @@ function myFunction()
  document.getElementById('postjob').innerHTML = "<div class='form-group'><br><input id='postjob' type='submit' class='btn btn-primary' value='Post Job'></div>";
 }
 </script>
+
 <script>
     var permanent = false;
     $("#temporary, #permanent").change(function() {
@@ -167,6 +168,14 @@ function myFunction()
             myFunction(); 
         }
         permanent = !permanent;
+        var now = new Date();
+        $("#start-date").change(function() {
+            if ($("#start-date").val() < now) {
+                // selected date is in the past
+                alert("Start cannot start in past");
+            }
+        })
+        
     });
 </script>
 </body>

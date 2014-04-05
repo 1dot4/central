@@ -52,6 +52,8 @@ class VerifyPageController extends PageController {
 
             Session::start();
             Session::setVar('ERR_MSG', $errMsg);
+            Session::setVar("USERNAME",$username);
+            Session::setVar("PHONE",$phone);
             Session::close();
 
             $this->setRedirectUri('register');

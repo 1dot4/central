@@ -118,11 +118,11 @@
             ?>
             <br>
             <div class="form-group">
-                <input type="text" name="username" class="form-control" placeholder="Your username">
+                <input type="text" name="username" class="form-control" placeholder="Your username" value="<?php echo $username ?>">
             </div>
             <br><br>
             <div class="form-group">
-                <input type="text" name="phone" class="form-control" placeholder="Your mobile number">
+                <input type="text" name="phone" class="form-control" placeholder="Your mobile number" value= "<?php echo $phone ?>" >
             </div>
             <br><br>
             <div class="form-group">

@@ -75,8 +75,10 @@ class HomePageController extends PageController {
 
                         if(Session::existsVar("ERR_MSG")) {
                             $this->setVar('errMsg', Session::getVar("ERR_MSG"));
+                           
                         } else {
                             $this->setVar('errMsg', "");
+                            
                         }
 
                         Session::unsetVar("ERR_MSG");

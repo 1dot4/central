@@ -12,29 +12,30 @@ class JobPostExecController extends ExecController {
 
         require_once 'models/Job.php';
 
-        if($jobTitle == '' || $jobDescription == '' || $jobSkills == ''|| $jobLocation == ''|| $jobStart == ''){
+        if($jobTitle == '' || $jobDescription == '' || $jobSkills == ''|| $jobLocation == ''|| $jobStart == '') {
             $err = true;
             $errMsg .= 'All the fields are required.<br>';
         }
-        if(!is_numeric($jobPositions)){
+
+        if(!is_numeric($jobPositions)) {
             $err = true;
             $errMsg .= 'Enter valid vacancies.<br>';
         }
-        if($jobType == 'temporary'){
-            if($jobDuration == ''){
+
+        if($jobType == 'temporary') {
+            if($jobDuration == '') {
                 $err = true;
                 $errMsg .= 'Duration is required.<br>';
             }
             else { 
-                if(!is_numeric($jobDuration)){
+                if(!is_numeric($jobDuration)) {
                 $err = true;
                 $errMsg .= 'Enter valid duration. <br>';
+                }
             }
         }
-        }
 
-
-        if($err){
+        if($err) {
             require_once 'libs/Session.php';
 
             Session::start();
@@ -43,6 +44,7 @@ class JobPostExecController extends ExecController {
 
             $this->setRedirectUri('home/post');
         }
+
         return !$err;
     }
     public function process() {

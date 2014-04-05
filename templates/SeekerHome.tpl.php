@@ -21,7 +21,7 @@
             printNavBar('home', $username, 2)
         ?>
         <div class="row">
-                <div class="col-md-2">>
+                <div class="col-md-2">  
                 </div>
                 <div class="col-md-10">
                 <form class="form-inline" method="get" action="search">
@@ -47,17 +47,18 @@
                 <hr>
                     <div class="row">
                         <br>
-                        <?php
-                            require_once 'include/PrintUtils.php';
+                        <div class="col-md-8">
+                            <?php
+                                require_once 'include/PrintUtils.php';
 
-                            if(sizeof($jobs) != 0) {
-                                seekerPrintJobs($jobs);
-                            }
-                            else {
-                                echo "You have not posted any jobs!";
-                            }
-                            
-                        ?>
+                                if(sizeof($jobs) != 0) {
+                                    seekerPrintJobs($jobs);
+                                }
+                                else {
+                                    echo "No jobs!";
+                                }
+                            ?>
+                        </div>
                     </div>
                 </div>
             </div>

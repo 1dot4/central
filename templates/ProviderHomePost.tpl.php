@@ -103,11 +103,11 @@
             ?>
             <br>
                 <div class="form-group">
-                    <input name="title" id="text1" type="text" class="form-control" placeholder="Job title">
+                    <input name="title" id="text1" type="text" class="form-control" placeholder="Job title" value="<?php echo $jobTitle; ?>">
                 </div>
                 <br><br>
                 <div class="form-group">
-                    <textarea name="description" class="form-control" placeholder="Job description"></textarea>
+                    <textarea name="description" class="form-control" placeholder="Job description" value="<?php echo $jobDescription; ?>"></textarea>
                 </div>
                 <br><br>
                 <div class="form-group">

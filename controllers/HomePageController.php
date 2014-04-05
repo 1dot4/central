@@ -122,10 +122,19 @@ class HomePageController extends PageController {
 
                         if(Session::existsVar("ERR_MSG")) {
                             $this->setVar('errMsg', Session::getVar("ERR_MSG"));
+                            $this->setVar('jobTitle', Session::getVar("TITLE"));
+                            $this->setVar('jobDescription', Session::getVar("DESCRIPTION"));
+
                         } else {
                             $this->setVar('errMsg', "");
+                            $this->setVar('jobTitle', "");
+                            $this->setVar('jobDescription', "");
                         }
                         Session::unsetVar("ERR_MSG");
+                        Session::unsetVar("TITLE");
+                        Session::unsetVar("DESCRIPTION");
+                        
+                        
                         Session::close();
 
                         break;

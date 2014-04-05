@@ -31,7 +31,6 @@ class JobPostExecController extends ExecController {
                 $errMsg .= 'Enter valid duration. <br>';
             }
         }
-
         }
 
 

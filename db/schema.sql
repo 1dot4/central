@@ -125,4 +125,12 @@ CREATE TABLE IF NOT EXISTS `job_skill` (
   FOREIGN KEY (`skill_name`) REFERENCES skill(`name`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
+CREATE TABLE IF NOT EXISTS `job_interests` (
+  `job_id` bigint(20) NOT NULL,
+  `seeker_id` bigint(20) NOT NULL,
+  PRIMARY KEY (`job_id`, `seeker_id`),
+  FOREIGN KEY (`job_id`) REFERENCES job(`id`),
+  FOREIGN KEY (`seeker_id`) REFERENCES seeker(`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
 ALTER TABLE job ADD FULLTEXT(`title`, `description`, `location_name`, `skills`);

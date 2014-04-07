@@ -4,6 +4,7 @@ require_once 'libs/Slim/Slim.php';
 require_once 'controllers/core/Controller.php';
 require_once 'controllers/core/PageController.php';
 require_once 'controllers/core/ExecController.php';
+require_once 'controllers/core/StreamController.php';
 
 \Slim\Slim::registerAutoloader();
 
@@ -161,6 +162,14 @@ $app->get("/profile/:id", function($id) use($app) {
 $app->post("/job.post", function() use($app) {
     require_once 'controllers/JobPostExecController.php';
     new JobPostExecController($app, 'home/index', true);
+});
+
+/**
+ * Delete job post
+ */
+$app->get("/job.delete/:id", function($id) use($app) {
+    require_once 'controllers/JobDeleteStreamController.php';
+    new JobDeleteStreamController($app, true, $id);
 });
 
 /* End routes */

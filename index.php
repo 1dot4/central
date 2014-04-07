@@ -172,6 +172,11 @@ $app->get("/job.delete/:id", function($id) use($app) {
     new JobDeleteStreamController($app, true, $id);
 });
 
+$app->get("/job.interested/:id", function($id) use($app) {
+    require_once 'controllers/JobInterestStreamController.php';
+    new JobInterestStreamController($app, true, $id);
+});
+
 /* End routes */
 
 // Run the Slim router

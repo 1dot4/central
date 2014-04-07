@@ -83,6 +83,12 @@
             hr {
                 border-top: 1px solid #cccccc;
             }
+            .message {
+                background-color: rgba(52, 152, 219, 0.3);
+                padding: 10px 15px;
+                border-radius: 2px;
+                border: 1px solid rgba(52, 152, 219, 0.35);
+            }
         </style>
     </head>
     <body>
@@ -95,7 +101,7 @@
                 <div class="col-md-2">
                     <a href="index">Relevant Jobs</a>
                     <hr>
-                    <a href="advSearch">Search all jobs</a>  
+                    <a href="advanced-search">Search all jobs</a>
                 </div>
                 <div class="col-md-10">
                     <h4>Relevant Jobs:</h4>
@@ -110,7 +116,7 @@
                                     seekerPrintJobs($jobs);
                                 }
                                 else {
-                                    echo "No jobs!";
+                                    echo "<div class='message'>We can not any fetch jobs which are relevant to you. Why not try our <a href='advanced-search'>advanced job search</a>?</div>";
                                 }
                             ?>
                         </div>

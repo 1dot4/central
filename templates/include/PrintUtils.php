@@ -154,7 +154,7 @@ function seekerPrintJobs($jobs) {
         echo '&nbsp &nbsp';
         echo '<a href="#" class="btn btn-default btn-xs">type:'.$jobInstance->type().'</a>';
         echo '&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp';
-        echo '<a href="#" class="btn btn-info btn-xs" id="express_interest-btn">Express Interest!!</a>';
+        echo '<a href="#" class="btn btn-info btn-xs" id="express_interest-btn">Express Interest !</a>';
         echo '</div>';
         echo '<hr>';
     }

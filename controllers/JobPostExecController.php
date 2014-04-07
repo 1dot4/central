@@ -35,10 +35,10 @@ class JobPostExecController extends ExecController {
             }
         }
 
-        if($jobStart >= ){
+        /*if($jobStart >= ){
             $err = true;
             $errMsg = 'Job cannot start before you post.<br>'
-        }
+        }*/
 
         if($err) {
             require_once 'libs/Session.php';

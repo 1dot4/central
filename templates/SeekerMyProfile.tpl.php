@@ -55,7 +55,7 @@
             *, *:before, *:after {
                 -moz-box-sizing: border-box;
             }
-            .form-inline, .dp-box {
+            .form-inline{
                 max-width: 350px;
                 padding: 29px;
                 background-color: #f2f2f2;
@@ -98,7 +98,7 @@
             #form1 {
                 margin-left: 250px;
                 position: absolute;
-                top: 305px
+                top: 375px;
             }
 
             #form2 {
@@ -116,13 +116,10 @@
             #form4 {
                 margin-left: 250px;
                 position: absolute;
-                top: 780px;
+                top: 850px;
                 min-width: 750px;
             }
 
-            .dp-box {
-                margin: 80px 250px;
-            }
 
             .dp-container {
                 width: 104px;
@@ -132,26 +129,38 @@
                 border-radius: 5px;
                 margin-left: 90px;
             }
-
+			#form5 {
+                margin: 80px 250px;
+            }
+			
             .dp {
                 width: 102px;
                 height: 102px;
                 padding: 2px;
             }
+			
+			#file{
+				background-color:white;
+				width: 100%;
+				margin-left:5px;
+			}
         </style>
     </head>
     <?php
         require_once 'include/PrintUtils.php';
         printNavBar('myprofile', $username);
     ?>
-    <div class="dp-box">
+    <form action="profile.save/image" class="form-inline" method="post" id="form5" enctype="multipart/form-data">
         <div class="dp-container">
-            <img class="dp" src="public/images/default_profile.png">
-            <br><br>
-            <a href="dp.change"><u>Change Picture</u></a>
-        </div>
-        <br>
-    </div>
+            <img class="dp" src="public/images/upload/<?php echo "filename"?>.png">
+			<br><br>
+			<!--<a href="dp.change"><u>Change Picture</u></a> -->
+		</div>
+		<br>
+		<input id="file" type="file" name="file" value="profile_img">
+		<br>
+		<input type="submit" value="Upload" class="btn btn-primary">
+	</form>
     <form class="form-inline" method="post" id="form1" action="profile.save/personal">
         <h2>Personal details</h2>
         <hr>

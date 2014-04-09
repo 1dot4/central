@@ -52,6 +52,46 @@ class SaveProfileExecController extends ExecController {
                 }
 
                 break;
+				
+			case 'image':
+				
+				$allowedExts = array("jpeg", "jpg", "png");
+				$temp = explode(".", $_FILES["file"]["name"]);
+				$extension = end($temp);
+				if (($_FILES["file"]["type"] == "image/jpeg")
+				|| ($_FILES["file"]["type"] == "image/jpg")
+				|| ($_FILES["file"]["type"] == "image/pjpeg")
+				|| ($_FILES["file"]["type"] == "image/x-png")
+				|| ($_FILES["file"]["type"] == "image/png")
+				&& ($_FILES["file"]["size"] < 2000000)
+				&& in_array($extension, $allowedExts))
+				  {
+				  $rename = $id;
+				  if ($_FILES["file"]["error"] > 0)
+					{
+					echo "Return Code: " . $_FILES["file"]["error"] . "<br>";
+					}
+				  else
+					{
+
+					if (file_exists("./public/images/upload/volunteer_profile/" . $_FILES["file"]["name"]))
+					  {
+					  echo $_FILES["file"]["name"] . " already exists. ";
+					  }
+					else
+					  {
+					  move_uploaded_file($_FILES["file"]["tmp_name"],
+					  "./public/images/upload/volunteer_profile/" .$_FILES["file"]["name"]);
+					  }
+					}
+				  }
+				else
+				  {
+				  echo "Invalid file";
+				  }
+				break;
+				  
+				  
         }
 
         $volunteer->saveToDb();
@@ -109,6 +149,44 @@ class SaveProfileExecController extends ExecController {
                 $seeker->setSkills($skillSet);
 
                 break;
+			
+			case 'image':
+				
+				$allowedExts = array("jpeg", "jpg", "png");
+				$temp = explode(".", $_FILES["file"]["name"]);
+				$extension = end($temp);
+				if (($_FILES["file"]["type"] == "image/jpeg")
+				|| ($_FILES["file"]["type"] == "image/jpg")
+				|| ($_FILES["file"]["type"] == "image/pjpeg")
+				|| ($_FILES["file"]["type"] == "image/x-png")
+				|| ($_FILES["file"]["type"] == "image/png")
+				&& ($_FILES["file"]["size"] < 2000000)
+				&& in_array($extension, $allowedExts))
+				  {
+				  $rename = $id;
+				  if ($_FILES["file"]["error"] > 0)
+					{
+					echo "Return Code: " . $_FILES["file"]["error"] . "<br>";
+					}
+				  else
+					{
+
+					if (file_exists("./public/images/upload/seeker_profile/" . $_FILES["file"]["name"]))
+					  {
+					  echo $_FILES["file"]["name"] . " already exists. ";
+					  }
+					else
+					  {
+					  move_uploaded_file($_FILES["file"]["tmp_name"],
+					  "./public/images/upload/seeker_profile/" .$_FILES["file"]["name"]);
+					  }
+					}
+				  }
+				else
+				  {
+				  echo "Invalid file";
+				  }
+				break;
         }
 
         $seeker->saveToDb();
@@ -160,6 +238,44 @@ class SaveProfileExecController extends ExecController {
                 }
 
                 break;
+				
+			case 'image':
+				
+				$allowedExts = array("jpeg", "jpg", "png");
+				$temp = explode(".", $_FILES["file"]["name"]);
+				$extension = end($temp);
+				if (($_FILES["file"]["type"] == "image/jpeg")
+				|| ($_FILES["file"]["type"] == "image/jpg")
+				|| ($_FILES["file"]["type"] == "image/pjpeg")
+				|| ($_FILES["file"]["type"] == "image/x-png")
+				|| ($_FILES["file"]["type"] == "image/png")
+				&& ($_FILES["file"]["size"] < 2000000)
+				&& in_array($extension, $allowedExts))
+				  {
+				  $rename = $id;
+				  if ($_FILES["file"]["error"] > 0)
+					{
+					echo "Return Code: " . $_FILES["file"]["error"] . "<br>";
+					}
+				  else
+					{
+
+					if (file_exists("./public/images/upload/provider_profile/" . $_FILES["file"]["name"]))
+					  {
+					  echo $_FILES["file"]["name"] . " already exists. ";
+					  }
+					else
+					  {
+					  move_uploaded_file($_FILES["file"]["tmp_name"],
+					  "./public/images/upload/provider_profile/" .$_FILES["file"]["name"]);
+					  }
+					}
+				  }
+				else
+				  {
+				  echo "Invalid file";
+				  }
+				break;
         }
 
         $provider->saveToDb();

@@ -29,6 +29,9 @@
             #type {
                 text-align: center;
             }
+			#favourite{
+				float:right;
+			}
         </style>
     </head>
     <body>
@@ -49,7 +52,9 @@
                             <h3 id="type"><b><?php echo $typeText ?></b></h3>
                         </div>
                         <div class="col-md-7">
-                            <h1><?php echo $username ?></h1>
+                            <h1><?php echo $username ."<button id='favourite' type='button' class='btn btn-default'>
+								<span class='glyphicon glyphicon-star-empty'></span> Add to Favourites
+							</button>" ?></h1>
                             <hr>
                             <?php if($fullName != ""): ?>
                             <h4><b><?php echo $fullName ?></b></h4>

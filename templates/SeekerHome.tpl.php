@@ -56,7 +56,15 @@
             *, *:before, *:after {
                 -moz-box-sizing: border-box;
             }
-
+			#skills_img{
+				display:none;
+				height: 40%;
+				width: 40%;
+			}
+			
+			#skills_hover {
+				:hover img{display:block;}
+			}
             .container {
                 margin-top: 90px;
             }

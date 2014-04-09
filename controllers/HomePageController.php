@@ -62,6 +62,7 @@ class HomePageController extends PageController {
                         
                         $this->setPage('SeekerHomeSearch.tpl.php');
                         break;
+						
                     case 'advanced-search':
                         $jobs = Job::searchJobs($id, '', '', '', 'false');
 

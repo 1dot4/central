@@ -65,30 +65,29 @@ class SaveProfileExecController extends ExecController {
 				|| ($_FILES["file"]["type"] == "image/png")
 				&& ($_FILES["file"]["size"] < 2000000)
 				&& in_array($extension, $allowedExts))
-				  {
-				  $rename = $id;
-				  if ($_FILES["file"]["error"] > 0)
+				{
+					$newfilename = $id.".".$extension;
+					if ($_FILES["file"]["error"] > 0)
 					{
-					echo "Return Code: " . $_FILES["file"]["error"] . "<br>";
+						echo "Return Code: " . $_FILES["file"]["error"] . "<br>";
 					}
-				  else
-					{
-
-					if (file_exists("./public/images/upload/volunteer_profile/" . $_FILES["file"]["name"]))
-					  {
-					  echo $_FILES["file"]["name"] . " already exists. ";
-					  }
 					else
-					  {
-					  move_uploaded_file($_FILES["file"]["tmp_name"],
-					  "./public/images/upload/volunteer_profile/" .$_FILES["file"]["name"]);
-					  }
+					{
+						if (file_exists("./public/images/upload/volunteer_profile/" . $_FILES["file"]["name"]))
+						  {
+						  echo $_FILES["file"]["name"] . " already exists. ";
+						  }
+						else
+						  {
+						  move_uploaded_file($_FILES["file"]["tmp_name"],
+						  "./public/images/upload/volunteer_profile/" . $newfilename);
+						  }
 					}
-				  }
+				}
 				else
-				  {
+				{
 				  echo "Invalid file";
-				  }
+				}
 				break;
 				  
 				  
@@ -163,7 +162,7 @@ class SaveProfileExecController extends ExecController {
 				&& ($_FILES["file"]["size"] < 2000000)
 				&& in_array($extension, $allowedExts))
 				  {
-				  $rename = $id;
+				  $newfilename = $id.".".$extension;
 				  if ($_FILES["file"]["error"] > 0)
 					{
 					echo "Return Code: " . $_FILES["file"]["error"] . "<br>";
@@ -178,7 +177,7 @@ class SaveProfileExecController extends ExecController {
 					else
 					  {
 					  move_uploaded_file($_FILES["file"]["tmp_name"],
-					  "./public/images/upload/seeker_profile/" .$_FILES["file"]["name"]);
+					  "./public/images/upload/seeker_profile/" .$newfilename);
 					  }
 					}
 				  }
@@ -252,7 +251,7 @@ class SaveProfileExecController extends ExecController {
 				&& ($_FILES["file"]["size"] < 2000000)
 				&& in_array($extension, $allowedExts))
 				  {
-				  $rename = $id;
+				  $newfilename = $id.".".$extension;
 				  if ($_FILES["file"]["error"] > 0)
 					{
 					echo "Return Code: " . $_FILES["file"]["error"] . "<br>";
@@ -267,7 +266,7 @@ class SaveProfileExecController extends ExecController {
 					else
 					  {
 					  move_uploaded_file($_FILES["file"]["tmp_name"],
-					  "./public/images/upload/provider_profile/" .$_FILES["file"]["name"]);
+					  "./public/images/upload/provider_profile/" .$newfilename);
 					  }
 					}
 				  }

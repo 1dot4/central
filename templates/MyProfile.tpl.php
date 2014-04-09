@@ -93,7 +93,7 @@
         ?>
         <form action="profile.save/image" class="form-inline" method="post" id="form4" enctype="multipart/form-data">
             <div class="dp-container">
-                <img class="dp" src="public/images/upload/<?php echo "filename"?>.png">
+                <img class="dp" src="public/images/upload/<?php echo "volunteer_profile/4"?>.png">
                 <br><br>
                 <!--<a href="dp.change"><u>Change Picture</u></a> -->
             </div>

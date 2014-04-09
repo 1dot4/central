@@ -172,6 +172,38 @@ class Provider extends User {
     }
 
     /**
+     * Calculate profile completeness of Provider
+     * @return float Percentage of profile completeness
+     */
+    public function profileCompleteness() {
+        $noFields = 5;
+
+        $count = 0;
+
+        if($this->email != "") {
+            $count += 1;
+        }
+
+        if($this->designation != "") {
+            $count += 1;
+        }
+
+        if($this->organization != "") {
+            $count += 1;
+        }
+
+        if($this->location != "") {
+            $count += 1;
+        }
+
+        if($this->fullName() != "") {
+            $count += 1;
+        }
+
+        return ((float)$count * 100.0 / (float)$noFields);
+    }
+
+    /**
      * The provider's email
      * @var string
      */

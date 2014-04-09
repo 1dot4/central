@@ -208,6 +208,38 @@ class Seeker extends User {
     }
 
     /**
+     * Calculate profile completeness for Seeker
+     * @return float Percentage of profile completeness of seeker
+     */
+    public function profileCompleteness() {
+        $noFields = 5;
+
+        $count = 0;
+
+        if($this->fullName() != "") {
+            $count += 1;
+        }
+
+        if($this->experience != null) {
+            $count += 1;
+        }
+
+        if($this->currentLocation != "") {
+            $count += 1;
+        }
+
+        if($this->preferredLocation != "") {
+            $count += 1;
+        }
+
+        if(sizeof($this->skills) > 0) {
+            $count += 1;
+        }
+
+        return (float)$count * 100.0 / (float)$noFields;
+    }
+
+    /**
      * Number of years of experience of seeker
      * @var int
      */

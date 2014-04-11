@@ -71,7 +71,7 @@ function printJobs($jobs) {
         $skills = explode(" ", $job["skills"]);
         array_pop($skills);
         $jobInstance = new Job($job["id"]);
-        echo "<div class='well'>";
+        echo "<div class='well' id='job-". $job["id"] ."'>";
         echo "<div class='row'>";
         echo "<div class='col-md-3'>";
         echo "<div class='dp-box'>";
@@ -120,7 +120,7 @@ function seekerPrintJobs($jobs, $userId) {
         array_pop($skills);
 
         $jobInstance = new Job($job["id"]);
-        echo "<div class='well'>";
+        echo "<div class='well' id='job-". $job["id"] ."'>";
         echo "<div class='row'>";
         echo "<div class='col-md-3'>";
         echo "<div class='dp-box'>";

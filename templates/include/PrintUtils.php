@@ -90,7 +90,7 @@ function printJobs($jobs) {
         echo "<br><br>";
         echo "Skills required: ";
         foreach($skills as $skill) {
-            echo "<a class='btn btn-default btn-xs' href='#'>" . $skill . "</a>";
+            echo "<a class='btn btn-default btn-xs' href='#'>" . $skill . "</a> ";
         }
         echo "<br><br>";
         echo "Location of job in <a href='#'><b>" . $job["location_name"] . "</b></a>";
@@ -139,7 +139,7 @@ function seekerPrintJobs($jobs, $userId) {
         echo "<br><br>";
         echo "Skills required: ";
         foreach($skills as $skill) {
-            echo "<a href='#' id='skills_hover'>" . $skill . "<img id='skills_img' src='../public/images/".$skill.".jpg'/></a>";
+            echo "<a href='#' class='btn btn-default btn-xs'>" . $skill . "</a> ";
         }
         echo "<br><br>";
         echo "Location of job in <a href='#'><b>" . $job["location_name"] . "</b></a>";

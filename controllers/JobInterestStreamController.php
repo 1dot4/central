@@ -17,14 +17,14 @@ class JobInterestStreamController extends StreamController {
         $jobId = $this->param();
         $interested = $this->app()->request->get("value");
 
-        require_once 'libs/DB.php';
+        require_once 'models/User.php';
+        require_once 'models/Seeker.php';
 
-        $conn = DB::connect();
-
+        $seeker = new Seeker($userId);
         if($interested == 'true') {
-            $conn->exec("INSERT INTO job_interest(job_id, seeker_id) VALUES('$jobId', '$userId')");
+            $seeker->expressJobInterest($jobId);
         } else {
-            $conn->exec("DELETE FROM job_interest WHERE job_id='$jobId' AND seeker_id='$userId'");
+            $seeker->unExpressInterest($jobId);
         }
 
         $record = Array(

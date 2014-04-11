@@ -144,6 +144,28 @@ class Seeker extends User {
     }
 
     /**
+     * Express job interest
+     * @param string $jobId The job id
+     */
+    public function expressJobInterest($jobId) {
+        require_once 'libs/DB.php';
+        $conn = DB::connect();
+        $userId = $this->id();
+        $conn->exec("INSERT INTO job_interest(job_id, seeker_id) VALUES('$jobId', '$userId')");
+    }
+
+    /**
+     * Un Express job interest
+     * @param string $jobId The job id
+     */
+    public function unExpressInterest($jobId) {
+        require_once 'libs/DB.php';
+        $conn = DB::connect();
+        $userId = $this->id();
+        $conn->exec("DELETE FROM job_interest WHERE job_id='$jobId' AND seeker_id='$userId'");
+    }
+
+    /**
      * Getter function for seeker's experience
      * @return int Seeker's experience
      */

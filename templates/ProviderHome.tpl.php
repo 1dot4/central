@@ -97,7 +97,11 @@
         <script>
             function deleteJob(jobId) {
                 $.get('../job.delete/' + jobId).done(function(data) {
-
+                    var jObj = $.parseJSON(data);
+                    if(jObj[0].success == true) {
+                        var divJob = "job-" + jobId;
+                        $("#" + divJob).fadeOut();
+                    }
                 });
             }
         </script>

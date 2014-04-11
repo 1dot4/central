@@ -101,12 +101,12 @@ function printJobs($jobs) {
         }
         echo " with <b>" . $job["positions"] . "</b> vacancies";
         echo "<br><br>";
-        echo '<a href="#" class="btn btn-default btn-xs">status:'.$job['status'].'</a>';
+        echo '<a href="javascript:void(0);" class="btn btn-default btn-xs" id="job-status-'. $jobInstance->id() .'" onclick="toggleStatus('. $jobInstance->id() .')">status:'.$job['status'].'</a>';
         echo '&nbsp &nbsp';
         echo '<a href="#" class="btn btn-default btn-xs">type:'.$jobInstance->type().'</a>';
         echo '<a href="#" class="btn btn-info btn-xs" id="edit-btn">Edit</a>';
         echo '&nbsp &nbsp';
-        echo '<a href="javascript:void();" class="btn btn-danger btn-xs" id="del-btn" onclick="deleteJob('. $jobInstance->id() .')">Delete</a>';
+        echo '<a href="javascript:void(0);" class="btn btn-danger btn-xs" id="del-btn" onclick="deleteJob('. $jobInstance->id() .')">Delete</a>';
         echo '&nbsp &nbsp';
         echo "</div>";
         echo "<hr>";
@@ -155,9 +155,9 @@ function seekerPrintJobs($jobs, $userId) {
         echo '<a href="#" class="btn btn-default btn-xs">type:'.$jobInstance->type().'</a>';
         echo '&nbsp &nbsp';
         if($jobInstance->hasUserInterest($userId)) {
-            echo '<a href="javascript:void();" class="btn btn-warning btn-xs express-interest" onclick="unExpressInterest('. $jobInstance->id() .')">Interest expressed !</a>';
+            echo '<a href="javascript:void(0);" class="btn btn-warning btn-xs express-interest" onclick="unExpressInterest('. $jobInstance->id() .')">Interest expressed !</a>';
         } else {
-            echo '<a href="javascript:void();" class="btn btn-info btn-xs express-interest" onclick="expressInterest('. $jobInstance->id() .')">Express Interest !</a>';
+            echo '<a href="javascript:void(0);" class="btn btn-info btn-xs express-interest" onclick="expressInterest('. $jobInstance->id() .')">Express Interest !</a>';
         }
         echo '</div>';
         echo '<hr>';

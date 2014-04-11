@@ -104,6 +104,16 @@
                     }
                 });
             }
+
+            function toggleStatus(jobId) {
+                $.get('../job.status/' + jobId).done(function(data) {
+                    var jObj = $.parseJSON(data);
+                    if(jObj[0].success == true) {
+                        var divJobStatus = "job-status-" + jobId;
+                        $("#" + divJobStatus).html("status:" + jObj[0].status);
+                    }
+                });
+            }
         </script>
     </body>
 </html>

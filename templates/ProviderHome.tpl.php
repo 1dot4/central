@@ -94,5 +94,12 @@
             </div>
         </div>
         <?php require_once 'include/ScriptsLevel2.php' ?>
+        <script>
+            function deleteJob(jobId) {
+                $.get('../job.delete/' + jobId).done(function(data) {
+
+                });
+            }
+        </script>
     </body>
 </html>

@@ -106,7 +106,7 @@ function printJobs($jobs) {
         echo '<a href="#" class="btn btn-default btn-xs">type:'.$jobInstance->type().'</a>';
         echo '<a href="#" class="btn btn-info btn-xs" id="edit-btn">Edit</a>';
         echo '&nbsp &nbsp';
-        echo '<a href="#" class="btn btn-danger btn-xs" id="del-btn">Delete</a>';
+        echo '<a href="javascript:void();" class="btn btn-danger btn-xs" id="del-btn" onclick="deleteJob('. $jobInstance->id() .')">Delete</a>';
         echo '&nbsp &nbsp';
         echo "</div>";
         echo "<hr>";

@@ -244,7 +244,10 @@ class Job {
         $this->skills = $skills;
     }
 
-
+    /**
+     * Return type of job
+     * @return string The type of job
+     */
     public function type() {
         if($this->type == '') {
             require_once 'libs/DB.php';
@@ -267,6 +270,24 @@ class Job {
 
         return $this->type;
 
+    }
+
+    /**
+     * Return if user is interested in job
+     * @param string $userId The user id
+     * @return bool Whether user is interested in job
+     */
+    public function hasUserInterest($userId) {
+        require_once 'libs/DB.php';
+        $conn = DB::connect();
+
+        $res = $conn->query("SELECT COUNT(*) FROM job_interest WHERE job_id='$this->id' AND seeker_id='$userId'");
+
+        if($res->fetchColumn() == 1) {
+            return true;
+        } else {
+            return false;
+        }
     }
 
     /**

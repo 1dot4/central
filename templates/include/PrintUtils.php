@@ -113,7 +113,7 @@ function printJobs($jobs) {
     }
 }
 
-function seekerPrintJobs($jobs) {
+function seekerPrintJobs($jobs, $userId) {
     require_once 'models/TemporaryJob.php';
     foreach ($jobs as $job) {
         $skills = explode(" ", $job["skills"]);
@@ -154,7 +154,11 @@ function seekerPrintJobs($jobs) {
         echo '&nbsp &nbsp';
         echo '<a href="#" class="btn btn-default btn-xs">type:'.$jobInstance->type().'</a>';
         echo '&nbsp &nbsp';
-        echo '<a href="javascript:void();" class="btn btn-info btn-xs express-interest" onclick="expressInterest('. $jobInstance->id() .')">Express Interest !</a>';
+        if($jobInstance->hasUserInterest($userId)) {
+            echo '<a href="javascript:void();" class="btn btn-warning btn-xs express-interest" onclick="unExpressInterest('. $jobInstance->id() .')">Interest expressed !</a>';
+        } else {
+            echo '<a href="javascript:void();" class="btn btn-info btn-xs express-interest" onclick="expressInterest('. $jobInstance->id() .')">Express Interest !</a>';
+        }
         echo '</div>';
         echo '<hr>';
     }

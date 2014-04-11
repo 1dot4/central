@@ -22,6 +22,7 @@ class HomePageController extends PageController {
 
         $this->setVar("userType", $type);
         $this->setVar('username', $user->username());
+        $this->setvar("userId", $id);
 
         switch($type) {
             case 'seeker':

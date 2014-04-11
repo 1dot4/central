@@ -121,7 +121,7 @@
                                 require_once 'include/PrintUtils.php';
 
                                 if(sizeof($jobs) != 0) {
-                                    seekerPrintJobs($jobs);
+                                    seekerPrintJobs($jobs, $userId);
                                 }
                                 else {
                                     echo "<div class='message'>We can not any fetch jobs which are relevant to you. Why not try our <a href='advanced-search'>advanced job search</a>?</div>";

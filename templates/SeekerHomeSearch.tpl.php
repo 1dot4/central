@@ -147,4 +147,16 @@
     </body>
     <script src="./public/tagsinput/js/bootstrap-tagsinput.js"></script>
     <script src="./public/tagsinput/js/typeahead.min.js"></script>
+    <script>
+        function expressInterest(jobId) {
+            $.get("../job.interested/" + jobId).done(function(data) {
+                console.log(data);
+                var jObj = $.parseJSON(data);
+                if(jObj[0].success == true) {
+                    $(".express-interest").html("Interest expressed");
+                    $(".express-interest").attr("class", "btn btn-warning btn-xs express-interest");
+                }
+            });
+        }
+    </script>
 </html>

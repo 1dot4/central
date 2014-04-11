@@ -153,8 +153,8 @@ function seekerPrintJobs($jobs) {
         echo '<a href="#" class="btn btn-default btn-xs">status:'.$job['status'].'</a>';
         echo '&nbsp &nbsp';
         echo '<a href="#" class="btn btn-default btn-xs">type:'.$jobInstance->type().'</a>';
-        echo '&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp';
-        echo '<a href="#" class="btn btn-info btn-xs" id="express_interest-btn">Express Interest !</a>';
+        echo '&nbsp &nbsp';
+        echo '<a href="javascript:void();" class="btn btn-info btn-xs express-interest" onclick="expressInterest('. $jobInstance->id() .')">Express Interest !</a>';
         echo '</div>';
         echo '<hr>';
     }

@@ -177,6 +177,11 @@ $app->get("/job.interested/:id", function($id) use($app) {
     new JobInterestStreamController($app, true, $id);
 });
 
+$app->get("/job.status/:id", function($id) use($app) {
+    require_once 'controllers/JobStatusStreamController.php';
+    new JobStatusStreamController($app, true, $id);
+});
+
 /* End routes */
 
 // Run the Slim router

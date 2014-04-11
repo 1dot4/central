@@ -30,6 +30,7 @@ class Job {
                 $this->positions = $row["positions"];
                 $this->startTime = $row["start_time"];
                 $this->location = $row["location_name"];
+                $this->status = $row["status"];
             }
         }
         else {
@@ -105,7 +106,7 @@ class Job {
 
         $conn = DB::connect();
 
-        $conn->exec("UPDATE job SET title= '$this->title', description='$this->description', posted_by_id='$this->postedById', positions='$this->positions', location_name='$this->location', start_time='$this->startTime' WHERE id='$this->id'");
+        $conn->exec("UPDATE job SET title= '$this->title', description='$this->description', posted_by_id='$this->postedById', positions='$this->positions', location_name='$this->location', start_time='$this->startTime', status='$this->status' WHERE id='$this->id'");
 
         // Delete old skills
         $conn->exec("DELETE FROM job_skill WHERE job_id='$this->id'");
@@ -242,6 +243,22 @@ class Job {
      */
     public function setSkills($skills) {
         $this->skills = $skills;
+    }
+
+    /**
+     * Getter function for job status
+     * @return string The job status
+     */
+    public function status() {
+        return $this->status;
+    }
+
+    /**
+     * Setter function for job status
+     * @param string $status The job status
+     */
+    public function setStatus($status) {
+        $this->status = $status;
     }
 
     /**
@@ -462,4 +479,10 @@ class Job {
      * @var Array
      */
     private $skills;
+
+    /**
+     * The status of the job
+     * @var string
+     */
+    private $status;
 }

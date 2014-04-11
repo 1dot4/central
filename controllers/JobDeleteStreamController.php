@@ -27,6 +27,7 @@ class JobDeleteStreamController extends StreamController {
                 'success' => false
             );
             $this->addRecord($err);
+            return;
         }
 
         $job->delete();

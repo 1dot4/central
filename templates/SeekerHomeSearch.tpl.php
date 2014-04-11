@@ -148,18 +148,25 @@
         <script src="./public/tagsinput/js/typeahead.min.js"></script>
         <script>
             function expressInterest(jobId) {
-                $.get("../job.interested/" + jobId).done(function(data) {
+                $.get("../job.interested/" + jobId + "?value=true").done(function(data) {
                     //console.log(data);
                     var jObj = $.parseJSON(data);
                     if(jObj[0].success == true) {
-                        $(".express-interest").html("Interest expressed");
+                        $(".express-interest").html("Interest expressed !");
                         $(".express-interest").attr("class", "btn btn-warning btn-xs express-interest");
                     }
                 });
             }
 
             function unExpressInterest(jobId) {
-                console.log("Unexpress");
+                $.get("../job.interested/" + jobId + "?value=false").done(function(data) {
+                    //console.log(data);
+                    var jObj = $.parseJSON(data);
+                    if(jObj[0].success == true) {
+                        $(".express-interest").html("Express Interest !");
+                        $(".express-interest").attr("class", "btn btn-info btn-xs express-interest");
+                    }
+                });
             }
         </script>
     </body>

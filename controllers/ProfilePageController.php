@@ -20,6 +20,7 @@ class ProfilePageController extends PageController {
         $currentUserName = $currentUser->username();
 
         $this->setVar('currentUserName', $currentUserName);
+        $this->setVar('currentUserId', $currentUserId);
 
         $username = $this->param();
 
@@ -32,6 +33,7 @@ class ProfilePageController extends PageController {
         $this->setVar('username', $user->username());
         $this->setVar('fullName', $user->fullName());
         $this->setVar('userType', $userType);
+        $this->setVar('userId', $userId);
 
         switch($userType) {
             case 'volunteer':

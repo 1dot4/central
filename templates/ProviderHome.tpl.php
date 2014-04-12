@@ -50,6 +50,8 @@
                 <div class="col-md-2">
                     <a href="index">Job postings by me</a>
                     <hr>
+                    <a href="notifications">Notifications</a>
+                    <hr>
                     <a href="post">New job posting</a>
                 </div>
                 <div class="col-md-10">

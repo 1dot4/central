@@ -13,7 +13,12 @@ class JobEditPageController extends PageController {
     protected function process() {
 
         require_once 'libs/Auth.php';
+
+        require_once 'models/User.php';
         $userId = Auth::userId();
+        $user = new User($userId);
+
+        $this->setVar('username', $user->username());
 
         $jobId = $this->param();
 
@@ -30,8 +35,8 @@ class JobEditPageController extends PageController {
             $skillString .= $skill . ",";
         }
 
-        $this->setVar('title', $job->title());
-        $this->setVar('description', $job->description());
+        $this->setVar('jobTitle', $job->title());
+        $this->setVar('jobDescription', $job->description());
         $this->setVar('skills', $skillString);
         $this->setVar('positions', $job->positions());
         $this->setVar('location', $job->location());
@@ -42,7 +47,11 @@ class JobEditPageController extends PageController {
             require_once 'models/TemporaryJob.php';
             $job = new TemporaryJob($jobId);
             $this->setVar('duration', $job->duration());
+        } else {
+            $this->setVar('duration', '');
         }
+
+        $this->setVar('errMsg', '');
     }
 
 }

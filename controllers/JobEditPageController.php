@@ -42,6 +42,7 @@ class JobEditPageController extends PageController {
         $this->setVar('location', $job->location());
         $this->setVar('type', $job->type());
         $this->setVar('startDate', $job->startTime());
+        $this->setVar('jobId', $jobId);
 
         if($job->type() == 'temporary') {
             require_once 'models/TemporaryJob.php';
@@ -51,7 +52,17 @@ class JobEditPageController extends PageController {
             $this->setVar('duration', '');
         }
 
-        $this->setVar('errMsg', '');
+        require_once 'libs/Session.php';
+        Session::start();
+        if(Session::existsVar("ERR_MSG")) {
+            $this->setVar('errMsg', Session::getVar("ERR_MSG"));
+
+        } else {
+            $this->setVar('errMsg', "");
+        }
+        Session::unsetVar("ERR_MSG");
+        Session::close();
+
     }
 
 }

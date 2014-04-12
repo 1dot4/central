@@ -199,9 +199,9 @@ $app->get("/job.edit/:id", function($id) use($app) {
 /**
  * The job edit execution
  */
-$app->get("/job.edit.do/:id", function($id) use($app) {
+$app->post("/job.edit.do/:id", function($id) use($app) {
     require_once 'controllers/JobEditExecController.php';
-    new JobEditExecController($app, '/home/index',true, $id);
+    new JobEditExecController($app, '../home/index',true, $id);
 });
 
 /* End routes */

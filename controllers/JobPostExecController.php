@@ -53,6 +53,7 @@ class JobPostExecController extends ExecController {
 
         return !$err;
     }
+
     public function process() {
 
         require_once 'libs/Auth.php';

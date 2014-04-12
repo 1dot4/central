@@ -95,7 +95,7 @@
             <a href="post">New job posting</a>
         </div>
         <div class="col-md-8">
-            <form class="form-inline" action="../job.post" method="post">
+            <form class="form-inline" action="../job.edit.do/<?php echo $jobId ?>" method="post">
                 <?php
                 if($errMsg != "") {
                     echo "<div class='form-error'>$errMsg</div>";

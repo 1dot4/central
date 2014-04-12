@@ -28,7 +28,7 @@ class JobInterestStreamController extends StreamController {
             require_once 'models/Job.php';
 
             $job = new Job($jobId);
-            $message = "<a href='../profile/" . $seeker->id() . "'>" . $seeker->username() . "</a> expressed interest on <a href='#'>this job</a> you posted.";
+            $message = "<a href='../profile/" . $seeker->username() . "'>" . $seeker->username() . "</a> expressed interest on <a href='#'>this job</a> you posted.";
             Notification::newNotification($job->postedById(), $message);
 
         } else {

@@ -6,8 +6,9 @@
         </title>
         <?php require_once 'include/CssLevel2.php' ?>
         <style>
-            .col-md-10 {
+            .col-md-8 {
                 margin-top: 100px;
+                margin-left: 200px;
             }
             hr {
                 border-top: 1px solid #dddddd;
@@ -41,9 +42,9 @@
             printNavBar('profile', $currentUserName, 2)
             ?>
             <div class="row">
-                <div class="col-md-10 well">
+                <div class="col-md-8 well">
                     <div class="row">
-                        <div class="col-md-3">
+                        <div class="col-md-4">
                             <div class="dp-box">
                                 <div class="dp-container">
                                     <img class="dp" src="../public/images/default_profile.png">

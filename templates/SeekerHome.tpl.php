@@ -143,6 +143,7 @@
                     if(jObj[0].success == true) {
                         $(".express-interest").html("Interest expressed !");
                         $(".express-interest").attr("class", "btn btn-warning btn-xs express-interest");
+                        $(".express-interest").attr("onclick", "unExpressInterest(" + jobId +")");
                     }
                 });
             }
@@ -154,6 +155,7 @@
                     if(jObj[0].success == true) {
                         $(".express-interest").html("Express Interest !");
                         $(".express-interest").attr("class", "btn btn-info btn-xs express-interest");
+                        $(".express-interest").attr("onclick", "expressInterest(" + jobId +")");
                     }
                 });
             }

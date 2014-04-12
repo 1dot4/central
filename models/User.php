@@ -249,11 +249,11 @@ class User {
      * @return array Notifications array
      */
     public function notifications() {
-        require_once 'lib/DB.php';
+        require_once 'libs/DB.php';
 
         $conn = DB::connect();
 
-        $res = $conn->query("SELECT * FROM notification WHERE user_id='$this->id'");
+        $res = $conn->query("SELECT * FROM notification WHERE user_id='$this->id' ORDER BY time DESC");
 
         $notifications = Array();
 

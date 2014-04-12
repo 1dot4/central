@@ -74,6 +74,11 @@ class Notification {
      */
     public function setSeen($seen) {
         $this->seen = $seen;
+
+        require_once 'libs/DB.php';
+
+        $conn = DB::connect();
+        $conn->exec("UPDATE notification SET seen='$seen' WHERE id='$this->id'");
     }
 
     /**

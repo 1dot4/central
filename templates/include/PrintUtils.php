@@ -163,3 +163,23 @@ function seekerPrintJobs($jobs, $userId) {
         echo '<hr>';
     }
 }
+
+function printNotifications($userId) {
+    require_once 'models/User.php';
+    $user = new User($userId);
+
+    $notifications = $user->notifications();
+
+    echo "<table class='table'>";
+    foreach($notifications as $notification) {
+        if($notification["seen"] == 'false') {
+            echo "<tr class='info'><td>" . $notification["description"] . "</td></tr>";
+            require_once 'models/Notification.php';
+            $n = new Notification($notification["id"]);
+            $n->setSeen('true');
+        } else {
+            echo "<tr><td>" . $notification["description"] . "</td></tr>";
+        }
+    }
+    echo "</table>";
+}

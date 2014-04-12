@@ -30,8 +30,7 @@
         </div>
         <div class="col-md-10">
             <h1>Notifications</h1>
-            <hr>
-
+            <?php printNotifications($userId); ?>
         </div>
     </div>
 </div>

@@ -265,6 +265,48 @@ class User {
     }
 
     /**
+     * Favorite a user
+     * @param string $id The user id to favorite
+     */
+    public function favorite($id) {
+        require_once 'libs/DB.php';
+        $conn = DB::connect();
+        $conn->exec("INSERT INTO favorite(user_id, favorited_id) VALUES('$this->id', '$id')");
+    }
+
+    /**
+     * Check if user has favorited another user
+     * @param string $id The user id
+     * @return bool If user has favorited user or not
+     */
+    public function hasFavorited($id) {
+        require_once 'libs/DB.php';
+        $conn = DB::connect();
+        $res = $conn->query("SELECT COUNT(*) FROM favorite WHERE user_id='$this->id' AND favorited_id='$id'");
+        $count = $res->fetchColumn();
+        return ($count == 1);
+    }
+
+    /**
+     * Return users favorites
+     * @return array
+     */
+    public function favorites() {
+        
+        require_once 'libs/DB.php';
+        $conn = DB::connect();
+        $res = $conn->query("SELECT * FROM favorite WHERE user_id='$this->id'");
+
+        $favorites = Array();
+
+        while($row = $res->fetch(PDO::FETCH_ASSOC)) {
+            array_push($favorites, $row);
+        }
+
+        return $favorites;
+    }
+
+    /**
      * The user id
      * @var string
      */

@@ -97,6 +97,8 @@
             <a href="post">New job posting</a>
         </div>
         <div class="col-md-8">
+            <h1>Post a new job</h1>
+            <hr>
             <form class="form-inline" action="../job.post" method="post">
             <?php
             if($errMsg != "") {

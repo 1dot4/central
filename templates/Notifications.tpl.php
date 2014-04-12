@@ -29,6 +29,8 @@
             <a href="post">New job posting</a>
         </div>
         <div class="col-md-10">
+            <h1>Notifications</h1>
+            <hr>
 
         </div>
     </div>

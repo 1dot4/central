@@ -15,6 +15,7 @@ class JobPageController extends PageController {
         require_once 'libs/Auth.php';
         $username = "";
         $userId = -1;
+
         if(Auth::isAuthorized()) {
             $userId = Auth::userId();
             require_once 'models/User.php';
@@ -24,6 +25,8 @@ class JobPageController extends PageController {
 
         $this->setVar('username', $username);
         $this->setVar('userId', $userId);
+
+        require_once 'models/Job.php';
 
         $jobId = $this->param();
 
@@ -35,20 +38,12 @@ class JobPageController extends PageController {
         foreach($skills as $skill) {
             $skillString .= $skill . " ";
         }
-        $jobArray = Array(
-            'id' => $job->id(),
-            'title' => $job->title(),
-            'description' => $job->description(),
-            'post_date' => $job->postDate(),
-            'posted_by_id' => $job->postedById(),
-            'position' => $job->positions(),
-            'start_time' => $job->startTime(),
-            'location_name' => $job->location(),
-            'skills' => $skillString,
-            'status' => $job->status()
-        );
 
-        $this->setVar('job', $jobArray);
+        $jobArray = Array();
+
+        $jobArray['id'] = $job->id();
+
+        $this->setVar('jobArray', $jobArray);
     }
 
 }

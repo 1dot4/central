@@ -65,16 +65,18 @@ function seekerRegistrationDetails($seeker) {
 }
 
 function printJob($job, $userId) {
-    $skills = explode(" ", $job["skills"]);
-    array_pop($skills);
 
     require_once 'models/Job.php';
+    require_once 'models/TemporaryJob.php';
+    require_once 'models/PermanentJob.php';
     require_once 'models/User.php';
 
     $jobInstance = new Job($job["id"]);
     $userInstance = new User($userId);
 
-    echo "<div class='well' id='job-". $job["id"] ."'>";
+    $skills = $jobInstance->skills();
+
+    echo "<div class='well' id='job-". $jobInstance->id() ."'>";
     echo "<div class='row'>";
     echo "<div class='col-md-3'>";
     echo "<div class='dp-box'>";
@@ -83,32 +85,32 @@ function printJob($job, $userId) {
     echo "</div></div></div>'";
     echo "<div class='col-md-7'>";
     echo "<b><h4><u>";
-    echo $job["title"];
+    echo $jobInstance->title();
     echo "</u></b><br></h4>";
-    echo "Posted by <b>" . linkedName($job["posted_by_id"]) . "</b> on <b>" . $job["post_date"];
+    echo "Posted by <b>" . linkedName($jobInstance->postedById()) . "</b> on <b>" . $jobInstance->postDate();
     echo "</b>";
     echo "</div>";
     echo "</div><hr>";
-    echo $job["description"];
+    echo $jobInstance->description();
     echo "<br><br>";
     echo "Skills required: ";
     foreach($skills as $skill) {
         echo "<a href='javascript:void(0);' class='btn btn-default btn-xs'>" . $skill . "</a> ";
     }
     echo "<br><br>";
-    echo "Location of job in <a href='javascript:void(0);'><b>" . $job["location_name"] . "</b></a>";
-    echo ", starts on <b>" . $job["start_time"] . "</b>";
+    echo "Location of job in <a href='javascript:void(0);'><b>" . $jobInstance->location() . "</b></a>";
+    echo ", starts on <b>" . $jobInstance->startTime() . "</b>";
     if($jobInstance->type() == 'temporary') {
-        $jobInstance = new TemporaryJob($job["id"]);
+        $jobInstance = new TemporaryJob($jobInstance->id());
         echo ", duration of job is <b>" . $jobInstance->duration() . "</b> days";
     }
-    echo " with <b>" . $job["positions"] . "</b> vacancies";
+    echo " with <b>" . $jobInstance->positions() . "</b> vacancies";
     echo "<br><br>";
 
     if($jobInstance->postedById() == $userId) {
-        echo '<a id="job-status-' . $jobInstance->id() . '" href="javascript:void(0);" class="btn btn-default btn-xs" onclick="toggleStatus(' . $jobInstance->id() . ')">status:'.$job['status'].'</a>';
+        echo '<a id="job-status-' . $jobInstance->id() . '" href="javascript:void(0);" class="btn btn-default btn-xs" onclick="toggleStatus(' . $jobInstance->id() . ')">status:'.$jobInstance->status().'</a>';
     } else {
-        echo '<a href="javascript:void(0);" class="btn btn-default btn-xs">status:'.$job['status'].'</a>';
+        echo '<a href="javascript:void(0);" class="btn btn-default btn-xs">status:'.$jobInstance->status().'</a>';
     }
     echo '&nbsp &nbsp';
     echo '<a href="javascript:void(0);" class="btn btn-default btn-xs">type:'.$jobInstance->type().'</a>';
@@ -128,13 +130,13 @@ function printJob($job, $userId) {
         }
     }
     echo '</div>';
-    echo '<hr>';
 }
 
 function printJobs($jobs, $userId) {
     require_once 'models/TemporaryJob.php';
     foreach($jobs as $job) {
         printJob($job, $userId);
+        echo '<hr>';
     }
 }
 
@@ -142,6 +144,7 @@ function seekerPrintJobs($jobs, $userId) {
     require_once 'models/TemporaryJob.php';
     foreach ($jobs as $job) {
         printJob($job, $userId);
+        echo '<hr>';
     }
 }
 

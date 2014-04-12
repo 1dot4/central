@@ -37,6 +37,17 @@ class Notification {
     }
 
     /**
+     * Create new instance of notification
+     * @param string $userId The user id
+     * @param string $description The description
+     */
+    public static function newNotification($userId, $description) {
+        require_once 'libs/DB.php';
+        $conn = DB::connect();
+        $conn->exec("INSERT INTO notification(user_id, description) VALUES('$userId', '$description')");
+    }
+
+    /**
      * Getter function for notification id
      * @return string Notification id
      */

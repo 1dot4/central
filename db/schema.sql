@@ -134,11 +134,11 @@ CREATE TABLE IF NOT EXISTS `job_interest` (
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 CREATE TABLE IF NOT EXISTS `notification` (
-  `id` bigint(20) NOT NULL,
+  `id` bigint(20) NOT NULL AUTO_INCREMENT ,
   `user_id` bigint(20) NOT NULL,
   `description` text NOT NULL,
   `time` timestamp NOT NULL,
-  `seen` varchar(10) NOT NULL,
+  `seen` varchar(10) NOT NULL DEFAULT 'false',
   PRIMARY KEY (`id`),
   FOREIGN KEY (`user_id`) REFERENCES user(`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;

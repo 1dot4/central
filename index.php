@@ -172,14 +172,36 @@ $app->get("/job.delete/:id", function($id) use($app) {
     new JobDeleteStreamController($app, true, $id);
 });
 
+/**
+ * The job interest toggle stream
+ */
 $app->get("/job.interested/:id", function($id) use($app) {
     require_once 'controllers/JobInterestStreamController.php';
     new JobInterestStreamController($app, true, $id);
 });
 
+/**
+ * The job status toggle stream
+ */
 $app->get("/job.status/:id", function($id) use($app) {
     require_once 'controllers/JobStatusStreamController.php';
     new JobStatusStreamController($app, true, $id);
+});
+
+/**
+ * The job edit page
+ */
+$app->get("/job.edit/:id", function($id) use($app) {
+    require_once 'controllers/JobEditPageController.php';
+    new JobEditPageController($app, 'JobEdit.tpl.php',true, $id);
+});
+
+/**
+ * The job edit execution
+ */
+$app->get("/job.edit.do/:id", function($id) use($app) {
+    require_once 'controllers/JobEditExecController.php';
+    new JobEditExecController($app, '/home/index',true, $id);
 });
 
 /* End routes */

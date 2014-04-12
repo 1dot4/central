@@ -245,6 +245,26 @@ class User {
     }
 
     /**
+     * Get user notifications
+     * @return array Notifications array
+     */
+    public function notifications() {
+        require_once 'lib/DB.php';
+
+        $conn = DB::connect();
+
+        $res = $conn->query("SELECT * FROM notification WHERE user_id='$this->id'");
+
+        $notifications = Array();
+
+        while($row = $res->fetch(PDO::FETCH_ASSOC)) {
+            array_push($notifications, $row);
+        }
+
+        return $notifications;
+    }
+
+    /**
      * The user id
      * @var string
      */

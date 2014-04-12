@@ -96,13 +96,16 @@
         <?php require_once 'include/ScriptsLevel2.php' ?>
         <script>
             function deleteJob(jobId) {
-                $.get('../job.delete/' + jobId).done(function(data) {
-                    var jObj = $.parseJSON(data);
-                    if(jObj[0].success == true) {
-                        var divJob = "job-" + jobId;
-                        $("#" + divJob).fadeOut();
-                    }
-                });
+                var confirmed = confirm("Really delete the job?");
+                if(confirmed == true) {
+                    $.get('../job.delete/' + jobId).done(function(data) {
+                        var jObj = $.parseJSON(data);
+                        if(jObj[0].success == true) {
+                            var divJob = "job-" + jobId;
+                            $("#" + divJob).fadeOut();
+                        }
+                    });
+                }
             }
 
             function toggleStatus(jobId) {

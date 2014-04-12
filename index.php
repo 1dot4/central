@@ -212,6 +212,9 @@ $app->get("/job/:id", function($id) use($app) {
     new JobPageController($app, 'Job.tpl.php', false, $id);
 });
 
+/**
+ * The favorite stream
+ */
 $app->get("/favorite/:id", function($id) use($app) {
     require_once 'controllers/FavoriteStreamController.php';
     new FavoriteStreamController($app, true, $id);

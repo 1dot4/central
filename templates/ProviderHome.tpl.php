@@ -83,7 +83,7 @@
                                 require_once 'include/PrintUtils.php';
 
                                 if(sizeof($jobs) != 0) {
-                                    printJobs($jobs);
+                                    printJobs($jobs, $userId);
                                 }
                                 else {
                                     echo "<div class='message'>You have not posted any jobs!</div>";

@@ -204,6 +204,14 @@ $app->post("/job.edit.do/:id", function($id) use($app) {
     new JobEditExecController($app, '../home/index',true, $id);
 });
 
+/**
+ * The job viewer
+ */
+$app->get("/job/:id", function($id) use($app) {
+    require_once 'controllers/JobPageController.php';
+    new JobPageController($app, 'Job.tpl.php', false, $id);
+});
+
 /* End routes */
 
 // Run the Slim router

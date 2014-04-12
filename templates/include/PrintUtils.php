@@ -64,103 +64,84 @@ function seekerRegistrationDetails($seeker) {
     return $res;
 }
 
-function printJobs($jobs) {
-    require_once 'models/TemporaryJob.php';
-    foreach($jobs as $job) {
+function printJob($job, $userId) {
+    $skills = explode(" ", $job["skills"]);
+    array_pop($skills);
 
-        $skills = explode(" ", $job["skills"]);
-        array_pop($skills);
-        $jobInstance = new Job($job["id"]);
-        echo "<div class='well' id='job-". $job["id"] ."'>";
-        echo "<div class='row'>";
-        echo "<div class='col-md-3'>";
-        echo "<div class='dp-box'>";
-        echo '<div class="dp-container">';
-        echo "<img class='dp' src='../public/images/tap_water.png'/>";
-        echo "</div></div></div>'";
-        echo "<div class='col-md-7'>";
-        echo "<b><h4><u>";
-        echo $job["title"];
-        echo "</u></b><br></h4>";
-        echo "Posted by <b>" . linkedName($job["posted_by_id"]) . "</b> on <b>" . $job["post_date"];
-        echo "</b>";
-        echo "</div>";
-        echo "</div><hr>";
-        echo $job["description"];
-        echo "<br><br>";
-        echo "Skills required: ";
-        foreach($skills as $skill) {
-            echo "<a class='btn btn-default btn-xs' href='javascript:void(0);'>" . $skill . "</a> ";
-        }
-        echo "<br><br>";
-        echo "Location of job in <a href='javascript:void(0);'><b>" . $job["location_name"] . "</b></a>";
-        echo ", starts on <b>" . $job["start_time"] . "</b>";
-        if($jobInstance->type() == 'temporary') {
-            $jobInstance = new TemporaryJob($job["id"]);
-            echo ", duration of job is <b>" . $jobInstance->duration() . "</b> days";
-        }
-        echo " with <b>" . $job["positions"] . "</b> vacancies";
-        echo "<br><br>";
-        echo '<a href="javascript:void(0);" class="btn btn-default btn-xs" id="job-status-'. $jobInstance->id() .'" onclick="toggleStatus('. $jobInstance->id() .')">status:'.$job['status'].'</a>';
-        echo '&nbsp &nbsp';
-        echo '<a href="javascript:void(0);" class="btn btn-default btn-xs">type:'.$jobInstance->type().'</a>';
+    require_once 'models/Job.php';
+    require_once 'models/User.php';
+
+    $jobInstance = new Job($job["id"]);
+    $userInstance = new User($userId);
+
+    echo "<div class='well' id='job-". $job["id"] ."'>";
+    echo "<div class='row'>";
+    echo "<div class='col-md-3'>";
+    echo "<div class='dp-box'>";
+    echo '<div class="dp-container">';
+    echo "<img class='dp' src='../public/images/tap_water.png'/>";
+    echo "</div></div></div>'";
+    echo "<div class='col-md-7'>";
+    echo "<b><h4><u>";
+    echo $job["title"];
+    echo "</u></b><br></h4>";
+    echo "Posted by <b>" . linkedName($job["posted_by_id"]) . "</b> on <b>" . $job["post_date"];
+    echo "</b>";
+    echo "</div>";
+    echo "</div><hr>";
+    echo $job["description"];
+    echo "<br><br>";
+    echo "Skills required: ";
+    foreach($skills as $skill) {
+        echo "<a href='javascript:void(0);' class='btn btn-default btn-xs'>" . $skill . "</a> ";
+    }
+    echo "<br><br>";
+    echo "Location of job in <a href='javascript:void(0);'><b>" . $job["location_name"] . "</b></a>";
+    echo ", starts on <b>" . $job["start_time"] . "</b>";
+    if($jobInstance->type() == 'temporary') {
+        $jobInstance = new TemporaryJob($job["id"]);
+        echo ", duration of job is <b>" . $jobInstance->duration() . "</b> days";
+    }
+    echo " with <b>" . $job["positions"] . "</b> vacancies";
+    echo "<br><br>";
+
+    if($jobInstance->postedById() == $userId) {
+        echo '<a id="job-status-' . $jobInstance->id() . '" href="javascript:void(0);" class="btn btn-default btn-xs" onclick="toggleStatus(' . $jobInstance->id() . ')">status:'.$job['status'].'</a>';
+    } else {
+        echo '<a href="javascript:void(0);" class="btn btn-default btn-xs">status:'.$job['status'].'</a>';
+    }
+    echo '&nbsp &nbsp';
+    echo '<a href="javascript:void(0);" class="btn btn-default btn-xs">type:'.$jobInstance->type().'</a>';
+    echo '&nbsp &nbsp';
+
+    if($jobInstance->postedById() == $userId) {
         echo '<a href="../job.edit/' . $jobInstance->id() . '" class="btn btn-info btn-xs" id="edit-btn">Edit</a>';
         echo '&nbsp &nbsp';
         echo '<a href="javascript:void(0);" class="btn btn-danger btn-xs" id="del-btn" onclick="deleteJob('. $jobInstance->id() .')">Delete</a>';
-        echo '&nbsp &nbsp';
-        echo "</div>";
-        echo "<hr>";
+    }
+
+    if($userInstance->type() != "provider" && $userInstance->type() != "volunteer") {
+        if($jobInstance->hasUserInterest($userId)) {
+            echo '<a href="javascript:void(0);" class="btn btn-warning btn-xs express-interest" onclick="unExpressInterest('. $jobInstance->id() .')">Interest expressed !</a>';
+        } else {
+            echo '<a href="javascript:void(0);" class="btn btn-info btn-xs express-interest" onclick="expressInterest('. $jobInstance->id() .')">Express Interest !</a>';
+        }
+    }
+    echo '</div>';
+    echo '<hr>';
+}
+
+function printJobs($jobs, $userId) {
+    require_once 'models/TemporaryJob.php';
+    foreach($jobs as $job) {
+        printJob($job, $userId);
     }
 }
 
 function seekerPrintJobs($jobs, $userId) {
     require_once 'models/TemporaryJob.php';
     foreach ($jobs as $job) {
-        $skills = explode(" ", $job["skills"]);
-        array_pop($skills);
-
-        $jobInstance = new Job($job["id"]);
-        echo "<div class='well' id='job-". $job["id"] ."'>";
-        echo "<div class='row'>";
-        echo "<div class='col-md-3'>";
-        echo "<div class='dp-box'>";
-        echo '<div class="dp-container">';
-        echo "<img class='dp' src='../public/images/tap_water.png'/>";
-        echo "</div></div></div>'";
-        echo "<div class='col-md-7'>";
-        echo "<b><h4><u>";
-        echo $job["title"];
-        echo "</u></b><br></h4>";
-        echo "Posted by <b>" . linkedName($job["posted_by_id"]) . "</b> on <b>" . $job["post_date"];
-        echo "</b>";
-        echo "</div>";
-        echo "</div><hr>";
-        echo $job["description"];
-        echo "<br><br>";
-        echo "Skills required: ";
-        foreach($skills as $skill) {
-            echo "<a href='javascript:void(0);' class='btn btn-default btn-xs'>" . $skill . "</a> ";
-        }
-        echo "<br><br>";
-        echo "Location of job in <a href='javascript:void(0);'><b>" . $job["location_name"] . "</b></a>";
-        echo ", starts on <b>" . $job["start_time"] . "</b>";
-        if($jobInstance->type() == 'temporary') {
-            $jobInstance = new TemporaryJob($job["id"]);
-            echo ", duration of job is <b>" . $jobInstance->duration() . "</b> days";
-        }
-        echo " with <b>" . $job["positions"] . "</b> vacancies";
-        echo "<br><br>";
-        echo '<a href="javascript:void(0);" class="btn btn-default btn-xs">status:'.$job['status'].'</a>';
-        echo '&nbsp &nbsp';
-        echo '<a href="javascript:void(0);" class="btn btn-default btn-xs">type:'.$jobInstance->type().'</a>';
-        echo '&nbsp &nbsp';
-        if($jobInstance->hasUserInterest($userId)) {
-            echo '<a href="javascript:void(0);" class="btn btn-warning btn-xs express-interest" onclick="unExpressInterest('. $jobInstance->id() .')">Interest expressed !</a>';
-        } else {
-            echo '<a href="javascript:void(0);" class="btn btn-info btn-xs express-interest" onclick="expressInterest('. $jobInstance->id() .')">Express Interest !</a>';
-        }
-        echo '</div>';
-        echo '<hr>';
+        printJob($job, $userId);
     }
 }
 

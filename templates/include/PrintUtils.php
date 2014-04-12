@@ -183,3 +183,24 @@ function printNotifications($userId) {
     }
     echo "</table>";
 }
+
+function printNotificationsLink($userId) {
+    require_once 'models/User.php';
+    $user = new User($userId);
+
+    $unread = 0;
+
+    $notifications = $user->notifications();
+
+    foreach($notifications as $notification) {
+        if($notification["seen"] == 'false') {
+            $unread += 1;
+        }
+    }
+
+    if($unread > 0) {
+        echo "<b>Notifications(" . $unread .")</b>";
+    } else {
+        echo "Notifications";
+    }
+}

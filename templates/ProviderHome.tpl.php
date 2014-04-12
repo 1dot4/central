@@ -50,7 +50,7 @@
                 <div class="col-md-2">
                     <a href="index">Job postings by me</a>
                     <hr>
-                    <a href="notifications">Notifications</a>
+                    <a href="notifications"><?php printNotificationsLink($userId) ?></a>
                     <hr>
                     <a href="post">New job posting</a>
                 </div>

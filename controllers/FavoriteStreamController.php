@@ -19,11 +19,20 @@ class FavoriteStreamController extends StreamController {
 
         require_once 'models/User.php';
         $user = new User($userId);
-        $user->favorite($favoritedId);
 
-        $record = Array(
-            'success' => true
-        );
+        if(!$user->hasFavorited($favoritedId)) {
+            $user->favorite($favoritedId);
+            $record = Array(
+                'success' => true,
+                'message' => 'Favourited'
+            );
+        } else {
+            $user->undoFavorite($favoritedId);
+            $record = Array(
+                'success' => true,
+                'message' => 'Add to Favourites'
+            );
+        }
 
         $this->addRecord($record);
     }

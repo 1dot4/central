@@ -34,6 +34,7 @@ class ProfilePageController extends PageController {
         $this->setVar('fullName', $user->fullName());
         $this->setVar('userType', $userType);
         $this->setVar('userId', $userId);
+        $this->setVar('favorited', $currentUser->hasFavorited($userId));
 
         switch($userType) {
             case 'volunteer':

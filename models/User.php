@@ -275,6 +275,16 @@ class User {
     }
 
     /**
+     * Undo favorite action
+     * @param string $id The user id
+     */
+    public function undoFavorite($id) {
+        require_once 'libs/DB.php';
+        $conn = DB::connect();
+        $conn->exec("DELETE FROM favorite WHERE user_id='$this->id' AND favorited_id='$id'");
+    }
+
+    /**
      * Check if user has favorited another user
      * @param string $id The user id
      * @return bool If user has favorited user or not

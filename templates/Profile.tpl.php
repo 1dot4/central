@@ -58,9 +58,15 @@
                                     echo $username;
 
                                     if($userId != $currentUserId) {
-                                        echo "<button id='favourite' type='button' class='btn btn-default'>" .
-                                            "<span class='glyphicon glyphicon-star-empty'></span> Add to Favourites" .
-                                            "</button>";
+                                        if(!$favorited) {
+                                            echo "<button id='favourite' type='button' class='btn btn-default'>" .
+                                                "<span class='glyphicon glyphicon-star-empty'></span> Add to Favourites" .
+                                                "</button>";
+                                        } else {
+                                            echo "<button id='favourite' type='button' class='btn btn-default'>" .
+                                                "<span class='glyphicon glyphicon-star-empty'></span> Favourited" .
+                                                "</button>";
+                                        }
                                     }
                                 ?>
                             </h1>
@@ -103,9 +109,8 @@
             $("#favourite").click(function() {
                 $.get("../favorite/" + <?php echo $userId ?>).done(function(data) {
                     var jsonObj = $.parseJSON(data);
-
                     if(jsonObj[0].success == true) {
-                        $("#favourite").html("<span class='glyphicon glyphicon-star-empty'></span> Favourited");
+                        $("#favourite").html("<span class='glyphicon glyphicon-star-empty'></span> " + jsonObj[0].message);
                     }
                 });
             });

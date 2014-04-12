@@ -193,7 +193,7 @@ $app->get("/job.status/:id", function($id) use($app) {
  */
 $app->get("/job.edit/:id", function($id) use($app) {
     require_once 'controllers/JobEditPageController.php';
-    new JobEditPageController($app, 'JobEdit.tpl.php',true, $id);
+    new JobEditPageController($app, 'JobEdit.tpl.php', true, $id);
 });
 
 /**
@@ -201,7 +201,7 @@ $app->get("/job.edit/:id", function($id) use($app) {
  */
 $app->post("/job.edit.do/:id", function($id) use($app) {
     require_once 'controllers/JobEditExecController.php';
-    new JobEditExecController($app, '../home/index',true, $id);
+    new JobEditExecController($app, '../home/index', true, $id);
 });
 
 /**
@@ -210,6 +210,11 @@ $app->post("/job.edit.do/:id", function($id) use($app) {
 $app->get("/job/:id", function($id) use($app) {
     require_once 'controllers/JobPageController.php';
     new JobPageController($app, 'Job.tpl.php', false, $id);
+});
+
+$app->get("/favorite/:id", function($id) use($app) {
+    require_once 'controllers/FavoriteStreamController.php';
+    new FavoriteStreamController($app, true, $id);
 });
 
 /* End routes */

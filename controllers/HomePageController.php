@@ -120,7 +120,7 @@ class HomePageController extends PageController {
                 switch($page) {
 
                     case 'notifications':
-                        $this->setPage('Notifications.tpl.php');
+                        $this->setPage('ProviderNotifications.tpl.php');
                         break;
 
                     case 'post':

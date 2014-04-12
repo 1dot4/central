@@ -143,4 +143,12 @@ CREATE TABLE IF NOT EXISTS `notification` (
   FOREIGN KEY (`user_id`) REFERENCES user(`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
+CREATE TABLE IF NOT EXISTS `favorite` (
+  `user_id` bigint(20) NOT NULL,
+  `favorited_id` bigint(20) NOT NULL,
+  PRIMARY KEY (`user_id`, `favorited_id`),
+  FOREIGN KEY (`user_id`) REFERENCES user(`id`),
+  FOREIGN KEY (`favorited_id`) REFERENCES user(`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
 ALTER TABLE job ADD FULLTEXT(`title`, `description`, `location_name`, `skills`);

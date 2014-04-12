@@ -149,7 +149,7 @@
         <script>
             function expressInterest(jobId) {
                 $.get("../job.interested/" + jobId + "?value=true").done(function(data) {
-                    //console.log(data);
+                    console.log(data);
                     var jObj = $.parseJSON(data);
                     if(jObj[0].success == true) {
                         $(".express-interest").html("Interest expressed !");

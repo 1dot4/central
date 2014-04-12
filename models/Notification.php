@@ -40,11 +40,16 @@ class Notification {
      * Create new instance of notification
      * @param string $userId The user id
      * @param string $description The description
+     * @return Notification The instance
      */
     public static function newNotification($userId, $description) {
         require_once 'libs/DB.php';
         $conn = DB::connect();
+        $description = mysql_real_escape_string($description);
         $conn->exec("INSERT INTO notification(user_id, description) VALUES('$userId', '$description')");
+        $id = $conn->lastInsertId();
+        $notification = new Notification($id);
+        return $notification;
     }
 
     /**

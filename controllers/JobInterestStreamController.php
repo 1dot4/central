@@ -23,6 +23,14 @@ class JobInterestStreamController extends StreamController {
         $seeker = new Seeker($userId);
         if($interested == 'true') {
             $seeker->expressJobInterest($jobId);
+
+            require_once 'models/Notification.php';
+            require_once 'models/Job.php';
+
+            $job = new Job($jobId);
+            $message = "<a href='../profile/" . $seeker->id() . "'>" . $seeker->username() . "</a> expressed interest on <a href='#'>this job</a>.";
+            Notification::newNotification($job->postedById(), $message);
+
         } else {
             $seeker->unExpressInterest($jobId);
         }

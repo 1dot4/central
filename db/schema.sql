@@ -138,6 +138,7 @@ CREATE TABLE IF NOT EXISTS `notification` (
   `user_id` bigint(20) NOT NULL,
   `description` text NOT NULL,
   `time` timestamp NOT NULL,
+  `seen` varchar(10) NOT NULL,
   PRIMARY KEY (`id`),
   FOREIGN KEY (`user_id`) REFERENCES user(`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;

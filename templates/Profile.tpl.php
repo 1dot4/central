@@ -99,5 +99,16 @@
             </div>
         </div>
         <?php require_once 'include/ScriptsLevel2.php' ?>
+        <script>
+            $("#favourite").click(function() {
+                $.get("../favorite/" + <?php echo $userId ?>).done(function(data) {
+                    var jsonObj = $.parseJSON(data);
+
+                    if(jsonObj[0].success == true) {
+                        $("#favourite").html("<span class='glyphicon glyphicon-star-empty'></span> Favourited");
+                    }
+                });
+            });
+        </script>
     </body>
 </html>

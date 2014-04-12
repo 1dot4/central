@@ -173,12 +173,12 @@ function printNotifications($userId) {
     echo "<table class='table'>";
     foreach($notifications as $notification) {
         if($notification["seen"] == 'false') {
-            echo "<tr class='info'><td>" . $notification["description"] . "</td></tr>";
+            echo "<tr class='info'><td>" . $notification["description"] . "</td><td style='color:#cccccc'>" . $notification["time"] . "</td></tr>";
             require_once 'models/Notification.php';
             $n = new Notification($notification["id"]);
             $n->setSeen('true');
         } else {
-            echo "<tr><td>" . $notification["description"] . "</td></tr>";
+            echo "<tr><td>" . $notification["description"] . "</td><td style='color:#cccccc'>" . $notification["time"] . "</td></tr>";
         }
     }
     echo "</table>";

@@ -79,14 +79,18 @@ function printJob($job, $userId) {
     echo "<div class='well' id='job-". $jobInstance->id() ."'>";
     echo "<div class='row'>";
     echo "<div class='col-md-3'>";
+
     echo "<div class='dp-box'>";
     echo '<div class="dp-container">';
     echo "<img class='dp' src='../public/images/tap_water.png'/>";
     echo "</div></div></div>'";
+
     echo "<div class='col-md-7'>";
+    echo "<a href='../job/" . $jobInstance->id(). "'>";
     echo "<b><h4><u>";
     echo $jobInstance->title();
     echo "</u></b><br></h4>";
+    echo "</a>";
     echo "Posted by <b>" . linkedName($jobInstance->postedById()) . "</b> on <b>" . $jobInstance->postDate();
     echo "</b>";
     echo "</div>";

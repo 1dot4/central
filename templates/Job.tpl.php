@@ -13,6 +13,23 @@
             hr {
                 border-top: 1px solid #dddddd;
             }
+            #edit-btn {
+                margin-left: 450px;
+            }
+            .dp-box {
+            }
+            .dp-container {
+                width: 128px;
+                height: 128px;
+                background-color: #ffffff;
+                border: solid 1px #999999;
+                border-radius: 5px;
+            }
+            .dp {
+                width: 126px;
+                height: 126px;
+                padding: 4px;
+            }
         </style>
     </head>
     <body>

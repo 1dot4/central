@@ -144,14 +144,6 @@ function printJobs($jobs, $userId) {
     }
 }
 
-function seekerPrintJobs($jobs, $userId) {
-    require_once 'models/TemporaryJob.php';
-    foreach ($jobs as $job) {
-        printJob($job, $userId);
-        echo '<hr>';
-    }
-}
-
 function printNotifications($userId) {
     require_once 'models/User.php';
     $user = new User($userId);

@@ -134,7 +134,7 @@
                                 require_once 'include/PrintUtils.php';
 
                                 if(sizeof($jobs) != 0) {
-                                    seekerPrintJobs($jobs, $userId);
+                                    printJobs($jobs, $userId);
                                 }
                                 else {
                                     echo "<div class='message'>We could not search any job matching your query</div>";

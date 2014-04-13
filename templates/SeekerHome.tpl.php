@@ -109,6 +109,8 @@
                 <div class="col-md-2">
                     <a href="index">Relevant Jobs</a>
                     <hr>
+                    <a href="notifications"><?php printNotificationsLink($userId) ?></a>
+                    <hr>
                     <a href="advanced-search">Search all jobs</a>
                     <hr>
                     <a href="favorites">My Favourites</a>

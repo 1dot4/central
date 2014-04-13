@@ -29,6 +29,10 @@ class HomePageController extends PageController {
                 require_once 'models/Job.php';
                 switch($page)
                 {
+                    case 'notifications':
+                        $this->setPage('SeekerNotifications.tpl.php');
+                        break;
+
                     case 'index':
                         require_once 'models/Seeker.php';
 
@@ -72,6 +76,7 @@ class HomePageController extends PageController {
                         $this->setPage('SeekerHomeSearch.tpl.php'); 
             }
             break;
+
             case 'volunteer':
 
                 switch($page) {

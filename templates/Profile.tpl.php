@@ -50,7 +50,7 @@
                                     <img class="dp" src="../public/images/default_profile.png">
                                 </div>
                             </div>
-                            <h3 id="type"><b><?php echo $typeText ?></b></h3>
+                            <h4 id="type"><b><?php echo $typeText ?></b></h4>
                         </div>
                         <div class="col-md-7">
                             <h1>
@@ -64,40 +64,40 @@
                                                 "</button>";
                                         } else {
                                             echo "<button id='favourite' type='button' class='btn btn-default'>" .
-                                                "<span class='glyphicon glyphicon-star'></span> Favourited" .
+                                                "<span class='glyphicon glyphicon-star-empty'></span> Favourited" .
                                                 "</button>";
                                         }
                                     }
                                 ?>
                             </h1>
-                            <i>Favourited by <?php echo $noFavoritedBy ?> people</i>
+                            <i><span class="glyphicon glyphicon-star"></span>&nbsp&nbspFavourited by <?php echo $noFavoritedBy ?> people</i>
                             <hr>
                             <?php if($fullName != ""): ?>
-                            <h4><b><?php echo $fullName ?></b></h4>
+                            <h5><span class="glyphicon glyphicon-user"></span>&nbsp&nbsp<b><?php echo $fullName ?></b></h4>
                             <?php endif ?>
                             <?php if($userType == 'volunteer' || $userType == 'provider'): ?>
                                 <?php if($email != ""): ?>
-                                    <h4><a><?php echo $email ?></a></h4>
+                                    <h5><span class="glyphicon glyphicon-envelope"></span>&nbsp&nbsp<a><?php echo $email ?></a></h4>
                                 <?php endif ?>
                                 <?php if($organization != ""): ?>
-                                    <h4>Works at <a><?php echo $organization ?></a></h4>
+                                    <h5><span class="glyphicon glyphicon-briefcase"></span>&nbsp&nbspWorks at <a><?php echo $organization ?></a></h4>
                                 <?php endif ?>
                                 <?php if($designation != ""): ?>
-                                    <h4>Is a <a><?php echo $designation ?></a></h4>
+                                    <h5><span class="glyphicon glyphicon-leaf"></span>&nbsp&nbspIs a <a><?php echo $designation ?></a></h4>
                                 <?php endif ?>
                                 <?php if($location != ""): ?>
-                                    <h4>Located at <a><?php echo $location ?></a></h4>
+                                    <h5><span class="glyphicon glyphicon-map-marker"></span>&nbsp&nbspLocated at <a><?php echo $location ?></a></h4>
                                 <?php endif?>
                             <?php endif ?>
                             <?php if($userType == 'seeker'): ?>
                                 <?php if($experience != ""): ?>
-                                    <h4>Has an experience of <?php echo $experience ?> years</h4>
+                                    <h5><span class="glyphicon glyphicon-eye-open"></span>&nbsp&nbspHas an experience of <?php echo $experience ?> years</h4>
                                 <?php endif ?>
                                 <?php if($currLocation != ""): ?>
-                                    <h4>Currently located at <a><?php echo $currLocation ?></a></h4>
+                                    <h5><span class="glyphicon glyphicon-map-marker"></span>&nbsp&nbspCurrently located at <a><?php echo $currLocation ?></a></h4>
                                 <?php endif ?>
                                 <?php if($prefLocation != ""): ?>
-                                    <h4>Would prefer <a><?php echo $prefLocation ?></a> as job location</h4>
+                                    <h5><span class="glyphicon glyphicon-thumbs-up"></span>&nbsp&nbspWould prefer <a><?php echo $prefLocation ?></a> as job location</h4>
                                 <?php endif ?>
                             <?php endif ?>
                         </div>

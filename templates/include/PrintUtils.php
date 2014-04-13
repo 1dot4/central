@@ -180,3 +180,43 @@ function printNotificationsLink($userId) {
         echo "Notifications";
     }
 }
+
+function printProviderNavigationBar($userId) {
+    echo '<div class="col-md-2">
+            <a href="index">Job postings by me</a>
+            <hr>
+            <a href="notifications">';
+
+    printNotificationsLink($userId);
+
+    echo '</a>
+            <hr>
+            <a href="post">New job posting</a>
+            <hr>
+            <a href="favorites">My Favourites</a>
+          </div>';
+}
+
+function printSeekerNavigationBar($userId) {
+    echo '<div class="col-md-2">
+            <a href="index">Relevant Jobs</a>
+            <hr>
+            <a href="notifications">';
+    printNotificationsLink($userId);
+    echo '</a>
+            <hr>
+            <a href="advanced-search">Search all jobs</a>
+            <hr>
+            <a href="favorites">My Favourites</a>
+         </div>';
+}
+
+function printVolunteerNavigationBar($userId){
+    echo '<div class="col-md-2">
+            <a href="register">Register New Job Seeker</a>
+            <hr>
+            <a href="index">Registered by me</a>
+            <hr>
+            <a href="favorites">My Favourites</a>
+          </div>';
+}

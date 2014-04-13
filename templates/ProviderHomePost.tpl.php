@@ -89,15 +89,7 @@
     printNavBar('home', $username, 2)
     ?>
     <div class="row">
-        <div class="col-md-2">
-            <a href="index">Job postings by me</a>
-            <hr>
-            <a href="notifications"><?php printNotificationsLink($userId) ?></a>
-            <hr>
-            <a href="post">New job posting</a>
-            <hr>
-            <a href="favorites">My Favourites</a>
-        </div>
+        <?php printProviderNavigationBar($userId) ?>
         <div class="col-md-8">
             <h4>Post a new job</h4>
             <hr>

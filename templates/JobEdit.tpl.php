@@ -92,6 +92,8 @@
         <div class="col-md-2">
             <a href="../home/index">Job postings by me</a>
             <hr>
+            <a href="../home/notifications"><? printNotificationsLink($userId) ?></a>
+            <hr>
             <a href="../home/post">New job posting</a>
             <hr>
             <a href="../home/favorites">My Favourites</a>

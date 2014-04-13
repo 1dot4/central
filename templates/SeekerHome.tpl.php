@@ -101,20 +101,12 @@
     </head>
     <body>
         <div class="container">
-        <?php
-            require_once 'include/PrintUtils.php';
-            printNavBar('home', $username, 2)
-        ?>
-        <div class="row">
-                <div class="col-md-2">
-                    <a href="index">Relevant Jobs</a>
-                    <hr>
-                    <a href="notifications"><?php printNotificationsLink($userId) ?></a>
-                    <hr>
-                    <a href="advanced-search">Search all jobs</a>
-                    <hr>
-                    <a href="favorites">My Favourites</a>
-                </div>
+            <?php
+                require_once 'include/PrintUtils.php';
+                printNavBar('home', $username, 2)
+            ?>
+            <div class="row">
+                <?php printSeekerNavigationBar($userId) ?>
                 <div class="col-md-10">
                     <h4>Relevant Jobs</h4>
                 <hr>

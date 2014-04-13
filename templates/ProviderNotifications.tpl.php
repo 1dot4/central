@@ -29,7 +29,7 @@
             <a href="post">New job posting</a>
         </div>
         <div class="col-md-10">
-            <h1>Notifications</h1>
+            <h4>Notifications</h4>
             <?php printNotifications($userId); ?>
         </div>
     </div>

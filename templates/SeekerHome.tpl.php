@@ -110,9 +110,11 @@
                     <a href="index">Relevant Jobs</a>
                     <hr>
                     <a href="advanced-search">Search all jobs</a>
+                    <hr>
+                    <a href="favorites">My Favorites</a>
                 </div>
                 <div class="col-md-10">
-                    <h4>Relevant Jobs:</h4>
+                    <h4>Relevant Jobs</h4>
                 <hr>
                     <div class="row">
                         <br>

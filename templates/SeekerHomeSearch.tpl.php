@@ -2,7 +2,7 @@
 <html>
     <head>
         <title>
-            Home
+            Search Jobs
         </title>
         <?php require_once 'include/CssLevel2.php' ?>
         <style>
@@ -102,6 +102,8 @@
                     <a href="index">Relevant Jobs</a>
                     <hr>
                     <a href="advanced-search">Search all jobs</a>
+                    <hr>
+                    <a href="favorites">My Favorites</a>
                 </div>
                 <div class="col-md-10">
                 <form class="form-inline" method="get" action="search">

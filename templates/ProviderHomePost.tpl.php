@@ -97,7 +97,7 @@
             <a href="post">New job posting</a>
         </div>
         <div class="col-md-8">
-            <h1>Post a new job</h1>
+            <h4>Post a new job</h4>
             <hr>
             <form class="form-inline" action="../job.post" method="post">
             <?php

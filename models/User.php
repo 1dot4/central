@@ -317,6 +317,25 @@ class User {
     }
 
     /**
+     * Return users who have favorited this user
+     * @return array The user ids
+     */
+    public function favoritedBy() {
+
+        require_once 'libs/DB.php';
+        $conn = DB::connect();
+        $res = $conn->query("SELECT user_id FROM favorite WHERE favorited_id='$this->id'");
+
+        $favoritedBy = Array();
+
+        while($row = $res->fetch(PDO::FETCH_ASSOC)) {
+            array_push($favoritedBy, $row);
+        }
+
+        return $favoritedBy;
+    }
+
+    /**
      * The user id
      * @var string
      */

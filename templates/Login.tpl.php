@@ -3,6 +3,8 @@
     <head>
         <title><?php echo $title ?></title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" type="text/css" href="./public/bootstrap/css/bootstrap.css">
+		<link rel="stylesheet" type="text/css" href="./public/bootstrap/css/bootstrap.min.css"> 
         <?php require_once 'include/Css.php' ?>
         <style>
             .social ul li a.twitter:hover {
@@ -133,6 +135,11 @@
 				text-align: center;
 			}
 			
+			#search{
+				width:30%;
+			}
+			
+			
         </style>
     </head>
     <body>
@@ -206,15 +213,28 @@
               </form>
               <?php require_once 'include/Scripts.php' ?>
           </article>
-        </section>  
+        </section>
+
+		
 		<section id="donate" data-type="background" data-speed="10" class="pages">
           <article class="panel" id="page2" style="height:auto; padding-top:3%; margin-top:-5%">
             <div>
-              <h2 style="text-align:center; font-weight:bold; font-size:60px; color:#1aaf5d">Search your JOB</a></h2>
-              <hr>   
-			<header class="main-header" role="banner">
-				<img src="./public/images/Jan.jpg" alt="Banner Image"/>
-			</header>
+              <h2 style="text-align:center; font-weight:bold; font-size:50px; color:#1aaf5d">Search your JOB</a></h2>
+              <hr>
+				<div class="banner">
+					<header class="main-header" role="banner">
+						<img src="./public/images/Jan.jpg" alt="Banner Image"/>
+					</header>
+					<br>
+					<div class="container" align="center">
+						<div class="row">
+							<div class="input-group" id="search" >	
+								<input type="text" class="form-control" placeholder="Search for Jobs">
+								<span class="input-group-addon"><span class="glyphicon glyphicon-search"></span></span>
+							</div>
+						</div>
+					</div>						
+				</div>
             </div>
           </article>
         </section>

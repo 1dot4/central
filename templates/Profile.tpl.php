@@ -64,7 +64,7 @@
                                                 "</button>";
                                         } else {
                                             echo "<button id='favourite' type='button' class='btn btn-default'>" .
-                                                "<span class='glyphicon glyphicon-star-empty'></span> Favourited" .
+                                                "<span class='glyphicon glyphicon-star'></span> Favourited" .
                                                 "</button>";
                                         }
                                     }

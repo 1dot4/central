@@ -30,6 +30,7 @@ class HomePageController extends PageController {
                 switch($page)
                 {
                     case 'notifications':
+                        $this->setVar('notifications', $user->notifications());
                         $this->setPage('SeekerNotifications.tpl.php');
                         break;
 
@@ -125,6 +126,7 @@ class HomePageController extends PageController {
                 switch($page) {
 
                     case 'notifications':
+                        $this->setVar('notifications', $user->notifications());
                         $this->setPage('ProviderNotifications.tpl.php');
                         break;
 

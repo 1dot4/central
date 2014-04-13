@@ -32,7 +32,7 @@
         </div>
         <div class="col-md-10">
             <h4>Notifications</h4>
-            <?php printNotifications($userId); ?>
+            <?php printNotifications($notifications) ?>
         </div>
     </div>
 </div>

@@ -144,11 +144,7 @@ function printJobs($jobs, $userId) {
     }
 }
 
-function printNotifications($userId) {
-    require_once 'models/User.php';
-    $user = new User($userId);
-
-    $notifications = $user->notifications();
+function printNotifications($notifications) {
 
     echo "<table class='table'>";
     foreach($notifications as $notification) {

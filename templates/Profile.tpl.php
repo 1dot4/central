@@ -70,6 +70,7 @@
                                     }
                                 ?>
                             </h1>
+                            <i>Favourited by <?php echo $noFavoritedBy ?> people</i>
                             <hr>
                             <?php if($fullName != ""): ?>
                             <h4><b><?php echo $fullName ?></b></h4>

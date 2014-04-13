@@ -215,10 +215,10 @@ function printSeekerNavigationBar($userId) {
 
 function printVolunteerNavigationBar($userId){
     echo '<div class="col-md-2">
-            <a href="register">Register New Job Seeker</a>
+            <a href="register"><span class="glyphicon glyphicon-user"></span>&nbsp&nbspRegister New Job Seeker</a>
             <hr>
-            <a href="index">Registered by me</a>
+            <a href="index"><span class="glyphicon glyphicon-folder-open"></span>&nbsp&nbspRegistered by me</a>
             <hr>
-            <a href="favorites">My Favourites</a>
+            <a href="favorites"><span class="glyphicon glyphicon-star-empty"></span>&nbsp&nbspMy Favourites</a>
           </div>';
 }

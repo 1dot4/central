@@ -73,31 +73,31 @@
                             <i><span class="glyphicon glyphicon-star"></span>&nbsp&nbspFavourited by <?php echo $noFavoritedBy ?> people</i>
                             <hr>
                             <?php if($fullName != ""): ?>
-                            <h5><span class="glyphicon glyphicon-user"></span>&nbsp&nbsp<b><?php echo $fullName ?></b></h4>
+                            <h5><span class="glyphicon glyphicon-user"></span>&nbsp&nbsp<b><?php echo $fullName ?></b></h5>
                             <?php endif ?>
                             <?php if($userType == 'volunteer' || $userType == 'provider'): ?>
                                 <?php if($email != ""): ?>
-                                    <h5><span class="glyphicon glyphicon-envelope"></span>&nbsp&nbsp<a><?php echo $email ?></a></h4>
+                                    <h5><span class="glyphicon glyphicon-envelope"></span>&nbsp&nbsp<a><?php echo $email ?></a></h5>
                                 <?php endif ?>
                                 <?php if($organization != ""): ?>
-                                    <h5><span class="glyphicon glyphicon-briefcase"></span>&nbsp&nbspWorks at <a><?php echo $organization ?></a></h4>
+                                    <h5><span class="glyphicon glyphicon-briefcase"></span>&nbsp&nbspWorks at <a><?php echo $organization ?></a></h5>
                                 <?php endif ?>
                                 <?php if($designation != ""): ?>
-                                    <h5><span class="glyphicon glyphicon-leaf"></span>&nbsp&nbspIs a <a><?php echo $designation ?></a></h4>
+                                    <h5><span class="glyphicon glyphicon-leaf"></span>&nbsp&nbspIs a <a><?php echo $designation ?></a></h5>
                                 <?php endif ?>
                                 <?php if($location != ""): ?>
-                                    <h5><span class="glyphicon glyphicon-map-marker"></span>&nbsp&nbspLocated at <a><?php echo $location ?></a></h4>
+                                    <h5><span class="glyphicon glyphicon-map-marker"></span>&nbsp&nbspLocated at <a><?php echo $location ?></a></h5>
                                 <?php endif?>
                             <?php endif ?>
                             <?php if($userType == 'seeker'): ?>
                                 <?php if($experience != ""): ?>
-                                    <h5><span class="glyphicon glyphicon-eye-open"></span>&nbsp&nbspHas an experience of <?php echo $experience ?> years</h4>
+                                    <h5><span class="glyphicon glyphicon-eye-open"></span>&nbsp&nbspHas an experience of <?php echo $experience ?> years</h5>
                                 <?php endif ?>
                                 <?php if($currLocation != ""): ?>
-                                    <h5><span class="glyphicon glyphicon-map-marker"></span>&nbsp&nbspCurrently located at <a><?php echo $currLocation ?></a></h4>
+                                    <h5><span class="glyphicon glyphicon-map-marker"></span>&nbsp&nbspCurrently located at <a><?php echo $currLocation ?></a></h5>
                                 <?php endif ?>
                                 <?php if($prefLocation != ""): ?>
-                                    <h5><span class="glyphicon glyphicon-thumbs-up"></span>&nbsp&nbspWould prefer <a><?php echo $prefLocation ?></a> as job location</h4>
+                                    <h5><span class="glyphicon glyphicon-thumbs-up"></span>&nbsp&nbspWould prefer <a><?php echo $prefLocation ?></a> as job location</h5>
                                 <?php endif ?>
                             <?php endif ?>
                         </div>

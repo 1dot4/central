@@ -14,7 +14,7 @@
                 border-top: 1px solid #dddddd;
             }
             #edit-btn {
-                margin-left: 450px;
+                margin-left: 350px;
             }
             .dp-box {
             }

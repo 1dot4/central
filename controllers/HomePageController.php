@@ -25,10 +25,16 @@ class HomePageController extends PageController {
         $this->setvar("userId", $id);
 
         switch($type) {
+
             case 'seeker':
                 require_once 'models/Job.php';
                 switch($page)
                 {
+                    case 'favorites':
+                        $this->setVar('favorites', $user->favorites());
+                        $this->setPage("SeekerFavorites.tpl.php");
+                        break;
+
                     case 'notifications':
                         $this->setVar('notifications', $user->notifications());
                         $this->setPage('SeekerNotifications.tpl.php');
@@ -82,6 +88,11 @@ class HomePageController extends PageController {
 
                 switch($page) {
 
+                    case 'favorites':
+                        $this->setVar('favorites', $user->favorites());
+                        $this->setPage("VolunteerFavorites.tpl.php");
+                        break;
+
                     case 'register':
                         require_once 'libs/Session.php';
 
@@ -124,6 +135,11 @@ class HomePageController extends PageController {
                 require_once 'models/Job.php';
 
                 switch($page) {
+
+                    case 'favorites':
+                        $this->setVar('favorites', $user->favorites());
+                        $this->setPage("ProviderFavorites.tpl.php");
+                        break;
 
                     case 'notifications':
                         $this->setVar('notifications', $user->notifications());

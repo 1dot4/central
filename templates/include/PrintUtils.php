@@ -35,7 +35,7 @@ function printNavBar($page, $username, $level = 1) {
                             <ul class="dropdown-menu">
                                 <li><a href="#"><span class="glyphicon glyphicon-question-sign"></span>&nbsp&nbspHelp</a></li>
                                 <li class="divider"></li>
-                                <li><a href="'.$dir.'/logout"><span class="glyphicon glyphicon-off"></span>&nbsp&nbspLogout</a></li>
+                                <li><a href="'.$dir.'/logout"><span class="glyphicon glyphicon-log-out"></span>&nbsp&nbspLogout</a></li>
                             </ul>
                         </li>
                     </ul>
@@ -201,15 +201,15 @@ function printProviderNavigationBar($userId) {
 
 function printSeekerNavigationBar($userId) {
     echo '<div class="col-md-2">
-            <a href="index">Relevant Jobs</a>
+            <a href="index"><span class="glyphicon glyphicon-inbox"></span>&nbsp&nbspRelevant Jobs</a>
             <hr>
-            <a href="notifications">';
+            <a href="notifications"><span class="glyphicon glyphicon-bullhorn"></span>&nbsp&nbsp';
     printNotificationsLink($userId);
     echo '</a>
             <hr>
-            <a href="advanced-search">Search all jobs</a>
+            <a href="advanced-search"><span class="glyphicon glyphicon-search"></span>&nbsp&nbspSearch all jobs</a>
             <hr>
-            <a href="favorites">My Favourites</a>
+            <a href="favorites"><span class="glyphicon glyphicon-star-empty"></span>&nbsp&nbspMy Favourites</a>
          </div>';
 }
 

@@ -13,7 +13,7 @@
                 max-width: 160px;
             }
             #edit-btn {
-                margin-left: 220px;
+                margin-left: 210px;
             }
             .dp-box {
             }
@@ -109,7 +109,7 @@
                     var jObj = $.parseJSON(data);
                     if(jObj[0].success == true) {
                         var divJobStatus = "job-status-" + jobId;
-                        $("#" + divJobStatus).html("status:" + jObj[0].status);
+                        $("#" + divJobStatus).html("<span class='glyphicon glyphicon-flag'></span>&nbsp&nbspstatus:" + jObj[0].status);
                     }
                 });
             }

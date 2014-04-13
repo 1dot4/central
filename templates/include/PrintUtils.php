@@ -114,7 +114,7 @@ function printJob($job, $userId) {
     echo "<br><br>";
 
     if($jobInstance->postedById() == $userId) {
-        echo '<a id="job-status-' . $jobInstance->id() . '" href="javascript:void(0);" class="btn btn-default btn-xs" onclick="toggleStatus(' . $jobInstance->id() . ')">status:'.$jobInstance->status().'</a>';
+        echo '<a id="job-status-' . $jobInstance->id() . '" href="javascript:void(0);" class="btn btn-default btn-xs" onclick="toggleStatus(' . $jobInstance->id() . ')"><span class="glyphicon glyphicon-flag"></span>&nbsp&nbspstatus:'.$jobInstance->status().'</a>';
     } else {
         echo '<a href="javascript:void(0);" class="btn btn-default btn-xs"><span class="glyphicon glyphicon-flag"></span>&nbsp&nbspstatus:'.$jobInstance->status().'</a>';
     }

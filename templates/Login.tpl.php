@@ -219,7 +219,7 @@
 		<section id="donate" data-type="background" data-speed="10" class="pages">
           <article class="panel" id="page2" style="height:auto; padding-top:3%; margin-top:-5%">
             <div>
-              <h2 style="text-align:center; font-weight:bold; font-size:50px; color:#1aaf5d">Search your JOB</a></h2>
+              <h2 style="text-align:center; font-weight:bold; font-size:50px; color:#1aaf5d">Search for JOB</a></h2>
               <hr>
 				<div class="banner">
 					<header class="main-header" role="banner">

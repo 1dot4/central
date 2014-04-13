@@ -26,30 +26,6 @@ $app->get("/", function() use($app) {
 });
 
 /**
- * Login page for admin
- */
-$app->get("/admin", function() use($app) {
-    require_once 'controllers/AdminLoginPageController.php';
-    new AdminLoginPageController($app, 'AdminLogin.tpl.php', false);
-});
-
-/**
- * Login execution for admin
- */
-$app->post("/admin/login.exec", function() use($app) {
-    require_once 'controllers/AdminLoginExecController.php';
-    new AdminLoginExecController($app, 'dashboard', false);
-});
-
-/**
- * Dashboard page for the admin
- */
-$app->get("/admin/dashboard", function() use($app) {
-    require_once 'controllers/AdminDashPageController.php';
-    new AdminDashPageController($app, 'AdminDash.tpl.php', false);
-});
-
-/**
  * Registration page for all users
  */
 $app->get("/register", function() use($app) {

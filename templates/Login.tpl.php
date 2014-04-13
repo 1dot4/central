@@ -39,9 +39,9 @@
                     float: right;
                     max-width: 350px;
                     padding: 29px;
-                    margin: 150px 80px auto 20px;
-                    /* background-color: #f2f2f2; */
-                    border: 1px solid #e5e5e5;
+                    margin: 130px 480px auto 20px;
+                    background-color: rgba(255, 255, 255, 0.75); 
+                    border: 1px solid #ffffff;
                     -webkit-border-radius: 5px;
                     -moz-border-radius: 5px;
                     border-radius: 5px;
@@ -64,6 +64,7 @@
                     box-shadow: 0 1px 2px rgba(0,0,0,.05);
 
                 }
+
             .form-inline .form-heading {
                     margin-bottom: 10px;
                 }
@@ -87,35 +88,51 @@
                 border-radius: 2px;
                 border: 1px solid rgba(255, 0, 0, 0.35);
             }
+			
+			.img-rounded {
+				-webkit-border-radius: 6px;
+				-moz-border-radius: 6px;
+				border-radius: 6px;
+			}
 
+			
             #page1 { 
-                background: url(templates/images.jpg) 50% 0 repeat fixed; min-height: 1000px;
+                background-image: url(./public/images/janrozgar.jpg);				
+				background-size: cover;
+				min-height: 800px;		
             }
- 
+			
             #page2 { 
-                /*background-color: #1BA0E1;*/
-                font-family: 'Lato', sans-serif; font-size: 1.17em;
-                /*background: url(templates/purple.jpg) 50% 0 repeat; min-height: 1000px;  */
+                font-family: 'Century Gothic', sans-serif; font-size: 1.17em;
+                /* background: url(templates/purple.jpg) 50% 0 repeat; min-height: 1000px; */
             }
 
             #page3{ 
-                font-family: 'Lato', sans-serif; font-size: 1.17em;
+				background-color: #ffffff;
+                font-family: 'Century Gothic', sans-serif; font-size: 1.17em;
                 /*background: url(templates/black.jpg) 50% 0 repeat; min-height: 1000px;  */
             }
 
             #page4{ 
-                font-family: 'Lato', sans-serif; font-size: 1.17em;
-                /*background: url(templates/black.jpg) 50% 0 repeat; min-height: 1000px;  */
+				background-color: #16a085;
+                font-family: 'Century Gothic', sans-serif; font-size: 1.17em;
+                /* background: url(templates/purple.jpg) 50% 0 repeat; min-height: 1000px; */
             }
 
             #page5{ 
-                font-family: 'Lato', sans-serif; font-size: 1.17em;
+				background-color: #bdc3c7;
+                font-family: 'Century Gothic', sans-serif; font-size: 1.17em;
                 /*background: url(templates/black.jpg) 50% 0 repeat; min-height: 1000px;  */
             }
+			
             #main .panel:nth-child(odd) {
             background: white;  /*here color was #2980B9 */
-          }
-
+			}
+			
+			.main-header {
+				text-align: center;
+			}
+			
         </style>
     </head>
     <body>
@@ -142,9 +159,9 @@
        <ul class="nav navbar-nav" id="abcd">
            <!-- <li><a href="#page1" class="link"></a></li> -->
            <li><a href="#page1" class="link">&nbsp;&nbsp;Home&nbsp;&nbsp;</a></li>
-           <li><a href="#page2" class="link">&nbsp;&nbsp;About&nbsp;&nbsp;</a></li>
+           <li><a href="#page2" class="link">&nbsp;&nbsp;Search&nbsp;&nbsp;</a></li>
            <li><a href="#page3" class="link">&nbsp;&nbsp;FAQs&nbsp;&nbsp;</a></li>
-           <li><a href="#page4" class="link">&nbsp;&nbsp;Donate&nbsp;&nbsp;</a></li>
+           <li><a href="#page4" class="link">&nbsp;&nbsp;About&nbsp;&nbsp;</a></li>
            <li><a href="#page5" class="link">&nbsp;&nbsp;Contact Us&nbsp;&nbsp;</a></li>    
        </ul>
        <div class="social">
@@ -158,7 +175,7 @@
 </nav>
         <section id="home" data-type="background" data-speed="10" class="pages">
           <article class="panel" id="page1" style=" color:black; padding-top:1%; height:100%;">
-            <iframe class="you" width="600" height="380" src="https://s3.amazonaws.com/embed.animoto.com/play.html?w=swf/production/vp1&e=1396031535&f=aiiWm46EZCjCHou12zeTgA&d=0&m=b&r=360p&volume=100&start_res=360p&i=m&asset_domain=s3-p.animoto.com&animoto_domain=animoto.com" frameborder="0" allowfullscreen></iframe>
+				
           
               <form id="login-form" class="form-inline" method="post" role="form" action="login.do">
                   <h1 class="form-heading"><?php echo $title ?></h1>
@@ -190,132 +207,98 @@
               <?php require_once 'include/Scripts.php' ?>
           </article>
         </section>  
-
-        <section id="about" data-type="background" data-speed="10" class="pages">
-          <article class="panel" id="page2" style="height:auto; padding-top:3%;">
+		<section id="donate" data-type="background" data-speed="10" class="pages">
+          <article class="panel" id="page2" style="height:auto; padding-top:3%; margin-top:-5%">
             <div>
-              <h2>About Us</a></h2>
-              <hr>
-              <font>
-              <p class="lead"> &nbsp;Janrozgar.in is an online initiative working for reducing unemployment and increasing livelihood.</p>
-                <p>&nbsp;We plan to achieve this by bridging the gap between job providers and seeker for unorganized sector.</p>
-              <br/>
-                  <p>&nbsp;Seekers face difficulty in finding appropriate jobs according to their skills and providers find difficulty in publicizing their job opportunities to get the best men at work.</p>
-              <br/>
-              <p class="lead">&nbsp;Janrozgar helps providers to publicize the jobs and seekers can know about the upcoming opportunities for jobs. </p>
-              <br/>
-              <br>
-              <p> &nbsp;  Please put some more text here...It is looking too blank to be good.</p>
-              <p> &nbsp;  Please put some more text here...It is looking too blank to be good.</p>
-              <p> &nbsp;  Please put some more text here...It is looking too blank to be good.</p>
-              <p> &nbsp;  Please put some more text here...It is looking too blank to be good.</p>
-              <p> &nbsp;  Please put some more text here...It is looking too blank to be good.</p>
-              <p> &nbsp;  Please put some more text here...It is looking too blank to be good.</p>
-              <p> &nbsp;  Please put some more text here...It is looking too blank to be good.</p>
-              <p> &nbsp;  Please put some more text here...It is looking too blank to be good.</p>
-              <p> &nbsp;  Please put some more text here...It is looking too blank to be good.</p>
-              <p> &nbsp;  Please put some more text here...It is looking too blank to be good.</p>
-              <p> &nbsp;  Please put some more text here...It is looking too blank to be good.</p>
-              <p> &nbsp;  Please put some more text here...It is looking too blank to be good.</p>
+              <h2 style="text-align:center; font-weight:bold; font-size:60px; color:#1aaf5d">Search your JOB</a></h2>
+              <hr>   
+			<header class="main-header" role="banner">
+				<img src="./public/images/Jan.jpg" alt="Banner Image"/>
+			</header>
             </div>
           </article>
         </section>
-
-
+       
         <section id="faq" data-type="background" data-speed="10" class="pages">
-          <article class="panel" id="page3" style="height:auto; padding-top:3%;">
+          <article class="panel" id="page3" style="height:auto; padding-top:3%; margin-top:-2%">
             <div>
-              <h2>FAQ ( Currently containing kuch bhi... )</a></h2>
-              <hr>
-              <p> Explore Career Opportunities at Gauri Ltd. Visit my HR blog Parinita.com
-              <br />
-                  Skills/Roles I hire for : SAP, SAP CRM, Both Technical and Functional Roles, Project Management
-              <br />
-              <br />
-              <p class="lead">Lead - IT/BPO Business Development &amp;   Recruitments</p>
-              <br />
-              <p class="lead">Mass Hiring for BPO/KPO, Vendor Management, IT Industrial Trainings, business development, Direct Hiring, Collages Hiring</p>
-              <br />
-              <br />
-              <p> Explore Career Opportunities at Gauri Ltd. Visit my HR blog Parinita.com
-              <br />
-                  Skills/Roles I hire for : SAP, SAP CRM, Both Technical and Functional Roles, Project Management
-              <br />
-              <br />
-              <p class="lead">Lead - IT/BPO Business Development &amp;   Recruitments</p>
-              <br />
-              <p class="lead">Mass Hiring for BPO/KPO, Vendor Management, IT Industrial Trainings, business development, Direct Hiring, Collages Hiring</p>
-              <br />
-              <br />
-              <p> Explore Career Opportunities at Gauri Ltd. Visit my HR blog Parinita.com
-              <br />
-                  Skills/Roles I hire for : SAP, SAP CRM, Both Technical and Functional Roles, Project Management
-              <br />
-              <br />
-              <p class="lead">Lead - IT/BPO Business Development &amp;   Recruitments</p>
-              <br />
-              <p class="lead">Mass Hiring for BPO/KPO, Vendor Management, IT Industrial Trainings, business development, Direct Hiring, Collages Hiring</p>
-              <br />
-              <br />
-              <br />
-              </p>
-              </font>
+              <h2 style="text-align:center; font-weight:bold; font-size:60px; color:#e47911">FAQs</a></h2>
+              <p style="font-weight:bold; color:black; padding-left:2%"> Should I register to search jobs? </p>
+				
+				<p style="font-weight:italic; color:black; padding-left:2%"> No. You can go to the search page and from there you can search all kinds of jobs and specifically related your skills also.
+					But to show interest in the job you need to register as a seeker.</p>
+			<p style="font-weight:bold; color:black; padding-left:2%"> Does JanRozgar will assure us a job as a seeker? </p>
+				
+				<p style="font-weight:italic; color:black; padding-left:2%"> No. We just provide you an interface to connect with millions of providers out there with an ease by filling bunch
+					of fields in your profile.</p>
+			<p style="font-weight:bold; color:black; padding-left:2%"> Does a Volunteer will play a role in getting job? </p>
+				
+				<p style="font-weight:italic; color:black; padding-left:2%"> No. With our first protocol, the Volunteer has just got to register seekers who are unable to access internet.</p>
+			<p style="font-weight:bold; color:black; padding-left:2%"> Do the provider need to contact for seekers? </p>
+				
+				<p style="font-weight:italic; color:black; padding-left:2%"> Technically No, the provider when he/she posts the job with the required skills
+				the corresponding skill matched seekers will be notified with the job details. As the seekers show interest, then the provider will be notified the same with the details of seekers</p>
+			<p style="font-weight:bold; color:black; padding-left:2%"> Do the providers need to contact JanRozgar admin people for hiring seekers?</p>
+				
+				<p style="font-weight:italic; color:black; padding-left:2%"> No, there is nothing to do with the admin the process is totally transparent.</p>
+			<p style="font-weight:bold; color:black; padding-left:2%"> Do the volunteers need to endorse the seekers for getting job?</p>
+				
+				<p style="font-weight:italic; color:black; padding-left:2%"> No, the role of volunteer is pretty clear that he will just register the seekers
+				who were not able to register. Neither volunteer endorse nor provider will be interested in knowing about the volunteer.</p>
+				<p style="font-weight:bold; color:black; padding-left:2%"> Do the volunteers need to endorse the seekers for getting job?</p>
+				
+				<p style="font-weight:italic; color:black; padding-left:2%"> No, the role of volunteer is pretty clear that he will just register the seekers
+				who were not able to register. Neither volunteer endorse nor provider will be interested in knowing about the volunteer.</p>
+			<br/>
+			<br/>
             </div>
           </article>
         </section>
-        <section id="donate" data-type="background" data-speed="10" class="pages">
-          <article class="panel" id="page4" style="height:auto; padding-top:3%;">
+       
+		<section id="about" data-type="background" data-speed="10" class="pages">
+          <article class="panel" id="page4" style="height:auto; padding-top:3%; margin-top:-2%">
             <div>
-              <h2>Help Us</a></h2>
+              <h2 style="color:#ffffff; font-size:60px; font-weight:bold; text-align:center">About Us</a></h2>
               <hr>
               <font>
-              <p class="lead"> &nbsp;How can you help us ??</p>
-                <p>&nbsp;Unemployment is one of the biggest obstacle blocking progress of India.</p>
-              <br/>
-                  <p>&nbsp;As most of the unorganized sector's job seekers have less access and knowledge about internet, you can become a volunteer and help us in this venture.</p>                 
-              <br/> 
-              <p>&nbsp;Help us by registering any job seeker on our site and help them find a job.</p>                 
-              <p class="lead">&nbsp;Janrozgar believes "Together We Can !" </p>
-              <br/>
-              <br>
-              <p> &nbsp;  Please put some more text here...It is looking too blank to be good.</p>
-              <p> &nbsp;  Please put some more text here...It is looking too blank to be good.</p>
-              <p> &nbsp;  Please put some more text here...It is looking too blank to be good.</p>
-              <p> &nbsp;  Please put some more text here...It is looking too blank to be good.</p>
-              <p> &nbsp;  Please put some more text here...It is looking too blank to be good.</p>
-              <p> &nbsp;  Please put some more text here...It is looking too blank to be good.</p>
-              <p> &nbsp;  Please put some more text here...It is looking too blank to be good.</p>
-              <p> &nbsp;  Please put some more text here...It is looking too blank to be good.</p>
-              <p> &nbsp;  Please put some more text here...It is looking too blank to be good.</p>
-              <p> &nbsp;  Please put some more text here...It is looking too blank to be good.</p>
-              <p> &nbsp;  Please put some more text here...It is looking too blank to be good.</p>
-              <p> &nbsp;  Please put some more text here...It is looking too blank to be good.</p>
-            </div>
-          </article>
+              <p style="font-size:20px"> 
+			  &nbsp;You often heard stories how philanthropists come together to support or work hand in hand for a social cause. 
+					Not us. We as a bunch of ICT engineers have tried to use technology as a fruitful component to come forward 
+					and to create a platform for those who are in need for a job solely for the unorganized sector.We plan to 
+					achieve this by bridging the gap between job providers and the seeker. It has been far too much time since this
+					gap has been persistent and we think through this it can be eradicated. This portal not only gives opportunity 
+					to those who are looking for a job but also to those people who want to get rid of their sickening problem of 
+					hiring people by their own. </p>
+					
+					<div align="center">
+					<img src="./public/images/sen4.jpg" width="600" height="345">
+					</div>	
+				
+				</div>
+			  </article>
         </section>
 
         <section id="contactus" data-type="background" data-speed="10" class="pages">
-          <article class="panel" id="page5" style="height:auto; padding-top:3%;">
+          <article class="panel" id="page5" style="height:auto; padding-top:3%; margin-top:-2%">
             <div>
-              <h2>Contact Us</a></h2>
+              <h2 style="text-align:center; font-weight:bold; font-size:60px; color:#ffffff">Contact Us</a></h2>
               <hr>
               <font>
-              <p class="lead"> &nbsp;We are always ready to help and open to suggestions and feedback</p>
-                <p>&nbsp;You can drop us a mail and we will contact you at <a href="mailto:contactus@janrozgar.in?Subject=Your%20Subject%20Line%20Here" target="_top">contactus@janrozgar.in</a></p>
+              <p style="text-align:center; font-size:22px;"> &nbsp;We are always ready to help and open to suggestions and feedback</p>
+                <p style="text-align:center; font-size:22px;">&nbsp;You can drop us a mail and we will contact you at <a href="mailto:contactus@janrozgar.in?Subject=Your%20Subject%20Line%20Here" target="_top">contactus@janrozgar.in</a></p>
                 <br>
                 <br>                  
               <br/>
-              <p class="lead"><i>&nbsp;<b>"Give a man a fish, and you feed him for a day; show him how to catch fish, and you feed him for a lifetime."</b></i> </p>
+              <p style="text-align:center; font:14pt Garamond, Georgia, serif; font-style:italic;"><i>&nbsp;<b>"Give a man a fish, and you feed him for a day; show him how to catch fish, and you feed him for a lifetime."</b></i> </p>
               <br/>
-              <br>&nbsp;We are extremely thankful to :
+              <p style="text-align:center; font-size:22px; font-weight:bold">Thanks for your inputs:
               <br>
               <br>
-              <br>
-              <div class="pull-left">
-              <img src="./public/images/sewa.gif" title="SEWA" alt="SEWA" style="padding-right:20px;">
-              <img src="./public/images/cii.jpg" title="CII" alt="CII" style="padding-right:20px;">
-              <img src="./public/images/glpc.png" title="GLPC" alt="GLPC"style="padding-right:20px;">
-              <img src="./public/images/koffee.jpg" title="Ken's Koffee++" alt="Ken's Koffee++" style="padding-right:20px;">
+              <div align="center">
+              <img style="margin: 0 5px 0 0"  src="./public/images/sewa.gif" title="SEWA" alt="SEWA">
+              <img style="margin: 0 5px 0 0"  src="./public/images/cii.jpg" title="CII" alt="CII" >
+              <img style="margin: 0 5px 0 0"  src="./public/images/glpc.png" title="GLPC" alt="GLPC">
+              <img style="margin: 0 5px 0 0"  src="./public/images/koffee.jpg" title="Ken's Koffee++" alt="Ken's Koffee++" >
               <br>
               <br>
               <br>

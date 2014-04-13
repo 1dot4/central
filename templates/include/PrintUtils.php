@@ -185,17 +185,17 @@ function printNotificationsLink($userId) {
 
 function printProviderNavigationBar($userId) {
     echo '<div class="col-md-2">
-            <a href="index">Job postings by me</a>
+            <a href="index"><span class="glyphicon glyphicon-th-list"></span>&nbsp&nbspJob postings by me</a>
             <hr>
-            <a href="notifications">';
+            <a href="notifications"><span class="glyphicon glyphicon-bullhorn"></span>&nbsp&nbsp';
 
     printNotificationsLink($userId);
 
     echo '</a>
             <hr>
-            <a href="post">New job posting</a>
+            <a href="post"><span class="glyphicon glyphicon-pencil"></span>&nbsp&nbspNew job posting</a>
             <hr>
-            <a href="favorites">My Favourites</a>
+            <a href="favorites"><span class="glyphicon glyphicon-star-empty"></span>&nbsp&nbspMy Favourites</a>
           </div>';
 }
 

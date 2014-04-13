@@ -95,6 +95,8 @@
             <a href="notifications"><?php printNotificationsLink($userId) ?></a>
             <hr>
             <a href="post">New job posting</a>
+            <hr>
+            <a href="favorites">My Favourites</a>
         </div>
         <div class="col-md-8">
             <h4>Post a new job</h4>

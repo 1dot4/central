@@ -103,7 +103,7 @@
                     <hr>
                     <a href="advanced-search">Search all jobs</a>
                     <hr>
-                    <a href="favorites">My Favorites</a>
+                    <a href="favorites">My Favourites</a>
                 </div>
                 <div class="col-md-10">
                 <form class="form-inline" method="get" action="search">

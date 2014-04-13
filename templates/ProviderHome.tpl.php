@@ -53,6 +53,8 @@
                     <a href="notifications"><?php printNotificationsLink($userId) ?></a>
                     <hr>
                     <a href="post">New job posting</a>
+                    <hr>
+                    <a href="favorites">My Favourites</a>
                 </div>
                 <div class="col-md-10">
 				<form class="form-inline" method="get" action="search">

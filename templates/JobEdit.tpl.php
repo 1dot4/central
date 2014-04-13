@@ -90,9 +90,11 @@
     ?>
     <div class="row">
         <div class="col-md-2">
-            <a href="index">Job postings by me</a>
+            <a href="../home/index">Job postings by me</a>
             <hr>
-            <a href="post">New job posting</a>
+            <a href="../home/post">New job posting</a>
+            <hr>
+            <a href="../home/favorites">My Favourites</a>
         </div>
         <div class="col-md-8">
             <h1>Edit this job</h1>

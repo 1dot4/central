@@ -2,7 +2,7 @@
 <html>
     <head>
         <title>
-            Home
+            Register new Job Seeker
         </title>
         <?php require_once 'include/CssLevel2.php' ?>
         <style>
@@ -92,6 +92,8 @@
                     <a href="register">Register New Job Seeker</a>
                     <hr>
                     <a href="index">Registered by me</a>
+                    <hr>
+                    <a href="favorites">My Favourites</a>
                 </div>
                 <div class="col-md-5">
                     <h2>Register New Job seeker</h2>

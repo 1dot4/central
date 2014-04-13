@@ -27,6 +27,8 @@
             <a href="notifications">Notifications</a>
             <hr>
             <a href="post">New job posting</a>
+            <hr>
+            <a href="favorites">My Favourites</a>
         </div>
         <div class="col-md-10">
             <h4>Notifications</h4>

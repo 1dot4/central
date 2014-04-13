@@ -26,14 +26,16 @@ function printNavBar($page, $username, $level = 1) {
                         </div>
                         </form>
                     <ul class="nav navbar-nav navbar-right">
-                        <li><a href="'.$dir.'/home/index">Home</a></li>
-                        <li><a href="'.$dir.'/myprofile">'.$username.'</a></li>
+                        <li><a href="'.$dir.'/home/index"><span class="glyphicon glyphicon-home"></span>&nbsp&nbspHome</a></li>
+                        <li><a href="'.$dir.'/myprofile"><span class="glyphicon glyphicon-user"></span>&nbsp&nbsp'.$username.'</a></li>
                         <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><b class="caret"></b></a>
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            <span class="glyphicon glyphicon-cog"></span>&nbsp&nbsp
+                            <b class="caret"></b></a>
                             <ul class="dropdown-menu">
-                                <li><a href="#">Help</a></li>
+                                <li><a href="#"><span class="glyphicon glyphicon-question-sign"></span>&nbsp&nbspHelp</a></li>
                                 <li class="divider"></li>
-                                <li><a href="'.$dir.'/logout">Logout</a></li>
+                                <li><a href="'.$dir.'/logout"><span class="glyphicon glyphicon-off"></span>&nbsp&nbspLogout</a></li>
                             </ul>
                         </li>
                     </ul>

@@ -55,6 +55,12 @@ class ProfilePageController extends PageController {
                 require_once 'models/Seeker.php';
                 $user = new Seeker($userId);
 
+                if($currentUser->type() == "provider") {
+                    require_once 'models/Notification.php';
+                    $message = "<a href='../profile/" . $currentUserName . "'>" . $currentUserName . "</a> has viewed your profile.";
+                    Notification::newNotification($userId, $message);
+                }
+
                 $this->setVar('prefLocation', $user->preferredLocation());
                 $this->setVar('typeText', 'Job Seeker');
                 $this->setVar('currLocation', $user->currentLocation());

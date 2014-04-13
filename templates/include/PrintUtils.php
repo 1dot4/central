@@ -93,18 +93,18 @@ function printJob($job, $userId) {
     echo $jobInstance->title();
     echo "</u></b><br></h4>";
     echo "</a>";
-    echo "Posted by <b>" . linkedName($jobInstance->postedById()) . "</b> on <b>" . $jobInstance->postDate();
+    echo "<span class='glyphicon glyphicon-globe'></span>&nbsp&nbspPosted by <b>" . linkedName($jobInstance->postedById()) . "</b> on <b>" . $jobInstance->postDate();
     echo "</b>";
     echo "</div>";
-    echo "</div><hr>";
+    echo "</div><hr><span class='glyphicon glyphicon-bookmark'></span>&nbsp&nbsp";
     echo $jobInstance->description();
     echo "<br><br>";
-    echo "Skills required: ";
+    echo "<span class='glyphicon glyphicon-tags'></span>&nbsp&nbspSkills required: ";
     foreach($skills as $skill) {
         echo "<a href='javascript:void(0);' class='btn btn-default btn-xs'>" . $skill . "</a> ";
     }
     echo "<br><br>";
-    echo "Location of job in <a href='javascript:void(0);'><b>" . $jobInstance->location() . "</b></a>";
+    echo "<span class='glyphicon glyphicon-map-marker'></span>&nbsp&nbspLocation of job in <a href='javascript:void(0);'><b>" . $jobInstance->location() . "</b></a>";
     echo ", starts on <b>" . $jobInstance->startTime() . "</b>";
     if($jobInstance->type() == 'temporary') {
         $jobInstance = new TemporaryJob($jobInstance->id());
@@ -116,23 +116,23 @@ function printJob($job, $userId) {
     if($jobInstance->postedById() == $userId) {
         echo '<a id="job-status-' . $jobInstance->id() . '" href="javascript:void(0);" class="btn btn-default btn-xs" onclick="toggleStatus(' . $jobInstance->id() . ')">status:'.$jobInstance->status().'</a>';
     } else {
-        echo '<a href="javascript:void(0);" class="btn btn-default btn-xs">status:'.$jobInstance->status().'</a>';
+        echo '<a href="javascript:void(0);" class="btn btn-default btn-xs"><span class="glyphicon glyphicon-flag"></span>&nbsp&nbspstatus:'.$jobInstance->status().'</a>';
     }
     echo '&nbsp &nbsp';
-    echo '<a href="javascript:void(0);" class="btn btn-default btn-xs">type:'.$jobInstance->type().'</a>';
+    echo '<a href="javascript:void(0);" class="btn btn-default btn-xs"><span class="glyphicon glyphicon-tag"></span>&nbsp&nbsptype:'.$jobInstance->type().'</a>';
     echo '&nbsp &nbsp';
 
     if($jobInstance->postedById() == $userId) {
-        echo '<a href="../job.edit/' . $jobInstance->id() . '" class="btn btn-info btn-xs" id="edit-btn">Edit</a>';
+        echo '<a href="../job.edit/' . $jobInstance->id() . '" class="btn btn-info btn-xs" id="edit-btn"><span class="glyphicon glyphicon-edit"></span>&nbsp&nbspEdit</a>';
         echo '&nbsp &nbsp';
-        echo '<a href="javascript:void(0);" class="btn btn-danger btn-xs" id="del-btn" onclick="deleteJob('. $jobInstance->id() .')">Delete</a>';
+        echo '<a href="javascript:void(0);" class="btn btn-danger btn-xs" id="del-btn" onclick="deleteJob('. $jobInstance->id() .')"><span class="glyphicon glyphicon-trash"></span>&nbsp&nbspDelete</a>';
     }
 
     if($userInstance->type() != "provider" && $userInstance->type() != "volunteer") {
         if($jobInstance->hasUserInterest($userId)) {
-            echo '<a href="javascript:void(0);" class="btn btn-warning btn-xs express-interest" onclick="unExpressInterest('. $jobInstance->id() .')">Interest expressed !</a>';
+            echo '<a href="javascript:void(0);" class="btn btn-warning btn-xs express-interest" onclick="unExpressInterest('. $jobInstance->id() .')"><span class="glyphicon glyphicon-check"></span>&nbsp&nbspInterest expressed !</a>';
         } else {
-            echo '<a href="javascript:void(0);" class="btn btn-info btn-xs express-interest" onclick="expressInterest('. $jobInstance->id() .')">Express Interest !</a>';
+            echo '<a href="javascript:void(0);" class="btn btn-info btn-xs express-interest" onclick="expressInterest('. $jobInstance->id() .')"><span class="glyphicon glyphicon-send"></span>&nbsp&nbspExpress Interest !</a>';
         }
     }
     echo '</div>';

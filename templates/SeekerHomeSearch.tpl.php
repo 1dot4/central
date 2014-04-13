@@ -148,7 +148,7 @@
                     //console.log(data);
                     var jObj = $.parseJSON(data);
                     if(jObj[0].success == true) {
-                        $(".express-interest").html("Interest expressed !");
+                        $(".express-interest").html("<span class='glyphicon glyphicon-check'></span>&nbsp&nbspInterest expressed !");
                         $(".express-interest").attr("class", "btn btn-warning btn-xs express-interest");
                         $(".express-interest").attr("onclick", "unExpressInterest(" + jobId +")");
                     }
@@ -160,7 +160,7 @@
                     //console.log(data);
                     var jObj = $.parseJSON(data);
                     if(jObj[0].success == true) {
-                        $(".express-interest").html("Express Interest !");
+                        $(".express-interest").html("<span class='glyphicon glyphicon-send'></span>&nbsp&nbspExpress Interest !");
                         $(".express-interest").attr("class", "btn btn-info btn-xs express-interest");
                         $(".express-interest").attr("onclick", "expressInterest(" + jobId +")");
                     }

@@ -13,7 +13,7 @@
                 max-width: 160px;
             }
             #edit-btn {
-                margin-left: 285px;
+                margin-left: 220px;
             }
             .dp-box {
             }

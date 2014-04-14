@@ -329,3 +329,10 @@ function printUser($userId) {
     echo "</div>";
     echo "</div>";
 }
+
+function printUsers($userIds) {
+    foreach($userIds as $userId) {
+        printUser($userId);
+        echo "<hr>";
+    }
+}

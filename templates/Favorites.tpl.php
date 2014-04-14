@@ -41,7 +41,20 @@
                 printNavBar('home', $username, 2);
             ?>
             <div class="row">
-                <?php printProviderNavigationBar($userId) ?>
+                <?php
+
+                    switch($userType) {
+                        case 'volunteer':
+                            printVolunteerNavigationBar($userId);
+                            break;
+                        case 'seeker':
+                            printSeekerNavigationBar($userId);
+                            break;
+                        case 'provider':
+                            printProviderNavigationBar($userId);
+                            break;
+                    }
+                ?>
                 <div class="col-md-10">
                     <h4>My Favourites</h4>
                     <hr>
@@ -49,9 +62,22 @@
                         <br>
                         <div class="col-md-8">
                             <?php
-                                foreach($favorites as $favorite) {
-                                    printUser($favorite["favorited_id"]);
-                                    echo "<hr>";
+                                switch($userType) {
+                                    case 'volunteer':
+                                        printUsers($seekerFav);
+                                        printUsers($providerFav);
+                                        printUsers($volunteerFav);
+                                        break;
+                                    case 'seeker':
+                                        printUsers($providerFav);
+                                        printUsers($volunteerFav);
+                                        printUsers($seekerFav);
+                                        break;
+                                    case 'provider':
+                                        printUsers($seekerFav);
+                                        printUsers($volunteerFav);
+                                        printUsers($providerFav);
+                                        break;
                                 }
                             ?>
                         </div>

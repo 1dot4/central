@@ -256,7 +256,9 @@ function printUser($userId) {
     echo "</div>";
     echo "<div class='col-md-7'>";
     echo "<h1>";
+    echo "<a href='../profile/" . $user->username() . "'>";
     echo $user->username();
+    echo "</a>";
 
     if($userId != $currentUserId) {
         if(!$favorited) {
@@ -272,7 +274,7 @@ function printUser($userId) {
 
     echo "</h1>";
 
-    echo "<i><span class='glyphicon glyphicon-star'></span>&nbsp&nbspFavourited by " . sizeof($user->favoritedBy()) . " people</i>";
+    echo "<i><span class='glyphicon glyphicon-star'></span>&nbsp&nbspFavourited by <a href='../favorited/" . $userId . "'>" . sizeof($user->favoritedBy()) . " people</a></i>";
     echo "<hr>";
 
     if($user->fullName() != "") {

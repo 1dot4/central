@@ -244,7 +244,7 @@ function printUser($userId) {
         $typeText = "Volunteer";
     }
 
-    echo "<div class='well>";
+    echo "<div class='well'>";
     echo "<div class='row'>";
     echo "<div class='col-md-4'>";
     echo "<div class='dp-box'>";
@@ -272,7 +272,7 @@ function printUser($userId) {
 
     echo "</h1>";
 
-    echo "<i><span class='glyphicon glyphicon-star'></span>&nbsp&nbspFavourited by " . sizeof($user->favoritedBy()) . "people</i>";
+    echo "<i><span class='glyphicon glyphicon-star'></span>&nbsp&nbspFavourited by " . sizeof($user->favoritedBy()) . " people</i>";
     echo "<hr>";
 
     if($user->fullName() != "") {

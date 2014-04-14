@@ -41,68 +41,8 @@
             require_once 'include/PrintUtils.php';
             printNavBar('profile', $currentUserName, 2)
             ?>
-            <div class="row">
-                <div class="col-md-8 well">
-                    <div class="row">
-                        <div class="col-md-4">
-                            <div class="dp-box">
-                                <div class="dp-container">
-                                    <img class="dp" src="../public/images/default_profile.png">
-                                </div>
-                            </div>
-                            <h4 id="type"><b><?php echo $typeText ?></b></h4>
-                        </div>
-                        <div class="col-md-7">
-                            <h1>
-                                <?php
-                                    echo $username;
-
-                                    if($userId != $currentUserId) {
-                                        if(!$favorited) {
-                                            echo "<button id='favourite' type='button' class='btn btn-default'>" .
-                                                "<span class='glyphicon glyphicon-star-empty'></span> Add to Favourites" .
-                                                "</button>";
-                                        } else {
-                                            echo "<button id='favourite' type='button' class='btn btn-default'>" .
-                                                "<span class='glyphicon glyphicon-star-empty'></span> Favourited" .
-                                                "</button>";
-                                        }
-                                    }
-                                ?>
-                            </h1>
-                            <i><span class="glyphicon glyphicon-star"></span>&nbsp&nbspFavourited by <?php echo $noFavoritedBy ?> people</i>
-                            <hr>
-                            <?php if($fullName != ""): ?>
-                            <h5><span class="glyphicon glyphicon-user"></span>&nbsp&nbsp<b><?php echo $fullName ?></b></h5>
-                            <?php endif ?>
-                            <?php if($userType == 'volunteer' || $userType == 'provider'): ?>
-                                <?php if($email != ""): ?>
-                                    <h5><span class="glyphicon glyphicon-envelope"></span>&nbsp&nbsp<a><?php echo $email ?></a></h5>
-                                <?php endif ?>
-                                <?php if($organization != ""): ?>
-                                    <h5><span class="glyphicon glyphicon-briefcase"></span>&nbsp&nbspWorks at <a><?php echo $organization ?></a></h5>
-                                <?php endif ?>
-                                <?php if($designation != ""): ?>
-                                    <h5><span class="glyphicon glyphicon-leaf"></span>&nbsp&nbspIs a <a><?php echo $designation ?></a></h5>
-                                <?php endif ?>
-                                <?php if($location != ""): ?>
-                                    <h5><span class="glyphicon glyphicon-map-marker"></span>&nbsp&nbspLocated at <a><?php echo $location ?></a></h5>
-                                <?php endif?>
-                            <?php endif ?>
-                            <?php if($userType == 'seeker'): ?>
-                                <?php if($experience != ""): ?>
-                                    <h5><span class="glyphicon glyphicon-eye-open"></span>&nbsp&nbspHas an experience of <?php echo $experience ?> years</h5>
-                                <?php endif ?>
-                                <?php if($currLocation != ""): ?>
-                                    <h5><span class="glyphicon glyphicon-map-marker"></span>&nbsp&nbspCurrently located at <a><?php echo $currLocation ?></a></h5>
-                                <?php endif ?>
-                                <?php if($prefLocation != ""): ?>
-                                    <h5><span class="glyphicon glyphicon-thumbs-up"></span>&nbsp&nbspWould prefer <a><?php echo $prefLocation ?></a> as job location</h5>
-                                <?php endif ?>
-                            <?php endif ?>
-                        </div>
-                    </div>
-                </div>
+            <div class="col-md-8">
+                <?php printUser($userId) ?>
             </div>
         </div>
         <?php require_once 'include/ScriptsLevel2.php' ?>

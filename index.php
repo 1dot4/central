@@ -201,7 +201,7 @@ $app->get("/favorite/:id", function($id) use($app) {
  */
 $app->get("/favorited/:id", function($id) use($app) {
     require_once 'controllers/FavoritedPageController.php';
-    new FavoriteStreamController($app, 'Favorited.tpl.php', true, $id);
+    new FavoritedPageController($app, 'Favorited.tpl.php', true, $id);
 });
 
 /* End routes */

@@ -2,7 +2,7 @@
 <html>
     <head>
         <title>
-            <?php echo $title ?>
+            <?php echo "Users who have favorited " . $favoriteName ?>
         </title>
         <?php require_once 'include/CssLevel2.php' ?>
         <style>
@@ -42,6 +42,8 @@
                 printNavBar('profile', $username, 2)
             ?>
             <div class="col-md-8">
+                <h4><?php echo "Users who have favorited <a href='../profile/" . $favoriteName . "'>" . $favoriteName . "</a>" ?></h4>
+                <hr>
                 <?php printUsers($favorited) ?>
             </div>
         </div>

@@ -255,7 +255,7 @@ function printUser($userId) {
     echo "<h4 id='type'><b>" . $typeText . "</b></h4>";
     echo "</div>";
     echo "<div class='col-md-7'>";
-    echo "<h1>";
+    echo "<h3>";
     echo "<a href='../profile/" . $user->username() . "'>";
     echo $user->username();
     echo "</a>";
@@ -272,7 +272,7 @@ function printUser($userId) {
         }
     }
 
-    echo "</h1>";
+    echo "</h3>";
 
     echo "<i><span class='glyphicon glyphicon-star'></span>&nbsp&nbspFavourited by <a href='../favorited/" . $userId . "'>" . sizeof($user->favoritedBy()) . " people</a></i>";
     echo "<hr>";

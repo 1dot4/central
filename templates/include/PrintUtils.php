@@ -113,6 +113,9 @@ function printJob($job, $userId) {
     echo " with <b>" . $jobInstance->positions() . "</b> vacancies";
     echo "<br><br>";
 
+    echo "<span class='glyphicon glyphicon-user'></span>&nbsp&nbsp<a href='../job/" . $jobInstance->id() ."'>" . sizeof($jobInstance->interestedSeekers()) ." people</a> have expressed interest in this job.";
+    echo "<br><br>";
+
     if($jobInstance->postedById() == $userId) {
         echo '<a id="job-status-' . $jobInstance->id() . '" href="javascript:void(0);" class="btn btn-default btn-xs" onclick="toggleStatus(' . $jobInstance->id() . ')"><span class="glyphicon glyphicon-flag"></span>&nbsp&nbspstatus:'.$jobInstance->status().'</a>';
     } else {

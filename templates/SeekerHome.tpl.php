@@ -109,13 +109,12 @@
                 <?php printSeekerNavigationBar($userId) ?>
                 <div class="col-md-10">
                     <h4>Relevant Jobs</h4>
-                <hr>
+                    <hr>
                     <div class="row">
                         <br>
                         <div class="col-md-8">
                             <?php
                                 require_once 'include/PrintUtils.php';
-
                                 if(sizeof($jobs) != 0) {
                                     printJobs($jobs, $userId);
                                 }

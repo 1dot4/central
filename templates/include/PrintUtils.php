@@ -325,7 +325,7 @@ function printUser($userId) {
         }
     }
 
-    echo "<div>";
+    echo "</div>";
     echo "</div>";
     echo "</div>";
 }

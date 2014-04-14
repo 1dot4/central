@@ -222,3 +222,110 @@ function printVolunteerNavigationBar($userId){
             <a href="favorites"><span class="glyphicon glyphicon-star-empty"></span>&nbsp&nbspMy Favourites</a>
           </div>';
 }
+
+function printUser($userId) {
+    require_once 'models/User.php';
+    $user = new User($userId);
+
+    require_once 'libs/Auth.php';
+    $currentUserId = Auth::userId();
+    $currentUser = new User($currentUserId);
+    $favorited = $currentUser->hasFavorited($userId);
+
+    $typeText = "";
+
+    if($user->type() == "provider") {
+        $typeText = "Job Provider";
+    }
+    if($user->type() == "seeker") {
+        $typeText = "Job Seeker";
+    }
+    if($user->type() == "volunteer") {
+        $typeText = "Volunteer";
+    }
+
+    echo "<div class='well>";
+    echo "<div class='row'>";
+    echo "<div class='col-md-4'>";
+    echo "<div class='dp-box'>";
+    echo "<div class='dp-container'>";
+    echo "<img class='dp' src='../public/images/default_profile.png'>";
+    echo "</div>";
+    echo "</div>";
+    echo "<h4 id='type'><b>" . $typeText . "</b></h4>";
+    echo "</div>";
+    echo "<div class='col-md-7'>";
+    echo "<h1>";
+    echo $user->username();
+
+    if($userId != $currentUserId) {
+        if(!$favorited) {
+            echo "<button id='favourite' type='button' class='btn btn-default'>" .
+                "<span class='glyphicon glyphicon-star-empty'></span> Add to Favourites" .
+                "</button>";
+        } else {
+            echo "<button id='favourite' type='button' class='btn btn-default'>" .
+                "<span class='glyphicon glyphicon-star-empty'></span> Favourited" .
+                "</button>";
+        }
+    }
+
+    echo "</h1>";
+
+    echo "<i><span class='glyphicon glyphicon-star'></span>&nbsp&nbspFavourited by " . sizeof($user->favoritedBy()) . "people</i>";
+    echo "<hr>";
+
+    if($user->fullName() != "") {
+        echo '<h5><span class="glyphicon glyphicon-user"></span>&nbsp&nbsp<b>' . $user->fullName() . '</b></h5>';
+    }
+
+    if($user->type() == "volunteer" || $user->type() == "provider") {
+
+        if($user->type() == "volunteer") {
+            require_once 'models/Volunteer.php';
+            $user = new Volunteer($userId);
+        }
+
+        if($user->type() == "provider") {
+            require_once 'models/Provider.php';
+            $user = new Provider($userId);
+        }
+
+        if($user->email() != "") {
+            echo '<h5><span class="glyphicon glyphicon-envelope"></span>&nbsp&nbsp<a>' . $user->email() . '</a></h5>';
+        }
+
+        if($user->organization() != "") {
+            echo '<h5><span class="glyphicon glyphicon-briefcase"></span>&nbsp&nbspWorks at <a>' . $user->organization() . '</a></h5>';
+        }
+
+        if($user->designation() != "") {
+            echo '<h5><span class="glyphicon glyphicon-leaf"></span>&nbsp&nbspIs a <a>' . $user->designation() . '</a></h5>';
+        }
+
+        if($user->location() != "") {
+            echo '<h5><span class="glyphicon glyphicon-map-marker"></span>&nbsp&nbspLocated at <a>' . $user->location() . '</a></h5>';
+        }
+    }
+
+    if($user->type() == "seeker") {
+        require_once 'models/Seeker.php';
+        $user  = new Seeker($userId);
+
+        if($user->experience() != "") {
+            echo '<h5><span class="glyphicon glyphicon-eye-open"></span>&nbsp&nbspHas an experience of ' . $user->experience() . ' years</h5>';
+        }
+
+        if($user->currentLocation() != "") {
+            echo '<h5><span class="glyphicon glyphicon-map-marker"></span>&nbsp&nbspCurrently located at <a>' . $user->currentLocation() .' </a></h5>';
+        }
+
+        if($user->preferredLocation() != "") {
+            echo '<h5><span class="glyphicon glyphicon-thumbs-up"></span>&nbsp&nbspWould prefer <a>' . $user->preferredLocation() .'</a> as job location</h5>';
+        }
+    }
+
+    echo "<div>";
+    echo "</div>";
+    echo "</div>";
+}

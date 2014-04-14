@@ -199,6 +199,7 @@ function printProviderNavigationBar($userId) {
             <a href="post"><span class="glyphicon glyphicon-pencil"></span>&nbsp&nbspNew job posting</a>
             <hr>
             <a href="favorites"><span class="glyphicon glyphicon-star-empty"></span>&nbsp&nbspMy Favourites</a>
+            <hr>
           </div>';
 }
 
@@ -213,6 +214,7 @@ function printSeekerNavigationBar($userId) {
             <a href="advanced-search"><span class="glyphicon glyphicon-search"></span>&nbsp&nbspSearch all jobs</a>
             <hr>
             <a href="favorites"><span class="glyphicon glyphicon-star-empty"></span>&nbsp&nbspMy Favourites</a>
+            <hr>
          </div>';
 }
 
@@ -223,6 +225,7 @@ function printVolunteerNavigationBar($userId){
             <a href="index"><span class="glyphicon glyphicon-folder-open"></span>&nbsp&nbspRegistered by me</a>
             <hr>
             <a href="favorites"><span class="glyphicon glyphicon-star-empty"></span>&nbsp&nbspMy Favourites</a>
+            <hr>
           </div>';
 }
 

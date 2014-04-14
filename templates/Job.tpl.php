@@ -30,6 +30,9 @@
                 height: 126px;
                 padding: 4px;
             }
+            #favourite{
+                float:right;
+            }
         </style>
     </head>
     <body>
@@ -43,6 +46,11 @@
                     <div class="row">
                         <?php
                             printJob($jobArray, $userId);
+
+                            if($userId == $jobPosterId) {
+                                echo "<hr>";
+                                printUsers($seekers);
+                            }
                         ?>
                     </div>
                 </div>

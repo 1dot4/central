@@ -44,6 +44,8 @@ class JobPageController extends PageController {
         $jobArray['id'] = $job->id();
 
         $this->setVar('jobArray', $jobArray);
+        $this->setVar('seekers', $job->interestedSeekers());
+        $this->setVar('jobPosterId', $job->postedById());
     }
 
 }

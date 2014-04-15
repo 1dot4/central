@@ -310,6 +310,24 @@ class Job {
     }
 
     /**
+     * Return interested seekers
+     * @return array The array of seeker ids
+     */
+    public function interestedSeekers() {
+        require_once 'libs/DB.php';
+        $conn = DB::connect();
+
+        $res = $conn->query("SELECT seeker_id FROM job_interest WHERE job_id='$this->id'");
+
+        $seekers = Array();
+        while($row = $res->fetch(PDO::FETCH_ASSOC)) {
+            array_push($seekers, $row["seeker_id"]);
+        }
+
+        return $seekers;
+    }
+
+    /**
      * Get jobs posted in a date range
      * @param string $from The start date
      * @param string $to The end date

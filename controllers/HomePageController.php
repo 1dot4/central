@@ -24,16 +24,43 @@ class HomePageController extends PageController {
         $this->setVar('username', $user->username());
         $this->setvar("userId", $id);
 
+        if($page == 'favorites') {
+            $seekerFav = Array();
+            $providerFav = Array();
+            $volunteerFav = Array();
+            $favorites = $user->favorites();
+
+            foreach($favorites as $favorite) {
+                $favId = $favorite["favorited_id"];
+                $favUser = new User($favId);
+
+                switch($favUser->type()) {
+                    case 'volunteer':
+                        array_push($volunteerFav, $favId);
+                        break;
+                    case 'seeker':
+                        array_push($seekerFav, $favId);
+                        break;
+                    case 'provider':
+                        array_push($providerFav, $favId);
+                        break;
+                }
+            }
+            $this->setVar('seekerFav', $seekerFav);
+            $this->setVar('providerFav', $providerFav);
+            $this->setVar('volunteerFav', $volunteerFav);
+            $this->setPage("Favorites.tpl.php");
+            return;
+        }
+
         switch($type) {
 
             case 'seeker':
+
                 require_once 'models/Job.php';
+
                 switch($page)
                 {
-                    case 'favorites':
-                        $this->setVar('favorites', $user->favorites());
-                        $this->setPage("SeekerFavorites.tpl.php");
-                        break;
 
                     case 'notifications':
                         $this->setVar('notifications', $user->notifications());
@@ -88,11 +115,6 @@ class HomePageController extends PageController {
 
                 switch($page) {
 
-                    case 'favorites':
-                        $this->setVar('favorites', $user->favorites());
-                        $this->setPage("VolunteerFavorites.tpl.php");
-                        break;
-
                     case 'register':
                         require_once 'libs/Session.php';
 
@@ -135,11 +157,6 @@ class HomePageController extends PageController {
                 require_once 'models/Job.php';
 
                 switch($page) {
-
-                    case 'favorites':
-                        $this->setVar('favorites', $user->favorites());
-                        $this->setPage("ProviderFavorites.tpl.php");
-                        break;
 
                     case 'notifications':
                         $this->setVar('notifications', $user->notifications());

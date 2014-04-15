@@ -329,7 +329,7 @@ class User {
         $favoritedBy = Array();
 
         while($row = $res->fetch(PDO::FETCH_ASSOC)) {
-            array_push($favoritedBy, $row);
+            array_push($favoritedBy, $row['user_id']);
         }
 
         return $favoritedBy;

@@ -2,12 +2,13 @@
 <html>
     <head>
         <title>
-            My Favourites
+            <?php echo "Users who have favorited " . $favoriteName ?>
         </title>
         <?php require_once 'include/CssLevel2.php' ?>
         <style>
-            .container {
-                margin-top: 90px;
+            .col-md-8 {
+                margin-top: 100px;
+                margin-left: 200px;
             }
             hr {
                 border-top: 1px solid #dddddd;
@@ -15,15 +16,15 @@
             .dp-box {
             }
             .dp-container {
-                width: 180px;
-                height: 180px;
+                width: 208px;
+                height: 208px;
                 background-color: #ffffff;
                 border: solid 1px #999999;
                 border-radius: 5px;
             }
             .dp {
-                width: 178px;
-                height: 178px;
+                width: 206px;
+                height: 206px;
                 padding: 4px;
             }
             #type {
@@ -38,25 +39,12 @@
         <div class="container">
             <?php
                 require_once 'include/PrintUtils.php';
-                printNavBar('home', $username, 2);
+                printNavBar('profile', $username, 2)
             ?>
-            <div class="row">
-                <?php printProviderNavigationBar($userId) ?>
-                <div class="col-md-10">
-                    <h4>My Favourites</h4>
-                    <hr>
-                    <div class="row">
-                        <br>
-                        <div class="col-md-8">
-                            <?php
-                                foreach($favorites as $favorite) {
-                                    printUser($favorite["favorited_id"]);
-                                    echo "<hr>";
-                                }
-                            ?>
-                        </div>
-                    </div>
-                </div>
+            <div class="col-md-8">
+                <h4><?php echo "Users who have favorited <a href='../profile/" . $favoriteName . "'>" . $favoriteName . "</a>" ?></h4>
+                <hr>
+                <?php printUsers($favorited) ?>
             </div>
         </div>
         <?php require_once 'include/ScriptsLevel2.php' ?>

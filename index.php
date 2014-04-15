@@ -196,6 +196,14 @@ $app->get("/favorite/:id", function($id) use($app) {
     new FavoriteStreamController($app, true, $id);
 });
 
+/**
+ * The users who favorited a user
+ */
+$app->get("/favorited/:id", function($id) use($app) {
+    require_once 'controllers/FavoritedPageController.php';
+    new FavoritedPageController($app, 'Favorited.tpl.php', true, $id);
+});
+
 /* End routes */
 
 // Run the Slim router

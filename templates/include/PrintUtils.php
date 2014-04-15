@@ -113,6 +113,9 @@ function printJob($job, $userId) {
     echo " with <b>" . $jobInstance->positions() . "</b> vacancies";
     echo "<br><br>";
 
+    echo "<span class='glyphicon glyphicon-user'></span>&nbsp&nbsp<a href='../job/" . $jobInstance->id() ."'>" . sizeof($jobInstance->interestedSeekers()) ." people</a> have expressed interest in this job.";
+    echo "<br><br>";
+
     if($jobInstance->postedById() == $userId) {
         echo '<a id="job-status-' . $jobInstance->id() . '" href="javascript:void(0);" class="btn btn-default btn-xs" onclick="toggleStatus(' . $jobInstance->id() . ')"><span class="glyphicon glyphicon-flag"></span>&nbsp&nbspstatus:'.$jobInstance->status().'</a>';
     } else {
@@ -196,6 +199,7 @@ function printProviderNavigationBar($userId) {
             <a href="post"><span class="glyphicon glyphicon-pencil"></span>&nbsp&nbspNew job posting</a>
             <hr>
             <a href="favorites"><span class="glyphicon glyphicon-star-empty"></span>&nbsp&nbspMy Favourites</a>
+            <hr>
           </div>';
 }
 
@@ -210,6 +214,7 @@ function printSeekerNavigationBar($userId) {
             <a href="advanced-search"><span class="glyphicon glyphicon-search"></span>&nbsp&nbspSearch all jobs</a>
             <hr>
             <a href="favorites"><span class="glyphicon glyphicon-star-empty"></span>&nbsp&nbspMy Favourites</a>
+            <hr>
          </div>';
 }
 
@@ -220,6 +225,7 @@ function printVolunteerNavigationBar($userId){
             <a href="index"><span class="glyphicon glyphicon-folder-open"></span>&nbsp&nbspRegistered by me</a>
             <hr>
             <a href="favorites"><span class="glyphicon glyphicon-star-empty"></span>&nbsp&nbspMy Favourites</a>
+            <hr>
           </div>';
 }
 
@@ -255,8 +261,10 @@ function printUser($userId) {
     echo "<h4 id='type'><b>" . $typeText . "</b></h4>";
     echo "</div>";
     echo "<div class='col-md-7'>";
-    echo "<h1>";
+    echo "<h3>";
+    echo "<a href='../profile/" . $user->username() . "'>";
     echo $user->username();
+    echo "</a>";
 
     if($userId != $currentUserId) {
         if(!$favorited) {
@@ -270,9 +278,9 @@ function printUser($userId) {
         }
     }
 
-    echo "</h1>";
+    echo "</h3>";
 
-    echo "<i><span class='glyphicon glyphicon-star'></span>&nbsp&nbspFavourited by " . sizeof($user->favoritedBy()) . " people</i>";
+    echo "<i><span class='glyphicon glyphicon-star'></span>&nbsp&nbspFavourited by <a href='../favorited/" . $userId . "'>" . sizeof($user->favoritedBy()) . " people</a></i>";
     echo "<hr>";
 
     if($user->fullName() != "") {
@@ -328,4 +336,11 @@ function printUser($userId) {
     echo "</div>";
     echo "</div>";
     echo "</div>";
+}
+
+function printUsers($userIds) {
+    foreach($userIds as $userId) {
+        printUser($userId);
+        echo "<hr>";
+    }
 }

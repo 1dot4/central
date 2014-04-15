@@ -8,7 +8,7 @@
         <style>
             .col-md-8 {
                 margin-top: 100px;
-                margin-left: 200px;
+                margin-left: 180px;
             }
             hr {
                 border-top: 1px solid #dddddd;

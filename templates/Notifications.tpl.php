@@ -21,7 +21,19 @@
                 printNavBar('home', $username, 2);
             ?>
             <div class="row">
-                <?php printSeekerNavigationBar($userId) ?>
+                <?php
+                    switch($userType) {
+                        case 'seeker':
+                            printSeekerNavigationBar($userId);
+                            break;
+                        case 'volunteer':
+                            printVolunteerNavigationBar($userId);
+                            break;
+                        case 'provider':
+                            printProviderNavigationBar($userId);
+                            break;
+                    }
+                ?>
                 <div class="col-md-10">
                     <h4>Notifications</h4>
                     <div class="col-md-8">

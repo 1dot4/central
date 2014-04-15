@@ -53,6 +53,12 @@ class HomePageController extends PageController {
             return;
         }
 
+        if($page == 'notifications') {
+            $this->setVar('notifications', $user->notifications());
+            $this->setPage('Notifications.tpl.php');
+            return;
+        }
+
         switch($type) {
 
             case 'seeker':
@@ -61,11 +67,6 @@ class HomePageController extends PageController {
 
                 switch($page)
                 {
-
-                    case 'notifications':
-                        $this->setVar('notifications', $user->notifications());
-                        $this->setPage('SeekerNotifications.tpl.php');
-                        break;
 
                     case 'index':
                         require_once 'models/Seeker.php';
@@ -160,11 +161,6 @@ class HomePageController extends PageController {
                 require_once 'models/Job.php';
 
                 switch($page) {
-
-                    case 'notifications':
-                        $this->setVar('notifications', $user->notifications());
-                        $this->setPage('ProviderNotifications.tpl.php');
-                        break;
 
                     case 'post':
 

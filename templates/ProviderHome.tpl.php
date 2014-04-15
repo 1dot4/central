@@ -85,12 +85,19 @@
 
                             ?>
                         </div>
+                        <div class="col-md-4">
+                            <canvas id="profile-meter"></canvas>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
         <?php require_once 'include/ScriptsLevel2.php' ?>
+        <script src="../public/guage/gauge.min.js"></script>
+        <script src="../public/js/profile-meter.js"></script>
         <script>
+            drawProfileMeter(100);
+
             function deleteJob(jobId) {
                 var confirmed = confirm("Really delete the job?");
                 if(confirmed == true) {

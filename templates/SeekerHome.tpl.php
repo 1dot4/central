@@ -136,7 +136,7 @@
         <script src="../public/guage/gauge.min.js"></script>
         <script src="../public/js/profile-meter.js"></script>
         <script>
-            drawProfileMeter(100);
+            drawProfileMeter(<?php echo $profileMeter ?>);
 
             function expressInterest(jobId) {
                 $.get("../job.interested/" + jobId + "?value=true").done(function(data) {

@@ -78,6 +78,8 @@ class HomePageController extends PageController {
 
                         $this->setVar('jobs', $jobs);
 
+                        $this->setVar('profileMeter', $seeker->profileCompleteness());
+
                         break;
 
                     case 'search':
@@ -142,6 +144,7 @@ class HomePageController extends PageController {
                         $registeredSeekers = $volunteer->registeredSeekers();
 
                         $this->setVar('registeredSeekers', $registeredSeekers);
+                        $this->setVar('profileMeter', $volunteer->profileCompleteness());
 
                         $this->setPage('VolunteerHome.tpl.php');
 
@@ -200,6 +203,7 @@ class HomePageController extends PageController {
                         $jobs = $user->jobPostings();
 
                         $this->setVar('jobs', $jobs);
+                        $this->setVar('profileMeter', $user->profileCompleteness());
 
                         $this->setPage('ProviderHome.tpl.php');
 

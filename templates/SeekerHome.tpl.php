@@ -148,11 +148,12 @@
                 colorStart: '#6FADCF',   // Colors
                 colorStop: '#8FC0DA',    // just experiment with them
                 strokeColor: '#E0E0E0',   // to see which ones work best for you
-                generateGradient: true
+                generateGradient: true,
+                percentColors: [[0.0, "#f1c40f" ], [0.20, "#e67e22"], [0.4, "#e74c3c"], [0.6, "#3498db"], [0.8, "#2980b9"], [1.0, "#2ecc71"]]
             };
             var target = document.getElementById('profile-meter'); // your canvas element
             var gauge = new Gauge(target).setOptions(opts); // create sexy gauge!
-            gauge.maxValue = 3000; // set max gauge value
+            gauge.maxValue = 100; // set max gauge value
             gauge.animationSpeed = 39; // set animation speed (32 is default value)
             gauge.set(100); // set actual value
 

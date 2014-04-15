@@ -63,6 +63,7 @@
                         </div>
                         <div class="col-md-4">
                             <canvas id="profile-meter"></canvas>
+                            <h5 style="margin-left: 50px"><b><a href='../profile/<?php echo $username ?>'>Your profile</a> is <?php echo $profileMeter ?>% complete</b></h5>
                         </div>
                     </div>
                 </div>

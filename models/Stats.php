@@ -46,4 +46,12 @@ class Stats {
 
         return $seekers;
     }
+
+    /**
+     * Get the skill demand for a particular seeker
+     * @param string $seekerId The seeker id
+     */
+    public static function skillDemand($seekerId) {
+        require_once 'libs/DB.php';
+    }
 }

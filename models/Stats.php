@@ -47,6 +47,11 @@ class Stats {
         return $seekers;
     }
 
+    /**
+     * Give skill demand for seeker
+     * @param string $seekerId The seeker id
+     * @return array The skill demand
+     */
     public static function skillDemand($seekerId) {
         require_once 'libs/DB.php';
         require_once 'models/Seeker.php';
@@ -70,5 +75,25 @@ class Stats {
         );
 
         return $result;
+    }
+
+    /**
+     * Get relevant jobs of Seeker
+     * @param string $seekerId The seeker id
+     * @return array The relevant jobs
+     */
+    public static function relevantJobs($seekerId) {
+        require_once 'models/Seeker.php';
+        $seeker = new Seeker($seekerId);
+
+        return $seeker->relevantJobs();
+    }
+
+    public static function totalJobs() {
+        require_once 'libs/DB.php';
+        $conn = DB::connect();
+
+        $res = $conn->query("SELECT COUNT(*) FROM job");
+        return $res->fetchColumn();
     }
 }

@@ -30,6 +30,10 @@
                 <div class="col-md-8">
                     <canvas id="skill-demand-chart" style="width: 500px; height: 500px; margin-left: 120px" width="400px" height="400px"></canvas>
                     <h5 style="text-align: center"><b>Skill wise job demand</b></h5>
+                    <br>
+                    <br>
+                    <canvas id="job-relevance-chart" style="margin-left: 150px"></canvas>
+                    <h5 style="text-align: center"><b>Percentage of relevant jobs out of all jobs</b></h5>
                 </div>
             </div>
         </div>
@@ -52,6 +56,24 @@
         ]
     };
     new Chart(ctx).Radar(data);
+
+    var noRelevantJobs = <?php echo $relevantJobs ?>;
+    var totalJobs = <?php echo $totalJobs ?>;
+
+    var ctx_ = document.getElementById('job-relevance-chart').getContext("2d");
+    data = [
+        {
+            value: noRelevantJobs,
+            color:"#2ecc71"
+        },
+        {
+            value : totalJobs - noRelevantJobs,
+            color : "#E2EAE9"
+        }
+    ];
+
+    new Chart(ctx_).Doughnut(data);
+
 </script>
 </body>
 </html>

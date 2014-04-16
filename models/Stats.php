@@ -126,13 +126,16 @@ class Stats {
         $conn = DB::connect();
 
         $months = "";
-
+        $reg = "";
         for($i = 11 ; $i >= 0 ; $i--) {
             $months .= "\"" . date("F", strtotime("-$i Months")) . "\",";
+            $res = $conn->query("SELECT COUNT(*) FROM volunteer_registration WHERE MONTH(registration_time)=MONTH(NOW())-$i AND volunteer_id='$volunteerId'");
+            $reg .= "\"" . $res->fetchColumn() . "\",";
         }
 
         $result = Array(
-            "months" => $months
+            "months" => $months,
+            "registrations" => $reg
         );
 
         return $result;

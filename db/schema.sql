@@ -67,7 +67,7 @@ CREATE TABLE IF NOT EXISTS `seeker` (
 CREATE TABLE IF NOT EXISTS `volunteer_registration` (
   `volunteer_id` bigint(20) NOT NULL,
   `seeker_id` bigint(20) NOT NULL,
-  `time` timestamp NOT NULL,
+  `registration_time` timestamp NOT NULL,
   PRIMARY KEY (`seeker_id`),
   FOREIGN KEY (`seeker_id`) REFERENCES seeker(`id`),
   FOREIGN KEY (`volunteer_id`) REFERENCES volunteer(`id`)

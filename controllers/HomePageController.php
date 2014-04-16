@@ -259,6 +259,10 @@ class HomePageController extends PageController {
                         break;
 
                     case 'stats':
+                        require_once 'models/Stats.php';
+
+                        $this->setVar('noJobPostings', sizeof(Stats::jobPostings($id)));
+                        $this->setVar('noInterestedJobPostings', Stats::interestedJobPostings($id));
 
                         $this->setPage('ProviderStats.tpl.php');
                         break;

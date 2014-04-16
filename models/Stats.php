@@ -113,6 +113,10 @@ class Stats {
         return $seeker->relevantJobs();
     }
 
+    /**
+     * Get total jobs
+     * @return string The total jobs
+     */
     public static function totalJobs() {
         require_once 'libs/DB.php';
         $conn = DB::connect();
@@ -121,6 +125,11 @@ class Stats {
         return $res->fetchColumn();
     }
 
+    /**
+     * Get monthly registrations for last 12 months
+     * @param string $volunteerId The volunteer id
+     * @return array The registration for last 12 months
+     */
     public static function monthlyRegistration($volunteerId) {
         require_once 'libs/DB.php';
         $conn = DB::connect();
@@ -139,5 +148,38 @@ class Stats {
         );
 
         return $result;
+    }
+
+    /**
+     * Get job postings by provider
+     * @param string $providerId The provider id
+     * @return array Jobs by provider
+     */
+    public static function jobPostings($providerId) {
+        require_once 'models/Provider.php';
+        $provider = new Provider($providerId);
+        return $provider->jobPostings();
+    }
+
+    /**
+     * Number of jobs posted by provider which has some interest
+     * @param string $providerId The provider id
+     * @return int Number of job posting with interest
+     */
+    public static function interestedJobPostings($providerId) {
+        require_once 'models/Provider.php';
+        $provider = new Provider($providerId);
+        $jobs = $provider->jobPostings();
+
+        require_once 'models/Job.php';
+
+        $cnt = 0;
+        foreach($jobs as $job) {
+            $jobInstance = new Job($job["id"]);
+            if(sizeof($jobInstance->interestedSeekers()) > 0) {
+                $cnt += 1;
+            }
+        }
+        return $cnt;
     }
 }

@@ -19,6 +19,7 @@ class JobEditPageController extends PageController {
         $user = new User($userId);
 
         $this->setVar('username', $user->username());
+        $this->setVar('userId', $userId);
 
         $jobId = $this->param();
 

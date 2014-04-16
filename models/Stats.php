@@ -48,6 +48,30 @@ class Stats {
     }
 
     /**
+     * Number of seekers registered by volunteer getting relevant jobs
+     * @param $volunteerId
+     * @return int Number of seekers getting relevant jobs
+     */
+    public static function seekersRelevantJobs($volunteerId) {
+        require_once 'models/Volunteer.php';
+        require_once 'models/Seeker.php';
+
+        $volunteer = new Volunteer($volunteerId);
+        $seekers = $volunteer->registeredSeekers();
+
+        $val = 0;
+
+        foreach($seekers as $seekerId) {
+            $seeker = new Seeker($seekerId);
+            if(sizeof($seeker->relevantJobs()) > 0) {
+                $val += 1;
+            }
+        }
+
+        return $val;
+    }
+
+    /**
      * Give skill demand for seeker
      * @param string $seekerId The seeker id
      * @return array The skill demand

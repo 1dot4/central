@@ -47,9 +47,12 @@
                         <div class="col-md-8">
                             <canvas id="interested-seekers-chart" style="margin-left: 150px"></canvas>
                             <h5 style="text-align: center"><b><?php echo $noInterestedSeekers . " seekers have expressed interest in jobs out of " . $noRegisteredSeekers . " you registered"?></b></h5>
-                            <br>
+                            <br><br>
                             <canvas id="favorited-seekers-chart" style="margin-left: 150px"></canvas>
                             <h5 style="text-align: center"><b><?php echo $noFavoritedSeekers . " seekers have been favourited out of " . $noRegisteredSeekers . " you registered"?></b></h5>
+                            <br><br>
+                            <canvas id="relevant-seekers-chart" style="margin-left: 150px"></canvas>
+                            <h5 style="text-align: center"><b><?php echo $noRelevantSeekers . " seekers have relevant jobs out of " . $noRegisteredSeekers . " you registered"?></b></h5>
                         </div>
                         <div class="col-md-4">
                             <canvas id="profile-meter"></canvas>
@@ -104,6 +107,25 @@
             ];
 
             new Chart(ctx_).Doughnut(data);
+
+            // Relevance chart
+            // Favorited chart
+            var ctx__ = document.getElementById("relevant-seekers-chart").getContext("2d");
+
+            var noRelevantSeekers = <?php echo $noRelevantSeekers ?>;
+
+            data = [
+                {
+                    value: noRelevantSeekers,
+                    color:"#e74c3c"
+                },
+                {
+                    value : noRegisteredSeekers - noRelevantSeekers,
+                    color : "#E2EAE9"
+                }
+            ];
+
+            new Chart(ctx__).Doughnut(data);
         </script>
     </body>
 </html>

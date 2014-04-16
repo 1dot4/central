@@ -45,6 +45,9 @@
                     <div class="row">
                         <br>
                         <div class="col-md-8">
+                            <canvas id="monthly-chart" width="600px" height="250px"></canvas>
+                            <h5 style="text-align: center"><b>Monthly registrations of job seekers</b></h5>
+                            <br><br>
                             <canvas id="interested-seekers-chart" style="margin-left: 150px"></canvas>
                             <h5 style="text-align: center"><b><?php echo $noInterestedSeekers . " seekers have expressed interest in jobs out of " . $noRegisteredSeekers . " you registered"?></b></h5>
                             <br><br>
@@ -126,6 +129,25 @@
             ];
 
             new Chart(ctx__).Doughnut(data);
+
+            // The  monthly graph
+            var ctx___ = document.getElementById("monthly-chart").getContext("2d");
+
+            var data = {
+                labels : ["January","February","March","April","May","June","July"],
+                datasets : [
+                    {
+                        fillColor : "rgba(151,187,205,0.5)",
+                        strokeColor : "rgba(151,187,205,1)",
+                        pointColor : "rgba(151,187,205,1)",
+                        pointStrokeColor : "#fff",
+                        data : [28,48,40,19,96,27,100]
+                    }
+                ]
+            }
+
+            new Chart(ctx___).Line(data);
+
         </script>
     </body>
 </html>

@@ -91,14 +91,7 @@
    </div>
 
    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-       <ul class="nav navbar-nav" id="abcd">
-           <!-- <li><a href="#page1" class="link"></a></li> -->
-           <!-- <li><a href="#page1" class="link">&nbsp;&nbsp;Home&nbsp;&nbsp;</a></li> -->
-           <li><a href="#page2" class="link">&nbsp;&nbsp;About&nbsp;&nbsp;</a></li>
-           <li><a href="#page3" class="link">&nbsp;&nbsp;FAQs&nbsp;&nbsp;</a></li>
-           <li><a href="#page4" class="link">&nbsp;&nbsp;Donate&nbsp;&nbsp;</a></li>
-           <li><a href="#page5" class="link">&nbsp;&nbsp;Contact Us&nbsp;&nbsp;</a></li>    
-       </ul>
+      
        <div class="social">
            <ul class="nav navbar-nav navbar-right">
                <li><a href="https://twitter.com" class="twitter"><span>&nbsp;</span></a></li>

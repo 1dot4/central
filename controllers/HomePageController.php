@@ -140,12 +140,15 @@ class HomePageController extends PageController {
                     case 'index':
 
                         require_once 'models/Volunteer.php';
+                        require_once 'models/Stats.php';
 
                         $volunteer = new Volunteer($id);
                         $registeredSeekers = $volunteer->registeredSeekers();
 
                         $this->setVar('registeredSeekers', $registeredSeekers);
                         $this->setVar('profileMeter', $volunteer->profileCompleteness());
+                        $this->setVar('noRegisteredSeekers', sizeof($registeredSeekers));
+                        $this->setVar('noInterestedSeekers', sizeof(Stats::interestedSeekers($id)));
 
                         $this->setPage('VolunteerHome.tpl.php');
 

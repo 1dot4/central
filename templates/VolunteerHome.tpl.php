@@ -134,14 +134,14 @@
             var ctx___ = document.getElementById("monthly-chart").getContext("2d");
 
             var data = {
-                labels : ["January","February","March","April","May","June","July"],
+                labels : ["January","February","March","April","May","June","July", "August", "September", "October", "November", "December"],
                 datasets : [
                     {
                         fillColor : "rgba(151,187,205,0.5)",
                         strokeColor : "rgba(151,187,205,1)",
                         pointColor : "rgba(151,187,205,1)",
                         pointStrokeColor : "#fff",
-                        data : [28,48,40,19,96,27,100]
+                        data : [28,48,40,19,96,27,100, 20,30,40,50,60]
                     }
                 ]
             }

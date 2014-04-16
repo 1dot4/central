@@ -131,6 +131,16 @@ class HomePageController extends PageController {
 
                 switch($page) {
 
+                    case 'history':
+
+                        require_once 'models/Volunteer.php';
+                        $volunteer = new Volunteer($id);
+
+                        $this->setVar('registeredSeekers', $volunteer->registeredSeekers());
+                        $this->setPage('VolunteerHistory.tpl.php');
+
+                        break;
+
                     case 'register':
                         require_once 'libs/Session.php';
 

@@ -231,6 +231,8 @@ function printVolunteerNavigationBar($userId){
             <hr>
             <a href="favorites"><span class="glyphicon glyphicon-star-empty"></span>&nbsp&nbspMy Favourites</a>
             <hr>
+            <a href="history"><span class="glyphicon glyphicon-folder-open"></span>&nbsp&nbspHistory</a>
+            <hr>
           </div>';
 }
 

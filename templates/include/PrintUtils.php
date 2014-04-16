@@ -215,6 +215,7 @@ function printSeekerNavigationBar($userId) {
             <hr>
             <a href="favorites"><span class="glyphicon glyphicon-star-empty"></span>&nbsp&nbspMy Favourites</a>
             <hr>
+            <a href="stats"><span class="glyphicon glyphicon-stats"></span>&nbsp&nbspStats </a>
          </div>';
 }
 

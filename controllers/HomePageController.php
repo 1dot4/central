@@ -110,7 +110,11 @@ class HomePageController extends PageController {
 
                         $this->setVar('jobs', $jobs);
                         
-                        $this->setPage('SeekerHomeSearch.tpl.php'); 
+                        $this->setPage('SeekerHomeSearch.tpl.php');
+
+                    case 'stats':
+                        $this->setPage('SeekerStats.tpl.php');
+                        break;
             }
             break;
 

@@ -95,7 +95,7 @@
             data = [
                 {
                     value: noFavoritedSeekers,
-                    color:"#2ecc71"
+                    color:"#3498db"
                 },
                 {
                     value : noRegisteredSeekers - noFavoritedSeekers,

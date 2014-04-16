@@ -54,7 +54,7 @@
             <div class="row">
                 <?php printVolunteerNavigationBar($userId) ?>
                 <div class="col-md-10">
-                    <h4>Crunching latest stats of job seekers you registered</h4>
+                    <h4>Crunching latest stats just for you</h4>
                     <hr>
                     <div class="row">
                         <br>

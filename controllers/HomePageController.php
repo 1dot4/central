@@ -149,6 +149,7 @@ class HomePageController extends PageController {
                         $this->setVar('profileMeter', $volunteer->profileCompleteness());
                         $this->setVar('noRegisteredSeekers', sizeof($registeredSeekers));
                         $this->setVar('noInterestedSeekers', sizeof(Stats::interestedSeekers($id)));
+                        $this->setVar('noFavoritedSeekers', sizeof(Stats::favoritedSeekers($id)));
 
                         $this->setPage('VolunteerHome.tpl.php');
 

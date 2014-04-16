@@ -45,8 +45,11 @@
                     <div class="row">
                         <br>
                         <div class="col-md-8">
-                            <canvas id="interested-seekers-chart" style="margin-left: 70px"></canvas>
-                            <h5><b><?php echo $noInterestedSeekers . " seekers have expressed interest in jobs out of " . $noRegisteredSeekers . " you registered"?></b></h5>
+                            <canvas id="interested-seekers-chart" style="margin-left: 150px"></canvas>
+                            <h5 style="text-align: center"><b><?php echo $noInterestedSeekers . " seekers have expressed interest in jobs out of " . $noRegisteredSeekers . " you registered"?></b></h5>
+                            <br>
+                            <canvas id="favorited-seekers-chart" style="margin-left: 150px"></canvas>
+                            <h5 style="text-align: center"><b><?php echo $noFavoritedSeekers . " seekers have been favourited out of " . $noRegisteredSeekers . " you registered"?></b></h5>
                         </div>
                         <div class="col-md-4">
                             <canvas id="profile-meter"></canvas>
@@ -63,25 +66,44 @@
         <script>
             drawProfileMeter(<?php echo $profileMeter ?>);
 
+            // Interested chart
             var ctx = document.getElementById("interested-seekers-chart").getContext("2d");
 
             var noRegisteredSeekers = <?php echo $noRegisteredSeekers ?>;
-            var interestedSeekers = <?php echo $noInterestedSeekers ?>;
+            var noInterestedSeekers = <?php echo $noInterestedSeekers ?>;
             if(noRegisteredSeekers == 0) {
                 noRegisteredSeekers = 1;
             }
             data = [
                 {
-                    value: interestedSeekers,
+                    value: noInterestedSeekers,
                     color:"#2ecc71"
                 },
                 {
-                    value : noRegisteredSeekers - interestedSeekers,
+                    value : noRegisteredSeekers - noInterestedSeekers,
                     color : "#E2EAE9"
                 }
             ];
 
             new Chart(ctx).Doughnut(data);
+
+            // Favorited chart
+            var ctx_ = document.getElementById("favorited-seekers-chart").getContext("2d");
+
+            var noFavoritedSeekers = <?php echo $noFavoritedSeekers ?>;
+
+            data = [
+                {
+                    value: noFavoritedSeekers,
+                    color:"#2ecc71"
+                },
+                {
+                    value : noRegisteredSeekers - noFavoritedSeekers,
+                    color : "#E2EAE9"
+                }
+            ];
+
+            new Chart(ctx_).Doughnut(data);
         </script>
     </body>
 </html>

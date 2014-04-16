@@ -25,4 +25,25 @@ class Stats {
 
         return $seekers;
     }
+
+    /**
+     * Get favorited seekers registered by volunteer
+     * @param $volunteerId
+     * @return array
+     */
+    public static function favoritedSeekers($volunteerId) {
+        require_once 'libs/DB.php';
+
+        $conn = DB::connect();
+
+        $res = $conn->query("SELECT DISTINCT favorited_id FROM favorite WHERE favorited_id IN(SELECT seeker_id FROM volunteer_registration WHERE volunteer_id='$volunteerId')");
+
+        $seekers = Array();
+
+        while($row = $res->fetch(PDO::FETCH_ASSOC)) {
+            array_push($seekers, $row['favorited_id']);
+        }
+
+        return $seekers;
+    }
 }

@@ -47,11 +47,28 @@ class Stats {
         return $seekers;
     }
 
-    /**
-     * Get the skill demand for a particular seeker
-     * @param string $seekerId The seeker id
-     */
     public static function skillDemand($seekerId) {
         require_once 'libs/DB.php';
+        require_once 'models/Seeker.php';
+
+        $seeker = new Seeker($seekerId);
+        $skills = $seeker->skills();
+
+        $conn = DB::connect();
+
+        $skillString = "";
+        $skillDemands = "";
+        foreach($skills as $skill) {
+            $skillString .= "\"" . $skill . "\"" . ",";
+            $res = $conn->query("SELECT COUNT(*) FROM job_skill WHERE skill_name='$skill'");
+            $skillDemands .= "\"" . $res->fetchColumn() . "\"" . ",";
+        }
+
+        $result = Array(
+            "skillString" => $skillString,
+            "skillDemands" => $skillDemands
+        );
+
+        return $result;
     }
 }

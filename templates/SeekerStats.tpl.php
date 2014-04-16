@@ -40,17 +40,17 @@
 <script>
     var ctx = document.getElementById('skill-demand-chart').getContext("2d");
     var data = {
-        labels : ["Skill1","Skill2","Skill3","Skill4","Skill5","Skill6","Skill7"],
+        labels : [<?php echo $skillString ?>],
         datasets : [
             {
                 fillColor : "rgba(151,187,205,0.5)",
                 strokeColor : "rgba(151,187,205,1)",
                 pointColor : "rgba(151,187,205,1)",
                 pointStrokeColor : "#fff",
-                data : [28,48,40,19,96,27,100]
+                data : [<?php echo $skillDemands ?>]
             }
         ]
-    }
+    };
     new Chart(ctx).Radar(data);
 </script>
 </body>

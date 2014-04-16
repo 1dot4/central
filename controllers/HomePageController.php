@@ -111,8 +111,12 @@ class HomePageController extends PageController {
                         $this->setVar('jobs', $jobs);
                         
                         $this->setPage('SeekerHomeSearch.tpl.php');
+                        break;
 
                     case 'stats':
+                        require_once 'models/Stats.php';
+                        $this->setVar("skillString", Stats::skillDemand($id)["skillString"]);
+                        $this->setVar("skillDemands", Stats::skillDemand($id)["skillDemands"]);
                         $this->setPage('SeekerStats.tpl.php');
                         break;
             }

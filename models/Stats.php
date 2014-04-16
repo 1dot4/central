@@ -120,4 +120,21 @@ class Stats {
         $res = $conn->query("SELECT COUNT(*) FROM job");
         return $res->fetchColumn();
     }
+
+    public static function monthlyRegistration($volunteerId) {
+        require_once 'libs/DB.php';
+        $conn = DB::connect();
+
+        $months = "";
+
+        for($i = 11 ; $i >= 0 ; $i--) {
+            $months .= "\"" . date("F", strtotime("-$i Months")) . "\",";
+        }
+
+        $result = Array(
+            "months" => $months
+        );
+
+        return $result;
+    }
 }

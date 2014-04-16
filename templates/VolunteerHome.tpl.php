@@ -134,7 +134,7 @@
             var ctx___ = document.getElementById("monthly-chart").getContext("2d");
 
             var data = {
-                labels : ["January","February","March","April","May","June","July", "August", "September", "October", "November", "December"],
+                labels : [<?php echo $months ?>],
                 datasets : [
                     {
                         fillColor : "rgba(151,187,205,0.5)",

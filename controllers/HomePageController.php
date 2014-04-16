@@ -174,6 +174,7 @@ class HomePageController extends PageController {
                         $this->setVar('noInterestedSeekers', sizeof(Stats::interestedSeekers($id)));
                         $this->setVar('noFavoritedSeekers', sizeof(Stats::favoritedSeekers($id)));
                         $this->setVar('noRelevantSeekers', Stats::seekersRelevantJobs($id));
+                        $this->setVar("months", Stats::monthlyRegistration($id)["months"]);
 
                         $this->setPage('VolunteerHome.tpl.php');
 

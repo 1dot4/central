@@ -257,6 +257,11 @@ class HomePageController extends PageController {
                         
                         $this->setPage('ProviderHome.tpl.php');
                         break;
+
+                    case 'stats':
+
+                        $this->setPage('ProviderStats.tpl.php');
+                        break;
                 }
                 
                 break;

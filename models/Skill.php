@@ -37,4 +37,13 @@ class Skill {
         return $exists;
     }
 
+    public static function topSkills() {
+
+        require_once 'libs/DB.php';
+
+        $conn = DB::connect();
+
+        $res = $conn->query("SELECT skill_name, COUNT(skill_name) AS rank FROM job_skill GROUP BY skill_name ORDER BY rank DESC");
+    }
+
 }

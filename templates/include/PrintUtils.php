@@ -20,11 +20,6 @@ function printNavBar($page, $username, $level = 1) {
                     <a class="navbar-brand" href="'.$dir.'/">JanRozgar</a>
                 </div>
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                    <form class="navbar-form navbar-left" role="search">
-                        <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Search">
-                        </div>
-                        </form>
                     <ul class="nav navbar-nav navbar-right">
                         <li><a href="'.$dir.'/home/index"><span class="glyphicon glyphicon-home"></span>&nbsp&nbspHome</a></li>
                         <li><a href="'.$dir.'/myprofile"><span class="glyphicon glyphicon-user"></span>&nbsp&nbsp'.$username.'</a></li>

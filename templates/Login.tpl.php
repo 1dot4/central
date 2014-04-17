@@ -228,10 +228,11 @@
 					<br>
 					<div class="container" align="center">
 						<div class="row">
-							<div class="input-group" id="search" >	
-								<input type="text" class="form-control" placeholder="Search for Jobs">
-								<span class="input-group-addon"><span class="glyphicon glyphicon-search"></span></span>
-							</div>
+							<div class="input-group" id="search" >
+                                <form action='job-search'>
+								    <input type="text" name='q' class="form-control" placeholder="Search for Jobs">
+                                </form>
+                            </div>
 						</div>
 					</div>						
 				</div>

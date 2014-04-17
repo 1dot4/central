@@ -17,6 +17,10 @@ class LoginPageController extends PageController {
             $this->setRedirectUri('home/index');
         }
 
+        require_once 'models/Skill.php';
+
+        $this->setVar('jobCategories', Skill::topSkills());
+
         $this->setVar('title', 'Login');
 
         require_once 'libs/Session.php';

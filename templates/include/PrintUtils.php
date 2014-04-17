@@ -128,9 +128,9 @@ function printJob($job, $userId) {
 
     if($userInstance->type() != "provider" && $userInstance->type() != "volunteer") {
         if($jobInstance->hasUserInterest($userId)) {
-            echo '<a href="javascript:void(0);" class="btn btn-warning btn-xs express-interest" onclick="unExpressInterest('. $jobInstance->id() .')"><span class="glyphicon glyphicon-check"></span>&nbsp&nbspInterest expressed !</a>';
+            echo '<a id="express-interest-'. $jobInstance->id() .'" href="javascript:void(0);" class="btn btn-warning btn-xs express-interest" onclick="unExpressInterest('. $jobInstance->id() .')"><span class="glyphicon glyphicon-check"></span>&nbsp&nbspInterest expressed !</a>';
         } else {
-            echo '<a href="javascript:void(0);" class="btn btn-info btn-xs express-interest" onclick="expressInterest('. $jobInstance->id() .')"><span class="glyphicon glyphicon-send"></span>&nbsp&nbspExpress Interest !</a>';
+            echo '<a id="express-interest-' . $jobInstance->id() . '" href="javascript:void(0);" class="btn btn-info btn-xs express-interest" onclick="expressInterest('. $jobInstance->id() .')"><span class="glyphicon glyphicon-send"></span>&nbsp&nbspExpress Interest !</a>';
         }
     }
     echo '</div>';

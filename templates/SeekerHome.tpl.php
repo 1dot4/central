@@ -142,11 +142,12 @@
             function expressInterest(jobId) {
                 $.get("../job.interested/" + jobId + "?value=true").done(function(data) {
                     //console.log(data);
+                    var div = "#express-interest-" + jobId;
                     var jObj = $.parseJSON(data);
                     if(jObj[0].success == true) {
-                        $(".express-interest").html("<span class='glyphicon glyphicon-check'></span>&nbsp&nbspInterest expressed !");
-                        $(".express-interest").attr("class", "btn btn-warning btn-xs express-interest");
-                        $(".express-interest").attr("onclick", "unExpressInterest(" + jobId +")");
+                        $(div).html("<span class='glyphicon glyphicon-check'></span>&nbsp&nbspInterest expressed !");
+                        $(div).attr("class", "btn btn-warning btn-xs express-interest");
+                        $(div).attr("onclick", "unExpressInterest(" + jobId +")");
                     }
                 });
             }
@@ -154,11 +155,12 @@
             function unExpressInterest(jobId) {
                 $.get("../job.interested/" + jobId + "?value=false").done(function(data) {
                     //console.log(data);
+                    var div = "#express-interest-" + jobId;
                     var jObj = $.parseJSON(data);
                     if(jObj[0].success == true) {
-                        $(".express-interest").html("<span class='glyphicon glyphicon-send'></span>&nbsp&nbspExpress Interest !");
-                        $(".express-interest").attr("class", "btn btn-info btn-xs express-interest");
-                        $(".express-interest").attr("onclick", "expressInterest(" + jobId +")");
+                        $(div).html("<span class='glyphicon glyphicon-send'></span>&nbsp&nbspExpress Interest !");
+                        $(div).attr("class", "btn btn-info btn-xs express-interest");
+                        $(div).attr("onclick", "expressInterest(" + jobId +")");
                     }
                 });
             }

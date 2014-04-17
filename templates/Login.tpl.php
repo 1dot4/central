@@ -224,6 +224,27 @@
 				<div class="banner">
 					<header class="main-header" role="banner">
 						<img src="./public/images/Jan.jpg" alt="Banner Image"/>
+                        <div id='job-categories' style="position: absolute; top: 1000px; left: 45%; background-color: rgba(255, 255, 255, 0.75)">
+                            <div class="col-md-4">
+                            <?php
+                                $i = 0;
+                                echo "<table>";
+                                foreach($jobCategories as $cat) {
+                                    echo "<td>" . $cat . "</td>";
+                                    $i++;
+                                    if($i == 5) {
+                                        echo "<br>";
+                                        $i = 0;
+                                        continue;
+                                    }
+                                    if($i != 5) {
+                                        echo "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp";
+                                    }
+                                }
+                                echo "</table>";
+                            ?>
+                            </div>
+                        </div>
 					</header>
 					<br>
 					<div class="container" align="center">

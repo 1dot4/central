@@ -334,6 +334,10 @@ function printUser($userId) {
         if($user->preferredLocation() != "") {
             echo '<h5><span class="glyphicon glyphicon-thumbs-up"></span>&nbsp&nbspWould prefer <a>' . $user->preferredLocation() .'</a> as job location</h5>';
         }
+
+        if($user->phone() != "") {
+            echo "<h5><span class='glyphicon glyphicon-phone'></span>&nbsp&nbspMobile Number is " . $user->phone() . "</h5>";
+        }
     }
 
     echo "</div>";

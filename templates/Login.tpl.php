@@ -224,21 +224,30 @@
 				<div class="banner">
 					<header class="main-header" role="banner">
 						<img src="./public/images/Jan.jpg" alt="Banner Image"/>
-                        <div id='job-categories' style="position: absolute; top: 1000px; left: 45%; background-color: rgba(255, 255, 255, 0.75)">
+                        <div id='job-categories' style="position: absolute; top: 1000px; left: 45%; background-color: rgba(255, 255, 255, 0.75); border-radius: 5px; border: 1px solid #ffffff">
+                            <h4>Top job categories</h4>
+                            <hr>
                             <div class="col-md-4">
                             <?php
                                 $i = 0;
+                                $j = 0;
+
                                 echo "<table>";
                                 foreach($jobCategories as $cat) {
-                                    echo "<td>" . $cat . "</td>";
+                                    if($j == 24) {
+                                        break;
+                                    }
+
+                                    if($i == 0) {
+                                        echo "<tr>";
+                                    }
+                                    echo "<td style='padding: 10px'><a href='search-job?q=". $cat ."'>" . $cat . "</a></td>";
                                     $i++;
+                                    $j++;
                                     if($i == 5) {
-                                        echo "<br>";
+                                        echo "</tr>";
                                         $i = 0;
                                         continue;
-                                    }
-                                    if($i != 5) {
-                                        echo "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp";
                                     }
                                 }
                                 echo "</table>";

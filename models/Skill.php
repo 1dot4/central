@@ -37,6 +37,10 @@ class Skill {
         return $exists;
     }
 
+    /**
+     * Return top skills in demand
+     * @return array The skills in demand
+     */
     public static function topSkills() {
 
         require_once 'libs/DB.php';
@@ -44,6 +48,14 @@ class Skill {
         $conn = DB::connect();
 
         $res = $conn->query("SELECT skill_name, COUNT(skill_name) AS rank FROM job_skill GROUP BY skill_name ORDER BY rank DESC");
+
+        $skills = Array();
+
+        while($row = $res->fetch(PDO::FETCH_ASSOC)) {
+            array_push($skills, $row['skill_name']);
+        }
+
+        return $skills;
     }
 
 }
